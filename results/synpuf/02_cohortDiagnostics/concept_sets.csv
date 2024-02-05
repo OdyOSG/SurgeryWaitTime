@@ -1,0 +1,5419 @@
+﻿cohort_id,concept_set_id,concept_set_sql,concept_set_name,concept_set_expression
+1,15,"SELECT 15 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (45889179,45888584,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (45889179,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+  and c.invalid_reason is null
+
+) I
+) C",Radiotherapy concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010919"",
+""CONCEPT_ID"":                 45889179,
+""CONCEPT_NAME"": ""Clinical Brachytherapy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010917"",
+""CONCEPT_ID"":                 45888584,
+""CONCEPT_NAME"": ""Clinical Intracavitary Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010855"",
+""CONCEPT_ID"":                 45888077,
+""CONCEPT_NAME"": ""Medical Radiation Physics, Dosimetry, Treatment Devices, and Special Services for Radiation Treatment"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010895"",
+""CONCEPT_ID"":                 45889761,
+""CONCEPT_NAME"": ""Neutron Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015093"",
+""CONCEPT_ID"":                 45890444,
+""CONCEPT_NAME"": ""Other Radiation Procedures"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010904"",
+""CONCEPT_ID"":                 45888139,
+""CONCEPT_NAME"": ""Proton Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010910"",
+""CONCEPT_ID"":                 45889273,
+""CONCEPT_NAME"": ""Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010875"",
+""CONCEPT_ID"":                 45888117,
+""CONCEPT_NAME"": ""Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010898"",
+""CONCEPT_ID"":                 45887884,
+""CONCEPT_NAME"": ""Radiation Treatment Management"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015092"",
+""CONCEPT_ID"":                 45890445,
+""CONCEPT_NAME"": ""Stereotactic Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+2,15,"SELECT 15 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (45889179,45888584,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (45889179,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+  and c.invalid_reason is null
+
+) I
+) C",Radiotherapy concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010919"",
+""CONCEPT_ID"":                 45889179,
+""CONCEPT_NAME"": ""Clinical Brachytherapy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010917"",
+""CONCEPT_ID"":                 45888584,
+""CONCEPT_NAME"": ""Clinical Intracavitary Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010855"",
+""CONCEPT_ID"":                 45888077,
+""CONCEPT_NAME"": ""Medical Radiation Physics, Dosimetry, Treatment Devices, and Special Services for Radiation Treatment"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010895"",
+""CONCEPT_ID"":                 45889761,
+""CONCEPT_NAME"": ""Neutron Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015093"",
+""CONCEPT_ID"":                 45890444,
+""CONCEPT_NAME"": ""Other Radiation Procedures"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010904"",
+""CONCEPT_ID"":                 45888139,
+""CONCEPT_NAME"": ""Proton Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010910"",
+""CONCEPT_ID"":                 45889273,
+""CONCEPT_NAME"": ""Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010875"",
+""CONCEPT_ID"":                 45888117,
+""CONCEPT_NAME"": ""Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010898"",
+""CONCEPT_ID"":                 45887884,
+""CONCEPT_NAME"": ""Radiation Treatment Management"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015092"",
+""CONCEPT_ID"":                 45890445,
+""CONCEPT_NAME"": ""Stereotactic Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+4,15,"SELECT 15 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (45889179,45888584,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (45889179,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+  and c.invalid_reason is null
+
+) I
+) C",Radiotherapy concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010919"",
+""CONCEPT_ID"":                 45889179,
+""CONCEPT_NAME"": ""Clinical Brachytherapy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010917"",
+""CONCEPT_ID"":                 45888584,
+""CONCEPT_NAME"": ""Clinical Intracavitary Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010855"",
+""CONCEPT_ID"":                 45888077,
+""CONCEPT_NAME"": ""Medical Radiation Physics, Dosimetry, Treatment Devices, and Special Services for Radiation Treatment"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010895"",
+""CONCEPT_ID"":                 45889761,
+""CONCEPT_NAME"": ""Neutron Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015093"",
+""CONCEPT_ID"":                 45890444,
+""CONCEPT_NAME"": ""Other Radiation Procedures"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010904"",
+""CONCEPT_ID"":                 45888139,
+""CONCEPT_NAME"": ""Proton Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010910"",
+""CONCEPT_ID"":                 45889273,
+""CONCEPT_NAME"": ""Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010875"",
+""CONCEPT_ID"":                 45888117,
+""CONCEPT_NAME"": ""Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010898"",
+""CONCEPT_ID"":                 45887884,
+""CONCEPT_NAME"": ""Radiation Treatment Management"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015092"",
+""CONCEPT_ID"":                 45890445,
+""CONCEPT_NAME"": ""Stereotactic Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+5,15,"SELECT 15 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (45889179,45888584,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (45889179,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+  and c.invalid_reason is null
+
+) I
+) C",Radiotherapy concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010919"",
+""CONCEPT_ID"":                 45889179,
+""CONCEPT_NAME"": ""Clinical Brachytherapy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010917"",
+""CONCEPT_ID"":                 45888584,
+""CONCEPT_NAME"": ""Clinical Intracavitary Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010855"",
+""CONCEPT_ID"":                 45888077,
+""CONCEPT_NAME"": ""Medical Radiation Physics, Dosimetry, Treatment Devices, and Special Services for Radiation Treatment"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010895"",
+""CONCEPT_ID"":                 45889761,
+""CONCEPT_NAME"": ""Neutron Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015093"",
+""CONCEPT_ID"":                 45890444,
+""CONCEPT_NAME"": ""Other Radiation Procedures"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010904"",
+""CONCEPT_ID"":                 45888139,
+""CONCEPT_NAME"": ""Proton Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010910"",
+""CONCEPT_ID"":                 45889273,
+""CONCEPT_NAME"": ""Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010875"",
+""CONCEPT_ID"":                 45888117,
+""CONCEPT_NAME"": ""Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010898"",
+""CONCEPT_ID"":                 45887884,
+""CONCEPT_NAME"": ""Radiation Treatment Management"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015092"",
+""CONCEPT_ID"":                 45890445,
+""CONCEPT_NAME"": ""Stereotactic Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+7,15,"SELECT 15 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (45889179,45888584,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (45889179,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+  and c.invalid_reason is null
+
+) I
+) C",Radiotherapy concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010919"",
+""CONCEPT_ID"":                 45889179,
+""CONCEPT_NAME"": ""Clinical Brachytherapy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010917"",
+""CONCEPT_ID"":                 45888584,
+""CONCEPT_NAME"": ""Clinical Intracavitary Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010855"",
+""CONCEPT_ID"":                 45888077,
+""CONCEPT_NAME"": ""Medical Radiation Physics, Dosimetry, Treatment Devices, and Special Services for Radiation Treatment"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010895"",
+""CONCEPT_ID"":                 45889761,
+""CONCEPT_NAME"": ""Neutron Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015093"",
+""CONCEPT_ID"":                 45890444,
+""CONCEPT_NAME"": ""Other Radiation Procedures"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010904"",
+""CONCEPT_ID"":                 45888139,
+""CONCEPT_NAME"": ""Proton Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010910"",
+""CONCEPT_ID"":                 45889273,
+""CONCEPT_NAME"": ""Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010875"",
+""CONCEPT_ID"":                 45888117,
+""CONCEPT_NAME"": ""Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010898"",
+""CONCEPT_ID"":                 45887884,
+""CONCEPT_NAME"": ""Radiation Treatment Management"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015092"",
+""CONCEPT_ID"":                 45890445,
+""CONCEPT_NAME"": ""Stereotactic Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+8,15,"SELECT 15 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (45889179,45888584,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (45889179,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+  and c.invalid_reason is null
+
+) I
+) C",Radiotherapy concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010919"",
+""CONCEPT_ID"":                 45889179,
+""CONCEPT_NAME"": ""Clinical Brachytherapy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010917"",
+""CONCEPT_ID"":                 45888584,
+""CONCEPT_NAME"": ""Clinical Intracavitary Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010855"",
+""CONCEPT_ID"":                 45888077,
+""CONCEPT_NAME"": ""Medical Radiation Physics, Dosimetry, Treatment Devices, and Special Services for Radiation Treatment"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010895"",
+""CONCEPT_ID"":                 45889761,
+""CONCEPT_NAME"": ""Neutron Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015093"",
+""CONCEPT_ID"":                 45890444,
+""CONCEPT_NAME"": ""Other Radiation Procedures"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010904"",
+""CONCEPT_ID"":                 45888139,
+""CONCEPT_NAME"": ""Proton Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010910"",
+""CONCEPT_ID"":                 45889273,
+""CONCEPT_NAME"": ""Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010875"",
+""CONCEPT_ID"":                 45888117,
+""CONCEPT_NAME"": ""Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010898"",
+""CONCEPT_ID"":                 45887884,
+""CONCEPT_NAME"": ""Radiation Treatment Management"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015092"",
+""CONCEPT_ID"":                 45890445,
+""CONCEPT_NAME"": ""Stereotactic Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+10,15,"SELECT 15 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (45889179,45888584,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (45889179,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+  and c.invalid_reason is null
+
+) I
+) C",Radiotherapy concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010919"",
+""CONCEPT_ID"":                 45889179,
+""CONCEPT_NAME"": ""Clinical Brachytherapy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010917"",
+""CONCEPT_ID"":                 45888584,
+""CONCEPT_NAME"": ""Clinical Intracavitary Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010855"",
+""CONCEPT_ID"":                 45888077,
+""CONCEPT_NAME"": ""Medical Radiation Physics, Dosimetry, Treatment Devices, and Special Services for Radiation Treatment"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010895"",
+""CONCEPT_ID"":                 45889761,
+""CONCEPT_NAME"": ""Neutron Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015093"",
+""CONCEPT_ID"":                 45890444,
+""CONCEPT_NAME"": ""Other Radiation Procedures"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010904"",
+""CONCEPT_ID"":                 45888139,
+""CONCEPT_NAME"": ""Proton Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010910"",
+""CONCEPT_ID"":                 45889273,
+""CONCEPT_NAME"": ""Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010875"",
+""CONCEPT_ID"":                 45888117,
+""CONCEPT_NAME"": ""Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010898"",
+""CONCEPT_ID"":                 45887884,
+""CONCEPT_NAME"": ""Radiation Treatment Management"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015092"",
+""CONCEPT_ID"":                 45890445,
+""CONCEPT_NAME"": ""Stereotactic Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+11,15,"SELECT 15 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (45889179,45888584,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (45889179,45888077,45889761,45890444,45888139,45889273,45888117,45887884,45890445)
+  and c.invalid_reason is null
+
+) I
+) C",Radiotherapy concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010919"",
+""CONCEPT_ID"":                 45889179,
+""CONCEPT_NAME"": ""Clinical Brachytherapy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010917"",
+""CONCEPT_ID"":                 45888584,
+""CONCEPT_NAME"": ""Clinical Intracavitary Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010855"",
+""CONCEPT_ID"":                 45888077,
+""CONCEPT_NAME"": ""Medical Radiation Physics, Dosimetry, Treatment Devices, and Special Services for Radiation Treatment"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010895"",
+""CONCEPT_ID"":                 45889761,
+""CONCEPT_NAME"": ""Neutron Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015093"",
+""CONCEPT_ID"":                 45890444,
+""CONCEPT_NAME"": ""Other Radiation Procedures"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010904"",
+""CONCEPT_ID"":                 45888139,
+""CONCEPT_NAME"": ""Proton Beam Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010910"",
+""CONCEPT_ID"":                 45889273,
+""CONCEPT_NAME"": ""Hyperthermia"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010875"",
+""CONCEPT_ID"":                 45888117,
+""CONCEPT_NAME"": ""Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1010898"",
+""CONCEPT_ID"":                 45887884,
+""CONCEPT_NAME"": ""Radiation Treatment Management"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4 Hierarchy"",
+""CONCEPT_CODE"": ""1015092"",
+""CONCEPT_ID"":                 45890445,
+""CONCEPT_NAME"": ""Stereotactic Radiation Treatment Delivery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+1,16,"SELECT 16 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (21601387)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (21601387)
+  and c.invalid_reason is null
+
+) I
+) C",Systemic cancer treatment concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""ATC 2nd"",
+""CONCEPT_CODE"": ""L01"",
+""CONCEPT_ID"":                 21601387,
+""CONCEPT_NAME"": ""ANTINEOPLASTIC AGENTS"",
+""DOMAIN_ID"": ""Drug"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""ATC"" 
+},
+""includeDescendants"": true 
+} 
+]"
+2,16,"SELECT 16 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (21601387)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (21601387)
+  and c.invalid_reason is null
+
+) I
+) C",Systemic cancer treatment concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""ATC 2nd"",
+""CONCEPT_CODE"": ""L01"",
+""CONCEPT_ID"":                 21601387,
+""CONCEPT_NAME"": ""ANTINEOPLASTIC AGENTS"",
+""DOMAIN_ID"": ""Drug"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""ATC"" 
+},
+""includeDescendants"": true 
+} 
+]"
+4,16,"SELECT 16 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (21601387)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (21601387)
+  and c.invalid_reason is null
+
+) I
+) C",Systemic cancer treatment concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""ATC 2nd"",
+""CONCEPT_CODE"": ""L01"",
+""CONCEPT_ID"":                 21601387,
+""CONCEPT_NAME"": ""ANTINEOPLASTIC AGENTS"",
+""DOMAIN_ID"": ""Drug"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""ATC"" 
+},
+""includeDescendants"": true 
+} 
+]"
+5,16,"SELECT 16 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (21601387)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (21601387)
+  and c.invalid_reason is null
+
+) I
+) C",Systemic cancer treatment concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""ATC 2nd"",
+""CONCEPT_CODE"": ""L01"",
+""CONCEPT_ID"":                 21601387,
+""CONCEPT_NAME"": ""ANTINEOPLASTIC AGENTS"",
+""DOMAIN_ID"": ""Drug"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""ATC"" 
+},
+""includeDescendants"": true 
+} 
+]"
+7,16,"SELECT 16 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (21601387)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (21601387)
+  and c.invalid_reason is null
+
+) I
+) C",Systemic cancer treatment concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""ATC 2nd"",
+""CONCEPT_CODE"": ""L01"",
+""CONCEPT_ID"":                 21601387,
+""CONCEPT_NAME"": ""ANTINEOPLASTIC AGENTS"",
+""DOMAIN_ID"": ""Drug"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""ATC"" 
+},
+""includeDescendants"": true 
+} 
+]"
+8,16,"SELECT 16 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (21601387)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (21601387)
+  and c.invalid_reason is null
+
+) I
+) C",Systemic cancer treatment concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""ATC 2nd"",
+""CONCEPT_CODE"": ""L01"",
+""CONCEPT_ID"":                 21601387,
+""CONCEPT_NAME"": ""ANTINEOPLASTIC AGENTS"",
+""DOMAIN_ID"": ""Drug"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""ATC"" 
+},
+""includeDescendants"": true 
+} 
+]"
+10,16,"SELECT 16 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (21601387)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (21601387)
+  and c.invalid_reason is null
+
+) I
+) C",Systemic cancer treatment concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""ATC 2nd"",
+""CONCEPT_CODE"": ""L01"",
+""CONCEPT_ID"":                 21601387,
+""CONCEPT_NAME"": ""ANTINEOPLASTIC AGENTS"",
+""DOMAIN_ID"": ""Drug"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""ATC"" 
+},
+""includeDescendants"": true 
+} 
+]"
+11,16,"SELECT 16 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (21601387)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (21601387)
+  and c.invalid_reason is null
+
+) I
+) C",Systemic cancer treatment concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""ATC 2nd"",
+""CONCEPT_CODE"": ""L01"",
+""CONCEPT_ID"":                 21601387,
+""CONCEPT_NAME"": ""ANTINEOPLASTIC AGENTS"",
+""DOMAIN_ID"": ""Drug"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""C"",
+""STANDARD_CONCEPT_CAPTION"": ""Classification"",
+""VOCABULARY_ID"": ""ATC"" 
+},
+""includeDescendants"": true 
+} 
+]"
+1,18,"SELECT 18 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (443392)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (443392)
+  and c.invalid_reason is null
+
+) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4179980,4111921)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (4179980,4111921)
+  and c.invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
+) C",Malignant tumor excluding skin cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""363346000"",
+""CONCEPT_ID"":                   443392,
+""CONCEPT_NAME"": ""Malignant neoplastic disease"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""429114002"",
+""CONCEPT_ID"":                  4179980,
+""CONCEPT_NAME"": ""Malignant basal cell neoplasm of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""254651007"",
+""CONCEPT_ID"":                  4111921,
+""CONCEPT_NAME"": ""Squamous cell carcinoma of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+} 
+]"
+2,18,"SELECT 18 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (443392)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (443392)
+  and c.invalid_reason is null
+
+) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4179980,4111921)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (4179980,4111921)
+  and c.invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
+) C",Malignant tumor excluding skin cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""363346000"",
+""CONCEPT_ID"":                   443392,
+""CONCEPT_NAME"": ""Malignant neoplastic disease"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""429114002"",
+""CONCEPT_ID"":                  4179980,
+""CONCEPT_NAME"": ""Malignant basal cell neoplasm of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""254651007"",
+""CONCEPT_ID"":                  4111921,
+""CONCEPT_NAME"": ""Squamous cell carcinoma of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+} 
+]"
+4,18,"SELECT 18 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (443392)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (443392)
+  and c.invalid_reason is null
+
+) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4179980,4111921)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (4179980,4111921)
+  and c.invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
+) C",Malignant tumor excluding skin cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""363346000"",
+""CONCEPT_ID"":                   443392,
+""CONCEPT_NAME"": ""Malignant neoplastic disease"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""429114002"",
+""CONCEPT_ID"":                  4179980,
+""CONCEPT_NAME"": ""Malignant basal cell neoplasm of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""254651007"",
+""CONCEPT_ID"":                  4111921,
+""CONCEPT_NAME"": ""Squamous cell carcinoma of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+} 
+]"
+5,18,"SELECT 18 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (443392)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (443392)
+  and c.invalid_reason is null
+
+) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4179980,4111921)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (4179980,4111921)
+  and c.invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
+) C",Malignant tumor excluding skin cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""363346000"",
+""CONCEPT_ID"":                   443392,
+""CONCEPT_NAME"": ""Malignant neoplastic disease"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""429114002"",
+""CONCEPT_ID"":                  4179980,
+""CONCEPT_NAME"": ""Malignant basal cell neoplasm of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""254651007"",
+""CONCEPT_ID"":                  4111921,
+""CONCEPT_NAME"": ""Squamous cell carcinoma of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+} 
+]"
+7,18,"SELECT 18 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (443392)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (443392)
+  and c.invalid_reason is null
+
+) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4179980,4111921)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (4179980,4111921)
+  and c.invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
+) C",Malignant tumor excluding skin cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""363346000"",
+""CONCEPT_ID"":                   443392,
+""CONCEPT_NAME"": ""Malignant neoplastic disease"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""429114002"",
+""CONCEPT_ID"":                  4179980,
+""CONCEPT_NAME"": ""Malignant basal cell neoplasm of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""254651007"",
+""CONCEPT_ID"":                  4111921,
+""CONCEPT_NAME"": ""Squamous cell carcinoma of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+} 
+]"
+8,18,"SELECT 18 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (443392)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (443392)
+  and c.invalid_reason is null
+
+) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4179980,4111921)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (4179980,4111921)
+  and c.invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
+) C",Malignant tumor excluding skin cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""363346000"",
+""CONCEPT_ID"":                   443392,
+""CONCEPT_NAME"": ""Malignant neoplastic disease"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""429114002"",
+""CONCEPT_ID"":                  4179980,
+""CONCEPT_NAME"": ""Malignant basal cell neoplasm of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""254651007"",
+""CONCEPT_ID"":                  4111921,
+""CONCEPT_NAME"": ""Squamous cell carcinoma of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+} 
+]"
+10,18,"SELECT 18 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (443392)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (443392)
+  and c.invalid_reason is null
+
+) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4179980,4111921)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (4179980,4111921)
+  and c.invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
+) C",Malignant tumor excluding skin cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""363346000"",
+""CONCEPT_ID"":                   443392,
+""CONCEPT_NAME"": ""Malignant neoplastic disease"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""429114002"",
+""CONCEPT_ID"":                  4179980,
+""CONCEPT_NAME"": ""Malignant basal cell neoplasm of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""254651007"",
+""CONCEPT_ID"":                  4111921,
+""CONCEPT_NAME"": ""Squamous cell carcinoma of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+} 
+]"
+11,18,"SELECT 18 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (443392)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (443392)
+  and c.invalid_reason is null
+
+) I
+LEFT JOIN
+(
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4179980,4111921)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (4179980,4111921)
+  and c.invalid_reason is null
+
+) E ON I.concept_id = E.concept_id
+WHERE E.concept_id is null
+) C",Malignant tumor excluding skin cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""363346000"",
+""CONCEPT_ID"":                   443392,
+""CONCEPT_NAME"": ""Malignant neoplastic disease"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""429114002"",
+""CONCEPT_ID"":                  4179980,
+""CONCEPT_NAME"": ""Malignant basal cell neoplasm of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""254651007"",
+""CONCEPT_ID"":                  4111921,
+""CONCEPT_NAME"": ""Squamous cell carcinoma of skin"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""isExcluded"": true,
+""includeDescendants"": true 
+} 
+]"
+1,19,"SELECT 19 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (81250,4162253)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (81250,4162253)
+  and c.invalid_reason is null
+
+) I
+) C",Breast cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""189336000"",
+""CONCEPT_ID"":                    81250,
+""CONCEPT_NAME"": ""Carcinoma in situ of breast"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""372137005"",
+""CONCEPT_ID"":                  4162253,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of breast"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+} 
+]"
+2,19,"SELECT 19 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (81250,4162253)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (81250,4162253)
+  and c.invalid_reason is null
+
+) I
+) C",Breast cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""189336000"",
+""CONCEPT_ID"":                    81250,
+""CONCEPT_NAME"": ""Carcinoma in situ of breast"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""372137005"",
+""CONCEPT_ID"":                  4162253,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of breast"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+} 
+]"
+1,20,"SELECT 20 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2102681,2102680,2102679,2102736,2102720,2102721,2102735,2102734,2102732)
+
+) I
+) C",Breast cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19126"",
+""CONCEPT_ID"":                  2102681,
+""CONCEPT_NAME"": ""Excision of breast lesion identified by preoperative placement of radiological marker, open; each additional lesion separately identified by a preoperative radiological marker (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19125"",
+""CONCEPT_ID"":                  2102680,
+""CONCEPT_NAME"": ""Excision of breast lesion identified by preoperative placement of radiological marker, open; single lesion"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19120"",
+""CONCEPT_ID"":                  2102679,
+""CONCEPT_NAME"": ""Excision of cyst, fibroadenoma, or other benign or malignant tumor, aberrant breast tissue, duct lesion, nipple or areolar lesion (except 19300), open, male or female, 1 or more lesions"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19307"",
+""CONCEPT_ID"":                  2102736,
+""CONCEPT_NAME"": ""Mastectomy, modified radical, including axillary lymph nodes, with or without pectoralis minor muscle, but excluding pectoralis major muscle"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19301"",
+""CONCEPT_ID"":                  2102720,
+""CONCEPT_NAME"": ""Mastectomy, partial (eg, lumpectomy, tylectomy, quadrantectomy, segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19302"",
+""CONCEPT_ID"":                  2102721,
+""CONCEPT_NAME"": ""Mastectomy, partial (eg, lumpectomy, tylectomy, quadrantectomy, segmentectomy); with axillary lymphadenectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19306"",
+""CONCEPT_ID"":                  2102735,
+""CONCEPT_NAME"": ""Mastectomy, radical, including pectoral muscles, axillary and internal mammary lymph nodes (Urban type operation)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19305"",
+""CONCEPT_ID"":                  2102734,
+""CONCEPT_NAME"": ""Mastectomy, radical, including pectoral muscles, axillary lymph nodes"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19303"",
+""CONCEPT_ID"":                  2102732,
+""CONCEPT_NAME"": ""Mastectomy, simple, complete"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+} 
+]"
+2,20,"SELECT 20 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2102681,2102680,2102679,2102736,2102720,2102721,2102735,2102734,2102732)
+
+) I
+) C",Breast cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19126"",
+""CONCEPT_ID"":                  2102681,
+""CONCEPT_NAME"": ""Excision of breast lesion identified by preoperative placement of radiological marker, open; each additional lesion separately identified by a preoperative radiological marker (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19125"",
+""CONCEPT_ID"":                  2102680,
+""CONCEPT_NAME"": ""Excision of breast lesion identified by preoperative placement of radiological marker, open; single lesion"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19120"",
+""CONCEPT_ID"":                  2102679,
+""CONCEPT_NAME"": ""Excision of cyst, fibroadenoma, or other benign or malignant tumor, aberrant breast tissue, duct lesion, nipple or areolar lesion (except 19300), open, male or female, 1 or more lesions"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19307"",
+""CONCEPT_ID"":                  2102736,
+""CONCEPT_NAME"": ""Mastectomy, modified radical, including axillary lymph nodes, with or without pectoralis minor muscle, but excluding pectoralis major muscle"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19301"",
+""CONCEPT_ID"":                  2102720,
+""CONCEPT_NAME"": ""Mastectomy, partial (eg, lumpectomy, tylectomy, quadrantectomy, segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19302"",
+""CONCEPT_ID"":                  2102721,
+""CONCEPT_NAME"": ""Mastectomy, partial (eg, lumpectomy, tylectomy, quadrantectomy, segmentectomy); with axillary lymphadenectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19306"",
+""CONCEPT_ID"":                  2102735,
+""CONCEPT_NAME"": ""Mastectomy, radical, including pectoral muscles, axillary and internal mammary lymph nodes (Urban type operation)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19305"",
+""CONCEPT_ID"":                  2102734,
+""CONCEPT_NAME"": ""Mastectomy, radical, including pectoral muscles, axillary lymph nodes"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19303"",
+""CONCEPT_ID"":                  2102732,
+""CONCEPT_NAME"": ""Mastectomy, simple, complete"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+} 
+]"
+3,1,"SELECT 1 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2102681,2102680,2102679,2102736,2102720,2102721,2102735,2102734,2102732)
+
+) I
+) C",Breast cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19126"",
+""CONCEPT_ID"":                  2102681,
+""CONCEPT_NAME"": ""Excision of breast lesion identified by preoperative placement of radiological marker, open; each additional lesion separately identified by a preoperative radiological marker (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19125"",
+""CONCEPT_ID"":                  2102680,
+""CONCEPT_NAME"": ""Excision of breast lesion identified by preoperative placement of radiological marker, open; single lesion"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19120"",
+""CONCEPT_ID"":                  2102679,
+""CONCEPT_NAME"": ""Excision of cyst, fibroadenoma, or other benign or malignant tumor, aberrant breast tissue, duct lesion, nipple or areolar lesion (except 19300), open, male or female, 1 or more lesions"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19307"",
+""CONCEPT_ID"":                  2102736,
+""CONCEPT_NAME"": ""Mastectomy, modified radical, including axillary lymph nodes, with or without pectoralis minor muscle, but excluding pectoralis major muscle"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19301"",
+""CONCEPT_ID"":                  2102720,
+""CONCEPT_NAME"": ""Mastectomy, partial (eg, lumpectomy, tylectomy, quadrantectomy, segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19302"",
+""CONCEPT_ID"":                  2102721,
+""CONCEPT_NAME"": ""Mastectomy, partial (eg, lumpectomy, tylectomy, quadrantectomy, segmentectomy); with axillary lymphadenectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19306"",
+""CONCEPT_ID"":                  2102735,
+""CONCEPT_NAME"": ""Mastectomy, radical, including pectoral muscles, axillary and internal mammary lymph nodes (Urban type operation)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19305"",
+""CONCEPT_ID"":                  2102734,
+""CONCEPT_NAME"": ""Mastectomy, radical, including pectoral muscles, axillary lymph nodes"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""19303"",
+""CONCEPT_ID"":                  2102732,
+""CONCEPT_NAME"": ""Mastectomy, simple, complete"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+} 
+]"
+4,13,"SELECT 13 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (197500,75512,74582,75210)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (197500,75512,74582,75210)
+  and c.invalid_reason is null
+
+) I
+) C",Colorectal cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""93761005"",
+""CONCEPT_ID"":                   197500,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of colon"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""92568009"",
+""CONCEPT_ID"":                    75512,
+""CONCEPT_NAME"": ""Carcinoma in situ of colon"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""93984006"",
+""CONCEPT_ID"":                    74582,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of rectum"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""92696009"",
+""CONCEPT_ID"":                    75210,
+""CONCEPT_NAME"": ""Carcinoma in situ of rectum"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+} 
+]"
+5,13,"SELECT 13 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (197500,75512,74582,75210)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (197500,75512,74582,75210)
+  and c.invalid_reason is null
+
+) I
+) C",Colorectal cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""93761005"",
+""CONCEPT_ID"":                   197500,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of colon"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""92568009"",
+""CONCEPT_ID"":                    75512,
+""CONCEPT_NAME"": ""Carcinoma in situ of colon"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""93984006"",
+""CONCEPT_ID"":                    74582,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of rectum"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""92696009"",
+""CONCEPT_ID"":                    75210,
+""CONCEPT_NAME"": ""Carcinoma in situ of rectum"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+} 
+]"
+4,14,"SELECT 14 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2109151,46257514,2109200,2109201,2109168,2109166,40756915,40756981,2109161,2109157,2109153,2109158,2109159,2109155,2109156,2109154,2109160,2109152,2109177,2109175,2109173,2109174,46257703,2109188,2109183,2109187)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (2109151,2109200,2109201,2109168,2109166,40756915,40756981,2109161,2109157,2109153,2109158,2109159,2109155,2109156,2109154,2109160,2109152,2109177,2109175,2109173,2109174,46257703,2109188,2109183,2109187)
+  and c.invalid_reason is null
+
+) I
+) C",Colorectal cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45110"",
+""CONCEPT_ID"":                  2109151,
+""CONCEPT_NAME"": ""Proctectomy; complete, combined abdominoperineal, with colostomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45388"",
+""CONCEPT_ID"":                 46257514,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) (includes pre- and post-dilation and guide wire passage, when performed)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45384"",
+""CONCEPT_ID"":                  2109200,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by hot biopsy forceps"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45385"",
+""CONCEPT_ID"":                  2109201,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45190"",
+""CONCEPT_ID"":                  2109168,
+""CONCEPT_NAME"": ""Destruction of rectal tumor (eg, electrodesiccation, electrosurgery, laser ablation, laser resection, cryosurgery) transanal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45160"",
+""CONCEPT_ID"":                  2109166,
+""CONCEPT_NAME"": ""Excision of rectal tumor by proctotomy, transsacral or transcoccygeal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45172"",
+""CONCEPT_ID"":                 40756915,
+""CONCEPT_NAME"": ""Excision of rectal tumor, transanal approach; including muscularis propria (ie, full thickness)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45171"",
+""CONCEPT_ID"":                 40756981,
+""CONCEPT_NAME"": ""Excision of rectal tumor, transanal approach; not including muscularis propria (ie, partial thickness)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45126"",
+""CONCEPT_ID"":                  2109161,
+""CONCEPT_NAME"": ""Pelvic exenteration for colorectal malignancy, with proctectomy (with or without colostomy), with removal of bladder and ureteral transplantations, and/or hysterectomy, or cervicectomy, with or without removal of tube(s), with or without removal of ovary("",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45119"",
+""CONCEPT_ID"":                  2109157,
+""CONCEPT_NAME"": ""Proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, J-pouch), with diverting enterostomy when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45112"",
+""CONCEPT_ID"":                  2109153,
+""CONCEPT_NAME"": ""Proctectomy, combined abdominoperineal, pull-through procedure (eg, colo-anal anastomosis)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45120"",
+""CONCEPT_ID"":                  2109158,
+""CONCEPT_NAME"": ""Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with pull-through procedure and anastomosis (eg, Swenson, Duhamel, or Soave type operation)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45121"",
+""CONCEPT_ID"":                  2109159,
+""CONCEPT_NAME"": ""Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with subtotal or total colectomy, with multiple biopsies"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45114"",
+""CONCEPT_ID"":                  2109155,
+""CONCEPT_NAME"": ""Proctectomy, partial, with anastomosis; abdominal and transsacral approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45116"",
+""CONCEPT_ID"":                  2109156,
+""CONCEPT_NAME"": ""Proctectomy, partial, with anastomosis; transsacral approach only (Kraske type)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45113"",
+""CONCEPT_ID"":                  2109154,
+""CONCEPT_NAME"": ""Proctectomy, partial, with rectal mucosectomy, ileoanal anastomosis, creation of ileal reservoir (S or J), with or without loop ileostomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45123"",
+""CONCEPT_ID"":                  2109160,
+""CONCEPT_NAME"": ""Proctectomy, partial, without anastomosis, perineal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45111"",
+""CONCEPT_ID"":                  2109152,
+""CONCEPT_NAME"": ""Proctectomy; partial resection of rectum, transabdominal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45320"",
+""CONCEPT_ID"":                  2109177,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique (eg, laser)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45315"",
+""CONCEPT_ID"":                  2109175,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of multiple tumors, polyps, or other lesions by hot biopsy forceps, bipolar cautery or snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45308"",
+""CONCEPT_ID"":                  2109173,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of single tumor, polyp, or other lesion by hot biopsy forceps or bipolar cautery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45309"",
+""CONCEPT_ID"":                  2109174,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of single tumor, polyp, or other lesion by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45346"",
+""CONCEPT_ID"":                 46257703,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) (includes pre- and post-dilation and guide wire passage, when performed)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45339"",
+""CONCEPT_ID"":                  2109188,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45333"",
+""CONCEPT_ID"":                  2109183,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by hot biopsy forceps"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45338"",
+""CONCEPT_ID"":                  2109187,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+5,14,"SELECT 14 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2109151,46257514,2109200,2109201,2109168,2109166,40756915,40756981,2109161,2109157,2109153,2109158,2109159,2109155,2109156,2109154,2109160,2109152,2109177,2109175,2109173,2109174,46257703,2109188,2109183,2109187)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (2109151,2109200,2109201,2109168,2109166,40756915,40756981,2109161,2109157,2109153,2109158,2109159,2109155,2109156,2109154,2109160,2109152,2109177,2109175,2109173,2109174,46257703,2109188,2109183,2109187)
+  and c.invalid_reason is null
+
+) I
+) C",Colorectal cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45110"",
+""CONCEPT_ID"":                  2109151,
+""CONCEPT_NAME"": ""Proctectomy; complete, combined abdominoperineal, with colostomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45388"",
+""CONCEPT_ID"":                 46257514,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) (includes pre- and post-dilation and guide wire passage, when performed)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45384"",
+""CONCEPT_ID"":                  2109200,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by hot biopsy forceps"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45385"",
+""CONCEPT_ID"":                  2109201,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45190"",
+""CONCEPT_ID"":                  2109168,
+""CONCEPT_NAME"": ""Destruction of rectal tumor (eg, electrodesiccation, electrosurgery, laser ablation, laser resection, cryosurgery) transanal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45160"",
+""CONCEPT_ID"":                  2109166,
+""CONCEPT_NAME"": ""Excision of rectal tumor by proctotomy, transsacral or transcoccygeal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45172"",
+""CONCEPT_ID"":                 40756915,
+""CONCEPT_NAME"": ""Excision of rectal tumor, transanal approach; including muscularis propria (ie, full thickness)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45171"",
+""CONCEPT_ID"":                 40756981,
+""CONCEPT_NAME"": ""Excision of rectal tumor, transanal approach; not including muscularis propria (ie, partial thickness)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45126"",
+""CONCEPT_ID"":                  2109161,
+""CONCEPT_NAME"": ""Pelvic exenteration for colorectal malignancy, with proctectomy (with or without colostomy), with removal of bladder and ureteral transplantations, and/or hysterectomy, or cervicectomy, with or without removal of tube(s), with or without removal of ovary("",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45119"",
+""CONCEPT_ID"":                  2109157,
+""CONCEPT_NAME"": ""Proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, J-pouch), with diverting enterostomy when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45112"",
+""CONCEPT_ID"":                  2109153,
+""CONCEPT_NAME"": ""Proctectomy, combined abdominoperineal, pull-through procedure (eg, colo-anal anastomosis)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45120"",
+""CONCEPT_ID"":                  2109158,
+""CONCEPT_NAME"": ""Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with pull-through procedure and anastomosis (eg, Swenson, Duhamel, or Soave type operation)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45121"",
+""CONCEPT_ID"":                  2109159,
+""CONCEPT_NAME"": ""Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with subtotal or total colectomy, with multiple biopsies"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45114"",
+""CONCEPT_ID"":                  2109155,
+""CONCEPT_NAME"": ""Proctectomy, partial, with anastomosis; abdominal and transsacral approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45116"",
+""CONCEPT_ID"":                  2109156,
+""CONCEPT_NAME"": ""Proctectomy, partial, with anastomosis; transsacral approach only (Kraske type)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45113"",
+""CONCEPT_ID"":                  2109154,
+""CONCEPT_NAME"": ""Proctectomy, partial, with rectal mucosectomy, ileoanal anastomosis, creation of ileal reservoir (S or J), with or without loop ileostomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45123"",
+""CONCEPT_ID"":                  2109160,
+""CONCEPT_NAME"": ""Proctectomy, partial, without anastomosis, perineal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45111"",
+""CONCEPT_ID"":                  2109152,
+""CONCEPT_NAME"": ""Proctectomy; partial resection of rectum, transabdominal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45320"",
+""CONCEPT_ID"":                  2109177,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique (eg, laser)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45315"",
+""CONCEPT_ID"":                  2109175,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of multiple tumors, polyps, or other lesions by hot biopsy forceps, bipolar cautery or snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45308"",
+""CONCEPT_ID"":                  2109173,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of single tumor, polyp, or other lesion by hot biopsy forceps or bipolar cautery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45309"",
+""CONCEPT_ID"":                  2109174,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of single tumor, polyp, or other lesion by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45346"",
+""CONCEPT_ID"":                 46257703,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) (includes pre- and post-dilation and guide wire passage, when performed)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45339"",
+""CONCEPT_ID"":                  2109188,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45333"",
+""CONCEPT_ID"":                  2109183,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by hot biopsy forceps"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45338"",
+""CONCEPT_ID"":                  2109187,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+6,0,"SELECT 0 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2109151,46257514,2109200,2109201,2109168,2109166,40756915,40756981,2109161,2109157,2109153,2109158,2109159,2109155,2109156,2109154,2109160,2109152,2109177,2109175,2109173,2109174,46257703,2109188,2109183,2109187)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (2109151,2109200,2109201,2109168,2109166,40756915,40756981,2109161,2109157,2109153,2109158,2109159,2109155,2109156,2109154,2109160,2109152,2109177,2109175,2109173,2109174,46257703,2109188,2109183,2109187)
+  and c.invalid_reason is null
+
+) I
+) C",Colorectal cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45110"",
+""CONCEPT_ID"":                  2109151,
+""CONCEPT_NAME"": ""Proctectomy; complete, combined abdominoperineal, with colostomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45388"",
+""CONCEPT_ID"":                 46257514,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) (includes pre- and post-dilation and guide wire passage, when performed)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45384"",
+""CONCEPT_ID"":                  2109200,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by hot biopsy forceps"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45385"",
+""CONCEPT_ID"":                  2109201,
+""CONCEPT_NAME"": ""Colonoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45190"",
+""CONCEPT_ID"":                  2109168,
+""CONCEPT_NAME"": ""Destruction of rectal tumor (eg, electrodesiccation, electrosurgery, laser ablation, laser resection, cryosurgery) transanal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45160"",
+""CONCEPT_ID"":                  2109166,
+""CONCEPT_NAME"": ""Excision of rectal tumor by proctotomy, transsacral or transcoccygeal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45172"",
+""CONCEPT_ID"":                 40756915,
+""CONCEPT_NAME"": ""Excision of rectal tumor, transanal approach; including muscularis propria (ie, full thickness)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45171"",
+""CONCEPT_ID"":                 40756981,
+""CONCEPT_NAME"": ""Excision of rectal tumor, transanal approach; not including muscularis propria (ie, partial thickness)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45126"",
+""CONCEPT_ID"":                  2109161,
+""CONCEPT_NAME"": ""Pelvic exenteration for colorectal malignancy, with proctectomy (with or without colostomy), with removal of bladder and ureteral transplantations, and/or hysterectomy, or cervicectomy, with or without removal of tube(s), with or without removal of ovary("",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45119"",
+""CONCEPT_ID"":                  2109157,
+""CONCEPT_NAME"": ""Proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, J-pouch), with diverting enterostomy when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45112"",
+""CONCEPT_ID"":                  2109153,
+""CONCEPT_NAME"": ""Proctectomy, combined abdominoperineal, pull-through procedure (eg, colo-anal anastomosis)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45120"",
+""CONCEPT_ID"":                  2109158,
+""CONCEPT_NAME"": ""Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with pull-through procedure and anastomosis (eg, Swenson, Duhamel, or Soave type operation)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45121"",
+""CONCEPT_ID"":                  2109159,
+""CONCEPT_NAME"": ""Proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with subtotal or total colectomy, with multiple biopsies"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45114"",
+""CONCEPT_ID"":                  2109155,
+""CONCEPT_NAME"": ""Proctectomy, partial, with anastomosis; abdominal and transsacral approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45116"",
+""CONCEPT_ID"":                  2109156,
+""CONCEPT_NAME"": ""Proctectomy, partial, with anastomosis; transsacral approach only (Kraske type)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45113"",
+""CONCEPT_ID"":                  2109154,
+""CONCEPT_NAME"": ""Proctectomy, partial, with rectal mucosectomy, ileoanal anastomosis, creation of ileal reservoir (S or J), with or without loop ileostomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45123"",
+""CONCEPT_ID"":                  2109160,
+""CONCEPT_NAME"": ""Proctectomy, partial, without anastomosis, perineal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45111"",
+""CONCEPT_ID"":                  2109152,
+""CONCEPT_NAME"": ""Proctectomy; partial resection of rectum, transabdominal approach"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45320"",
+""CONCEPT_ID"":                  2109177,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique (eg, laser)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45315"",
+""CONCEPT_ID"":                  2109175,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of multiple tumors, polyps, or other lesions by hot biopsy forceps, bipolar cautery or snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45308"",
+""CONCEPT_ID"":                  2109173,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of single tumor, polyp, or other lesion by hot biopsy forceps or bipolar cautery"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45309"",
+""CONCEPT_ID"":                  2109174,
+""CONCEPT_NAME"": ""Proctosigmoidoscopy, rigid; with removal of single tumor, polyp, or other lesion by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45346"",
+""CONCEPT_ID"":                 46257703,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) (includes pre- and post-dilation and guide wire passage, when performed)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45339"",
+""CONCEPT_ID"":                  2109188,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45333"",
+""CONCEPT_ID"":                  2109183,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by hot biopsy forceps"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""45338"",
+""CONCEPT_ID"":                  2109187,
+""CONCEPT_NAME"": ""Sigmoidoscopy, flexible; with removal of tumor(s), polyp(s), or other lesion(s) by snare technique"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+},
+""includeDescendants"": true 
+} 
+]"
+7,19,"SELECT 19 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (26638,3654659,28109)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (26638,3654659,28109)
+  and c.invalid_reason is null
+
+) I
+) C",Esophagus cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""371984007"",
+""CONCEPT_ID"":                    26638,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of esophagus"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""838352004"",
+""CONCEPT_ID"":                  3654659,
+""CONCEPT_NAME"": ""Adenocarcinoma in situ of esophagus"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""92585006"",
+""CONCEPT_ID"":                    28109,
+""CONCEPT_NAME"": ""Carcinoma in situ of esophagus"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+} 
+]"
+8,19,"SELECT 19 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (26638,3654659,28109)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (26638,3654659,28109)
+  and c.invalid_reason is null
+
+) I
+) C",Esophagus cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""371984007"",
+""CONCEPT_ID"":                    26638,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of esophagus"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""838352004"",
+""CONCEPT_ID"":                  3654659,
+""CONCEPT_NAME"": ""Adenocarcinoma in situ of esophagus"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""92585006"",
+""CONCEPT_ID"":                    28109,
+""CONCEPT_NAME"": ""Carcinoma in situ of esophagus"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+} 
+]"
+7,20,"SELECT 20 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where 0=1
+) I
+) C",Esophagus cancer surgery with curative intent concept set,[]
+8,20,"SELECT 20 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where 0=1
+) I
+) C",Esophagus cancer surgery with curative intent concept set,[]
+9,1,"SELECT 1 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where 0=1
+) I
+) C",Esophagus cancer surgery with curative intent concept set,[]
+10,19,"SELECT 19 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (255507,258369,37312138)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (255507,258369,37312138)
+  and c.invalid_reason is null
+
+) I
+) C",Lung cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""92649001"",
+""CONCEPT_ID"":                   255507,
+""CONCEPT_NAME"": ""Carcinoma in situ of lung"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""93880001"",
+""CONCEPT_ID"":                   258369,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of lung"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""789695003"",
+""CONCEPT_ID"":                 37312138,
+""CONCEPT_NAME"": ""Non-mucinous adenocarcinoma in situ of lung"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+} 
+]"
+11,19,"SELECT 19 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (255507,258369,37312138)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (255507,258369,37312138)
+  and c.invalid_reason is null
+
+) I
+) C",Lung cancer concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""92649001"",
+""CONCEPT_ID"":                   255507,
+""CONCEPT_NAME"": ""Carcinoma in situ of lung"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""93880001"",
+""CONCEPT_ID"":                   258369,
+""CONCEPT_NAME"": ""Primary malignant neoplasm of lung"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""Clinical Finding"",
+""CONCEPT_CODE"": ""789695003"",
+""CONCEPT_ID"":                 37312138,
+""CONCEPT_NAME"": ""Non-mucinous adenocarcinoma in situ of lung"",
+""DOMAIN_ID"": ""Condition"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""SNOMED"" 
+},
+""includeDescendants"": true 
+} 
+]"
+10,20,"SELECT 20 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2106731,2106730,2106762,2106751,2106763,2106765,2106764,2106766,2106748,2106750,2106749,2106768,2106770,2106769,42742515,2106829,2106828,2106830,42742521,2106822,42742516,42742518,42742517,42742520,42742519,42742514,42742513,42742510,42742509,42742508)
+
+) I
+) C",Lung cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32320"",
+""CONCEPT_ID"":                  2106731,
+""CONCEPT_NAME"": ""Decortication and parietal pleurectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32310"",
+""CONCEPT_ID"":                  2106730,
+""CONCEPT_NAME"": ""Pleurectomy, parietal (separate procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32482"",
+""CONCEPT_ID"":                  2106762,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; 2 lobes (bilobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32480"",
+""CONCEPT_ID"":                  2106751,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; single lobe (lobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32484"",
+""CONCEPT_ID"":                  2106763,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; single segment (segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32488"",
+""CONCEPT_ID"":                  2106765,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with all remaining lung following previous removal of a portion of lung (completion pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32486"",
+""CONCEPT_ID"":                  2106764,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with circumferential resection of segment of bronchus followed by broncho-bronchial anastomosis (sleeve lobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32491"",
+""CONCEPT_ID"":                  2106766,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with resection-plication of emphysematous lung(s) (bullous or non-bullous) for lung volume reduction, sternal split or transthoracic approach, includes any pleural procedure, when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32440"",
+""CONCEPT_ID"":                  2106748,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32445"",
+""CONCEPT_ID"":                  2106750,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy; extrapleural"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32442"",
+""CONCEPT_ID"":                  2106749,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy; with resection of segment of trachea followed by broncho-tracheal anastomosis (sleeve pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32501"",
+""CONCEPT_ID"":                  2106768,
+""CONCEPT_NAME"": ""Resection and repair of portion of bronchus (bronchoplasty) when performed at time of lobectomy or segmentectomy (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32504"",
+""CONCEPT_ID"":                  2106770,
+""CONCEPT_NAME"": ""Resection of apical lung tumor (eg, Pancoast tumor), including chest wall resection, rib(s) resection(s), neurovascular dissection, when performed; with chest wall reconstruction"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32503"",
+""CONCEPT_ID"":                  2106769,
+""CONCEPT_NAME"": ""Resection of apical lung tumor (eg, Pancoast tumor), including chest wall resection, rib(s) resection(s), neurovascular dissection, when performed; without chest wall reconstruction(s)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32668"",
+""CONCEPT_ID"":                 42742515,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with diagnostic wedge resection followed by anatomic lung resection (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32662"",
+""CONCEPT_ID"":                  2106829,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with excision of mediastinal cyst, tumor, or mass"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32661"",
+""CONCEPT_ID"":                  2106828,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with excision of pericardial cyst, tumor, or mass"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32663"",
+""CONCEPT_ID"":                  2106830,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with lobectomy (single lobe)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32674"",
+""CONCEPT_ID"":                 42742521,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with mediastinal and regional lymphadenectomy (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32656"",
+""CONCEPT_ID"":                  2106822,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with parietal pleurectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32669"",
+""CONCEPT_ID"":                 42742516,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of a single lung segment (segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32671"",
+""CONCEPT_ID"":                 42742518,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of lung (pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32670"",
+""CONCEPT_ID"":                 42742517,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of two lobes (bilobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32673"",
+""CONCEPT_ID"":                 42742520,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with resection of thymus, unilateral or bilateral"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32672"",
+""CONCEPT_ID"":                 42742519,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with resection-plication for emphysematous lung (bullous or non-bullous) for lung volume reduction (LVRS), unilateral includes any pleural procedure, when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32667"",
+""CONCEPT_ID"":                 42742514,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with therapeutic wedge resection (eg, mass or nodule), each additional resection, ipsilateral (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32666"",
+""CONCEPT_ID"":                 42742513,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with therapeutic wedge resection (eg, mass, nodule), initial unilateral"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32507"",
+""CONCEPT_ID"":                 42742510,
+""CONCEPT_NAME"": ""Thoracotomy; with diagnostic wedge resection followed by anatomic lung resection (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32506"",
+""CONCEPT_ID"":                 42742509,
+""CONCEPT_NAME"": ""Thoracotomy; with therapeutic wedge resection (eg, mass or nodule), each additional resection, ipsilateral (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32505"",
+""CONCEPT_ID"":                 42742508,
+""CONCEPT_NAME"": ""Thoracotomy; with therapeutic wedge resection (eg, mass, nodule), initial"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+} 
+]"
+11,20,"SELECT 20 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2106731,2106730,2106762,2106751,2106763,2106765,2106764,2106766,2106748,2106750,2106749,2106768,2106770,2106769,42742515,2106829,2106828,2106830,42742521,2106822,42742516,42742518,42742517,42742520,42742519,42742514,42742513,42742510,42742509,42742508)
+
+) I
+) C",Lung cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32320"",
+""CONCEPT_ID"":                  2106731,
+""CONCEPT_NAME"": ""Decortication and parietal pleurectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32310"",
+""CONCEPT_ID"":                  2106730,
+""CONCEPT_NAME"": ""Pleurectomy, parietal (separate procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32482"",
+""CONCEPT_ID"":                  2106762,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; 2 lobes (bilobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32480"",
+""CONCEPT_ID"":                  2106751,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; single lobe (lobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32484"",
+""CONCEPT_ID"":                  2106763,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; single segment (segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32488"",
+""CONCEPT_ID"":                  2106765,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with all remaining lung following previous removal of a portion of lung (completion pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32486"",
+""CONCEPT_ID"":                  2106764,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with circumferential resection of segment of bronchus followed by broncho-bronchial anastomosis (sleeve lobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32491"",
+""CONCEPT_ID"":                  2106766,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with resection-plication of emphysematous lung(s) (bullous or non-bullous) for lung volume reduction, sternal split or transthoracic approach, includes any pleural procedure, when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32440"",
+""CONCEPT_ID"":                  2106748,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32445"",
+""CONCEPT_ID"":                  2106750,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy; extrapleural"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32442"",
+""CONCEPT_ID"":                  2106749,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy; with resection of segment of trachea followed by broncho-tracheal anastomosis (sleeve pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32501"",
+""CONCEPT_ID"":                  2106768,
+""CONCEPT_NAME"": ""Resection and repair of portion of bronchus (bronchoplasty) when performed at time of lobectomy or segmentectomy (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32504"",
+""CONCEPT_ID"":                  2106770,
+""CONCEPT_NAME"": ""Resection of apical lung tumor (eg, Pancoast tumor), including chest wall resection, rib(s) resection(s), neurovascular dissection, when performed; with chest wall reconstruction"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32503"",
+""CONCEPT_ID"":                  2106769,
+""CONCEPT_NAME"": ""Resection of apical lung tumor (eg, Pancoast tumor), including chest wall resection, rib(s) resection(s), neurovascular dissection, when performed; without chest wall reconstruction(s)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32668"",
+""CONCEPT_ID"":                 42742515,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with diagnostic wedge resection followed by anatomic lung resection (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32662"",
+""CONCEPT_ID"":                  2106829,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with excision of mediastinal cyst, tumor, or mass"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32661"",
+""CONCEPT_ID"":                  2106828,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with excision of pericardial cyst, tumor, or mass"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32663"",
+""CONCEPT_ID"":                  2106830,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with lobectomy (single lobe)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32674"",
+""CONCEPT_ID"":                 42742521,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with mediastinal and regional lymphadenectomy (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32656"",
+""CONCEPT_ID"":                  2106822,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with parietal pleurectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32669"",
+""CONCEPT_ID"":                 42742516,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of a single lung segment (segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32671"",
+""CONCEPT_ID"":                 42742518,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of lung (pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32670"",
+""CONCEPT_ID"":                 42742517,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of two lobes (bilobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32673"",
+""CONCEPT_ID"":                 42742520,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with resection of thymus, unilateral or bilateral"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32672"",
+""CONCEPT_ID"":                 42742519,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with resection-plication for emphysematous lung (bullous or non-bullous) for lung volume reduction (LVRS), unilateral includes any pleural procedure, when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32667"",
+""CONCEPT_ID"":                 42742514,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with therapeutic wedge resection (eg, mass or nodule), each additional resection, ipsilateral (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32666"",
+""CONCEPT_ID"":                 42742513,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with therapeutic wedge resection (eg, mass, nodule), initial unilateral"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32507"",
+""CONCEPT_ID"":                 42742510,
+""CONCEPT_NAME"": ""Thoracotomy; with diagnostic wedge resection followed by anatomic lung resection (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32506"",
+""CONCEPT_ID"":                 42742509,
+""CONCEPT_NAME"": ""Thoracotomy; with therapeutic wedge resection (eg, mass or nodule), each additional resection, ipsilateral (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32505"",
+""CONCEPT_ID"":                 42742508,
+""CONCEPT_NAME"": ""Thoracotomy; with therapeutic wedge resection (eg, mass, nodule), initial"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+} 
+]"
+12,1,"SELECT 1 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2106731,2106730,2106762,2106751,2106763,2106765,2106764,2106766,2106748,2106750,2106749,2106768,2106770,2106769,42742515,2106829,2106828,2106830,42742521,2106822,42742516,42742518,42742517,42742520,42742519,42742514,42742513,42742510,42742509,42742508)
+
+) I
+) C",Lung cancer surgery with curative intent concept set,"[
+ {
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32320"",
+""CONCEPT_ID"":                  2106731,
+""CONCEPT_NAME"": ""Decortication and parietal pleurectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32310"",
+""CONCEPT_ID"":                  2106730,
+""CONCEPT_NAME"": ""Pleurectomy, parietal (separate procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32482"",
+""CONCEPT_ID"":                  2106762,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; 2 lobes (bilobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32480"",
+""CONCEPT_ID"":                  2106751,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; single lobe (lobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32484"",
+""CONCEPT_ID"":                  2106763,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; single segment (segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32488"",
+""CONCEPT_ID"":                  2106765,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with all remaining lung following previous removal of a portion of lung (completion pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32486"",
+""CONCEPT_ID"":                  2106764,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with circumferential resection of segment of bronchus followed by broncho-bronchial anastomosis (sleeve lobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32491"",
+""CONCEPT_ID"":                  2106766,
+""CONCEPT_NAME"": ""Removal of lung, other than pneumonectomy; with resection-plication of emphysematous lung(s) (bullous or non-bullous) for lung volume reduction, sternal split or transthoracic approach, includes any pleural procedure, when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32440"",
+""CONCEPT_ID"":                  2106748,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32445"",
+""CONCEPT_ID"":                  2106750,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy; extrapleural"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32442"",
+""CONCEPT_ID"":                  2106749,
+""CONCEPT_NAME"": ""Removal of lung, pneumonectomy; with resection of segment of trachea followed by broncho-tracheal anastomosis (sleeve pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32501"",
+""CONCEPT_ID"":                  2106768,
+""CONCEPT_NAME"": ""Resection and repair of portion of bronchus (bronchoplasty) when performed at time of lobectomy or segmentectomy (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32504"",
+""CONCEPT_ID"":                  2106770,
+""CONCEPT_NAME"": ""Resection of apical lung tumor (eg, Pancoast tumor), including chest wall resection, rib(s) resection(s), neurovascular dissection, when performed; with chest wall reconstruction"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32503"",
+""CONCEPT_ID"":                  2106769,
+""CONCEPT_NAME"": ""Resection of apical lung tumor (eg, Pancoast tumor), including chest wall resection, rib(s) resection(s), neurovascular dissection, when performed; without chest wall reconstruction(s)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32668"",
+""CONCEPT_ID"":                 42742515,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with diagnostic wedge resection followed by anatomic lung resection (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32662"",
+""CONCEPT_ID"":                  2106829,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with excision of mediastinal cyst, tumor, or mass"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32661"",
+""CONCEPT_ID"":                  2106828,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with excision of pericardial cyst, tumor, or mass"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32663"",
+""CONCEPT_ID"":                  2106830,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with lobectomy (single lobe)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32674"",
+""CONCEPT_ID"":                 42742521,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with mediastinal and regional lymphadenectomy (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32656"",
+""CONCEPT_ID"":                  2106822,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with parietal pleurectomy"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32669"",
+""CONCEPT_ID"":                 42742516,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of a single lung segment (segmentectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32671"",
+""CONCEPT_ID"":                 42742518,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of lung (pneumonectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32670"",
+""CONCEPT_ID"":                 42742517,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with removal of two lobes (bilobectomy)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32673"",
+""CONCEPT_ID"":                 42742520,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with resection of thymus, unilateral or bilateral"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32672"",
+""CONCEPT_ID"":                 42742519,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with resection-plication for emphysematous lung (bullous or non-bullous) for lung volume reduction (LVRS), unilateral includes any pleural procedure, when performed"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32667"",
+""CONCEPT_ID"":                 42742514,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with therapeutic wedge resection (eg, mass or nodule), each additional resection, ipsilateral (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32666"",
+""CONCEPT_ID"":                 42742513,
+""CONCEPT_NAME"": ""Thoracoscopy, surgical; with therapeutic wedge resection (eg, mass, nodule), initial unilateral"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32507"",
+""CONCEPT_ID"":                 42742510,
+""CONCEPT_NAME"": ""Thoracotomy; with diagnostic wedge resection followed by anatomic lung resection (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32506"",
+""CONCEPT_ID"":                 42742509,
+""CONCEPT_NAME"": ""Thoracotomy; with therapeutic wedge resection (eg, mass or nodule), each additional resection, ipsilateral (List separately in addition to code for primary procedure)"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+},
+{
+ ""concept"": {
+ ""CONCEPT_CLASS_ID"": ""CPT4"",
+""CONCEPT_CODE"": ""32505"",
+""CONCEPT_ID"":                 42742508,
+""CONCEPT_NAME"": ""Thoracotomy; with therapeutic wedge resection (eg, mass, nodule), initial"",
+""DOMAIN_ID"": ""Procedure"",
+""INVALID_REASON"": ""V"",
+""INVALID_REASON_CAPTION"": ""Valid"",
+""STANDARD_CONCEPT"": ""S"",
+""STANDARD_CONCEPT_CAPTION"": ""Standard"",
+""VOCABULARY_ID"": ""CPT4"" 
+} 
+} 
+]"

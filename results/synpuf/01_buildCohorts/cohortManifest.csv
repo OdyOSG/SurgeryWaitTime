@@ -1,0 +1,13 @@
+id,name,type,entries,subjects,file,database
+1,SWT breast cancer with cancer surgery within 30 days before diagnosis,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT breast cancer with cancer surgery within 30 days before diagnosis.json,synpuf
+2,SWT breast cancer with no prior cancer treatment,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT breast cancer with no prior cancer treatment.json,synpuf
+3,SWT breast surgery outcome,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT breast surgery outcome.json,synpuf
+4,SWT colorectal cancer with cancer surgery within 30 days before diagnosis,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT colorectal cancer with cancer surgery within 30 days before diagnosis.json,synpuf
+5,SWT colorectal cancer with no prior cancer treatment,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT colorectal cancer with no prior cancer treatment.json,synpuf
+6,SWT colorectal surgery outcome,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT colorectal surgery outcome.json,synpuf
+7,SWT esophagus cancer with cancer surgery within 30 days before diagnosis,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT esophagus cancer with cancer surgery within 30 days before diagnosis.json,synpuf
+8,SWT esophagus cancer with no prior cancer treatment,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT esophagus cancer with no prior cancer treatment.json,synpuf
+9,SWT esophagus surgery outcome,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT esophagus surgery outcome.json,synpuf
+10,SWT lung cancer with cancer surgery within 30 days before diagnosis,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT lung cancer with cancer surgery within 30 days before diagnosis.json,synpuf
+11,SWT lung cancer with no prior cancer treatment,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT lung cancer with no prior cancer treatment.json,synpuf
+12,SWT lung surgery outcome,target,NA,NA,C:/Users/Jeff Telford/Documents/SurgeryWaitTime/cohortsToCreate/01_target/SWT lung surgery outcome.json,synpuf

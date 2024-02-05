@@ -1,0 +1,55 @@
+Thread: Main
+Message:  org.postgresql.util.PSQLException: This connection has been closed.
+Level:  FATAL
+Time:  2024-02-02 09:13:33
+
+Stack trace:
+14: (function (condition) 
+{
+    if (is(condition, "error")) {
+        log("FATAL", conditionMessage(condition)
+13: stop(list("org.postgresql.util.PSQLException: This connection has been closed.", rJava::.jcall(conn@jCon
+12: .jcheck(silent = FALSE)
+11: rJava::.jcall(conn@jConnection, "Ljava/sql/DatabaseMetaData;", "getMetaData")
+10: .local(conn, ...)
+9: DBI::dbListTables(conn = connection, databaseSchema = databaseSchema)
+8: DBI::dbListTables(conn = connection, databaseSchema = databaseSchema)
+7: getTableNames(connection, databaseSchema)
+6: DatabaseConnector::existsTable(connection = connection, databaseSchema = cdmDatabaseSchema, tableName = 
+5: getCdmDataSourceInformation(connection = connection, cdmDatabaseSchema = cdmDatabaseSchema)
+4: eval(expr)
+3: timeExecution(exportFolder, taskName = "getCdmDataSourceInformation", cohortIds = NULL, parent = "execut
+2: _buildCohorts.R#175: CohortDiagnostics::executeDiagnostics(cohortDefinitionSet = cohortsToRun, exportFol
+1: runCohortDiagnostics(executionSettings = executionSettings, con = con, cohortManifest = diagCohorts, out
+
+R version:
+R version 4.3.2 (2023-10-31 ucrt)
+
+Platform:
+x86_64-w64-mingw32
+
+Attached base packages:
+- stats
+- graphics
+- grDevices
+- utils
+- datasets
+- methods
+- base
+
+Other attached packages:
+- config (0.3.2)
+- DatabaseConnector (6.3.2)
+- lubridate (1.9.3)
+- forcats (1.0.0)
+- stringr (1.5.1)
+- dplyr (1.1.4)
+- purrr (1.0.2)
+- readr (2.1.4)
+- tidyr (1.3.0)
+- tibble (3.2.1)
+- ggplot2 (3.4.4)
+- tidyverse (2.0.0)
+- DBI (1.2.1)
+
+
