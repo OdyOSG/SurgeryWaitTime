@@ -47,6 +47,7 @@ outputFolder <- here::here("results") %>%
 cohortManifest <- getCohortManifest()
 
 
+
 # E. Script --------------------
 
 ### RUN ONCE - Initialize Cohort table ###
