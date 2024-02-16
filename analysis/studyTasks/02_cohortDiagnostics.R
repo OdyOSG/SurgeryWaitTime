@@ -39,6 +39,10 @@ con <- DatabaseConnector::connect(connectionDetails)
 executionSettings <- config::get(config = configBlock) %>%
   purrr::discard_at( c("dbms", "user", "password", "connectionString"))
 
+executionSettings$projectName = tolower(executionSettings$projectName)
+executionSettings$cohortTable = tolower(executionSettings$cohortTable)
+executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
+
 outputFolder <- here::here("results") %>%
   fs::path(executionSettings$databaseName, "02_cohortDiagnostics") %>%
   fs::dir_create()

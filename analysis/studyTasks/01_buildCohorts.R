@@ -9,6 +9,7 @@
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 library(config)
+library(dplyr)
 source("analysis/private/_buildCohorts.R")
 source("analysis/private/_utilities.R")
 
@@ -46,7 +47,9 @@ outputFolder <- here::here("results") %>%
 ## Load cohorts
 cohortManifest <- getCohortManifest()
 
-
+executionSettings$projectName = tolower(executionSettings$projectName)
+executionSettings$cohortTable = tolower(executionSettings$cohortTable)
+executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
 
 # E. Script --------------------
 
