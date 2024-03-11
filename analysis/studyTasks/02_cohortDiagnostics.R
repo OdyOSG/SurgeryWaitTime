@@ -9,7 +9,11 @@
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 library(config)
+# May only be needed once.
+# install.packages('https://github.com/OHDSI/CohortDiagnostics/archive/refs/tags/v3.2.5.tar.gz')
+
 source("analysis/private/_buildCohorts.R")
+source('analysis/private/_executeStudy.R')
 source("analysis/private/_utilities.R")
 
 
@@ -39,6 +43,7 @@ con <- DatabaseConnector::connect(connectionDetails)
 executionSettings <- config::get(config = configBlock) %>%
   purrr::discard_at( c("dbms", "user", "password", "connectionString"))
 
+# Needed to execute on Postgres, will be moved in final.
 executionSettings$projectName = tolower(executionSettings$projectName)
 executionSettings$cohortTable = tolower(executionSettings$cohortTable)
 executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)

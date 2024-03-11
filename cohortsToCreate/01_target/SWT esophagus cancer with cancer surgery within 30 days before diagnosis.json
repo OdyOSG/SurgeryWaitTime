@@ -2968,7 +2968,7 @@
                         },
                         "End": {
                           "Days": 0,
-                          "Coeff": 1
+                          "Coeff": -1
                         },
                         "UseEventEnd": false
                       },
@@ -2989,7 +2989,7 @@
                         },
                         "End": {
                           "Days": 0,
-                          "Coeff": 1
+                          "Coeff": -1
                         },
                         "UseEventEnd": false
                       },
@@ -3012,7 +3012,7 @@
               },
               "End": {
                 "Days": 0,
-                "Coeff": 1
+                "Coeff": -1
               },
               "UseEventEnd": false
             },

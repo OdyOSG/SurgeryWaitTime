@@ -745,8 +745,8 @@
                 "Coeff": -1
               },
               "End": {
-                "Days": 1,
-                "Coeff": 1
+                "Days": 0,
+                "Coeff": -1
               },
               "UseEventEnd": false
             },
@@ -854,7 +854,21 @@
       }
     }
   ],
-  "CensoringCriteria": [],
+  "CensoringCriteria": [
+    {
+      "DrugEra": {
+        "CodesetId": 16
+      }
+    },
+    {
+      "ProcedureOccurrence": {
+        "CodesetId": 14
+      }
+    },
+    {
+      "ProcedureOccurrence": {}
+    }
+  ],
   "CollapseSettings": {
     "CollapseType": "ERA",
     "EraPad": 0

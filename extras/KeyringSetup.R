@@ -8,10 +8,9 @@
 # B. Dependencies ------------
 
 library(tidyverse, quietly = TRUE)
-library(Ulysses)
 library(keyring)
-
-
+install.packages('https://github.com/OHDSI/Ulysses/archive/refs/tags/v0.0.2.tar.gz')
+library(Ulysses)
 # C. Set Parameters ------------
 
 configBlock <- "synpuf" # Name of config block
@@ -23,7 +22,7 @@ keyringPassword <- "odyosg"       # Password for keyring
 
 # D. Check or create Config File ------------
 
-## Check if config.yml file exists; create it if it doesn't; 
+## Check if config.yml file exists; create it if it doesn't;
 Ulysses::checkConfig()
 
 Ulysses::makeConfig(block = configBlock, database = database)

@@ -6,14 +6,19 @@
 # B. Dependencies ----------------------
 
 ## Load libraries and scripts
-library(tidyverse, quietly = TRUE)
-library(DatabaseConnector)
-library(config)
+
 library(dplyr)
-source("analysis/private/_buildCohorts.R")
-source("analysis/private/_utilities.R")
+source(paste0('analysis/private/_buildCohorts.R'))
+source(paste0('analysis/private/_executeStudy.R'))
+source(paste0('analysis/private/_utilities.R'))
 
-
+# May only be needed once.
+#install.packages('https://github.com/OHDSI/MethodEvaluation/archive/refs/tags/v2.3.0.tar.gz')
+#install.packages('https://github.com/OHDSI/CohortMethod/archive/refs/tags/v5.2.1.tar.gz')
+#install.packages('https://github.com/OHDSI/ROhdsiWebApi/archive/refs/tags/v1.3.3.tar.gz')
+#install.packages('https://github.com/OHDSI/CohortDiagnostics/archive/refs/tags/v2.1.3.tar.gz')
+#install.packages('https://github.com/OHDSI/CirceR/archive/refs/tags/v1.3.2.tar.gz')
+#install.packages('https://github.com/OHDSI/CohortGenerator/archive/refs/tags/v0.8.1.tar.gz')
 # C. Connection ----------------------
 
 ## Set connection block
@@ -47,6 +52,7 @@ outputFolder <- here::here("results") %>%
 ## Load cohorts
 cohortManifest <- getCohortManifest()
 
+# Needed to execute on Postgres, will be moved in final.
 executionSettings$projectName = tolower(executionSettings$projectName)
 executionSettings$cohortTable = tolower(executionSettings$cohortTable)
 executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
