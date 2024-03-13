@@ -8,9 +8,9 @@
           {
             "concept": {
               "CONCEPT_CLASS_ID": "CPT4",
-              "CONCEPT_CODE": "45110",
-              "CONCEPT_ID": 2109151,
-              "CONCEPT_NAME": "Proctectomy; complete, combined abdominoperineal, with colostomy",
+              "CONCEPT_CODE": "44160",
+              "CONCEPT_ID": 2109056,
+              "CONCEPT_NAME": "Colectomy, partial, with removal of terminal ileum with ileocolostomy",
               "DOMAIN_ID": "Procedure",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
@@ -23,16 +23,197 @@
           {
             "concept": {
               "CONCEPT_CLASS_ID": "CPT4",
-              "CONCEPT_CODE": "45388",
-              "CONCEPT_ID": 46257514,
-              "CONCEPT_NAME": "Colonoscopy, flexible; with ablation of tumor(s), polyp(s), or other lesion(s) (includes pre- and post-dilation and guide wire passage, when performed)",
+              "CONCEPT_CODE": "44147",
+              "CONCEPT_ID": 2109047,
+              "CONCEPT_NAME": "Colectomy, partial; abdominal and transanal approach",
               "DOMAIN_ID": "Procedure",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44140",
+              "CONCEPT_ID": 2109041,
+              "CONCEPT_NAME": "Colectomy, partial; with anastomosis",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44145",
+              "CONCEPT_ID": 2109045,
+              "CONCEPT_NAME": "Colectomy, partial; with coloproctostomy (low pelvic anastomosis)",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44146",
+              "CONCEPT_ID": 2109046,
+              "CONCEPT_NAME": "Colectomy, partial; with coloproctostomy (low pelvic anastomosis), with colostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44143",
+              "CONCEPT_ID": 2109043,
+              "CONCEPT_NAME": "Colectomy, partial; with end colostomy and closure of distal segment (Hartmann type procedure)",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44144",
+              "CONCEPT_ID": 2109044,
+              "CONCEPT_NAME": "Colectomy, partial; with resection, with colostomy or ileostomy and creation of mucofistula",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44141",
+              "CONCEPT_ID": 2109042,
+              "CONCEPT_NAME": "Colectomy, partial; with skin level cecostomy or colostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44156",
+              "CONCEPT_ID": 2109053,
+              "CONCEPT_NAME": "Colectomy, total, abdominal, with proctectomy; with continent ileostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44158",
+              "CONCEPT_ID": 2109055,
+              "CONCEPT_NAME": "Colectomy, total, abdominal, with proctectomy; with ileoanal anastomosis, creation of ileal reservoir (S or J), includes loop ileostomy, and rectal mucosectomy, when performed",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44157",
+              "CONCEPT_ID": 2109054,
+              "CONCEPT_NAME": "Colectomy, total, abdominal, with proctectomy; with ileoanal anastomosis, includes loop ileostomy, and rectal mucosectomy, when performed",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44155",
+              "CONCEPT_ID": 2109052,
+              "CONCEPT_NAME": "Colectomy, total, abdominal, with proctectomy; with ileostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44151",
+              "CONCEPT_ID": 2109049,
+              "CONCEPT_NAME": "Colectomy, total, abdominal, without proctectomy; with continent ileostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44150",
+              "CONCEPT_ID": 2109048,
+              "CONCEPT_NAME": "Colectomy, total, abdominal, without proctectomy; with ileostomy or ileoproctostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -115,6 +296,201 @@
               "CONCEPT_CODE": "45171",
               "CONCEPT_ID": 40756981,
               "CONCEPT_NAME": "Excision of rectal tumor, transanal approach; not including muscularis propria (ie, partial thickness)",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44213",
+              "CONCEPT_ID": 2109074,
+              "CONCEPT_NAME": "Laparoscopy, surgical, mobilization (take-down) of splenic flexure performed in conjunction with partial colectomy (List separately in addition to primary procedure)",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44204",
+              "CONCEPT_ID": 2109065,
+              "CONCEPT_NAME": "Laparoscopy, surgical; colectomy, partial, with anastomosis",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44207",
+              "CONCEPT_ID": 2109068,
+              "CONCEPT_NAME": "Laparoscopy, surgical; colectomy, partial, with anastomosis, with coloproctostomy (low pelvic anastomosis)",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44208",
+              "CONCEPT_ID": 2109069,
+              "CONCEPT_NAME": "Laparoscopy, surgical; colectomy, partial, with anastomosis, with coloproctostomy (low pelvic anastomosis) with colostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44206",
+              "CONCEPT_ID": 2109067,
+              "CONCEPT_NAME": "Laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment (Hartmann type procedure)",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44205",
+              "CONCEPT_ID": 2109066,
+              "CONCEPT_NAME": "Laparoscopy, surgical; colectomy, partial, with removal of terminal ileum with ileocolostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44211",
+              "CONCEPT_ID": 2109072,
+              "CONCEPT_NAME": "Laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileoanal anastomosis, creation of ileal reservoir (S or J), with loop ileostomy, includes rectal mucosectomy, when performed",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44212",
+              "CONCEPT_ID": 2109073,
+              "CONCEPT_NAME": "Laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44210",
+              "CONCEPT_ID": 2109071,
+              "CONCEPT_NAME": "Laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44187",
+              "CONCEPT_ID": 2109059,
+              "CONCEPT_NAME": "Laparoscopy, surgical; ileostomy or jejunostomy, non-tube",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "45397",
+              "CONCEPT_ID": 2109207,
+              "CONCEPT_NAME": "Laparoscopy, surgical; proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, J-pouch), with diverting enterostomy, when performed",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "45395",
+              "CONCEPT_ID": 2109206,
+              "CONCEPT_NAME": "Laparoscopy, surgical; proctectomy, complete, combined abdominoperineal, with colostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "44139",
+              "CONCEPT_ID": 2109040,
+              "CONCEPT_NAME": "Mobilization (take-down) of splenic flexure performed in conjunction with partial colectomy (List separately in addition to primary procedure)",
               "DOMAIN_ID": "Procedure",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
@@ -262,6 +638,21 @@
           {
             "concept": {
               "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "45110",
+              "CONCEPT_ID": 2109151,
+              "CONCEPT_NAME": "Proctectomy; complete, combined abdominoperineal, with colostomy",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
               "CONCEPT_CODE": "45111",
               "CONCEPT_ID": 2109152,
               "CONCEPT_NAME": "Proctectomy; partial resection of rectum, transabdominal approach",
@@ -391,6 +782,1716 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK0ZZ",
+              "CONCEPT_ID": 2747267,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Open Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK0ZX",
+              "CONCEPT_ID": 2747266,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Open Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK3ZZ",
+              "CONCEPT_ID": 2747269,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Percutaneous Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK3ZX",
+              "CONCEPT_ID": 2747268,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Percutaneous Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK4ZZ",
+              "CONCEPT_ID": 2747271,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Percutaneous Endoscopic Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK4ZX",
+              "CONCEPT_ID": 2747270,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Percutaneous Endoscopic Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK7ZZ",
+              "CONCEPT_ID": 2747273,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK8ZZ",
+              "CONCEPT_ID": 2747275,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK8ZX",
+              "CONCEPT_ID": 2747274,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Via Natural or Artificial Opening Endoscopic, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBK7ZX",
+              "CONCEPT_ID": 2747272,
+              "CONCEPT_NAME": "Excision of Ascending Colon, Via Natural or Artificial Opening, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM0ZZ",
+              "CONCEPT_ID": 2747287,
+              "CONCEPT_NAME": "Excision of Descending Colon, Open Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM0ZX",
+              "CONCEPT_ID": 2747286,
+              "CONCEPT_NAME": "Excision of Descending Colon, Open Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM3ZZ",
+              "CONCEPT_ID": 2747289,
+              "CONCEPT_NAME": "Excision of Descending Colon, Percutaneous Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM3ZX",
+              "CONCEPT_ID": 2747288,
+              "CONCEPT_NAME": "Excision of Descending Colon, Percutaneous Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM4ZZ",
+              "CONCEPT_ID": 2747291,
+              "CONCEPT_NAME": "Excision of Descending Colon, Percutaneous Endoscopic Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM4ZX",
+              "CONCEPT_ID": 2747290,
+              "CONCEPT_NAME": "Excision of Descending Colon, Percutaneous Endoscopic Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM7ZZ",
+              "CONCEPT_ID": 2747293,
+              "CONCEPT_NAME": "Excision of Descending Colon, Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM8ZZ",
+              "CONCEPT_ID": 2747295,
+              "CONCEPT_NAME": "Excision of Descending Colon, Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM8ZX",
+              "CONCEPT_ID": 2747294,
+              "CONCEPT_NAME": "Excision of Descending Colon, Via Natural or Artificial Opening Endoscopic, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBMFZZ",
+              "CONCEPT_ID": 43016394,
+              "CONCEPT_NAME": "Excision of Descending Colon, Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBM7ZX",
+              "CONCEPT_ID": 2747292,
+              "CONCEPT_NAME": "Excision of Descending Colon, Via Natural or Artificial Opening, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP0ZZ",
+              "CONCEPT_ID": 2747307,
+              "CONCEPT_NAME": "Excision of Rectum, Open Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP0ZX",
+              "CONCEPT_ID": 2747306,
+              "CONCEPT_NAME": "Excision of Rectum, Open Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP3ZZ",
+              "CONCEPT_ID": 2747309,
+              "CONCEPT_NAME": "Excision of Rectum, Percutaneous Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP3ZX",
+              "CONCEPT_ID": 2747308,
+              "CONCEPT_NAME": "Excision of Rectum, Percutaneous Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP4ZZ",
+              "CONCEPT_ID": 2747311,
+              "CONCEPT_NAME": "Excision of Rectum, Percutaneous Endoscopic Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP4ZX",
+              "CONCEPT_ID": 2747310,
+              "CONCEPT_NAME": "Excision of Rectum, Percutaneous Endoscopic Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP7ZZ",
+              "CONCEPT_ID": 2747313,
+              "CONCEPT_NAME": "Excision of Rectum, Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP8ZZ",
+              "CONCEPT_ID": 2747315,
+              "CONCEPT_NAME": "Excision of Rectum, Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP8ZX",
+              "CONCEPT_ID": 2747314,
+              "CONCEPT_NAME": "Excision of Rectum, Via Natural or Artificial Opening Endoscopic, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBP7ZX",
+              "CONCEPT_ID": 2747312,
+              "CONCEPT_NAME": "Excision of Rectum, Via Natural or Artificial Opening, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN0ZZ",
+              "CONCEPT_ID": 2747297,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Open Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN0ZX",
+              "CONCEPT_ID": 2747296,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Open Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN3ZZ",
+              "CONCEPT_ID": 2747299,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Percutaneous Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN3ZX",
+              "CONCEPT_ID": 2747298,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Percutaneous Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN4ZZ",
+              "CONCEPT_ID": 2747301,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Percutaneous Endoscopic Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN4ZX",
+              "CONCEPT_ID": 2747300,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Percutaneous Endoscopic Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN7ZZ",
+              "CONCEPT_ID": 2747303,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN8ZZ",
+              "CONCEPT_ID": 2747305,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN8ZX",
+              "CONCEPT_ID": 2747304,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Via Natural or Artificial Opening Endoscopic, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBNFZZ",
+              "CONCEPT_ID": 43016398,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBN7ZX",
+              "CONCEPT_ID": 2747302,
+              "CONCEPT_NAME": "Excision of Sigmoid Colon, Via Natural or Artificial Opening, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL0ZZ",
+              "CONCEPT_ID": 2747277,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Open Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL0ZX",
+              "CONCEPT_ID": 2747276,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Open Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL3ZZ",
+              "CONCEPT_ID": 2747279,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Percutaneous Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL3ZX",
+              "CONCEPT_ID": 2747278,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Percutaneous Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL4ZZ",
+              "CONCEPT_ID": 2747281,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Percutaneous Endoscopic Approach",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL4ZX",
+              "CONCEPT_ID": 2747280,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Percutaneous Endoscopic Approach, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL7ZZ",
+              "CONCEPT_ID": 2747283,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL8ZZ",
+              "CONCEPT_ID": 2747285,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL8ZX",
+              "CONCEPT_ID": 2747284,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Via Natural or Artificial Opening Endoscopic, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBLFZZ",
+              "CONCEPT_ID": 43016393,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS",
+              "CONCEPT_CODE": "0DBL7ZX",
+              "CONCEPT_ID": 2747282,
+              "CONCEPT_NAME": "Excision of Transverse Colon, Via Natural or Artificial Opening, Diagnostic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK",
+              "CONCEPT_ID": 2882502,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK0",
+              "CONCEPT_ID": 2887391,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Open",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK0Z",
+              "CONCEPT_ID": 2804808,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Open @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK3",
+              "CONCEPT_ID": 2861299,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Percutaneous",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK3Z",
+              "CONCEPT_ID": 2812722,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Percutaneous @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK4",
+              "CONCEPT_ID": 2842514,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Percutaneous Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK4Z",
+              "CONCEPT_ID": 2835456,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Percutaneous Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK7",
+              "CONCEPT_ID": 2825413,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK7Z",
+              "CONCEPT_ID": 2882503,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Via Natural or Artificial Opening @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK8",
+              "CONCEPT_ID": 2895472,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBK8Z",
+              "CONCEPT_ID": 2874201,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Ascending Colon @ Via Natural or Artificial Opening Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM",
+              "CONCEPT_ID": 2861300,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM0",
+              "CONCEPT_ID": 2797103,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Open",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM0Z",
+              "CONCEPT_ID": 2830570,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Open @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM3",
+              "CONCEPT_ID": 2825415,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Percutaneous",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM3Z",
+              "CONCEPT_ID": 2868983,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Percutaneous @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM4",
+              "CONCEPT_ID": 2835458,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Percutaneous Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM4Z",
+              "CONCEPT_ID": 2895473,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Percutaneous Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM7",
+              "CONCEPT_ID": 2825416,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM7Z",
+              "CONCEPT_ID": 2868984,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Via Natural or Artificial Opening @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM8",
+              "CONCEPT_ID": 2842516,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBM8Z",
+              "CONCEPT_ID": 2855529,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Via Natural or Artificial Opening Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBMF",
+              "CONCEPT_ID": 1532691,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBMFZ",
+              "CONCEPT_ID": 1533412,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Descending Colon @ Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP",
+              "CONCEPT_ID": 2825418,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP0",
+              "CONCEPT_ID": 2825419,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Open",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP0Z",
+              "CONCEPT_ID": 2830572,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Open @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP3",
+              "CONCEPT_ID": 2835460,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Percutaneous",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP3Z",
+              "CONCEPT_ID": 2842518,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Percutaneous @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP4",
+              "CONCEPT_ID": 2825420,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Percutaneous Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP4Z",
+              "CONCEPT_ID": 2868986,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Percutaneous Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP7",
+              "CONCEPT_ID": 2874203,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP7Z",
+              "CONCEPT_ID": 2810361,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Via Natural or Artificial Opening @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP8",
+              "CONCEPT_ID": 2830573,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBP8Z",
+              "CONCEPT_ID": 2804811,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Rectum @ Via Natural or Artificial Opening Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN",
+              "CONCEPT_ID": 2842517,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN0",
+              "CONCEPT_ID": 2817561,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Open",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN0Z",
+              "CONCEPT_ID": 2797104,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Open @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN3",
+              "CONCEPT_ID": 2835459,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Percutaneous",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN3Z",
+              "CONCEPT_ID": 2895474,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Percutaneous @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN4",
+              "CONCEPT_ID": 2868985,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Percutaneous Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN4Z",
+              "CONCEPT_ID": 2804810,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Percutaneous Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN7",
+              "CONCEPT_ID": 2825417,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN7Z",
+              "CONCEPT_ID": 2830571,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Via Natural or Artificial Opening @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN8",
+              "CONCEPT_ID": 2895475,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBN8Z",
+              "CONCEPT_ID": 2812724,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Via Natural or Artificial Opening Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBNF",
+              "CONCEPT_ID": 1533447,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBNFZ",
+              "CONCEPT_ID": 1534432,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Sigmoid Colon @ Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL",
+              "CONCEPT_ID": 2804809,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL0",
+              "CONCEPT_ID": 2825414,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Open",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL0Z",
+              "CONCEPT_ID": 2847938,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Open @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL3",
+              "CONCEPT_ID": 2797102,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Percutaneous",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL3Z",
+              "CONCEPT_ID": 2855528,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Percutaneous @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL4",
+              "CONCEPT_ID": 2874202,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Percutaneous Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL4Z",
+              "CONCEPT_ID": 2812723,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Percutaneous Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL7",
+              "CONCEPT_ID": 2842515,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Via Natural or Artificial Opening",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL7Z",
+              "CONCEPT_ID": 2882504,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Via Natural or Artificial Opening @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL8",
+              "CONCEPT_ID": 2835457,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Via Natural or Artificial Opening Endoscopic",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBL8Z",
+              "CONCEPT_ID": 2868982,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Via Natural or Artificial Opening Endoscopic @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBLF",
+              "CONCEPT_ID": 1534132,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "ICD10PCS Hierarchy",
+              "CONCEPT_CODE": "0DBLFZ",
+              "CONCEPT_ID": 1533258,
+              "CONCEPT_NAME": "Medical and Surgical @ Gastrointestinal System @ Excision @ Transverse Colon @ Via Natural or Artificial Opening With Percutaneous Endoscopic Assistance @ No Device",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "ICD10PCS"
             },
             "includeDescendants": true
           }
