@@ -23,7 +23,7 @@ source(paste0('analysis/private/_utilities.R'))
 
 ## Set connection block
 # <<<
-configBlock <- "synpuf"
+configBlock <- "[block]"
 # >>>
 
 ## Provide connection details

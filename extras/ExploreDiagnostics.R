@@ -17,7 +17,7 @@ library(fs)
 
 # C. Script --------------------
 
-databaseName <- "[database]" # the databaseName to use for results sharing
+databaseName <- "[block]" # The name of the database to use
 
 ## Path to cohort diagnostics results
 dataFolder <- fs::path_abs("results") %>%
@@ -25,14 +25,13 @@ dataFolder <- fs::path_abs("results") %>%
 
 
 ## Add a scratch folder
-scratchDiagnosticsFolder <- fs::path_abs("scratchDiagnostics") %>%   # From CohortDiagnostics vignette: Folder must be named "data"
+scratchDiagnosticsFolder <- fs::path_abs("scratchDiagnostics") %>%  
   fs::dir_create()
-usethis::use_git_ignore("scratchDiagnostics")
 
 ## Path to sqlite db
-sqlLiteDbPath <- fs::path(scratchDiagnosticsFolder, glue::glue("ehden_cd_{databaseName}"), ext = "sqlite")
+sqlLiteDbPath <- fs::path(scratchDiagnosticsFolder, glue::glue("SWT_cd_{databaseName}"), ext = "sqlite")
 
-# create merged Results file
+# create merged results file
 CohortDiagnostics::createMergedResultsFile(dataFolder = dataFolder,
                                            sqliteDbPath = sqlLiteDbPath)
 
