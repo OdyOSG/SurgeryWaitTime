@@ -10,16 +10,17 @@
 library(tidyverse, quietly = TRUE)
 library(keyring)
 library(Ulysses)
+
 # C. Set Parameters ------------
 
-configBlock <- "synpuf" # Name of config block
+configBlock <- ""        # Name of config block
 
-database <- "synpuf" # Name of the database in the config block
+database <- ""           # Name of the database in the config block
 
-keyringPassword <- "odyosg"       # Password for keyring
+keyringPassword <- ""    # Password for keyring
 
 
-# D. Check or create Config File ------------
+# D. Check or create config.yml file ------------
 
 ## Check if config.yml file exists; create it if it doesn't;
 Ulysses::checkConfig()
@@ -33,7 +34,7 @@ Ulysses::makeConfig(block = configBlock, database = database)
 setStudyKeyring(keyringName = basename(here::here()),
                 keyringPassword = keyringPassword)
 
-## Set credential keys in keyring
+## Set credentials in keyring
 setMultipleCredentials(cred = defaultCredentials(),
                        db = configBlock,
                        keyringName = basename(here::here()),
@@ -41,7 +42,7 @@ setMultipleCredentials(cred = defaultCredentials(),
                        forceCheck = TRUE
 )
 
-## If a single credential is incorrect, change it
+## If a single credential is incorrect, change it by running the function below:
 # setCredential(cred = "dbms",
 #                       db = configBlock,
 #                       keyringName = basename(here::here()),
@@ -59,5 +60,5 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
   connectionString = config::get("connectionString", config = configBlock)
 )
 
-connectionDetails$dbms
-
+# If this command returns the username set while running command 'setMultipleCredentials' above then the credentials have been stored in the keyring successfully
+connectionDetails$user()

@@ -10,7 +10,7 @@ Download and run the package by following the instructions below:
 2)  Click on the green `Code` button revealing a dropdown menu
 3)  Click on `Download Zip`
 4)  Unzip the file on your computer
-5)  Open the unzipped folder and open file `studyPackage.Rproj` with RStudio
+5)  Open the unzipped folder and open file `SurgeryWaitTime.Rproj` with RStudio
 
 ### Setup R Environment
 
@@ -78,8 +78,6 @@ remotes::install_github("ohdsi/Ulysses", ref = "develop")
 remotes::install_github("ohdsi/CohortGenerator", ref = "v0.7.0")
 ```
 
-If there are any additional issues with `renv`, please file an [issue](https://github.com/OdyOSG/bayerTreads/issues) in Github.
-
 ### Load Execution Credentials
 
 The package uses `keyring` and `config` to mask and query the credentials needed for execution.
@@ -101,7 +99,7 @@ It is recommended that you store these credentials in a text file to make it eas
 #### Loading Credentials
 
 1)  Open file `extras/KeyringSetup.R`
-2)  On L17:19 place a name for your config block and database. The `configBlock` variable name can be an abbreviation for the database. For example:
+2)  On L16:18 place a name for your config block and database. The `configBlock` variable name can be an abbreviation for the database. For example:
 
 ``` r
 configBlock <- "synpuf"
@@ -124,14 +122,14 @@ connectionString: <your_connectionString>
 cdmDatabaseSchema:  <your_cdmDatabaseSchema>
 vocabDatabaseSchema:  <your_vocabDatabaseSchema>
 workDatabaseSchema: <your_workDatabaseSchema>
-cohortTable: bayerTreads_<databaseName> 
+cohortTable: swt_<databaseName> 
 ```
 
 ## Run Study
 
 ### Execution Script
 
-Running all the analytical tasks can be done using the `executeStudy.R` file. Replace L15 with the `configBlock` (database) of choice and run the rest of the script.
+Running all the analytical tasks can be done using the `executeStudy.R` file. Replace L16 with the `configBlock` (database) of choice and run the rest of the script.
 
 ### Study Tasks
 
@@ -142,3 +140,6 @@ The study contains two tasks:
 
 Each task will output files in a folder named `results`. Note that the first task (`buildCohorts`) is required to run any additional task.
 
+## Review Cohort Diagnostics results
+
+Once the package execution is complete, open file `extras/ExploreDiagnostics.R` and run it, following the instructions, in order to launch the Cohort Diagnostics shiny app.
