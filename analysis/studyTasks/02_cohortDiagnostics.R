@@ -1,20 +1,22 @@
 # A. File Info -----------------------
 
 # Task: Cohort Diagnostics
-
+# Please refer to HowToRun.md in the documentation for instructions on
+# running package
 
 # B. Dependencies ----------------------
+# Dependencies are handled by renv package.
 
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 library(config)
 # May only be needed once.
-# install.packages('https://github.com/OHDSI/CohortDiagnostics/archive/refs/tags/v3.2.5.tar.gz')
 
-source("analysis/private/_buildCohorts.R")
-source('analysis/private/_executeStudy.R')
-source("analysis/private/_utilities.R")
+
+source(here::here('analysis/private/_buildCohorts.R'))
+source(here::here('analysis/private/_executeStudy.R'))
+source(here::here('analysis/private/_utilities.R'))
 
 
 # C. Connection ----------------------
@@ -26,11 +28,10 @@ configBlock <- "[block]"
 
 ## Provide connection details
 connectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = "postgresql",
-  user = "ohdsi",
-  password = "ohdsi",
-  server = "testnode.arachnenetwork.com/synpuf_110k",
-  port = 5441
+  dbms = config::get("dbms", config = configBlock),
+  user = config::get("user", config = configBlock),
+  password = config::get("password", config = configBlock),
+  connectionString = config::get("connectionString", config = configBlock)
 )
 
 ## Connect to database

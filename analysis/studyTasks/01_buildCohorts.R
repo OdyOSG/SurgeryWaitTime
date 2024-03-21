@@ -1,24 +1,20 @@
 # A. File Info  -----------------------
 
 # Task: Build Cohorts
-
+# Please refer to HowToRun.md in the documentation for instructions on
+# running package
 
 # B. Dependencies ----------------------
+# Dependencies are handled by renv package.
 
 ## Load libraries and scripts
 
 library(dplyr)
-source(paste0('analysis/private/_buildCohorts.R'))
-source(paste0('analysis/private/_executeStudy.R'))
-source(paste0('analysis/private/_utilities.R'))
+source(here::here('analysis/private/_buildCohorts.R'))
+source(here::here('analysis/private/_executeStudy.R'))
+source(here::here('analysis/private/_utilities.R'))
 
-# May only be needed once.
-#install.packages('https://github.com/OHDSI/MethodEvaluation/archive/refs/tags/v2.3.0.tar.gz')
-#install.packages('https://github.com/OHDSI/CohortMethod/archive/refs/tags/v5.2.1.tar.gz')
-#install.packages('https://github.com/OHDSI/ROhdsiWebApi/archive/refs/tags/v1.3.3.tar.gz')
-#install.packages('https://github.com/OHDSI/CohortDiagnostics/archive/refs/tags/v2.1.3.tar.gz')
-#install.packages('https://github.com/OHDSI/CirceR/archive/refs/tags/v1.3.2.tar.gz')
-#install.packages('https://github.com/OHDSI/CohortGenerator/archive/refs/tags/v0.8.1.tar.gz')
+
 # C. Connection ----------------------
 
 ## Set connection block
@@ -28,11 +24,10 @@ configBlock <- "[block]"
 
 ## Provide connection details
 connectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = "postgresql",
-  user = "ohdsi",
-  password = "xxxx",
-  server = "testnode.arachnenetwork.com/synpuf_110k",
-  port = 5441
+  dbms = config::get("dbms", config = configBlock),
+  user = config::get("user", config = configBlock),
+  password = config::get("password", config = configBlock),
+  connectionString = config::get("connectionString", config = configBlock)
 )
 
 ## Connect to database

@@ -9,7 +9,6 @@
 
 library(tidyverse, quietly = TRUE)
 library(keyring)
-install.packages('https://github.com/OHDSI/Ulysses/archive/refs/tags/v0.0.2.tar.gz')
 library(Ulysses)
 # C. Set Parameters ------------
 
@@ -54,11 +53,10 @@ setMultipleCredentials(cred = defaultCredentials(),
 # F. Check Credentials ------------
 
 connectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = "postgresql",
-  user = "ohdsi",
-  password = "ohdsi",
-  server = "testnode.arachnenetwork.com/synpuf_110k",
-  port = 5441
+  dbms = config::get("dbms", config = configBlock),
+  user = config::get("user", config = configBlock),
+  password = config::get("password", config = configBlock),
+  connectionString = config::get("connectionString", config = configBlock)
 )
 
 connectionDetails$dbms

@@ -1,0 +1,4 @@
+^renv$
+^renv\.lock$
+^SurgeryWaitTime\.Rproj$
+^\.Rproj\.user$
