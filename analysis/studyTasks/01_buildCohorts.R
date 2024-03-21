@@ -30,7 +30,7 @@ configBlock <- "synpuf"
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = "postgresql",
   user = "ohdsi",
-  password = "ohdsi",
+  password = "xxxx",
   server = "testnode.arachnenetwork.com/synpuf_110k",
   port = 5441
 )
