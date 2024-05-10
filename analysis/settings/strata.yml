@@ -1,0 +1,46 @@
+strata:
+  cohorts:
+    targetCohorts:
+    - name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+      id: 1
+    - name: SWT breast cancer with no prior cancer treatment
+      id: 2
+    - name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+      id: 3
+    - name: SWT colorectal cancer with no prior cancer treatment
+      id: 4
+    - name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+      id: 5
+    - name: SWT esophagus cancer with no prior cancer treatment
+      id: 6
+    - name: SWT lung cancer with cancer surgery within 30 days before diagnosis
+      id: 7
+    - name: SWT lung cancer with no prior cancer treatment
+      id: 8
+    strataCohorts:
+    - name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+      id: 1
+    - name: SWT breast cancer with no prior cancer treatment
+      id: 2
+    - name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+      id: 3
+    - name: SWT colorectal cancer with no prior cancer treatment
+      id: 4
+    - name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+      id: 5
+    - name: SWT esophagus cancer with no prior cancer treatment
+      id: 6
+    - name: SWT lung cancer with cancer surgery within 30 days before diagnosis
+      id: 7
+    - name: SWT lung cancer with no prior cancer treatment
+      id: 8
+  demographics:
+  - strataId: 1
+    strataName: below_65
+  - strataId: 2
+    strataName: 65_and_above
+  - strataId: 3
+    strataName: male
+  - strataId: 4
+    strataName: female
+  outputFolder: 03_buildStrata

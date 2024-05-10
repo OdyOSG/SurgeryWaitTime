@@ -32,7 +32,7 @@ getCohortManifest <- function(inputPath = here::here("cohortsToCreate")) {
     dplyr::mutate(
       id = dplyr::row_number(), .before = 1
     )
-  
+
   return(tb)
 }
 
@@ -144,4 +144,30 @@ zipResults <- function(database) {
                   crayon::cyan(here::here(paste0(zipName, ".zip"))),
                   bullet = "info", bullet_col = "blue")
 
+}
+# Create data frame to run in purrr::map functions (three inputs)
+createGrid <- function(cohortKey, timeA, timeB) {
+
+  combos <- tidyr::expand_grid(cohortKey, timeA)
+
+  repNo <- (nrow(cohortKey) * length(timeA))/length(timeB)
+
+  combosAll <- combos %>%
+    dplyr::mutate(timeB = rep(timeB, repNo))
+
+  return(combosAll)
+}
+
+
+# Create data frame to run in purrr::map functions (four inputs)
+createGrid2 <- function(cohortKey, covariateKey, timeA, timeB) {
+
+  combos <- tidyr::expand_grid(cohortKey, covariateKey, timeA)
+
+  repNo <- nrow(cohortKey) * nrow(covariateKey)
+
+  combosAll <- combos %>%
+    dplyr::mutate(timeB = rep(timeB, repNo))
+
+  return(combosAll)
 }

@@ -32,7 +32,8 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -284,6 +285,21 @@
               "VOCABULARY_ID": "SNOMED"
             },
             "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "74627003",
+              "CONCEPT_ID": 442793,
+              "CONCEPT_NAME": "Complication due to diabetes mellitus",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
           }
         ]
       }
@@ -515,7 +531,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -529,7 +546,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -543,7 +561,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -557,7 +576,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -571,7 +591,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {

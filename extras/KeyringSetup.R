@@ -13,9 +13,15 @@ library(Ulysses)
 
 # C. Set Parameters ------------
 
+<<<<<<< HEAD
+configBlock <- "configblock" # Name of config block
+
+database <- "db" # Name of the database in the config block
+=======
 configBlock <- ""        # Name of config block
 
 database <- ""           # Name of the database in the config block
+>>>>>>> 2d3a3b9815edfc0d39597b98605e7ff954ee26f6
 
 keyringPassword <- ""    # Password for keyring
 

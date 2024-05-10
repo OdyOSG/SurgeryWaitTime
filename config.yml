@@ -1,10 +1,14 @@
 # Config File for SurgeryWaitTime
 
- default:
-   projectName: SurgeryWaitTime
+default:
+  projectName: SurgeryWaitTime
+  databaseName: synpuf
+  cohortTable: SurgeryWaitTime_synpuf
+
+
 # Config block for synpuf
 
- synpuf:
+synpuf:
   databaseName: synpuf
   cohortTable: SurgeryWaitTime_synpuf
   dbms: !expr keyring::key_get('synpuf_dbms', keyring = 'SurgeryWaitTime')

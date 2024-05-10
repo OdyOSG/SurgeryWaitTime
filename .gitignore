@@ -3,4 +3,8 @@
 .RData
 .Ruserdata
 scratchDiagnostics/
+<<<<<<< HEAD
+config.yml
+=======
 errorReportSql.txt
+>>>>>>> 2d3a3b9815edfc0d39597b98605e7ff954ee26f6

@@ -70,7 +70,7 @@ prepManifestForCohortGenerator <- function(cohortManifest) {
     cohortsToCreate$json,
     ~CirceR::buildCohortQuery(CirceR::cohortExpressionFromJson(.x),
                               CirceR::createGenerateOptions(generateStats = TRUE)))
-							  
+
   return(cohortsToCreate)
 }
 
@@ -182,6 +182,8 @@ runCohortDiagnostics <- function(con,
     databaseId = executionSettings$databaseName,
     connection = con,
     incremental = TRUE,
+    runOrphanConcepts = FALSE,
+    runBreakdownIndexEvents = TRUE,
     minCellCount = 5
   )
 

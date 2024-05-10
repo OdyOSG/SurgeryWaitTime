@@ -17,8 +17,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "SNOMED"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -32,8 +31,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "SNOMED"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -47,8 +45,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "SNOMED"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -62,8 +59,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "SNOMED"
-            },
-            "includeDescendants": true
+            }
           }
         ]
       }
@@ -85,8 +81,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -114,8 +109,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -129,8 +123,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -144,8 +137,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -159,8 +151,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -174,8 +165,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -189,8 +179,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -204,8 +193,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -219,8 +207,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           }
         ]
       }
@@ -242,8 +229,7 @@
               "STANDARD_CONCEPT": "C",
               "STANDARD_CONCEPT_CAPTION": "Classification",
               "VOCABULARY_ID": "ATC"
-            },
-            "includeDescendants": true
+            }
           }
         ]
       }
@@ -265,8 +251,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "SNOMED"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -281,8 +266,7 @@
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "SNOMED"
             },
-            "isExcluded": true,
-            "includeDescendants": true
+            "isExcluded": true
           },
           {
             "concept": {
@@ -297,8 +281,7 @@
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "SNOMED"
             },
-            "isExcluded": true,
-            "includeDescendants": true
+            "isExcluded": true
           }
         ]
       }
@@ -800,8 +783,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -815,8 +797,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -830,8 +811,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -845,8 +825,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -860,8 +839,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -875,8 +853,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -890,8 +867,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -905,8 +881,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -920,8 +895,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -935,8 +909,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -950,8 +923,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -965,8 +937,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -980,8 +951,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -995,8 +965,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -1010,8 +979,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -1025,8 +993,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -1040,8 +1007,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -1055,8 +1021,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -1070,8 +1035,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -1085,8 +1049,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2735,8 +2698,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "ICD10PCS"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2750,8 +2712,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "ICD10PCS"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2765,8 +2726,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "ICD10PCS"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2780,8 +2740,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "ICD10PCS"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2795,8 +2754,7 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "ICD10PCS"
-            },
-            "includeDescendants": true
+            }
           }
         ]
       }

@@ -1,0 +1,102 @@
+postIndexUtilization:
+  cohorts:
+    targetCohorts:
+    - targetId: 1001.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        below_65
+    - targetId: 1002.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        65_and_above
+    - targetId: 1003.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        male
+    - targetId: 1004.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        female
+    - targetId: 2001.0
+      name: SWT breast cancer with no prior cancer treatment below_65
+    - targetId: 2002.0
+      name: SWT breast cancer with no prior cancer treatment 65_and_above
+    - targetId: 2003.0
+      name: SWT breast cancer with no prior cancer treatment male
+    - targetId: 2004.0
+      name: SWT breast cancer with no prior cancer treatment female
+    - targetId: 3001.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        below_65
+    - targetId: 3002.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        65_and_above
+    - targetId: 3003.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        male
+    - targetId: 3004.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        female
+    - targetId: 4001.0
+      name: SWT colorectal cancer with no prior cancer treatment below_65
+    - targetId: 4002.0
+      name: SWT colorectal cancer with no prior cancer treatment 65_and_above
+    - targetId: 4003.0
+      name: SWT colorectal cancer with no prior cancer treatment male
+    - targetId: 4004.0
+      name: SWT colorectal cancer with no prior cancer treatment female
+    - targetId: 5001.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        below_65
+    - targetId: 5002.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        65_and_above
+    - targetId: 5003.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        male
+    - targetId: 5004.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        female
+    - targetId: 6001.0
+      name: SWT esophagus cancer with no prior cancer treatment below_65
+    - targetId: 6002.0
+      name: SWT esophagus cancer with no prior cancer treatment 65_and_above
+    - targetId: 6003.0
+      name: SWT esophagus cancer with no prior cancer treatment male
+    - targetId: 6004.0
+      name: SWT esophagus cancer with no prior cancer treatment female
+    - targetId: 7001.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis below_65
+    - targetId: 7002.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 65_and_above
+    - targetId: 7003.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis male
+    - targetId: 7004.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis female
+    - targetId: 8001.0
+      name: SWT lung cancer with no prior cancer treatment below_65
+    - targetId: 8002.0
+      name: SWT lung cancer with no prior cancer treatment 65_and_above
+    - targetId: 8003.0
+      name: SWT lung cancer with no prior cancer treatment male
+    - targetId: 8004.0
+      name: SWT lung cancer with no prior cancer treatment female
+    - targetId: 1.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+    - targetId: 2.0
+      name: SWT breast cancer with no prior cancer treatment
+    - targetId: 3.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+    - targetId: 4.0
+      name: SWT colorectal cancer with no prior cancer treatment
+    - targetId: 5.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+    - targetId: 6.0
+      name: SWT esophagus cancer with no prior cancer treatment
+    - targetId: 7.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis
+    - targetId: 8.0
+      name: SWT lung cancer with no prior cancer treatment
+    covariateCohorts: []
+  timeWindows:
+  - startDay: 0.0
+    endDay: 99999.0
+  - startDay: 0.0
+    endDay: 183.0
+  outputFolder: 05_postIndexUtilization
