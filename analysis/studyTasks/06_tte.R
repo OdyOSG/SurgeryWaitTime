@@ -57,15 +57,11 @@ analysisSettings <- readSettingsFile(here::here("analysis/settings/tte.yml"))
 
 # Run treatment history
 
-#debug(runTreatmentHistory)
-
 runTreatmentHistory(con = con,
                     executionSettings = executionSettings,
                     analysisSettings = analysisSettings)
 
 # Get time to discontinuation
-
-debug(executeTimeToEvent)
 
 executeTimeToEvent(con = con,
                    executionSettings = executionSettings,
