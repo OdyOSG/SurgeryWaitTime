@@ -1,0 +1,7 @@
+cohortId,task,checksum,timeStamp
+1,runInclusionStatistics,9249cac86f6ffe52584362503eb6dfa1,2024-05-08 17:17:49
+2,runInclusionStatistics,a04cd680a78fe6b3ab88b68d667d5bf2,2024-05-08 17:17:49
+1,runIncludedSourceConcepts,9249cac86f6ffe52584362503eb6dfa1,2024-05-08 18:09:44
+2,runIncludedSourceConcepts,a04cd680a78fe6b3ab88b68d667d5bf2,2024-05-08 18:09:44
+1,runBreakdownIndexEvents,9249cac86f6ffe52584362503eb6dfa1,2024-05-08 18:12:24
+2,runBreakdownIndexEvents,a04cd680a78fe6b3ab88b68d667d5bf2,2024-05-08 18:12:24

@@ -7,11 +7,13 @@
 
 getCohortManifest <- function(inputPath = here::here("cohortsToCreate")) {
 
-  #get cohort file paths
+  # get cohort file paths
   cohortFiles <- fs::dir_ls(inputPath, recurse = TRUE, type = "file", glob = "*.json")
-  #get cohort names
+
+  # get cohort names
   cohortNames <- fs::path_file(cohortFiles) %>%
     fs::path_ext_remove()
+
   #get cohort type
   cohortType <- fs::path_dir(cohortFiles) %>%
     basename() %>%
@@ -32,7 +34,7 @@ getCohortManifest <- function(inputPath = here::here("cohortsToCreate")) {
     dplyr::mutate(
       id = dplyr::row_number(), .before = 1
     )
-  
+
   return(tb)
 }
 
@@ -57,6 +59,7 @@ startSnowflakeSession <- function(con, executionSettings) {
     SqlRender::translate(targetDialect = con@dbms)
 
   DatabaseConnector::executeSql(connection = con, sql = sessionSql)
+
   cli::cat_line("Setting up Snowflake session")
 
   invisible(sessionSql)
@@ -72,7 +75,7 @@ readSettingsFile <- function(settingsFile) {
     tt[[1]][[1]][[i]] <- listToTibble(tt[[1]][[1]][[i]])
   }
 
-  #convert unnamed lists into dataframes
+  # convert unnamed lists into dataframes
   ss <- seq_along(tt[[1]])
   for (j in ss[-1]) {
     check <- is.list(tt[[1]][[j]]) && is.null(names(tt[[1]][[j]]))
@@ -88,8 +91,10 @@ readSettingsFile <- function(settingsFile) {
 
 
 listToTibble <- function(ll) {
+
   df <- do.call(rbind.data.frame, ll) |>
     tibble::as_tibble()
+
   return(df)
 }
 
@@ -97,12 +102,15 @@ listToTibble <- function(ll) {
 verboseSave <- function(object, saveName, saveLocation) {
 
   savePath <- fs::path(saveLocation, saveName, ext = "csv")
+
   readr::write_csv(object, file = savePath)
+
   cli::cat_line()
   cli::cat_bullet("Saved file ", crayon::green(basename(savePath)), " to:",
                   bullet = "info", bullet_col = "blue")
   cli::cat_bullet(crayon::cyan(saveLocation), bullet = "pointer", bullet_col = "yellow")
   cli::cat_line()
+
   invisible(savePath)
 }
 
@@ -110,7 +118,6 @@ verboseSave <- function(object, saveName, saveLocation) {
 bindFiles <- function(inputPath,
                       database,
                       pattern = NULL)  {
-
 
   # List all csv files in folder
   filepath <- list.files(inputPath, full.names = TRUE, pattern = pattern, recursive = TRUE)
@@ -145,3 +152,36 @@ zipResults <- function(database) {
                   bullet = "info", bullet_col = "blue")
 
 }
+
+
+# Create data frame to run in purrr::map functions (three inputs)
+createGrid <- function(cohortKey, timeA, timeB) {
+
+
+  combos <- tidyr::expand_grid(cohortKey, timeA)
+
+  repNo <- (nrow(cohortKey) * length(timeA))/length(timeB)
+
+  combosAll <- combos %>%
+    dplyr::mutate(timeB = rep(timeB, repNo))
+
+  return(combosAll)
+}
+
+
+# Create data frame to run in purrr::map functions (four inputs)
+createGrid2 <- function(cohortKey, covariateKey, timeA, timeB) {
+
+  names(cohortKey) <- c("cohort_name", "cohort_id")
+  names(covariateKey) <- c("covariate_name", "covariate_id")
+
+  combos <- tidyr::expand_grid(cohortKey, covariateKey, timeA)
+
+  repNo <- nrow(cohortKey) * nrow(covariateKey)
+
+  combosAll <- combos %>%
+    dplyr::mutate(timeB = rep(timeB, repNo))
+
+  return(combosAll)
+}
+

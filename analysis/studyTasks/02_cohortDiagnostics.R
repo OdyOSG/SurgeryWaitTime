@@ -23,15 +23,23 @@ source(here::here('analysis/private/_utilities.R'))
 
 ## Set connection Block
 # <<<
-configBlock <- "[block]"
+configBlock <- "synpuf"
 # >>>
 
-## Provide connection details
+# ## Provide connection details
+# connectionDetails <- DatabaseConnector::createConnectionDetails(
+#   dbms = config::get("dbms", config = configBlock),
+#   user = config::get("user", config = configBlock),
+#   password = config::get("password", config = configBlock),
+#   connectionString = config::get("connectionString", config = configBlock)
+# )
+
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = config::get("dbms", config = configBlock),
   user = config::get("user", config = configBlock),
   password = config::get("password", config = configBlock),
-  connectionString = config::get("connectionString", config = configBlock)
+  server = config::get("server", config = configBlock),
+  port = "5441"
 )
 
 ## Connect to database
@@ -44,10 +52,10 @@ con <- DatabaseConnector::connect(connectionDetails)
 executionSettings <- config::get(config = configBlock) %>%
   purrr::discard_at( c("dbms", "user", "password", "connectionString"))
 
-# Needed to execute on Postgres, will be moved in final.
-executionSettings$projectName = tolower(executionSettings$projectName)
-executionSettings$cohortTable = tolower(executionSettings$cohortTable)
-executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
+# # Needed to execute on Postgres, will be moved in final.
+# executionSettings$projectName = tolower(executionSettings$projectName)
+# executionSettings$cohortTable = tolower(executionSettings$cohortTable)
+# executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
 
 outputFolder <- here::here("results") %>%
   fs::path(executionSettings$databaseName, "02_cohortDiagnostics") %>%

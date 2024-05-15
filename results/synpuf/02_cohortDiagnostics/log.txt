@@ -1,0 +1,91 @@
+2024-05-08 17:17:16	[Main thread]	INFO	CohortDiagnostics	createIfNotExist	Created folder at C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics\incremental
+2024-05-08 17:17:17	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: cohort
+2024-05-08 17:17:17	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 17:17:18	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table cohort the following fields: cohortId, cohortName, json, sql
+2024-05-08 17:17:18	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	creating C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/cohort.csv
+2024-05-08 17:17:21	[Main thread]	DEBUG	CohortDiagnostics	executeDiagnostics	Working in incremental mode.
+2024-05-08 17:17:21	[Main thread]	TRACE	CohortDiagnostics	executeDiagnostics	 - Collecting date range from Observational period table.
+2024-05-08 17:17:24	[Main thread]	INFO	CohortDiagnostics	saveDatabaseMetaData	Saving database metadata
+2024-05-08 17:17:24	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: database
+2024-05-08 17:17:24	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 17:17:24	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table database the following fields: databaseId, databaseName, description, vocabularyVersionCdm, vocabularyVersion, isMetaAnalysis
+2024-05-08 17:17:24	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	creating C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/database.csv
+2024-05-08 17:17:27	[Main thread]	TRACE	CohortDiagnostics	createConceptTable	Creating concept ID table for tracking concepts used in diagnostics
+2024-05-08 17:17:29	[Main thread]	INFO	CohortDiagnostics	computeCohortCounts	Counting cohort records and subjects
+2024-05-08 17:17:30	[Main thread]	INFO	CohortDiagnostics	getCohortCounts	Counting cohorts took 1.07 secs
+2024-05-08 17:17:30	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: cohort_count
+2024-05-08 17:17:30	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 17:17:30	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table cohort_count the following fields: cohortId, cohortEntries, cohortSubjects, databaseId
+2024-05-08 17:17:30	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from cohortEntries because value below minimum
+2024-05-08 17:17:30	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from cohortSubjects because value below minimum
+2024-05-08 17:17:30	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	creating C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/cohort_count.csv
+2024-05-08 17:17:31	[Main thread]	INFO	CohortDiagnostics	executeDiagnostics	Found 2 of 2 (100.00%) submitted cohorts instantiated. Beginning cohort diagnostics for instantiated cohorts. 
+2024-05-08 17:17:31	[Main thread]	INFO	CohortDiagnostics	getInclusionStats	Fetching inclusion statistics from files
+2024-05-08 17:17:31	[Main thread]	INFO	CohortDiagnostics	getInclusionStats	Exporting inclusion rules with CohortGenerator
+2024-05-08 17:17:34	[Main thread]	INFO	CohortGenerator	insertInclusionRuleNames	Inserting inclusion rule names
+2024-05-08 17:17:35	[Main thread]	INFO	DatabaseConnector	insertTable.default	Inserting data took 0.852 secs
+2024-05-08 17:17:35	[Main thread]	INFO	CohortGenerator	getStatsTable	- Fetching data from SurgeryWaitTime_synpuf_inclusion
+2024-05-08 17:17:36	[Main thread]	INFO	CohortGenerator	getStatsTable	- Fetching data from SurgeryWaitTime_synpuf_inclusion_result
+2024-05-08 17:17:37	[Main thread]	INFO	CohortGenerator	getStatsTable	- Fetching data from SurgeryWaitTime_synpuf_inclusion_stats
+2024-05-08 17:17:38	[Main thread]	INFO	CohortGenerator	getStatsTable	- Fetching data from SurgeryWaitTime_synpuf_inclusion_stats
+2024-05-08 17:17:39	[Main thread]	INFO	CohortGenerator	getStatsTable	- Fetching data from SurgeryWaitTime_synpuf_summary_stats
+2024-05-08 17:17:40	[Main thread]	INFO	CohortGenerator	getStatsTable	- Fetching data from SurgeryWaitTime_synpuf_censor_stats
+2024-05-08 17:17:41	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: cohort_inclusion
+2024-05-08 17:17:41	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 17:17:42	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table cohort_inclusion the following fields: cohortId, ruleSequence, name, description, databaseId
+2024-05-08 17:17:42	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	appending records to C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/cohort_inclusion.csv
+2024-05-08 17:17:42	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: cohort_inc_stats
+2024-05-08 17:17:42	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 17:17:43	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table cohort_inc_stats the following fields: cohortId, ruleSequence, personCount, gainCount, personTotal, modeId, databaseId
+2024-05-08 17:17:43	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from personCount because value below minimum
+2024-05-08 17:17:43	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from gainCount because value below minimum
+2024-05-08 17:17:43	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from personTotal because value below minimum
+2024-05-08 17:17:44	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	appending records to C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/cohort_inc_stats.csv
+2024-05-08 17:17:44	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: cohort_inc_result
+2024-05-08 17:17:44	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 17:17:44	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table cohort_inc_result the following fields: cohortId, inclusionRuleMask, personCount, modeId, databaseId
+2024-05-08 17:17:44	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from personCount because value below minimum
+2024-05-08 17:17:46	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	appending records to C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/cohort_inc_result.csv
+2024-05-08 17:17:46	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: cohort_summary_stats
+2024-05-08 17:17:46	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 17:17:48	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table cohort_summary_stats the following fields: cohortId, baseCount, finalCount, modeId, databaseId
+2024-05-08 17:17:48	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from baseCount because value below minimum
+2024-05-08 17:17:48	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from finalCount because value below minimum
+2024-05-08 17:17:49	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	appending records to C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/cohort_summary_stats.csv
+2024-05-08 17:17:49	[Main thread]	INFO	CohortDiagnostics	runConceptSetDiagnostics	Starting concept set diagnostics
+2024-05-08 17:17:51	[Main thread]	WARN	tibble	$.tbl_df	Unknown or uninitialised column: `isSubset`.
+2024-05-08 17:17:51	[Main thread]	WARN	tibble	$.tbl_df	Unknown or uninitialised column: `isSubset`.
+2024-05-08 17:17:52	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: concept_sets
+2024-05-08 17:17:52	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 17:17:53	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table concept_sets the following fields: cohortId, conceptSetId, conceptSetSql, conceptSetName, conceptSetExpression, databaseId
+2024-05-08 17:17:53	[Main thread]	INFO	CohortDiagnostics	makeDataExportable	 - Unexpected fields found in table concept_sets - databaseId. These fields will be ignored.
+2024-05-08 17:17:54	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	appending records to C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/concept_sets.csv
+2024-05-08 17:17:54	[Main thread]	INFO	CohortDiagnostics	instantiateUniqueConceptSets	Instantiating concept sets
+2024-05-08 17:17:59	[Main thread]	INFO	CohortDiagnostics	createConceptCountsTable	Creating internal concept counts table
+2024-05-08 17:58:40	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 40.7 mins
+2024-05-08 17:58:40	[Main thread]	INFO	CohortDiagnostics	timeExecution	Fetching included source concepts
+2024-05-08 18:09:30	[Main thread]	INFO	DatabaseConnector	executeSql	Executing SQL took 10.8 mins
+2024-05-08 18:09:38	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: included_source_concept
+2024-05-08 18:09:38	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 18:09:38	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table included_source_concept the following fields: databaseId, cohortId, conceptSetId, conceptId, sourceConceptId, conceptCount, conceptSubjects
+2024-05-08 18:09:41	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 29 values (0.5%) from conceptSubjects because value below minimum
+2024-05-08 18:09:41	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 29 values (0.5%) from conceptCount because value below minimum
+2024-05-08 18:09:44	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	appending records to C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/included_source_concept.csv
+2024-05-08 18:09:59	[Main thread]	INFO	CohortDiagnostics	timeExecution	Finding source codes took 11.3 mins
+2024-05-08 18:09:59	[Main thread]	INFO	CohortDiagnostics	runConceptSetDiagnostics	Breaking down index events
+2024-05-08 18:09:59	[Main thread]	INFO	CohortDiagnostics	FUN	- Breaking down index events for cohort 'af'
+2024-05-08 18:09:59	[Main thread]	WARN	tibble	$.tbl_df	Unknown or uninitialised column: `isSubset`.
+2024-05-08 18:11:13	[Main thread]	INFO	CohortDiagnostics	FUN	- Breaking down index events for cohort 'diabetes'
+2024-05-08 18:11:13	[Main thread]	WARN	tibble	$.tbl_df	Unknown or uninitialised column: `isSubset`.
+2024-05-08 18:12:24	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from conceptCount because value below minimum
+2024-05-08 18:12:24	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from subjectCount because value below minimum
+2024-05-08 18:12:24	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	 - Ensuring data is exportable: index_event_breakdown
+2024-05-08 18:12:24	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Object has no data.
+2024-05-08 18:12:24	[Main thread]	TRACE	CohortDiagnostics	makeDataExportable	  - Found in table index_event_breakdown the following fields: domainTable, domainField, conceptId, conceptCount, subjectCount, cohortId, databaseId
+2024-05-08 18:12:24	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from conceptCount because value below minimum
+2024-05-08 18:12:24	[Main thread]	INFO	CohortDiagnostics	enforceMinCellValue	- Censoring 0 values (0%) from subjectCount because value below minimum
+2024-05-08 18:12:24	[Main thread]	DEBUG	CohortDiagnostics	writeToCsv.default	appending records to C:\Users\User\Documents\R\repos\ODYSSEUS\SurgeryWaitTime\results\synpuf\02_cohortDiagnostics/index_event_breakdown.csv
+2024-05-08 18:12:24	[Main thread]	INFO	CohortDiagnostics	runConceptSetDiagnostics	Breaking down index event took 2.42 mins
+2024-05-08 18:12:25	[Main thread]	INFO	CohortDiagnostics	runConceptSetDiagnostics	Finding orphan concepts
+2024-05-08 18:12:25	[Main thread]	TRACE	CohortDiagnostics	runConceptSetDiagnostics	Using internal concept count table.
+2024-05-08 18:12:25	[Main thread]	INFO	CohortDiagnostics	runConceptSetDiagnostics	- Finding orphan concepts for concept set 'aspirin'

@@ -1,0 +1,35 @@
+id,name,subjects,entries,database
+1001,af below_65,4033,4033,synpuf
+1002,af 65_and_above,NA,NA,synpuf
+1003,af male,2081,2081,synpuf
+1004,af female,1952,1952,synpuf
+1005,af beforeMar20,4033,4033,synpuf
+1006,af afterMar20,NA,NA,synpuf
+1007,af black,786,786,synpuf
+1008,af white,2937,2937,synpuf
+1009,af asian,NA,NA,synpuf
+1010,af unknown_race,310,310,synpuf
+1011,af hispanic,164,164,synpuf
+1012,af notHispanic,3869,3869,synpuf
+1013,af unknown_ethnicity,NA,NA,synpuf
+1014,af cci_0,NA,NA,synpuf
+1015,af cci_1,NA,NA,synpuf
+1016,af cci_2,NA,NA,synpuf
+2001,diabetes below_65,5959,5959,synpuf
+2002,diabetes 65_and_above,NA,NA,synpuf
+2003,diabetes male,3084,3084,synpuf
+2004,diabetes female,2875,2875,synpuf
+2005,diabetes beforeMar20,5959,5959,synpuf
+2006,diabetes afterMar20,NA,NA,synpuf
+2007,diabetes black,1155,1155,synpuf
+2008,diabetes white,4346,4346,synpuf
+2009,diabetes asian,NA,NA,synpuf
+2010,diabetes unknown_race,458,458,synpuf
+2011,diabetes hispanic,243,243,synpuf
+2012,diabetes notHispanic,5716,5716,synpuf
+2013,diabetes unknown_ethnicity,NA,NA,synpuf
+2014,diabetes cci_0,NA,NA,synpuf
+2015,diabetes cci_1,NA,NA,synpuf
+2016,diabetes cci_2,NA,NA,synpuf
+1,af,4033,4033,synpuf
+2,diabetes,5959,5959,synpuf

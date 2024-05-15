@@ -10,6 +10,7 @@
   dbms: !expr keyring::key_get('synpuf_dbms', keyring = 'SurgeryWaitTime')
   user: !expr keyring::key_get('synpuf_user', keyring = 'SurgeryWaitTime')
   password: !expr keyring::key_get('synpuf_password', keyring = 'SurgeryWaitTime')
+  server: !expr keyring::key_get('synpuf_server', keyring = 'SurgeryWaitTime')
   connectionString: !expr keyring::key_get('synpuf_connectionString', keyring = 'SurgeryWaitTime')
   cdmDatabaseSchema: !expr keyring::key_get('synpuf_cdmDatabaseSchema', keyring = 'SurgeryWaitTime')
   vocabDatabaseSchema: !expr keyring::key_get('synpuf_vocabDatabaseSchema', keyring = 'SurgeryWaitTime')

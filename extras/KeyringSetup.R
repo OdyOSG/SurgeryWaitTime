@@ -13,11 +13,11 @@ library(Ulysses)
 
 # C. Set Parameters ------------
 
-configBlock <- ""        # Name of config block
+configBlock <- "synpuf"        # Name of config block
 
-database <- ""           # Name of the database in the config block
+database <- "synpuf"           # Name of the database in the config block
 
-keyringPassword <- ""    # Password for keyring
+keyringPassword <- "ohdsi"    # Password for keyring
 
 
 # D. Check or create config.yml file ------------
@@ -43,12 +43,12 @@ setMultipleCredentials(cred = defaultCredentials(),
 )
 
 ## If a single credential is incorrect, change it by running the function below:
-# setCredential(cred = "dbms",
-#                       db = configBlock,
-#                       keyringName = basename(here::here()),
-#                       keyringPassword = keyringPassword,
-#                       forceCheck = TRUE
-# )
+setCredential(cred = "server",
+                      db = configBlock,
+                      keyringName = basename(here::here()),
+                      keyringPassword = keyringPassword,
+                      forceCheck = TRUE
+)
 
 
 # F. Check Credentials ------------

@@ -1,0 +1,9 @@
+databaseId,cohortDefinitionId,ruleSequence,personCount,gainCount,personTotal,modeId
+synpuf,1,0,5169,46129,59015,0
+synpuf,1,1,50162,1136,59015,0
+synpuf,1,0,5169,46129,59015,1
+synpuf,1,1,50162,1136,59015,1
+synpuf,2,0,7135,61709,76544,0
+synpuf,2,1,67668,1176,76544,0
+synpuf,2,0,7135,61709,76544,1
+synpuf,2,1,67668,1176,76544,1

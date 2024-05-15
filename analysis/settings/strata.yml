@@ -1,0 +1,46 @@
+strata:
+  cohorts:
+    targetCohorts:
+    - name: af
+      id: 1
+    - name: diabetes
+      id: 2
+    strataCohorts:
+    - name: af
+      id: 1
+    - name: diabetes
+      id: 2
+  demographics:
+  - strataId: 1
+    strataName: below_65
+  - strataId: 2
+    strataName: 65_and_above
+  - strataId: 3
+    strataName: male
+  - strataId: 4
+    strataName: female
+  - strataId: 5
+    strataName: beforeMar20
+  - strataId: 6
+    strataName: afterMar20
+  - strataId: 7
+    strataName: black
+  - strataId: 8
+    strataName: white
+  - strataId: 9
+    strataName: asian
+  - strataId: 10
+    strataName: unknown_race
+  - strataId: 11
+    strataName: hispanic
+  - strataId: 12
+    strataName: notHispanic
+  - strataId: 13
+    strataName: unknown_ethnicity
+  - strataId: 14
+    strataName: cci_0
+  - strataId: 15
+    strataName: cci_1
+  - strataId: 16
+    strataName: cci_2
+  outputFolder: 03_buildStrata
