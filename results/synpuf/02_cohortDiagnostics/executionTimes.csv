@@ -1,9 +1,0 @@
-task,startTime,cohortIds,executionTime,parent
-getCdmDataSourceInformation,2024-05-08T16:17:20Z,,1.58832097053528,executeDiagnostics
-observationPeriodDateRange,2024-05-08T16:17:21Z,,2.55464696884155,executeDiagnostics
-getInclusionStats,2024-05-08T16:17:29Z,,1.26560401916504,executeDiagnostics
-getInclusionStatsCohortGenerator,2024-05-08T16:17:31Z,,9.65627503395081,getInclusionStats
-getInclusionStats,2024-05-08T16:17:31Z,,17.6674981117249,executeDiagnostics
-instantiateUniqueConceptSets,2024-05-08T16:17:54Z,,5.38844203948975,runConceptSetDiagnostics
-createConceptCountsTable,2024-05-08T16:17:59Z,,40.6798974315325,runConceptSetDiagnostics
-runIncludedSourceConcepts,2024-05-08T16:58:40Z,,11.3160348335902,runConceptSetDiagnostics

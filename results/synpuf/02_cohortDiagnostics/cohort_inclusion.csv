@@ -1,5 +1,0 @@
-database_id,cohort_id,rule_sequence,name,description
-synpuf,1,0,age: 18 -55,
-synpuf,1,1,no prior exposure: aspirin,
-synpuf,2,0,age: 18 -55,
-synpuf,2,1,no prior exposure: aspirin,

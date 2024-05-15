@@ -1,7 +1,0 @@
-id,name,type,entries,subjects,file,database
-1,af,target,4033,4033,C:/Users/User/Documents/R/repos/ODYSSEUS/SurgeryWaitTime/cohortsToCreate/01_target/af.json,synpuf
-2,diabetes,target,5959,5959,C:/Users/User/Documents/R/repos/ODYSSEUS/SurgeryWaitTime/cohortsToCreate/01_target/diabetes.json,synpuf
-3,acetaminophen,covariate,57983,57983,C:/Users/User/Documents/R/repos/ODYSSEUS/SurgeryWaitTime/cohortsToCreate/02_covariate/acetaminophen.json,synpuf
-4,hydrochlorothiazide,covariate,58092,58092,C:/Users/User/Documents/R/repos/ODYSSEUS/SurgeryWaitTime/cohortsToCreate/02_covariate/hydrochlorothiazide.json,synpuf
-5,proc1,outcome,86135,86135,C:/Users/User/Documents/R/repos/ODYSSEUS/SurgeryWaitTime/cohortsToCreate/03_outcome/proc1.json,synpuf
-6,proc2,outcome,84500,84500,C:/Users/User/Documents/R/repos/ODYSSEUS/SurgeryWaitTime/cohortsToCreate/03_outcome/proc2.json,synpuf

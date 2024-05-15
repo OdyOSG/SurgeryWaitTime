@@ -1,9 +1,0 @@
-database_id,cohort_id,rule_sequence,mode_id,person_count,gain_count,person_total
-synpuf,1,0,0,5169,46129,59015
-synpuf,1,1,0,50162,1136,59015
-synpuf,1,0,1,5169,46129,59015
-synpuf,1,1,1,50162,1136,59015
-synpuf,2,0,0,7135,61709,76544
-synpuf,2,1,0,67668,1176,76544
-synpuf,2,0,1,7135,61709,76544
-synpuf,2,1,1,67668,1176,76544

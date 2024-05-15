@@ -1,6 +1,0 @@
-concept_id,concept_count,subject_count,cohort_id,database_id,domain_field,domain_table
-313217,4899,4033,1,synpuf,condition_concept_id,condition_occurrence
-44821957,4899,4033,1,synpuf,condition_source_concept_id,condition_occurrence
-44836915,1365,840,2,synpuf,condition_source_concept_id,condition_occurrence
-44836914,7705,5159,2,synpuf,condition_source_concept_id,condition_occurrence
-201826,9070,5959,2,synpuf,condition_concept_id,condition_occurrence
