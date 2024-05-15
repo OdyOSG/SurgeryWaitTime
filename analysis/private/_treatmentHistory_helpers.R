@@ -1,18 +1,17 @@
-# A. Meta Info -----------------------
+# A. File Info -----------------------
 
 # Task: Treatment History Helpers
 
 
 # B. Functions ------------------------
 
-
 ## Treatment History ---------------------------
 
-collect_cohorts <- function(con,
-                            workDatabaseSchema,
-                            cohortTable,
-                            targetId,
-                            eventIds) {
+collectCohorts <- function(con,
+                           workDatabaseSchema,
+                           cohortTable,
+                           targetId,
+                           eventIds) {
 
   allIds <- c(targetId, eventIds)
 
@@ -29,29 +28,27 @@ collect_cohorts <- function(con,
             WHERE cohort_definition_id in (@allIds)
           ) a
           JOIN T1
-            ON a.subject_id = t1.subject_id;
-  " %>%
-    SqlRender::render(
-      write_schema = workDatabaseSchema,
-      cohort_table = cohortTable,
-      cohortId = targetId,
-      allIds = allIds
+            ON a.subject_id = t1.subject_id;"
+
+  renderedSql <- SqlRender::render(
+    sql = sql,
+    write_schema = workDatabaseSchema,
+    cohort_table = cohortTable,
+    cohortId = targetId,
+    allIds = allIds
     ) %>%
     SqlRender::translate(targetDialect = con@dbms)
 
-  current_cohorts <- DatabaseConnector::querySql(connection = con, sql = sql)
+  current_cohorts <- DatabaseConnector::querySql(connection = con, sql = renderedSql)
 
   names(current_cohorts) <- c("cohort_id", "person_id", "start_date", "end_date")
-
   current_cohorts <- data.table::as.data.table(current_cohorts)
 
   return(current_cohorts)
 }
 
 
-# Internals --------------------
-
-# Treatment History Functions
+# Treatment History Functions --------------------
 # Functions with modifications of TreatmentPatterns (ConstructPathways.R)
 
 doCreateTreatmentHistory <- function(current_cohorts, targetCohortId, eventCohortIds, periodPriorToIndex, includeTreatments) {

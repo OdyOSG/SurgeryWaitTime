@@ -8,6 +8,8 @@
 
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
+library(DatabaseConnector)
+library(config)
 source("analysis/private/_utilities.R")
 source("analysis/private/_buildStrata.R")
 
@@ -58,6 +60,6 @@ buildStrata(con = con,
             analysisSettings = analysisSettings)
 
 
-# F. Session Info ------------------------
+# F. Disconnect ------------------------
 
 DatabaseConnector::disconnect(con)

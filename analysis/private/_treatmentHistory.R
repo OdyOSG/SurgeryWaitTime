@@ -1,25 +1,25 @@
-# A. Meta Info -----------------------
+# A. File Info -----------------------
 
 # Task: Treatment History
 
 
 # B. Functions ------------------------
 
-get_tx_history <- function(con,
-                           workDatabaseSchema,
-                           cohortTable,
-                           targetId,
-                           targetName,
-                           treatmentCohorts,
-                           thSettings,
-                           outputFolder) {
+getTreatmentHistory <- function(con,
+                                workDatabaseSchema,
+                                cohortTable,
+                                targetId,
+                                targetName,
+                                treatmentCohorts,
+                                thSettings,
+                                outputFolder) {
 
   # Collect cohorts
-  current_cohorts <- collect_cohorts(con = con,
-                                     workDatabaseSchema = workDatabaseSchema,
-                                     cohortTable = cohortTable,
-                                     targetId = targetId,
-                                     eventIds = treatmentCohorts$id)
+  current_cohorts <- collectCohorts(con = con,
+                                    workDatabaseSchema = workDatabaseSchema,
+                                    cohortTable = cohortTable,
+                                    targetId = targetId,
+                                    eventIds = treatmentCohorts$id)
 
   tik <- Sys.time()
 
@@ -40,15 +40,15 @@ get_tx_history <- function(con,
 
   res$duration_era <- as.integer(res$duration_era)
 
+  # Job log
   tok <- Sys.time()
   tdif <- tok - tik
   tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
-  cli::cat_line("\nTreatment History built at: ", tok)
-  cli::cat_line("\nTreatment History build took: ", tok_format)
+  cli::cat_line("\nTreatment History built at: ", crayon::green(tok))
+  cli::cat_line("Treatment History build took: ", crayon::green(tok_format))
 
   ## If res object is empty, skip export
   if (nrow(res) == 0) {
-
     return(NA)
   }
 
@@ -57,16 +57,14 @@ get_tx_history <- function(con,
   save_path <- fs::path(outputFolder, save_name, ext = "csv")
   readr::write_csv(x = res, file = save_path)
 
+  # Job log
   cli::cat_line()
-  cli::cat_bullet("Saved file ", crayon::green(basename(save_path)), " to:", bullet = "info", bullet_col = "blue")
-  cli::cat_bullet(crayon::cyan(outputFolder), bullet = "pointer", bullet_col = "yellow")
+  cli::cat_bullet("Saved file ", crayon::green(basename(save_path)), " to:", crayon::cyan(outputFolder), bullet = "info", bullet_col = "blue")
   cli::cat_line()
 
   invisible(res)
 }
 
-
-## Run bulk treatment history module -------------
 
 runTreatmentHistory <- function(con,
                                 executionSettings,
@@ -85,43 +83,48 @@ runTreatmentHistory <- function(con,
   treatmentCohorts <- analysisSettings$treatmentPatterns$cohorts$txCohorts %>% dplyr::arrange(id)
   thSettings <- analysisSettings$treatmentPatterns$treatmentHistorySettings
 
-
+  # Job log
   cli::cat_boxx(crayon::magenta("Building Treatment History"))
   tik <- Sys.time()
 
+  # Loop through target cohort ids
   for (i in seq_along(targetCohorts$id)) {
 
-        tmp_targetId <- targetCohorts$id[i]
-        tmp_targetName <- targetCohorts$name[i]
+        # Target cohort id and name
+        targetId <- targetCohorts$id[i]
+        targetName <- targetCohorts$name[i]
 
-        txCohorts <- treatmentCohorts %>%
+        # Event cohort id and name
+        eventCohorts <- treatmentCohorts %>%
           dplyr::select(id, name) %>%
           dplyr::mutate(type = "event")
 
         # Job log
         cli::cat_rule()
-        txt1 <- paste0(targetCohorts$name[i], " (id:", targetCohorts$id[i], ")")
+        txt1 <- paste0(targetName, " (id:", targetId, ")")
         cli::cat_bullet(crayon::green("Target Cohort: "), txt1, bullet = "pointer", bullet_col = "yellow")
-        txt2 <- paste(txCohorts$name, collapse = ", ")
+        txt2 <- paste(eventCohorts$name, collapse = ", ")
         cli::cat_bullet(crayon::green("Event Cohorts: "), txt2, bullet = "pointer", bullet_col = "yellow")
         cli::cat_line()
 
 
         # Run treatment history
-        get_tx_history(con = con,
-                       workDatabaseSchema = workDatabaseSchema,
-                       cohortTable = cohortTable,
-                       targetId = tmp_targetId,
-                       targetName = tmp_targetName,
-                       treatmentCohorts = txCohorts,
-                       thSettings = thSettings,
-                       outputFolder = outputFolder)
+        getTreatmentHistory(con = con,
+                            workDatabaseSchema = workDatabaseSchema,
+                            cohortTable = cohortTable,
+                            targetId = targetId,
+                            targetName = targetName,
+                            treatmentCohorts = eventCohorts,
+                            thSettings = thSettings,
+                            outputFolder = outputFolder)
 
   }
 
+  # Job log
   tok <- Sys.time()
   tdif <- tok - tik
   tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
+  cli::cat_line()
   cli::cat_bullet("Execution took: ", crayon::red(tok_format), bullet = "info", bullet_col = "blue")
 
   invisible(treatmentCohorts)

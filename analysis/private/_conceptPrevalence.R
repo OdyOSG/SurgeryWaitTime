@@ -1,15 +1,15 @@
-# A. Meta Info -----------------------
+# A. File Info -----------------------
 
-# Title: Concept Prevalence
-# Description: These internal function run prevalence of concepts using Feature Extraction
+# Task: Concept Prevalence
 
 
-# B. Helpers -----------------
+# B. Functions -----------------
 
+## Helpers  -----------------
 silentCovariates <- function(con, cdmDatabaseSchema, cohortTable, cohortDatabaseSchema, cohortId, covSettings) {
 
+  #Job log
   cli::cat_bullet("Getting Covariates from database...", bullet = "info", bullet_col = "blue")
-
   tik <- Sys.time()
 
   # Get covariate data
@@ -25,30 +25,14 @@ silentCovariates <- function(con, cdmDatabaseSchema, cohortTable, cohortDatabase
     aggregated = TRUE
   )$result
 
+  # Job log
   tok <- Sys.time()
-
   cli::cat_bullet("Covariates built at: ", crayon::red(tok), bullet = "info", bullet_col = "blue")
-
   tdif <- tok - tik
   tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
-
   cli::cat_bullet("Covariate build took: ", crayon::red(tok_format), bullet = "info", bullet_col = "blue")
 
   return(cov)
-}
-
-
-verboseSave <- function(object, saveName, saveLocation) {
-
-  savePath <- fs::path(saveLocation, saveName, ext = "csv")
-  readr::write_csv(object, file = savePath)
-
-  #cli::cat_line()
-  cli::cat_bullet("Saved file ", crayon::green(basename(savePath)), " to:", bullet = "info", bullet_col = "blue")
-  cli::cat_bullet(crayon::cyan(saveLocation), bullet = "pointer", bullet_col = "yellow")
-  cli::cat_line()
-
-  invisible(savePath)
 }
 
 
@@ -81,7 +65,7 @@ bindFiles <- function(inputPath,
 }
 
 
-# C. Domain FE -------------------------
+## Domain FE -------------------------
 
 getDrugsFE <- function(con,
                        cohortDatabaseSchema,
@@ -668,7 +652,8 @@ getContinuousFE <- function(con,
 }
 
 
-# D. Execute ----------------------
+
+## Main function  -----------------
 
 executeConceptCharacterization <- function(con,
                                            type = c("postIndex", "baseline"),
@@ -692,11 +677,11 @@ executeConceptCharacterization <- function(con,
   outputFolder <- fs::path(here::here("results"), databaseId, analysisSettings[[1]]$outputFolder) %>%
     fs::dir_create()
 
-  # Target and covariate cohort ids
+  # Get target and covariate cohort ids
   cohortKey <- analysisSettings[[1]]$cohorts$targetCohorts %>% dplyr::arrange(id)
   covariateKey <- analysisSettings[[1]]$cohorts$covariateCohorts %>% dplyr::arrange(id)
 
-  # Time windows
+  # Get time windows
   timeA <- analysisSettings[[1]]$timeWindows$startDay
   timeB <- analysisSettings[[1]]$timeWindows$endDay
 
@@ -972,7 +957,7 @@ executeConceptCharacterization <- function(con,
 
   }
 
-
+  # Job log
   tok <- Sys.time()
   cli::cat_bullet("Execution Completed at: ", crayon::red(tok), bullet = "info", bullet_col = "blue")
   tdif <- tok - tik

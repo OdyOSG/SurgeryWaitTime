@@ -7,38 +7,36 @@
 
 getCohortManifest <- function(inputPath = here::here("cohortsToCreate")) {
 
-  # get cohort file paths
+  # Get cohort JSON file paths
   cohortFiles <- fs::dir_ls(inputPath, recurse = TRUE, type = "file", glob = "*.json")
 
-  # get cohort names
+  # Get cohort names out of JSON file name
   cohortNames <- fs::path_file(cohortFiles) %>%
     fs::path_ext_remove()
 
-  #get cohort type
+  # Get cohort type out of folder name
   cohortType <- fs::path_dir(cohortFiles) %>%
     basename() %>%
     gsub(".*_", "", .)
 
-  #future addition of hash
+  # Add hash
   hash <- purrr::map(cohortFiles, ~readr::read_file(.x)) %>%
     purrr::map_chr(~digest::digest(.x, algo = "sha1")) %>%
     unname()
 
-  #return tibble with info
+  # Return tibble with info
   tb <- tibble::tibble(
     name = cohortNames,
     type = cohortType,
     hash = hash,
     file = cohortFiles %>% as.character()
   ) %>%
-    dplyr::mutate(
-      id = dplyr::row_number(), .before = 1
-    )
+    dplyr::mutate(id = dplyr::row_number(), .before = 1)
 
   return(tb)
 }
 
-
+# This function is specific to run in Bayer's OMOP database structure (Snowflake)
 startSnowflakeSession <- function(con, executionSettings) {
 
   sql <- "
@@ -70,13 +68,14 @@ readSettingsFile <- function(settingsFile) {
 
   tt <- yaml::read_yaml(file = settingsFile)
 
-  # convert cohorts into dataframes
+  # Convert cohorts into data frames
   for (i in seq_along(tt[[1]][[1]])) {
     tt[[1]][[1]][[i]] <- listToTibble(tt[[1]][[1]][[i]])
   }
 
-  # convert unnamed lists into dataframes
+  # Convert unnamed lists into data frames
   ss <- seq_along(tt[[1]])
+
   for (j in ss[-1]) {
     check <- is.list(tt[[1]][[j]]) && is.null(names(tt[[1]][[j]]))
     if (check) {
@@ -102,12 +101,9 @@ listToTibble <- function(ll) {
 verboseSave <- function(object, saveName, saveLocation) {
 
   savePath <- fs::path(saveLocation, saveName, ext = "csv")
-
   readr::write_csv(object, file = savePath)
 
-  cli::cat_line()
-  cli::cat_bullet("Saved file ", crayon::green(basename(savePath)), " to:",
-                  bullet = "info", bullet_col = "blue")
+  cli::cat_bullet("Saved file ", crayon::green(basename(savePath)), " to:", bullet = "info", bullet_col = "blue")
   cli::cat_bullet(crayon::cyan(saveLocation), bullet = "pointer", bullet_col = "yellow")
   cli::cat_line()
 
@@ -115,40 +111,42 @@ verboseSave <- function(object, saveName, saveLocation) {
 }
 
 
-bindFiles <- function(inputPath,
-                      database,
-                      pattern = NULL)  {
-
-  # List all csv files in folder
-  filepath <- list.files(inputPath, full.names = TRUE, pattern = pattern, recursive = TRUE)
-
-  # Read all csv files and save in list
-  listed_files <- lapply(filepath, readr::read_csv, show_col_types = FALSE)
-
-  # Bind all data frames of list
-  binded_df <- dplyr::bind_rows(listed_files)
-
-  ## Save output
-  readr::write_csv(
-    x = binded_df,
-    file = file.path(here::here("report", database, paste0(pattern, ".csv"))),
-    append = FALSE
-  )
-
-}
+# bindFiles <- function(inputPath,
+#                       database,
+#                       pattern = NULL)  {
+#
+#   # List all csv files in folder
+#   filepath <- list.files(inputPath, full.names = TRUE, pattern = pattern, recursive = TRUE)
+#
+#   # Read all csv files and save in list
+#   listed_files <- lapply(filepath, readr::read_csv, show_col_types = FALSE)
+#
+#   # Bind all data frames of list
+#   binded_df <- dplyr::bind_rows(listed_files)
+#
+#   ## Save output
+#   readr::write_csv(
+#     x = binded_df,
+#     file = file.path(here::here("report", database, paste0(pattern, ".csv"))),
+#     append = FALSE
+#   )
+#
+# }
 
 
 zipResults <- function(database) {
 
   resultsPath <- here::here("results", database)
 
-  # Zip "report" folder
+  # Zip "report" folder (Excluding treatment history folder)
   files2zip <- dir(resultsPath, full.names = TRUE)
+  files2zip <- files2zip[!grepl("treatmentHistory", files2zip)]
+
   zipName <- paste0('reportFiles_', database)
   utils::zip(zipfile = zipName, files = files2zip)
 
-  cli::cat_bullet("Study results have been zipped and saved to:",
-                  crayon::cyan(here::here(paste0(zipName, ".zip"))),
+  # Job log
+  cli::cat_bullet("Study results have been zipped and saved to:", crayon::cyan(here::here(paste0(zipName, ".zip"))),
                   bullet = "info", bullet_col = "blue")
 
 }
@@ -156,7 +154,6 @@ zipResults <- function(database) {
 
 # Create data frame to run in purrr::map functions (three inputs)
 createGrid <- function(cohortKey, timeA, timeB) {
-
 
   combos <- tidyr::expand_grid(cohortKey, timeA)
 

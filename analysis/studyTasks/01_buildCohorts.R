@@ -9,8 +9,9 @@
 # Dependencies are handled by renv package.
 
 ## Load libraries and scripts
-
-library(dplyr)
+library(tidyverse, quietly = TRUE)
+library(DatabaseConnector)
+library(config)
 source(here::here('analysis/private/_buildCohorts.R'))
 source(here::here('analysis/private/_executeStudy.R'))
 source(here::here('analysis/private/_utilities.R'))
@@ -28,9 +29,7 @@ configBlock <- "synpuf"
 # dbms = config::get("dbms", config = configBlock),
 # user = config::get("user", config = configBlock),
 # password = config::get("password", config = configBlock),
-#   connectionString = config::get("connectionString", config = configBlock),
-#   pathToDriver = "C:\\Users\\User\\Documents\\R\\drivers",
-#   port = "5441"
+# connectionString = config::get("connectionString", config = configBlock),
 # )
 
 connectionDetails <- DatabaseConnector::createConnectionDetails(
@@ -45,7 +44,7 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 con <- DatabaseConnector::connect(connectionDetails)
 
 
-# D. Study Variables -----------------------
+# D. Variables -----------------------
 
 ## Administrative Variables
 executionSettings <- config::get(config = configBlock) %>%

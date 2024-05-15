@@ -11,9 +11,6 @@
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 library(config)
-# May only be needed once.
-
-
 source(here::here('analysis/private/_buildCohorts.R'))
 source(here::here('analysis/private/_executeStudy.R'))
 source(here::here('analysis/private/_utilities.R'))
@@ -46,7 +43,7 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 con <- DatabaseConnector::connect(connectionDetails)
 
 
-# D. Study Variables -----------------------
+# D. Variables -----------------------
 
 ## Administrative Variables
 executionSettings <- config::get(config = configBlock) %>%

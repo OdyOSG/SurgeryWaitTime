@@ -4,3 +4,6 @@
 .Ruserdata
 scratchDiagnostics/
 errorReportSql.txt
+
+results/
+results

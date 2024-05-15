@@ -1,7 +1,6 @@
-# A. Meta Info -----------------------
+# A. File Info -----------------------
 
-# Title: ICD10Chapter Rollup
-# Description: These internal function that allow for the rollup to ICD10 chapters used in Odysseus table 1
+# Task: ICD10Chapter Rollup
 
 
 # B. Sql -----------------
@@ -111,7 +110,7 @@ getIcd10Sql <- "
 
 
 
-# C. R Functions ------------------------
+# C. Functions ------------------------
 getIcd10Chapters <- function(con,
                              cohortDatabaseSchema,
                              cohortTable,
@@ -121,8 +120,8 @@ getIcd10Chapters <- function(con,
                              timeA,
                              timeB) {
 
-
-  cli::cat_bullet("Building ICD 10 Rollup for cohort id:\n   ", crayon::green(cohortId),
+  # Job log
+  cli::cat_bullet("Building ICD-10 rollup for cohort id: ", crayon::green(cohortId),
                   bullet = "pointer", bullet_col = "yellow")
   cli::cat_line()
 
@@ -130,7 +129,7 @@ getIcd10Chapters <- function(con,
   targetCovariateTable <- "covariates"
   icdCodesTable <- "icd_codes"
 
-  # Define covariate settings for condition groups
+  # Create condition group settings
   covSettings <- FeatureExtraction::createCovariateSettings(
     useConditionGroupEraLongTerm = TRUE,
     longTermStartDays = timeA,
@@ -209,7 +208,7 @@ getIcd10Chapters <- function(con,
   # Remove temporary tables
   tabs <- c(targetCovariateTable, icdCodesTable)
 
-  # Function to write drop table sql
+  # Function to drop table
   dropTableSql <- function(t) {
     paste0('DROP TABLE IF EXISTS @targetDatabaseSchema.', t, ';\n')
   }
@@ -218,7 +217,7 @@ getIcd10Chapters <- function(con,
   sql <- purrr::map_chr(tabs, ~dropTableSql(.x)) |>
     paste0(collapse = "")
 
-  # Execute table drop
+  # Drop tables
   cli::cat_bullet("4) Clean up")
   DatabaseConnector::renderTranslateExecuteSql(
     connection = con,
@@ -246,14 +245,14 @@ executeConditionRollup <- function(con,
   outputFolder <- fs::path(here::here("results"), databaseId, analysisSettings[[1]]$outputFolder) %>%
     fs::dir_create()
 
-  # Cohorts for rollup
+  # Get target cohorts
   cohortKey <- analysisSettings[[1]]$cohorts$targetCohorts
 
-  # Time Windows
+  # Get time Windows
   timeA <- analysisSettings[[1]]$timeWindows$startDay
   timeB <- analysisSettings[[1]]$timeWindows$endDay
 
-  # Create grid df for execution
+  # Create grid data frame for execution
   condGrid <- createGrid(cohortKey = cohortKey,
                          timeA = timeA,
                          timeB = timeB)
@@ -274,7 +273,7 @@ executeConditionRollup <- function(con,
   # Output file name
   saveName <- paste0("condGroupBase")
 
-  # Save results
+  # Export
   verboseSave(
     object = icd10ChapDat,
     saveName = saveName,

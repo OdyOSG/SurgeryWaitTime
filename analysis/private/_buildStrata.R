@@ -1,6 +1,5 @@
 # A. File Info -----------------------
 
-# Study:
 # Task: Build Stratas
 
 
@@ -61,8 +60,7 @@ ageStrata <- function(con,
         )
         select * from #age;
 
-        DROP TABLE #age;
-"
+        DROP TABLE #age;"
 
   ageStrataSql <- SqlRender::render(
     sql,
@@ -99,6 +97,7 @@ genderStrata <- function(con,
 
   if (gender == "male")
     {
+
       cli::cat_bullet(crayon::green("Building Male strata"))
 
       sql <- "
@@ -137,8 +136,8 @@ genderStrata <- function(con,
               )
               select * from #male;
 
-              DROP TABLE #male;
-    "
+              DROP TABLE #male; "
+
   } else if (gender == "female") {
 
     cli::cat_bullet(crayon::green("Building Female strata"))
@@ -179,8 +178,8 @@ genderStrata <- function(con,
             )
             select * from #female;
 
-            DROP TABLE #female;
-            "
+            DROP TABLE #female; "
+
   }
 
   genderStrataSql <- SqlRender::render(
@@ -247,8 +246,7 @@ dateStrata <- function(con,
         )
         select * from #date;
 
-        DROP TABLE #date;
-"
+        DROP TABLE #date;"
 
   dateStrataSql <- SqlRender::render(
     sql,
@@ -315,8 +313,7 @@ raceStrata <- function(con,
               )
               select * from #race;
 
-              DROP TABLE #race;
-    "
+              DROP TABLE #race; "
 
   raceStrataSql <- SqlRender::render(
     sql,
@@ -385,8 +382,7 @@ measurementStrata <- function(con,
               )
               select * from #measurement;
 
-              DROP TABLE #measurement;
-    "
+              DROP TABLE #measurement;"
 
   measurementStrataSql <- SqlRender::render(
     sql,
@@ -454,8 +450,7 @@ ethnicityStrata <- function(con,
               )
               select * from #ethnicity;
 
-              DROP TABLE #ethnicity;
-    "
+              DROP TABLE #ethnicity;"
 
   ethnicityStrataSql <- SqlRender::render(
     sql,
@@ -484,7 +479,7 @@ buildStrata <- function(con,
                         executionSettings,
                         analysisSettings) {
 
-  ## Get execution variables
+  # Get variables
   cdmDatabaseSchema <- executionSettings$cdmDatabaseSchema
   workDatabaseSchema <- executionSettings$workDatabaseSchema
   cohortTable <- executionSettings$cohortTable
@@ -493,7 +488,7 @@ buildStrata <- function(con,
   outputFolder <- fs::path(here::here("results"), databaseId, analysisSettings$strata$outputFolder) %>%
     fs::dir_create()
 
-  ## Get cohort and strata ids
+  # Get cohort and strata ids
   targetCohorts <- analysisSettings$strata$cohorts$targetCohorts
   demoStratas <- analysisSettings$strata$demographics
 
@@ -668,7 +663,7 @@ buildStrata <- function(con,
                     value = c(2:6))
 
 
-  ## Strata cohort names and ids
+  # Strata cohort names and ids
   tb1 <- expand_grid(targetCohorts, demoStratas) %>%
     dplyr::mutate(
       cohortId = id * 1000 + strataId,
@@ -676,17 +671,17 @@ buildStrata <- function(con,
     ) %>%
     dplyr::select(cohortId, cohortName)
 
-  ## Target cohort names and ids
+  # Target cohort names and ids
   tb2 <- targetCohorts %>%
     dplyr::rename(
       cohortName = name,
       cohortId = id
     )
 
-  ## Bind strata and cohort ids and names
+  # Bind strata and cohort ids and names
   cohortNamesIds <- rbind(tb1, tb2)
 
-  ## Get cohort counts
+  # Get cohort counts
   sql <- "
           SELECT
             cohort_definition_id as id,
@@ -694,8 +689,7 @@ buildStrata <- function(con,
             count(subject_id) as entries
           FROM @cohortDatabaseSchema.@cohortTable
           WHERE cohort_definition_id IN (@cohortIds)
-          GROUP BY cohort_definition_id;
-        "
+          GROUP BY cohort_definition_id;"
 
   renderedSql <- SqlRender::render(
     sql,
@@ -706,7 +700,7 @@ buildStrata <- function(con,
 
   cohortCounts <- DatabaseConnector::querySql(connection = con, sql = renderedSql, snakeCaseToCamelCase = TRUE)
 
-  ## Join counts and names/ids
+  # Join counts and names/ids
   dt <- cohortNamesIds %>%
     dplyr::left_join(cohortCounts, by = c("cohortId" = "id")) %>%
     dplyr::rename(
@@ -715,7 +709,7 @@ buildStrata <- function(con,
     ) %>%
     dplyr::mutate(database = executionSettings$databaseName)
 
-  ## Export
+  # Export
   verboseSave(
     object = dt,
     saveName = "strataCounts",

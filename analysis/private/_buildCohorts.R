@@ -55,6 +55,7 @@ initializeCohortTables <- function(executionSettings,
 
 prepManifestForCohortGenerator <- function(cohortManifest) {
 
+  # Add JSON file location as variable
   cohortsToCreate <- cohortManifest %>%
     dplyr::mutate(
       json = purrr::map_chr(file, ~readr::read_file(.x))
@@ -62,6 +63,7 @@ prepManifestForCohortGenerator <- function(cohortManifest) {
     dplyr::select(id, name, json) %>%
     dplyr::rename(cohortId = id, cohortName = name)
 
+  # Add SQL code out of JSON file (using CirceR)
   cohortsToCreate$sql <- purrr::map_chr(
     cohortsToCreate$json,
     ~CirceR::buildCohortQuery(CirceR::cohortExpressionFromJson(.x),
@@ -76,17 +78,17 @@ generateCohorts <- function(executionSettings,
                             cohortManifest,
                             outputFolder) {
 
-  ## Get JSON definition and SQL code of cohorts (using CirceR)
+  # Get JSON definition and SQL code of cohorts (using CirceR)
   cohortsToCreate <- prepManifestForCohortGenerator(cohortManifest)
 
-  ## Path to save records of executed cohort definitions
+  # Path to save records of executed cohort definitions
   incrementalFolder <- fs::path(outputFolder)
 
-  ## Create cohort tables names' for function CohortGenerator::generateCohortSet
+  # Create cohort tables names' for function CohortGenerator::generateCohortSet
   name <- executionSettings$cohortTable
   cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = executionSettings$cohortTable)
 
-  ## Generate cohorts
+  # Generate cohorts
   cohortStatus <- CohortGenerator::generateCohortSet(
                     connection = con,
                     cdmDatabaseSchema = executionSettings$cdmDatabaseSchema,
@@ -97,7 +99,7 @@ generateCohorts <- function(executionSettings,
                     incrementalFolder = incrementalFolder
                   )
 
-  ## Insert inclusion/exclusion rules
+  # Insert inclusion/exclusion rules
   CohortGenerator::insertInclusionRuleNames(
     connectionDetails = connectionDetails,
     cohortDefinitionSet = cohortsToCreate,
@@ -105,7 +107,7 @@ generateCohorts <- function(executionSettings,
     cohortInclusionTable = cohortTableNames$cohortInclusionTable
   )
 
- ## Export inclusion/exclusion rules' statistics
+ # Export inclusion/exclusion rules' statistics
  CohortGenerator::exportCohortStatsTables(
     connectionDetails = connectionDetails,
     cohortDatabaseSchema = executionSettings$workDatabaseSchema,
@@ -114,11 +116,11 @@ generateCohorts <- function(executionSettings,
     databaseId = executionSettings$databaseName
   )
 
-  ## Export cohort generation status (with execution times)
+  # Export: cohort generation status (with execution times)
   savePath <- fs::path(outputFolder, "cohortGenerationStatus.csv")
   readr::write_csv(x = cohortStatus, file = savePath)
 
-  ## Get cohort counts
+  # Get cohort counts
   cohortCounts <- CohortGenerator::getCohortCounts(
     connection = con,
     cohortDatabaseSchema = executionSettings$workDatabaseSchema,
@@ -130,7 +132,7 @@ generateCohorts <- function(executionSettings,
     dplyr::select(cohortId, cohortName, cohortEntries, cohortSubjects, databaseId)
 
 
-  ## Format
+  # Format
   tb <- cohortManifest %>%
     dplyr::left_join(cohortCounts, by = c("id" = "cohortId")) %>%
     dplyr::rename(
@@ -140,7 +142,7 @@ generateCohorts <- function(executionSettings,
       ) %>%
     dplyr::select(id, name, type, entries, subjects, file, database)
 
-  ## Export cohort counts
+  # Export: cohort counts
   savePath <- fs::path(outputFolder, "cohortManifest.csv")
   readr::write_csv(x = tb, file = savePath)
 
@@ -195,8 +197,7 @@ runCohortDiagnostics <- function(con,
     minCellCount = 5
   )
 
-  cli::cat_bullet("Saving Cohort Diagnostics to ", crayon::cyan(outputFolder),
-                  bullet = "tick", bullet_col = "green")
+  cli::cat_bullet("Saving Cohort Diagnostics to ", crayon::cyan(outputFolder), bullet = "tick", bullet_col = "green")
 
   invisible(cohortsToRun)
 }
