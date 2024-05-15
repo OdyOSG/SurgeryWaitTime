@@ -143,7 +143,7 @@ executeTimeToEvent <- function(con,
     th <- readr::read_csv(file = thFiles[i], show_col_types = FALSE)
 
     # Get the target cohort id (out of the th_<cohort_id>.csv file name)
-    file_label <- tools::file_path_sans_ext(basename(thFiles[i])) %>%
+    cohortId <- tools::file_path_sans_ext(basename(thFiles[i])) %>%
       gsub("th_", "", .) %>%
       as.integer(.)
 
@@ -152,7 +152,7 @@ executeTimeToEvent <- function(con,
                       th = th,
                       workDatabaseSchema = workDatabaseSchema,
                       cohortTable = cohortTable,
-                      targetCohorts = targetCohorts[targetCohorts$id == file_label,])
+                      targetCohorts = targetCohorts[targetCohorts$id == cohortId,])
 
 
     # Create tte folder
@@ -160,7 +160,7 @@ executeTimeToEvent <- function(con,
       fs::dir_create()
 
     # Export
-    file_name <- paste("tte", file_label, sep = "_")
+    file_name <- paste("tte", cohortId, sep = "_")
     save_path2 <- fs::path(save_path, file_name, ext = "rds")
     readr::write_rds(tteDat, file = save_path2)
 

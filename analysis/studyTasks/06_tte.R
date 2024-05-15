@@ -1,7 +1,7 @@
 # A. File Info -----------------------
 
 # Study:
-# Task: Treatment Pathways
+# Task: Time To Event
 
 
 # B. Dependencies ----------------------
