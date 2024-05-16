@@ -5,6 +5,8 @@
 
 # B. Functions ------------------------
 
+## Helper functions -----------------------
+
 getTreatmentHistory <- function(con,
                                 workDatabaseSchema,
                                 cohortTable,
@@ -66,6 +68,8 @@ getTreatmentHistory <- function(con,
 }
 
 
+## Main function -----------------------
+
 runTreatmentHistory <- function(con,
                                 executionSettings,
                                 analysisSettings) {
@@ -80,11 +84,12 @@ runTreatmentHistory <- function(con,
     fs::dir_create()
 
   targetCohorts <- analysisSettings$treatmentPatterns$cohorts$targetCohorts %>% dplyr::arrange(id)
-  treatmentCohorts <- analysisSettings$treatmentPatterns$cohorts$txCohorts %>% dplyr::arrange(id)
+  treatmentCohorts <- analysisSettings$treatmentPatterns$cohorts$eventCohorts %>% dplyr::arrange(id)
   thSettings <- analysisSettings$treatmentPatterns$treatmentHistorySettings
 
   # Job log
   cli::cat_boxx(crayon::magenta("Building Treatment History"))
+  cli::cat_line()
   tik <- Sys.time()
 
   # Loop through target cohort ids

@@ -5,18 +5,20 @@
 
 # B. Functions ------------------------
 
+## Helper functions -----------------------
+
 initializeCohortTables <- function(executionSettings,
                                    con,
                                    dropTables = FALSE) {
 
-  ## Create cohort tables names' to create or drop
+  # Create cohort tables names' to create or drop
   name <- executionSettings$cohortTable
   cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = executionSettings$cohortTable)
 
-  ## Drop cohort tables
+  # Drop cohort tables
   if (dropTables == TRUE) {
 
-    ## Delete csv files from "01_buildCohorts" folder
+    # Delete csv files from "01_buildCohorts" folder
     manifestPath <- here::here("results", executionSettings$databaseName, "01_buildCohorts")
     pathFiles <- list.files(manifestPath,  full.names = TRUE)
     sapply(pathFiles, unlink)
@@ -43,7 +45,7 @@ initializeCohortTables <- function(executionSettings,
 
   }
 
-  ## Create cohort tables
+  # Create cohort tables
   CohortGenerator::createCohortTables(connection = con,
                                       cohortDatabaseSchema = executionSettings$workDatabaseSchema,
                                       cohortTableNames = cohortTableNames,
@@ -73,6 +75,8 @@ prepManifestForCohortGenerator <- function(cohortManifest) {
 }
 
 
+## Main functions -----------------------
+
 generateCohorts <- function(executionSettings,
                             con,
                             cohortManifest,
@@ -87,6 +91,10 @@ generateCohorts <- function(executionSettings,
   # Create cohort tables names' for function CohortGenerator::generateCohortSet
   name <- executionSettings$cohortTable
   cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = executionSettings$cohortTable)
+
+  # Job log
+  cli::cat_boxx(crayon::magenta("Building Cohorts"))
+  cli::cat_line()
 
   # Generate cohorts
   cohortStatus <- CohortGenerator::generateCohortSet(
@@ -146,35 +154,24 @@ generateCohorts <- function(executionSettings,
   savePath <- fs::path(outputFolder, "cohortManifest.csv")
   readr::write_csv(x = tb, file = savePath)
 
+  # Job log
   cli::cat_bullet("Cohort counts saved to ", crayon::cyan(savePath), bullet = "tick", bullet_col = "green")
 
   return(cohortCounts)
 }
 
-# Run Cohort Diagnostis
-# Description: this function is used to run cohort diagnostics. preps cohorts for run
-# and then executes cohort diagnostics
-# inputs:
-# con -> the connection objection accessing the dbms storing the omop data
-# executionSettings -> the DatabaseSchema information required to run the study
-# cohortManifest -> the set of cohorts used to run diagnostics
-# outputFolder -> the save location of the cohort diagnostics run
-# return:
-# invisible return of the cohortsToRun for diagnostics. The output of this function
-# is a folder with cohort diagnostics run.
 
 runCohortDiagnostics <- function(con,
                                  executionSettings,
                                  cohortManifest,
                                  outputFolder) {
 
+  # Get cohorts to run in function CohortDiagnostics::executeDiagnostics
   cohortsToRun <- prepManifestForCohortGenerator(cohortManifest) %>%
-    dplyr::mutate(
-      cohortId = as.numeric(cohortId)
-    )
+    dplyr::mutate(cohortId = as.numeric(cohortId))
 
+  # Create cohort tables names'
   name <- executionSettings$cohortTable
-
   cohortTableNames <- list(cohortTable = paste0(name),
                            cohortInclusionTable = paste0(name, "_inclusion"),
                            cohortInclusionResultTable = paste0(name, "_inclusion_result"),
@@ -197,6 +194,7 @@ runCohortDiagnostics <- function(con,
     minCellCount = 5
   )
 
+  # Job log
   cli::cat_bullet("Saving Cohort Diagnostics to ", crayon::cyan(outputFolder), bullet = "tick", bullet_col = "green")
 
   invisible(cohortsToRun)

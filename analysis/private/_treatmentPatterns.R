@@ -14,14 +14,14 @@ prepTte <- function(con,
                     strata = NULL,
                     workDatabaseSchema,
                     cohortTable,
-                    targetCohorts) {
+                    targetCohort) {
 
   # Job log
   cli::cat_line(crayon::blue("Extracting Survival Table..."))
 
   # Get target cohort id and name
-  targetCohortIds <- targetCohorts$id
-  targetCohortNames <- targetCohorts$name
+  targetCohortIds <- targetCohort$id
+  targetCohortNames <- targetCohort$name
 
   # Get target cohort table data
   sql <- "SELECT * FROM @write_schema.@cohort_table
@@ -62,13 +62,14 @@ prepTte <- function(con,
       dplyr::select(event_cohort_name, duration_era, event_cohort_id, time_years, event)
 
 
-    # Add strata to object -----
+    # Add strata to object - Not sure if we need this
     if (is.null(strata)) {
 
       strata_tbl <- tte %>%
         dplyr::mutate(strata = 1)
 
     } else {
+
       checkmate::assert_class(strata, "strata")
 
       strata_tbl <- tte %>%
@@ -108,6 +109,8 @@ prepTte <- function(con,
 }
 
 
+## Main function -----------------------
+
 executeTimeToEvent <- function(con,
                                executionSettings,
                                analysisSettings) {
@@ -124,35 +127,46 @@ executeTimeToEvent <- function(con,
 
   # Get target cohort ids and names
   targetCohorts <- analysisSettings$treatmentPatterns$cohorts$targetCohort
-  targetCohortId <- targetCohorts$id
-  targetCohortName <- targetCohorts$name
 
   # List all treatment history files
   thFiles <- fs::dir_ls(thHistoryFolder, recurse = TRUE, type = "file")
 
-  # Loop through treatment history files
+
+  # Loop through treatment history(th.csv) files
   for (i in seq_along(thFiles)) {
+
+    # Get the target cohort id out of the th_<cohort_id>.csv file name
+    cohortId <- tools::file_path_sans_ext(basename(thFiles[i])) %>%
+      gsub("th_", "", .) %>%
+      as.integer(.)
+
+    targetCohort <- targetCohorts %>% dplyr::filter(id == cohortId)
+
+    # If there is no th file for the target cohort, break the loop and continue with the next target cohort id
+    if (nrow(targetCohort) == 0) {
+
+      cli::cat_bullet("No 'th' file detected for cohort id: ", crayon::red(cohortId), ". Function will continue with the next cohort id.",
+                      bullet = "info", bullet_col = "blue")
+      next
+    }
 
     # Job log
     cli::cat_line()
-    cli::cat_bullet("Execute time to discontinuation for cohort id: ", crayon::magenta(targetCohortId[i]),
-                    " (Cohort name: ",  crayon::magenta(targetCohortName[i]), ")",
+    cli::cat_boxx(crayon::magenta("Building Time to Event"))
+    cli::cat_line()
+    cli::cat_bullet("Execute time to event for cohort id: ", crayon::magenta(targetCohort$id),
+                    " (Cohort name: ",  crayon::magenta(targetCohort$name), ")",
                     bullet = "pointer", bullet_col = "yellow")
 
     # Read csv file
     th <- readr::read_csv(file = thFiles[i], show_col_types = FALSE)
-
-    # Get the target cohort id (out of the th_<cohort_id>.csv file name)
-    cohortId <- tools::file_path_sans_ext(basename(thFiles[i])) %>%
-      gsub("th_", "", .) %>%
-      as.integer(.)
 
     # Get time to event data frame
     tteDat <- prepTte(con = con,
                       th = th,
                       workDatabaseSchema = workDatabaseSchema,
                       cohortTable = cohortTable,
-                      targetCohorts = targetCohorts[targetCohorts$id == cohortId,])
+                      targetCohort = targetCohort)
 
 
     # Create tte folder
@@ -166,8 +180,7 @@ executeTimeToEvent <- function(con,
 
     # Job log
     cli::cat_line()
-    cli::cat_bullet("Saved file ", crayon::green(basename(save_path2)), " to:", bullet = "info", bullet_col = "blue")
-    cli::cat_bullet(crayon::cyan(save_path), bullet = "pointer", bullet_col = "yellow")
+    cli::cat_bullet("Saved file ", crayon::green(basename(save_path2)), " to: ", crayon::green(save_path), bullet = "info", bullet_col = "blue")
     cli::cat_line()
 
   }

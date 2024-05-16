@@ -18,7 +18,6 @@ findConfigBlock <- function(lines, startBlock = "# <<<", endBlock = "# >>>") {
 
 prepStudyTask <- function(lines, value) {
 
-  # create new config
   blockLines <- findConfigBlock(lines)
   start <- blockLines[1]
   end <- blockLines[2]

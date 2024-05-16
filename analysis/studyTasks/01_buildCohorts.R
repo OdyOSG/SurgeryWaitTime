@@ -11,7 +11,6 @@
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
-library(config)
 source(here::here('analysis/private/_buildCohorts.R'))
 source(here::here('analysis/private/_executeStudy.R'))
 source(here::here('analysis/private/_utilities.R'))

@@ -1,8 +1,8 @@
 # A. File Info -----------------------
 
+# Study:
 # Task: Cohort Diagnostics
-# Please refer to HowToRun.md in the documentation for instructions on
-# running package
+
 
 # B. Dependencies ----------------------
 # Dependencies are handled by renv package.

@@ -7,6 +7,7 @@
 
 icd10AggSql <- "
     DROP TABLE IF EXISTS @targetDatabaseSchema.@icdCodesTable;
+
     CREATE TABLE @targetDatabaseSchema.@icdCodesTable AS
     WITH disease AS ( -- define disease categories similar to ICD10 Chapters
                 SELECT 1 AS precedence, 'Blood disease' AS category_name, 440371 AS category_id
@@ -93,8 +94,8 @@ icd10AggSql <- "
               JOIN disease
                   ON ancestor_concept_id = category_id
               ) D
-        ON descendant_concept_id = c.concept_id;
-"
+        ON descendant_concept_id = c.concept_id;"
+
 
 getIcd10Sql <- "
     SELECT cohort_id, category_id, category_code, category_name, count(*) AS countValue
@@ -105,27 +106,31 @@ getIcd10Sql <- "
           ON icd.concept_id = CAST(cs.covariate_id / 1000 AS INT)
           ) tab
     GROUP BY cohort_id, category_id, category_id, category_name, category_code
-    ORDER BY category_id;
-"
-
+    ORDER BY category_id;"
 
 
 # C. Functions ------------------------
+
+## Helper functions -----------
+
 getIcd10Chapters <- function(con,
                              cohortDatabaseSchema,
                              cohortTable,
                              cdmDatabaseSchema,
                              cohortId,
                              databaseId,
+                             type,
                              timeA,
                              timeB) {
 
   # Job log
-  cli::cat_bullet("Building ICD-10 rollup for cohort id: ", crayon::green(cohortId),
+  cli::cat_bullet("Building ", crayon::green(type)," ICD-10 rollup, using time window [", crayon::green(timeA, ",", timeB), "]",
+                 " for cohort id: ", crayon::green(cohortId),
                   bullet = "pointer", bullet_col = "yellow")
   cli::cat_line()
 
-  # Define tables in database
+
+  # Define tables names
   targetCovariateTable <- "covariates"
   icdCodesTable <- "icd_codes"
 
@@ -136,22 +141,25 @@ getIcd10Chapters <- function(con,
     endDays = timeB
   )
 
-  # If targetCovariate table persists for some reason:
+  # If targetCovariate table persists for some reason
+  cli::cat_bullet("1. Drop covariates table", bullet = "info", bullet_col = "blue")
+
   dropTableSql <- 'DROP TABLE IF EXISTS @targetDatabaseSchema.@targetCovariateTable'
-  cli::cat_bullet("Drop covariates table", bullet = "info", bullet_col = "blue")
+
   DatabaseConnector::renderTranslateExecuteSql(connection = con,
                                                sql = dropTableSql,
                                                targetDatabaseSchema = cohortDatabaseSchema,
                                                targetCovariateTable = targetCovariateTable)
   cli::cat_line()
 
-  # Run feature extraction and place results in covariates table
-  cli::cat_bullet("1) Build temp covariates table in database", bullet = "info", bullet_col = "blue")
+  # Run FE and place results in covariates table
+  cli::cat_bullet("2. Build temp covariates table in database", bullet = "info", bullet_col = "blue")
+
   FeatureExtraction::getDbDefaultCovariateData(
     connection = con,
     cdmDatabaseSchema = cdmDatabaseSchema,
     cohortTable = paste(cohortDatabaseSchema, cohortTable, sep = "."),
-    cohortId = cohortId,
+    cohortIds = cohortId,
     covariateSettings = covSettings,
     targetDatabaseSchema = cohortDatabaseSchema,
     targetCovariateTable = targetCovariateTable,
@@ -161,7 +169,8 @@ getIcd10Chapters <- function(con,
   cli::cat_line()
 
   # Generate ICD Chapters features
-  cli::cat_bullet("2) Rollup ICD Chapters features", bullet = "info", bullet_col = "blue")
+  cli::cat_bullet("3. Rollup ICD Chapters features", bullet = "info", bullet_col = "blue")
+
   DatabaseConnector::renderTranslateExecuteSql(
     connection = con,
     sql = icd10AggSql,
@@ -173,7 +182,7 @@ getIcd10Chapters <- function(con,
   cli::cat_line()
 
   # Retrieve ICD features
-  cli::cat_bullet("3) Retrieve ICD Chapters features", bullet = "info", bullet_col = "blue")
+  cli::cat_bullet("4. Retrieve ICD Chapters features", bullet = "info", bullet_col = "blue")
 
   icdCovTab <- DatabaseConnector::renderTranslateQuerySql(
     connection = con,
@@ -183,27 +192,21 @@ getIcd10Chapters <- function(con,
     icdCodesTable = icdCodesTable
   )
 
+  cli::cat_line()
+
+  # Format
   names(icdCovTab) <- tolower(names(icdCovTab))
 
-  # cohortManifest <- readr::read_csv(here::here("results", databaseId, "01_buildCohorts", "cohortManifest.csv"),
-  #                                   show_col_types = FALSE)
-
   icdCovTab <- icdCovTab %>%
-    #dplyr::left_join(cohortManifest, by = c("cohort_id" = "id")) %>%
-    #dplyr::mutate(pct = countvalue/subjects) %>%
-    #dplyr::select(-name) %>%
     dplyr::rename(
-      #cohortDefinitionId = cohort_id,
+      cohortDefinitionId = cohort_id,
       analysisId = category_id,
       conceptId = category_code,
       name = category_name,
       n = countvalue
     ) %>%
-    #dplyr::select(cohortDefinitionId, analysisId, conceptId, name, n, pct) %>%
     dplyr::mutate(timeWindow = paste0(abs(timeA), "_", abs(timeB)))
 
-
-  cli::cat_line()
 
   # Remove temporary tables
   tabs <- c(targetCovariateTable, icdCodesTable)
@@ -218,7 +221,8 @@ getIcd10Chapters <- function(con,
     paste0(collapse = "")
 
   # Drop tables
-  cli::cat_bullet("4) Clean up")
+  cli::cat_bullet("5. Clean up", bullet = "info", bullet_col = "blue")
+
   DatabaseConnector::renderTranslateExecuteSql(
     connection = con,
     sql = sql,
@@ -230,9 +234,10 @@ getIcd10Chapters <- function(con,
   return(icdCovTab)
 }
 
+## Main function --------
 
 executeConditionRollup <- function(con,
-                                   type = c("postIndex", "baseline"),
+                                   type,
                                    executionSettings,
                                    analysisSettings) {
 
@@ -257,6 +262,31 @@ executeConditionRollup <- function(con,
                          timeA = timeA,
                          timeB = timeB)
 
+  # Output file and job names
+  typeAnalysis <- as.data.frame(x = type) %>%
+    dplyr::mutate(fullName =
+                    dplyr::case_when(type == "postIndex" ~ "Post-Index",
+                                     type == "baseline" ~ "Baseline",
+                                     TRUE ~ NA),
+                  shortName =
+                    dplyr::case_when(type == "postIndex" ~ "Post",
+                                     type == "baseline" ~ "Base",
+                                     TRUE ~ NA)
+    )
+
+  # Check if the correct string for the 'type' argument has been inserted. Terminate function if not.
+  if(is.na(typeAnalysis$fullName)) {
+
+    cli::cat_bullet(crayon::red("Wrong type name inserted. Please add 'postIndex' or 'baseline' in the type argument."),
+                    bullet = "info", bullet_col = "blue")
+
+    return(NA)
+  }
+
+  # Job log
+  cli::cat_boxx(crayon::magenta("Building ICD-10 Chapters rollup"))
+  cli::cat_line()
+
   # Get ICD-10 chapters
   icd10ChapDat <- purrr::pmap_dfr(condGrid,
                                   ~getIcd10Chapters(con = con,
@@ -265,18 +295,17 @@ executeConditionRollup <- function(con,
                                                     cdmDatabaseSchema = cdmDatabaseSchema,
                                                     cohortId = ..1,
                                                     databaseId = databaseId,
+                                                    type = typeAnalysis$fullName,
                                                     timeA = ..3,
                                                     timeB = ..4)
   ) %>%
     dplyr::mutate(database = executionSettings$databaseName)
 
-  # Output file name
-  saveName <- paste0("condGroupBase")
 
   # Export
   verboseSave(
     object = icd10ChapDat,
-    saveName = saveName,
+    saveName = paste0("condGroup", typeAnalysis$shortName),
     saveLocation = outputFolder
   )
 

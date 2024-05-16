@@ -80,12 +80,12 @@ covariateCohorts <- cohortManifest %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-#allCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003))
+baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml2 <- list(
   'baselineCharacteristics' = list(
     'cohorts' = list(
-      'targetCohorts' = allCohorts,
+      'targetCohorts' = baseCohorts,
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
@@ -107,12 +107,12 @@ covariateCohorts <- cohortManifest %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-#allCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003))
+postCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml3 <- list(
   'postIndexUtilization' = list(
     'cohorts' = list(
-      'targetCohorts' = allCohorts,
+      'targetCohorts' = postCohorts,
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
@@ -129,17 +129,18 @@ write_yaml(yaml3, file = here::here("analysis/settings/postIndex.yml"), column.m
 
 ## 4. Treatment Pathways Analysis-------------------
 
-txCohorts <- cohortManifest %>%
+eventCohorts <- cohortManifest %>%
   dplyr::filter(type %in% c("outcome", "covariate")) %>%
-  #dplyr::filter(type %in% c("outcome")) %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
+
+txCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml4 <- list(
   'treatmentPatterns' = list(
     'cohorts' = list(
-      'targetCohorts' = allCohorts,
-      'txCohorts' = txCohorts
+      'targetCohorts' = txCohorts,
+      'eventCohorts' = eventCohorts
     ),
     'treatmentHistorySettings' = list(
       minEraDuration = 0L,

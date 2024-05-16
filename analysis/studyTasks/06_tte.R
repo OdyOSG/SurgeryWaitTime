@@ -9,7 +9,6 @@
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
-library(config)
 source("analysis/private/_treatmentHistory.R")
 source("analysis/private/_treatmentHistory_helpers.R")
 source("analysis/private/_treatmentPatterns.R")

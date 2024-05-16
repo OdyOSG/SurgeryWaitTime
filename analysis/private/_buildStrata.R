@@ -5,6 +5,8 @@
 
 # B. Functions ------------------------
 
+## Strata functions -----------------------
+
 ageStrata <- function(con,
                       cohortDatabaseSchema,
                       cohortTable,
@@ -80,11 +82,10 @@ ageStrata <- function(con,
 
   cli::cat_bullet("Age strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
                   bullet = "tick", bullet_col = "green")
-  cat(" ","\n")
+  cli::cat_line()
 
   invisible(ageStrataSql)
 }
-
 
 
 genderStrata <- function(con,
@@ -198,7 +199,7 @@ genderStrata <- function(con,
 
   cli::cat_bullet(paste0(tools::toTitleCase(gender), " strata written to "), cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
                   bullet = "tick", bullet_col = "green")
-  cat(" ","\n")
+  cli::cat_line()
 
   invisible(genderStrataSql)
 }
@@ -265,7 +266,7 @@ dateStrata <- function(con,
 
   cli::cat_bullet("Date strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
                   bullet = "tick", bullet_col = "green")
-  cat(" ","\n")
+  cli::cat_line()
 
   invisible(dateStrataSql)
 }
@@ -332,7 +333,7 @@ raceStrata <- function(con,
 
   cli::cat_bullet("Race strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
                   bullet = "tick", bullet_col = "green")
-  cat(" ","\n")
+  cli::cat_line()
 
   invisible(raceStrataSql)
 }
@@ -402,7 +403,7 @@ measurementStrata <- function(con,
 
   cli::cat_bullet("Measurement strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
                   bullet = "tick", bullet_col = "green")
-  cat(" ","\n")
+  cli::cat_line()
 
   invisible(measurementStrataSql)
 }
@@ -469,11 +470,13 @@ ethnicityStrata <- function(con,
 
   cli::cat_bullet("Ethnicity strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
                   bullet = "tick", bullet_col = "green")
-  cat(" ","\n")
+  cli::cat_line()
 
   invisible(ethnicityStrataSql)
 }
 
+
+## Main function -----------------------
 
 buildStrata <- function(con,
                         executionSettings,
@@ -492,6 +495,9 @@ buildStrata <- function(con,
   targetCohorts <- analysisSettings$strata$cohorts$targetCohorts
   demoStratas <- analysisSettings$strata$demographics
 
+  # Job log
+  cli::cat_boxx(crayon::magenta("Building Stratas"))
+  cli::cat_line()
 
   ## Age ---------------
   cli::cat_rule("Building Age Strata")
@@ -700,7 +706,7 @@ buildStrata <- function(con,
 
   cohortCounts <- DatabaseConnector::querySql(connection = con, sql = renderedSql, snakeCaseToCamelCase = TRUE)
 
-  # Join counts and names/ids
+  # Format (Join counts and names/ids)
   dt <- cohortNamesIds %>%
     dplyr::left_join(cohortCounts, by = c("cohortId" = "id")) %>%
     dplyr::rename(

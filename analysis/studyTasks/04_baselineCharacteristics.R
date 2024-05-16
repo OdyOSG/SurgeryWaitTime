@@ -9,7 +9,6 @@
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
-library(config)
 source("analysis/private/_utilities.R")
 source("analysis/private/_conceptPrevalence.R")
 source("analysis/private/_conditionRollup.R")
@@ -58,21 +57,21 @@ analysisSettings <- readSettingsFile(here::here("analysis/settings/baseline.yml"
 
 executeConceptCharacterization(con = con,
                                type = "baseline",
-                               runDrugs = FALSE,
-                               runDemographics = FALSE,
-                               runContinuous = FALSE,
+                               runDrugs = TRUE,
+                               runDemographics = TRUE,
+                               runContinuous = TRUE,
                                runCohorts = TRUE,
-                               runConditions = FALSE,
+                               runConditions = TRUE,
                                executionSettings = executionSettings,
                                analysisSettings = analysisSettings)
 
 
-# ## Run ICD chapters rollup
-#
-# executeConditionRollup(con = con,
-#                        type = "baseline",
-#                        executionSettings = executionSettings,
-#                        analysisSettings = analysisSettings)
+## Run ICD chapters rollup
+
+executeConditionRollup(con = con,
+                       type = "baseline",
+                       executionSettings = executionSettings,
+                       analysisSettings = analysisSettings)
 
 
 # F. Disconnect ------------------------

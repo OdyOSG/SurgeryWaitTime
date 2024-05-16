@@ -5,7 +5,8 @@
 
 # B. Functions -----------------
 
-## Helpers  -----------------
+## Helper functions -----------------------
+
 silentCovariates <- function(con, cdmDatabaseSchema, cohortTable, cohortDatabaseSchema, cohortId, covSettings) {
 
   #Job log
@@ -52,20 +53,20 @@ bindFiles <- function(inputPath,
   # Bind all data frames of list
   binded_df <- dplyr::bind_rows(listed_files)
 
-  ## Save output
+  # Save output
   readr::write_csv(
     x = binded_df,
     file = file.path(here::here(outputPath, paste0(filename, ".csv"))),
     append = FALSE
   )
 
-  ## Delete individual files
+  # Delete individual files
   file.remove(filepath)
 
 }
 
 
-## Domain FE -------------------------
+## Domain FE functions -------------------------
 
 getDrugsFE <- function(con,
                        cohortDatabaseSchema,
@@ -99,16 +100,16 @@ getDrugsFE <- function(con,
                           cohortId = cohortId,
                           covSettings = covSettings)
 
-  ## If the cov$covariates object is empty, skip export and continue with the next cohort
-  ## If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
   if (cov$covariates %>% tally() %>% pull() == 0) {
 
     cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
     cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
                     crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
     cli::cat_line()
-    return(NA)
 
+    return(NA)
   }
 
   # Format
@@ -168,16 +169,16 @@ getConditionsFE <- function(con,
                           cohortId = cohortId,
                           covSettings = covSettings)
 
-  ## If the cov$covariates object is empty, skip export and continue with the next cohort
-  ## If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
   if (cov$covariates %>% tally() %>% pull() == 0) {
 
     cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
     cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
                     crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
     cli::cat_line()
-    return(NA)
 
+    return(NA)
   }
 
   # Format
@@ -235,16 +236,16 @@ getProceduresFE <- function(con,
                           cohortId = cohortId,
                           covSettings = covSettings)
 
-  ## If the cov$covariates object is empty, skip export and continue with the next cohort
-  ## If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
   if (cov$covariates %>% tally() %>% pull() == 0) {
 
     cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
     cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
                     crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
     cli::cat_line()
-    return(NA)
 
+    return(NA)
   }
 
   # Format
@@ -303,16 +304,16 @@ getVisitsFE <- function(con,
                           cohortId = cohortId,
                           covSettings = covSettings)
 
-  ## If the cov$covariates object is empty, skip export and continue with the next cohort
-  ## If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
   if (cov$covariates %>% tally() %>% pull() == 0) {
 
     cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
     cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
                     crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
     cli::cat_line()
-    return(NA)
 
+    return(NA)
   }
 
   # Format
@@ -379,16 +380,16 @@ getObservationsFE <- function(con,
                           cohortId = cohortId,
                           covSettings = covSettings)
 
-  ## If the cov$covariates object is empty, skip export and continue with the next cohort
-  ## If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
   if (cov$covariates %>% tally() %>% pull() == 0) {
 
     cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
     cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
                     crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
     cli::cat_line()
-    return(NA)
 
+    return(NA)
   }
 
   # Format
@@ -465,16 +466,16 @@ getCohortFE <- function(con,
     covSettings = covSettings
     )
 
-  ## If the cov$covariates object is empty, skip export and continue with the next cohort
-  ## If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
   if (cov$covariates %>% tally() %>% pull() == 0) {
 
     cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
     cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
                     crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
     cli::cat_line()
-    return(NA)
 
+    return(NA)
   }
 
   # Format
@@ -539,16 +540,16 @@ getDemographicsFE <- function(con,
                           cohortId = cohortId,
                           covSettings = covSettings)
 
-  ## If the cov$covariates object is empty, skip export and continue with the next cohort
-  ## If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
   if (cov$covariates %>% tally() %>% pull() == 0) {
 
     cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
     cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
                     crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
     cli::cat_line()
-    return(NA)
 
+    return(NA)
   }
 
   # Format
@@ -604,16 +605,16 @@ getContinuousFE <- function(con,
                           cohortId = cohortId,
                           covSettings = covSettings)
 
-  ## If the cov$covariatesContinuous object is empty, skip export and continue with the next cohort
-  ## If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  # If the cov$covariatesContinuous object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
   if (purrr::is_null(cov$covariatesContinuous)) {
 
     cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
     cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
                     crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
     cli::cat_line()
-    return(NA)
 
+    return(NA)
   }
 
   # Format
@@ -656,7 +657,7 @@ getContinuousFE <- function(con,
 ## Main function  -----------------
 
 executeConceptCharacterization <- function(con,
-                                           type = c("postIndex", "baseline"),
+                                           type,
                                            runDrugs = FALSE,
                                            runConditions = FALSE,
                                            runVisits = FALSE,
@@ -685,8 +686,7 @@ executeConceptCharacterization <- function(con,
   timeA <- analysisSettings[[1]]$timeWindows$startDay
   timeB <- analysisSettings[[1]]$timeWindows$endDay
 
-
-  # Job Log
+  # Output file and job names
   typeAnalysis <- as.data.frame(x = type) %>%
     dplyr::mutate(fullName =
                     dplyr::case_when(type == "postIndex" ~ "Post-Index",
@@ -698,14 +698,11 @@ executeConceptCharacterization <- function(con,
                                      TRUE ~ type)
                   )
 
-  cohortId <- cohortKey$id
-
-  cli::cat_boxx(paste0("Building ", typeAnalysis$fullName, " covariates"))
+  # Job Log
+  cli::cat_boxx(crayon::magenta(paste0("Building ", typeAnalysis$fullName, " covariates")))
   cli::cat_bullet(paste0("Using ", typeAnalysis$fullName,  " window: [", crayon::green(timeA), ", ", crayon::green(timeB), "]"),
                   bullet = "info", bullet_col = "blue")
-
-  cat_cohortId <- paste(cohortId, collapse = ", ")
-
+  cat_cohortId <- paste(cohortKey$id, collapse = ", ")
   cli::cat_bullet(paste0("Using cohort ids: ", crayon::green(cat_cohortId)), bullet = "info", bullet_col = "blue")
   cli::cat_line()
 
@@ -750,7 +747,7 @@ executeConceptCharacterization <- function(con,
                                         outputFolder = outputFolder)
       )
 
-      # Bind files
+      # Bind and save files
       bindFiles(
         inputPath = outputFolder,
         outputPath = outputFolder,
@@ -785,7 +782,7 @@ executeConceptCharacterization <- function(con,
                                  outputFolder = outputFolder)
     )
 
-    # Bind files
+    # Bind and save files
     bindFiles(
       inputPath = outputFolder,
       outputPath = outputFolder,
@@ -818,7 +815,7 @@ executeConceptCharacterization <- function(con,
                                       outputFolder = outputFolder)
     )
 
-    # Bind files
+    # Bind and save files
     bindFiles(
       inputPath = outputFolder,
       outputPath = outputFolder,
@@ -851,7 +848,7 @@ executeConceptCharacterization <- function(con,
                                   outputFolder = outputFolder)
     )
 
-    # Bind files
+    # Bind and save files
     bindFiles(
       inputPath = outputFolder,
       outputPath = outputFolder,
@@ -877,7 +874,7 @@ executeConceptCharacterization <- function(con,
   #                                     outputFolder = outputFolder)
   #   )
   #
-  #   # Bind files
+  #   # Bind and save files
   #   bindFiles(
   #     inputPath = outputFolder,
   #     outputPath = outputFolder,
@@ -910,7 +907,7 @@ executeConceptCharacterization <- function(con,
                                         outputFolder = outputFolder)
     )
 
-    # Bind files
+    # Bind and save files
     bindFiles(
       inputPath = outputFolder,
       outputPath = outputFolder,
@@ -947,7 +944,7 @@ executeConceptCharacterization <- function(con,
                                   outputFolder = outputFolder)
     )
 
-    # Bind files
+    # Bind and save files
     bindFiles(
       inputPath = outputFolder,
       outputPath = outputFolder,

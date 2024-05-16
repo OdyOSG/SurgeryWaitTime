@@ -1,23 +1,25 @@
 # A. File Info ------------
 
-# Task: Setup Credentials
+# Task: Setup credentials
 # Keep your database credentials handy before running this script.
 # Ask your database administrator if you are unsure what your credentials are.
 
 
 # B. Dependencies ------------
 
+## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(keyring)
 library(Ulysses)
 
-# C. Set Parameters ------------
 
-configBlock <- "synpuf"        # Name of config block
+# C. Set parameters ------------
 
-database <- "synpuf"           # Name of the database in the config block
+configBlock <- ""        # Name of config block
 
-keyringPassword <- "ohdsi"    # Password for keyring
+database <- ""           # Name of the database in the config block
+
+keyringPassword <- ""    # Password for keyring
 
 
 # D. Check or create config.yml file ------------
@@ -28,7 +30,7 @@ Ulysses::checkConfig()
 Ulysses::makeConfig(block = configBlock, database = database)
 
 
-# E. Setup Keyring ------------
+# E. Setup keyring ------------
 
 ## Set keyring
 setStudyKeyring(keyringName = basename(here::here()),
@@ -44,14 +46,14 @@ setMultipleCredentials(cred = defaultCredentials(),
 
 ## If a single credential is incorrect, change it by running the function below:
 setCredential(cred = "server",
-                      db = configBlock,
-                      keyringName = basename(here::here()),
-                      keyringPassword = keyringPassword,
-                      forceCheck = TRUE
+              db = configBlock,
+              keyringName = basename(here::here()),
+              keyringPassword = keyringPassword,
+              forceCheck = TRUE
 )
 
 
-# F. Check Credentials ------------
+# F. Test credentials ------------
 
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = config::get("dbms", config = configBlock),
@@ -60,5 +62,5 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
   connectionString = config::get("connectionString", config = configBlock)
 )
 
-# If this command returns the username set while running command 'setMultipleCredentials' above then the credentials have been stored in the keyring successfully
+## If this command returns the username set while running function 'setMultipleCredentials' above, then the credentials have been stored in the keyring successfully
 connectionDetails$user()
