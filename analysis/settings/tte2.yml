@@ -1,0 +1,14 @@
+tte:
+  cohorts:
+    targetCohorts:
+    - id: 1002.0
+      name: af 65_and_above
+    - id: 1003.0
+      name: af male
+    - id: 1.0
+      name: af
+    eventCohorts:
+    - name: proc1
+      id: 5
+  outputFolder:
+  - 07_tte2

@@ -1,0 +1,18 @@
+baselineCharacteristics:
+  cohorts:
+    targetCohorts:
+    - id: 1002.0
+      name: af 65_and_above
+    - id: 1003.0
+      name: af male
+    - id: 1.0
+      name: af
+    covariateCohorts:
+    - name: acetaminophen
+      id: 3
+    - name: hydrochlorothiazide
+      id: 4
+  timeWindows:
+  - startDay: -365
+    endDay: -1
+  outputFolder: 04_baselineCharacteristics

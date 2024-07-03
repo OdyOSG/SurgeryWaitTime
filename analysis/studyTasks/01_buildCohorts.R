@@ -1,15 +1,13 @@
 # A. File Info  -----------------------
 
+# Study:
 # Task: Build Cohorts
-# Please refer to HowToRun.md in the documentation for instructions on
-# running package
 
 # B. Dependencies ----------------------
-# Dependencies are handled by renv package.
 
 ## Load libraries and scripts
-
-library(dplyr)
+library(tidyverse, quietly = TRUE)
+library(DatabaseConnector)
 source(here::here('analysis/private/_buildCohorts.R'))
 source(here::here('analysis/private/_executeStudy.R'))
 source(here::here('analysis/private/_utilities.R'))
@@ -19,26 +17,34 @@ source(here::here('analysis/private/_utilities.R'))
 
 ## Set connection block
 # <<<
-configBlock <- "[block]"
+configBlock <- "synpuf"
 # >>>
 
-## Provide connection details
+# ## Provide connection details
+# connectionDetails <- DatabaseConnector::createConnectionDetails(
+# dbms = config::get("dbms", config = configBlock),
+# user = config::get("user", config = configBlock),
+# password = config::get("password", config = configBlock),
+# connectionString = config::get("connectionString", config = configBlock),
+# )
+
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = config::get("dbms", config = configBlock),
   user = config::get("user", config = configBlock),
   password = config::get("password", config = configBlock),
-  connectionString = config::get("connectionString", config = configBlock)
+  server = config::get("server", config = configBlock),
+  port = "5441"
 )
 
 ## Connect to database
 con <- DatabaseConnector::connect(connectionDetails)
 
 
-# D. Study Variables -----------------------
+# D. Variables -----------------------
 
 ## Administrative Variables
 executionSettings <- config::get(config = configBlock) %>%
-  purrr::discard_at(c("dbms", "user", "password", "connectionString"))
+  purrr::discard_at(c("user", "password", "connectionString"))
 
 outputFolder <- here::here("results") %>%
   fs::path(executionSettings$databaseName, "01_buildCohorts") %>%
@@ -47,15 +53,17 @@ outputFolder <- here::here("results") %>%
 ## Load cohorts
 cohortManifest <- getCohortManifest()
 
-# Needed to execute on Postgres, will be moved in final.
-executionSettings$projectName = tolower(executionSettings$projectName)
-executionSettings$cohortTable = tolower(executionSettings$cohortTable)
-executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
+# # Needed to execute on Postgres, will be moved in final.
+# executionSettings$projectName = tolower(executionSettings$projectName)
+# executionSettings$cohortTable = tolower(executionSettings$cohortTable)
+# executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
+
 
 # E. Script --------------------
 
-### RUN ONCE - Initialize Cohort table ###
-initializeCohortTables(executionSettings = executionSettings, con = con, dropTables = TRUE)
+## Initialize cohort tables
+
+initializeCohortTables(executionSettings = executionSettings, con = con, dropTables = FALSE)
 
 ## Generate cohorts
 

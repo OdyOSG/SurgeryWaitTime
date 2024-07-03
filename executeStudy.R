@@ -1,31 +1,43 @@
 # A. File Info -----------------------
 
-# Name: Execute Study
-# Description: The purpose of executeStudy.R is to run all the tasks required for the study
+# Study:
+# Task: Execute Study
 
 
 # B. Dependencies -----------------------
 
-### Load functions to run study
-source(here::here("analysis/private/_executeStudy.R"))
+## Load libraries and scripts
+source("analysis/private/_executeStudy.R")
 
 
 # C. Variables -----------------------
 
-### Edit to respective config block
-configBlock <- "[block]"
+## Add database name
+configBlock <- "synpuf"
 
-### Provide path to tasks
+## Path to tasks folder
 studyTaskFolder <- here::here("analysis/studyTasks")
 studyTaskFiles <- fs::dir_ls(studyTaskFolder, type = "file")
 
 
-# D. Execute -----------------------
+# D. Scripts -----------------------
 
-### Task 1: Build Cohorts
+## Task 1: Build Cohorts
 runStudyTask(file = studyTaskFiles[1], configBlock = configBlock)
 
-### Task 2: Run Cohort Diagnostics
-runStudyTask(file = studyTaskFiles[2], configBlock = configBlock)
+## Task 2: Run Cohort Diagnostics
+#runStudyTask(file = studyTaskFiles[2], configBlock = configBlock)
+
+## Task 3: Build Stratas
+runStudyTask(file = studyTaskFiles[3], configBlock = configBlock)
+
+## Task 4: Baseline Characteristics
+runStudyTask(file = studyTaskFiles[4], configBlock = configBlock)
+
+## Task 5: Post-index Characteristics
+runStudyTask(file = studyTaskFiles[5], configBlock = configBlock)
+
+## Task 6: Time-To-Event
+runStudyTask(file = studyTaskFiles[6], configBlock = configBlock)
 
 

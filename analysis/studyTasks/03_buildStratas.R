@@ -1,24 +1,21 @@
 # A. File Info -----------------------
 
 # Study:
-# Task: Cohort Diagnostics
+# Task: Build Stratas
 
 
 # B. Dependencies ----------------------
-# Dependencies are handled by renv package.
 
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
-library(config)
-source(here::here('analysis/private/_buildCohorts.R'))
-source(here::here('analysis/private/_executeStudy.R'))
-source(here::here('analysis/private/_utilities.R'))
+source("analysis/private/_utilities.R")
+source("analysis/private/_buildStrata.R")
 
 
 # C. Connection ----------------------
 
-## Set connection Block
+## Set connection block
 # <<<
 configBlock <- "synpuf"
 # >>>
@@ -47,29 +44,19 @@ con <- DatabaseConnector::connect(connectionDetails)
 
 ## Administrative Variables
 executionSettings <- config::get(config = configBlock) %>%
-  purrr::discard_at( c("dbms", "user", "password", "connectionString"))
+  purrr::discard_at(c("dbms", "user", "password", "connectionString"))
 
-# # Needed to execute on Postgres, will be moved in final.
-# executionSettings$projectName = tolower(executionSettings$projectName)
-# executionSettings$cohortTable = tolower(executionSettings$cohortTable)
-# executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
-
-outputFolder <- here::here("results") %>%
-  fs::path(executionSettings$databaseName, "02_cohortDiagnostics") %>%
-  fs::dir_create()
-
-## Add study variables or load from settings
-diagCohorts <- getCohortManifest() %>%
-  dplyr::filter(type == "target")
+## Analysis Settings
+analysisSettings <- readSettingsFile(here::here("analysis/settings/strata.yml"))
 
 
 # E. Script --------------------
 
-## Run cohort diagnostics
-runCohortDiagnostics(executionSettings = executionSettings,
-                     con = con,
-                     cohortManifest = diagCohorts,
-                     outputFolder = outputFolder)
+## Build stratas
+
+buildStrata(con = con,
+            executionSettings = executionSettings,
+            analysisSettings = analysisSettings)
 
 
 # F. Disconnect ------------------------

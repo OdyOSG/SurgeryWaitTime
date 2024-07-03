@@ -1,0 +1,28 @@
+postIndexCharacteristics:
+  cohorts:
+    targetCohorts:
+    - id: 1002.0
+      name: af 65_and_above
+    - id: 1003.0
+      name: af male
+    - id: 1.0
+      name: af
+    covariateCohorts:
+    - name: acetaminophen
+      id: 3
+    - name: hydrochlorothiazide
+      id: 4
+    - name: proc1
+      id: 5
+    - name: proc2
+      id: 6
+  timeWindows:
+  - startDay: 1.0
+    endDay: 99999.0
+  - startDay: 0.0
+    endDay: 99999.0
+  - startDay: 1.0
+    endDay: 183.0
+  - startDay: 0.0
+    endDay: 183.0
+  outputFolder: 05_postIndexCharacteristics
