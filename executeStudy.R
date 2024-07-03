@@ -7,7 +7,7 @@
 # B. Dependencies -----------------------
 
 ## Load libraries and scripts
-source(here::here("analysis/private/_executeStudy.R"))
+source("analysis/private/_executeStudy.R")
 
 
 # C. Variables -----------------------

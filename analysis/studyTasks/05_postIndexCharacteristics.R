@@ -11,7 +11,6 @@ library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 source("analysis/private/_utilities.R")
 source("analysis/private/_conceptPrevalence.R")
-source("analysis/private/_conditionRollup.R")
 
 
 # C. Connection ----------------------

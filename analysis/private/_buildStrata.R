@@ -688,8 +688,7 @@ buildStrata <- function(con,
   cohortNamesIds <- rbind(tb1, tb2)
 
   # Get cohort counts
-  sql <- "
-          SELECT
+  sql <- "SELECT
             cohort_definition_id as id,
             count(distinct subject_id) as subjects,
             count(subject_id) as entries

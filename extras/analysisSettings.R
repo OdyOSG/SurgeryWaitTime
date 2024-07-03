@@ -10,7 +10,7 @@
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 library(yaml)
-source(here::here("analysis/private/_utilities.R"))
+source("analysis/private/_utilities.R")
 
 
 # C. Script --------------------
@@ -60,7 +60,7 @@ yaml1 <- list(
 write_yaml(yaml1, file = here::here("analysis/settings/strata.yml"), column.major = FALSE)
 
 
-#### All cohorts (target and its stratas) ------------------
+### All cohorts (target and its stratas) ------------------
 
 demoStrata <- yaml1$strata$demographics
 
@@ -89,8 +89,8 @@ yaml2 <- list(
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
-        startDay = c(-365L, -365L),
-        endDay = c(-1L, 0)
+        startDay = c(-365L),
+        endDay = c(-1L)
       ),
     'outputFolder' = fs::path("04_baselineCharacteristics")
   )
@@ -110,16 +110,16 @@ covariateCohorts <- cohortManifest %>%
 postCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml3 <- list(
-  'postIndexUtilization' = list(
+  'postIndexCharacteristics' = list(
     'cohorts' = list(
       'targetCohorts' = postCohorts,
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
-      startDay = c(0, 0),
-      endDay = c(99999, 183)
+      startDay = c(1, 0, 1, 0),
+      endDay = c(99999, 99999, 183, 183)
       ),
-    'outputFolder' = fs::path("05_postIndexUtilization")
+    'outputFolder' = fs::path("05_postIndexCharacteristics")
   )
 )
 
@@ -127,41 +127,51 @@ yaml3 <- list(
 write_yaml(yaml3, file = here::here("analysis/settings/postIndex.yml"), column.major = FALSE)
 
 
-## 4. Treatment Pathways Analysis-------------------
+## 4.1 Time To Event (Whole cohort) -------------------
 
 eventCohorts <- cohortManifest %>%
   dplyr::filter(type %in% c("outcome", "covariate")) %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-txCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
+targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml4 <- list(
-  'treatmentPatterns' = list(
+  'tte' = list(
     'cohorts' = list(
-      'targetCohorts' = txCohorts,
+      'targetCohorts' = targetCohorts,
       'eventCohorts' = eventCohorts
     ),
-    'treatmentHistorySettings' = list(
-      minEraDuration = 0L,
-      eraCollapseSize = 30L,
-      combinationWindow = 30L,
-      minPostCombinationDuration = 30L,
-      filterTreatments = "First",
-      periodPriorToIndex = 0L,
-      includeTreatments = "startDate",
-      maxPathLength = 5L,
-      minCellCount = 5L,
-      minCellMethod = "Remove",
-      groupCombinations = 10L,
-      addNoPaths = FALSE
-    ),
     'outputFolder' = list(
-      fs::path("06_treatmentHistory"),
-      fs::path("07_tte")
+      fs::path("06_tte")
     )
   )
 )
 
 # Create yaml file
 write_yaml(yaml4, file = here::here("analysis/settings/tte.yml"), column.major = FALSE)
+
+
+## 4.2 Time To Event (Only Surgery patients) -------------------
+
+eventCohorts <- cohortManifest %>%
+  dplyr::filter(name %in% c("proc1")) %>%
+  dplyr::mutate(id = as.integer(id)) %>%
+  dplyr::select(name, id)
+
+targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
+
+yaml5 <- list(
+  'tte' = list(
+    'cohorts' = list(
+      'targetCohorts' = targetCohorts,
+      'eventCohorts' = eventCohorts
+    ),
+    'outputFolder' = list(
+      fs::path("07_tte2")
+    )
+  )
+)
+
+# Create yaml file
+write_yaml(yaml5, file = here::here("analysis/settings/tte2.yml"), column.major = FALSE)

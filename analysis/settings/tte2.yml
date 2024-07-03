@@ -8,13 +8,7 @@ tte:
     - id: 1.0
       name: af
     eventCohorts:
-    - name: acetaminophen
-      id: 3
-    - name: hydrochlorothiazide
-      id: 4
     - name: proc1
       id: 5
-    - name: proc2
-      id: 6
   outputFolder:
-  - 06_tte
+  - 07_tte2

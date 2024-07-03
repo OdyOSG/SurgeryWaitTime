@@ -55,6 +55,35 @@ initializeCohortTables <- function(executionSettings,
 }
 
 
+getDatabaseInfo <- function(executionSettings,
+                            con,
+                            outputFolder) {
+
+
+     cli::cat_line("Getting database info")
+
+      sql <- "select * from @cdmDatabaseSchema.CDM_SOURCE;"
+
+      getDbInfoSql <- SqlRender::render(
+        sql,
+        cdmDatabaseSchema = executionSettings$cdmDatabaseSchema
+      ) %>%
+        SqlRender::translate(targetDialect = executionSettings$dbms)
+
+      dbInfo <- DatabaseConnector::querySql(connection = con, getDbInfoSql)
+
+      # Export database info
+      savePath <- fs::path(outputFolder, "dbInfo.csv")
+      readr::write_csv(x = dbInfo, file = savePath)
+
+      # Job log
+      cli::cat_bullet("Database info saved to: ", crayon::cyan(savePath), bullet = "tick", bullet_col = "green")
+
+  return(dbInfo)
+}
+
+
+
 prepManifestForCohortGenerator <- function(cohortManifest) {
 
   # Add JSON file location as variable
@@ -140,6 +169,12 @@ generateCohorts <- function(executionSettings,
     dplyr::select(cohortId, cohortName, cohortEntries, cohortSubjects, databaseId)
 
 
+  # Get database info
+  databaseInfo <- getDatabaseInfo(executionSettings = executionSettings,
+                                  con = con,
+                                  outputFolder = outputFolder)
+
+
   # Format
   tb <- cohortManifest %>%
     dplyr::left_join(cohortCounts, by = c("id" = "cohortId")) %>%
@@ -148,7 +183,11 @@ generateCohorts <- function(executionSettings,
       subjects = cohortSubjects,
       database = databaseId
       ) %>%
-    dplyr::select(id, name, type, entries, subjects, file, database)
+    dplyr::select(id, name, type, entries, subjects, file, database) %>%
+    dplyr::mutate(sourceReleaseDate = databaseInfo$SOURCE_RELEASE_DATE,
+                  cdmReleaseDate = databaseInfo$CDM_RELEASE_DATE,
+                  cdmVersion = databaseInfo$CDM_VERSION,
+                  vocabularyVersion = databaseInfo$VOCABULARY_VERSION)
 
   # Export: cohort counts
   savePath <- fs::path(outputFolder, "cohortManifest.csv")

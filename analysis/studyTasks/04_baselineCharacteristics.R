@@ -11,7 +11,6 @@ library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 source("analysis/private/_utilities.R")
 source("analysis/private/_conceptPrevalence.R")
-source("analysis/private/_conditionRollup.R")
 
 
 # C. Connection ----------------------
@@ -60,18 +59,10 @@ executeConceptCharacterization(con = con,
                                runDrugs = TRUE,
                                runDemographics = TRUE,
                                runContinuous = TRUE,
-                               runCohorts = TRUE,
                                runConditions = TRUE,
+                               runCohorts = TRUE,
                                executionSettings = executionSettings,
                                analysisSettings = analysisSettings)
-
-
-## Run ICD chapters rollup
-
-executeConditionRollup(con = con,
-                       type = "baseline",
-                       executionSettings = executionSettings,
-                       analysisSettings = analysisSettings)
 
 
 # F. Disconnect ------------------------

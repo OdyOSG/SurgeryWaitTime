@@ -2,11 +2,8 @@
 
 # Study:
 # Task: Build Cohorts
-# Please refer to HowToRun.md in the documentation for instructions on
-# running package
 
 # B. Dependencies ----------------------
-# Dependencies are handled by renv package.
 
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
@@ -66,8 +63,7 @@ cohortManifest <- getCohortManifest()
 
 ## Initialize cohort tables
 
-initializeCohortTables(executionSettings = executionSettings, con = con,
-                       dropTables = TRUE)
+initializeCohortTables(executionSettings = executionSettings, con = con, dropTables = FALSE)
 
 ## Generate cohorts
 

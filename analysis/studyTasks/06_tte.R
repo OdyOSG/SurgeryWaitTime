@@ -9,9 +9,7 @@
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
-source("analysis/private/_treatmentHistory.R")
-source("analysis/private/_treatmentHistory_helpers.R")
-source("analysis/private/_treatmentPatterns.R")
+source("analysis/private/_tte.R")
 source("analysis/private/_utilities.R")
 
 
@@ -50,21 +48,22 @@ executionSettings <- config::get(config = configBlock) %>%
 
 ## Analysis Settings
 analysisSettings <- readSettingsFile(here::here("analysis/settings/tte.yml"))
-
+analysisSettings2 <- readSettingsFile(here::here("analysis/settings/tte2.yml"))
 
 # E. Script --------------------
 
-# Run treatment history
+## Time To Event (Whole Cohort)
+# debug(executeTimeToEventSurvival)
+# executeTimeToEventSurvival(con = con,
+#                            executionSettings = executionSettings,
+#                            analysisSettings = analysisSettings)
 
-runTreatmentHistory(con = con,
-                    executionSettings = executionSettings,
-                    analysisSettings = analysisSettings)
 
-# Get time to discontinuation
+## Time To Event (Only surgery patients)
 
 executeTimeToEvent(con = con,
                    executionSettings = executionSettings,
-                   analysisSettings = analysisSettings)
+                   analysisSettings = analysisSettings2)
 
 
 # F. Disconnect ------------------------

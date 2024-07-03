@@ -37,34 +37,6 @@ silentCovariates <- function(con, cdmDatabaseSchema, cohortTable, cohortDatabase
 }
 
 
-bindFiles <- function(inputPath,
-                      outputPath,
-                      filename,
-                      database = NULL,
-                      pattern = NULL)  {
-
-
-  # List all csv files in folder
-  filepath <- list.files(inputPath, full.names = TRUE, pattern = pattern, recursive = TRUE)
-
-  # Read all csv files and save in list
-  listed_files <- lapply(filepath, readr::read_csv, show_col_types = FALSE)
-
-  # Bind all data frames of list
-  binded_df <- dplyr::bind_rows(listed_files)
-
-  # Save output
-  readr::write_csv(
-    x = binded_df,
-    file = file.path(here::here(outputPath, paste0(filename, ".csv"))),
-    append = FALSE
-  )
-
-  # Delete individual files
-  file.remove(filepath)
-
-}
-
 
 ## Domain FE functions -------------------------
 
@@ -495,7 +467,8 @@ getCohortFE <- function(con,
       n = as.integer(n),
       pct = as.double(pct),
       analysisId = as.integer(analysisId),
-      conceptId = as.integer(conceptId)
+      conceptId = as.integer(conceptId),
+      covId = as.integer(covId)
                   ) %>%
     dplyr::select(-covariateId)
 

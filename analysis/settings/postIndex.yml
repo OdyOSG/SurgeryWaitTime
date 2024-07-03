@@ -1,4 +1,4 @@
-postIndexUtilization:
+postIndexCharacteristics:
   cohorts:
     targetCohorts:
     - id: 1002.0
@@ -17,8 +17,12 @@ postIndexUtilization:
     - name: proc2
       id: 6
   timeWindows:
-  - startDay: 0.0
+  - startDay: 1.0
     endDay: 99999.0
   - startDay: 0.0
+    endDay: 99999.0
+  - startDay: 1.0
     endDay: 183.0
-  outputFolder: 05_postIndexUtilization
+  - startDay: 0.0
+    endDay: 183.0
+  outputFolder: 05_postIndexCharacteristics
