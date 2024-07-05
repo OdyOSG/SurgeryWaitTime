@@ -117,7 +117,7 @@ yaml3 <- list(
     ),
     'timeWindows' = tibble::tibble(
       startDay = c(1, 0, 1, 0),
-      endDay = c(99999, 99999, 183, 183)
+      endDay = c(9999, 9999, 183, 183)
       ),
     'outputFolder' = fs::path("05_postIndexCharacteristics")
   )

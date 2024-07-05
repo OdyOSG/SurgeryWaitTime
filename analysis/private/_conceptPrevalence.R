@@ -7,6 +7,7 @@
 
 ## Helper functions -----------------------
 
+# Function that runs function FeatureExtraction::getDbCovariateData without console messages
 silentCovariates <- function(con, cdmDatabaseSchema, cohortTable, cohortDatabaseSchema, cohortId, covSettings) {
 
   #Job log
@@ -40,6 +41,7 @@ silentCovariates <- function(con, cdmDatabaseSchema, cohortTable, cohortDatabase
 
 ## Domain FE functions -------------------------
 
+# Function that runs function FeatureExtraction::createCovariateSettings for drug eras (exlc. ATC 1st level classes)
 getDrugsFE <- function(con,
                        cohortDatabaseSchema,
                        cohortTable,
@@ -114,6 +116,7 @@ getDrugsFE <- function(con,
 }
 
 
+# Function that runs function FeatureExtraction::createCovariateSettings for condition eras
 getConditionsFE <- function(con,
                             cohortDatabaseSchema,
                             cohortTable,
@@ -181,15 +184,16 @@ getConditionsFE <- function(con,
 }
 
 
+# Function that runs function FeatureExtraction::createCovariateSettings for procedure occurrences
 getProceduresFE <- function(con,
-                                cohortDatabaseSchema,
-                                cohortTable,
-                                cdmDatabaseSchema,
-                                cohortId,
-                                type = c("postIndex", "baseline"),
-                                timeA,
-                                timeB,
-                                outputFolder) {
+                            cohortDatabaseSchema,
+                            cohortTable,
+                            cdmDatabaseSchema,
+                            cohortId,
+                            type = c("postIndex", "baseline"),
+                            timeA,
+                            timeB,
+                            outputFolder) {
 
   cli::cat_rule("Build Procedure Covariates")
 
@@ -248,6 +252,7 @@ getProceduresFE <- function(con,
 }
 
 
+# Function that runs function FeatureExtraction::createCovariateSettings for visit occurrences (Overall visit & by visit concept count)
 getVisitsFE <- function(con,
                             cohortDatabaseSchema,
                             cohortTable,
@@ -325,6 +330,7 @@ getVisitsFE <- function(con,
 }
 
 
+# Function that runs function FeatureExtraction::createCovariateSettings for observations
 getObservationsFE <- function(con,
                               cohortDatabaseSchema,
                               cohortTable,
@@ -393,6 +399,7 @@ getObservationsFE <- function(con,
 }
 
 
+# Function that runs function FeatureExtraction::createCovariateSettings for cohorts already created while running `01_buildCohorts`
 getCohortFE <- function(con,
                         cohortDatabaseSchema,
                         cohortTable,
@@ -486,7 +493,7 @@ getCohortFE <- function(con,
 }
 
 
-
+# Function that runs function FeatureExtraction::createCovariateSettings for demographics (race, gender, ethnicity, index year, age group)
 getDemographicsFE <- function(con,
                               cohortDatabaseSchema,
                               cohortTable,
@@ -552,6 +559,7 @@ getDemographicsFE <- function(con,
 }
 
 
+# Function that runs function FeatureExtraction::createCovariateSettings for continuous variables (age, Charlson index, time in cohort)
 getContinuousFE <- function(con,
                             cohortDatabaseSchema,
                             cohortTable,

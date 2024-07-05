@@ -7,6 +7,8 @@
 
 ## Helper functions -----------------------
 
+
+# Function to create tables in SQL to store cohort data
 initializeCohortTables <- function(executionSettings,
                                    con,
                                    dropTables = FALSE) {
@@ -18,7 +20,7 @@ initializeCohortTables <- function(executionSettings,
   # Drop cohort tables
   if (dropTables == TRUE) {
 
-    # Delete csv files from "01_buildCohorts" folder
+    # Delete csv files from 'results/01_buildCohorts' folder
     manifestPath <- here::here("results", executionSettings$databaseName, "01_buildCohorts")
     pathFiles <- list.files(manifestPath,  full.names = TRUE)
     sapply(pathFiles, unlink)
@@ -42,7 +44,6 @@ initializeCohortTables <- function(executionSettings,
 
     }
 
-
   }
 
   # Create cohort tables
@@ -55,12 +56,12 @@ initializeCohortTables <- function(executionSettings,
 }
 
 
+# Function to retrieve database information
 getDatabaseInfo <- function(executionSettings,
                             con,
                             outputFolder) {
 
-
-     cli::cat_line("Getting database info")
+      cli::cat_line("Getting database info")
 
       sql <- "select * from @cdmDatabaseSchema.CDM_SOURCE;"
 
@@ -83,7 +84,7 @@ getDatabaseInfo <- function(executionSettings,
 }
 
 
-
+# Function that retrieves SQL code out of JSON files
 prepManifestForCohortGenerator <- function(cohortManifest) {
 
   # Add JSON file location as variable
@@ -106,6 +107,7 @@ prepManifestForCohortGenerator <- function(cohortManifest) {
 
 ## Main functions -----------------------
 
+# Generate cohorts and retrieve cohort counts, execution times and attrition information
 generateCohorts <- function(executionSettings,
                             con,
                             cohortManifest,
@@ -200,6 +202,7 @@ generateCohorts <- function(executionSettings,
 }
 
 
+# Function to run CohortDiagnostics package
 runCohortDiagnostics <- function(con,
                                  executionSettings,
                                  cohortManifest,
@@ -211,6 +214,7 @@ runCohortDiagnostics <- function(con,
 
   # Create cohort tables names'
   name <- executionSettings$cohortTable
+
   cohortTableNames <- list(cohortTable = paste0(name),
                            cohortInclusionTable = paste0(name, "_inclusion"),
                            cohortInclusionResultTable = paste0(name, "_inclusion_result"),

@@ -109,156 +109,35 @@ collectCohorts2 <- function(con,
 }
 
 
-getTreatmentHistory <- function(con,
-                                workDatabaseSchema,
-                                cohortTable,
-                                targetId,
-                                eventId,
-                                outputFolder) {
-
-  tik <- Sys.time()
-
-  # Collect cohorts data
-  current_cohorts <- collectCohorts(con = con,
-                                    workDatabaseSchema = workDatabaseSchema,
-                                    cohortTable = cohortTable,
-                                    targetId = targetId,
-                                    eventId = eventId)
-
-  # # Job log
-  # tok <- Sys.time()
-  # tdif <- tok - tik
-  # tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
-  # cli::cat_line("\nTreatment History built at: ", crayon::green(tok))
-  # cli::cat_line("Treatment History build took: ", crayon::green(tok_format))
-
-  ## If current_cohorts object is empty, skip export
-  if (nrow(current_cohorts) == 0) {
-
-    return(NA)
-  }
-
-  # # Export
-  # save_name <- paste("th", targetId,  sep = "_")
-  # save_path <- fs::path(outputFolder, save_name, ext = "csv")
-  # readr::write_csv(x = current_cohorts, file = save_path)
-
-  # # Job log
-  # cli::cat_line()
-  # cli::cat_bullet("Saved file ", crayon::green(basename(save_path)), " to:", crayon::cyan(outputFolder), bullet = "info", bullet_col = "blue")
-  # cli::cat_line()
-
-  return(current_cohorts)
-}
+# Function that determines 1) censored and non-censored patients, 2) duration of right-censored patients and 3) fits the patient data frame
+# Note that the duration for non-censored has already been calculated in the SQL code
+prepTte <- function(df) {
 
 
-prepTte <- function(con,
-                    th,
-                    strata = NULL,
-                    workDatabaseSchema,
-                    cohortTable,
-                    targetCohort) {
-
-  # Job log
-  cli::cat_line(crayon::blue("Extracting Survival Table..."))
-
-  # Get target cohort id and name
-  #targetCohortIds <- targetCohort$id
-  #targetCohortNames <- targetCohort$name
-
-  targetCohortIds <- targetCohort
-
-  # Get target cohort table data
-  sql <- "SELECT * FROM @write_schema.@cohort_table
-          WHERE cohort_definition_id IN (@target_cohort_id);"  %>%
-    SqlRender::render(
-      write_schema = workDatabaseSchema,
-      cohort_table = cohortTable,
-      target_cohort_id = targetCohortIds
-    ) %>%
-    SqlRender::translate(con@dbms)
-
-  targetTbl <- DatabaseConnector::querySql(connection = con, sql = sql)
-
-  colnames(targetTbl) <- tolower(colnames(targetTbl))
-
-  # Convert treatment history table to tibble
-  dt <- th %>% tibble::as_tibble()
-
-  # Create empty list object
-  survDat <- vector('list', length(targetCohortIds))
-
-  # # Loop through target cohort ids
-  # for (i in seq_along(targetCohortIds)) {
-
-    tte <- targetTbl %>%
-      # filter to cohort id
-      dplyr::filter(cohort_definition_id == targetCohortIds) %>%
-      # join th and target table to determine censoring
-      dplyr::inner_join(th, by = c("subject_id" = "person_id"), relationship = "many-to-many") %>%
-      # identifying the event and convert time to years
-      dplyr::mutate(
-        event = dplyr::case_when(
-          event_end_date < cohort_end_date ~ 1,
-          TRUE ~ 0
-        ),
-        time_years = duration_era / 365.25
-      ) %>%
-      dplyr::select(event_cohort_name, duration_era, event_cohort_id, time_years, event)
+    ## Determine censored and non-censored patients, and duration of right-censored patients
+    tte <- df %>%
+      dplyr::mutate(diff = dplyr::if_else(is.na(event_start_date),
+                                          as.double(difftime(target_end_date, target_start_date, units = "days")), diff, diff),
+                    status = dplyr::if_else(is.na(event_start_date), 0, 1, 0)) %>%
+      dplyr::select(-c(rank, subject_id))
 
 
-    # Add strata to object - Not sure if we need this
-    if (is.null(strata)) {
-
-      strata_tbl <- tte %>%
-        dplyr::mutate(strata = 1)
-
-    } else {
-
-      checkmate::assert_class(strata, "strata")
-
-      strata_tbl <- tte %>%
-        dplyr::left_join(strata$data, by = c("subject_id" = "rowId"))
-    }
-
-
-    # t2 <- strata_tbl %>%
-    #   dplyr::count(event_cohort_name) %>%
-    #   dplyr::arrange(desc(n)) %>%
-    #   dplyr::filter(n >= 15) %>%
-    #   dplyr::select(event_cohort_name)
-    #
-    # survTab <- strata_tbl %>%
-    #   dplyr::inner_join(t2, by = c("event_cohort_name")) %>%
-    #   dplyr::mutate(outcome = paste(event_cohort_name, strata, sep = "_"))
-
-    survTab <- strata_tbl
-
-    survFit <- survival::survfit(
-      #survival::Surv(duration_era, event) ~ outcome,
-      survival::Surv(duration_era, event) ~ event_cohort_name,
-      data = survTab
+    ## Fit patient data frame
+    survFit2 <- ggsurvfit::survfit2(
+      survival::Surv(time = diff, event = status, type = "right") ~ eventName,
+      data = tte
     )
 
-    # Remove string "outcome=" from strata variable
-    names(survFit$strata) <- gsub("outcome=", "", names(survFit$strata))
-
-    # Export
-    survival_info <- list(
-      data = survTab,
-      fit = survFit)
-
-  #}
-
-  return(survival_info)
+  return(survFit2)
 }
 
 
-
+# Calculate continuous variable statistics
+# Note that this function is grouping the data frame by columns 'event_id' and 'target_id'
+# Specific to this study for now but we can generalize later
 calculateStatisticsContinuous <- function(df,
                                           database,
                                           dateScale = c("default", "all")) {
-
 
   ## Days only
   if(dateScale == "default") {
@@ -379,7 +258,24 @@ calculateStatisticsContinuous <- function(df,
 }
 
 
-## Main function -----------------------
+# Function to abbreviate event cohort names for tidy display in KM plots
+# Note that this function is specific to this study
+abbreviateEventNames <- function(df){
+
+  df <- df %>%
+    dplyr::mutate(eventName = dplyr::case_when(
+      event_id == 3 ~ "APAP",
+      event_id == 4 ~ "HCTZ",
+      event_id == 5 ~ "proc1",
+      event_id == 6 ~ "proc2",
+      TRUE ~ NA
+    ))
+
+  return(df)
+}
+
+
+## Main functions -----------------------
 
 executeTimeToEventSurvival <- function(con,
                                        executionSettings,
@@ -397,10 +293,10 @@ executeTimeToEventSurvival <- function(con,
   targetCohorts <- analysisSettings$tte$cohorts$targetCohorts
   eventCohorts <- analysisSettings$tte$cohorts$eventCohorts
 
-  # # Job log
-  # cli::cat_boxx(crayon::magenta("Building Treatment History"))
-  # cli::cat_line()
-  # tik <- Sys.time()
+  # Job log
+  cli::cat_boxx(crayon::magenta("Calculating Time To Event data"))
+  cli::cat_line()
+  tik <- Sys.time()
 
   # Loop through target cohort ids
   for (i in seq_along(targetCohorts$id)) {
@@ -415,16 +311,14 @@ executeTimeToEventSurvival <- function(con,
     cli::cat_bullet(crayon::green("Target Cohort: "), txt1, bullet = "pointer", bullet_col = "yellow")
     txt2 <- paste0(eventCohorts$name, " (id:", eventCohorts$id, ")", collapse = ", ")
     cli::cat_bullet(crayon::green("Event Cohorts: "), txt2, bullet = "pointer", bullet_col = "yellow")
-    cli::cat_line()
 
 
-    # Run treatment history
-    current_cohorts <- getTreatmentHistory(con = con,
-                                          workDatabaseSchema = workDatabaseSchema,
-                                          cohortTable = cohortTable,
-                                          targetId = targetId,
-                                          eventId = eventId,
-                                          outputFolder = outputFolder)
+    # Collect patient data
+    current_cohorts <- collectCohorts(con = con,
+                                      workDatabaseSchema = workDatabaseSchema,
+                                      cohortTable = cohortTable,
+                                      targetId = targetId,
+                                      eventId = eventId)
 
 
     # Warning if no data are returned from function above.
@@ -433,30 +327,35 @@ executeTimeToEventSurvival <- function(con,
     if (nrow(current_cohorts) == 0) {
       cli::cat_bullet("No data returned for target cohort id: ", crayon::red(targetId), ". Function will continue with the next cohort id.",
                       bullet = "info", bullet_col = "blue")
+      cli::cat_line()
+
       next
     }
 
 
-    # Get time to event data frame
-    tteDat <- prepTte(con = con,
-                      th = current_cohorts,
-                      workDatabaseSchema = workDatabaseSchema,
-                      cohortTable = cohortTable,
-                      targetCohort = targetId)
+    # Abbreviate event names for KM plots
+    current_cohorts<- abbreviateEventNames(df = current_cohorts)
+
+    # Get time to event data
+    tteSurvFit <- prepTte(df = current_cohorts)
+
+    # Export object
+    verboseSaveRds(object = tteSurvFit,
+                   saveName = paste0("tteSurvFit_", targetId),
+                   saveLocation = outputFolder)
 
   }
 
-  # # Job log
-  # tok <- Sys.time()
-  # tdif <- tok - tik
-  # tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
-  # cli::cat_line()
-  # cli::cat_bullet("Execution took: ", crayon::red(tok_format), bullet = "info", bullet_col = "blue")
+  # Job log
+  tok <- Sys.time()
+  tdif <- tok - tik
+  tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
+  cli::cat_line()
+  cli::cat_bullet("Execution took: ", crayon::red(tok_format), bullet = "info", bullet_col = "blue")
+
 
   invisible(current_cohorts)
 }
-
-
 
 
 executeTimeToEvent <- function(con,
@@ -493,10 +392,9 @@ executeTimeToEvent <- function(con,
     cli::cat_bullet(crayon::green("Target Cohort: "), txt1, bullet = "pointer", bullet_col = "yellow")
     txt2 <- paste0(eventCohorts$name, " (id:", eventCohorts$id, ")", collapse = ", ")
     cli::cat_bullet(crayon::green("Event Cohorts: "), txt2, bullet = "pointer", bullet_col = "yellow")
-    cli::cat_line()
 
 
-    # Run treatment history
+    # Collect patient data
     current_cohorts <- collectCohorts2(con = con,
                                        workDatabaseSchema = workDatabaseSchema,
                                        cohortTable = cohortTable,

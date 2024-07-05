@@ -5,6 +5,7 @@
 
 # B. Functions ------------------------
 
+# Retrieve cohort names from JSON files in the `cohortToCreate` folder
 getCohortManifest <- function(inputPath = here::here("cohortsToCreate")) {
 
   # Get cohort JSON file paths
@@ -36,6 +37,7 @@ getCohortManifest <- function(inputPath = here::here("cohortsToCreate")) {
   return(tb)
 }
 
+
 # This function is specific to run in Bayer's OMOP database structure (Snowflake)
 startSnowflakeSession <- function(con, executionSettings) {
 
@@ -64,6 +66,7 @@ startSnowflakeSession <- function(con, executionSettings) {
 }
 
 
+# Convert analysis settings yaml files (exported by the analysisSettings.R script) to R lists
 readSettingsFile <- function(settingsFile) {
 
   tt <- yaml::read_yaml(file = settingsFile)
@@ -98,31 +101,44 @@ listToTibble <- function(ll) {
 }
 
 
+## Function to save R objects as csv files
 verboseSave <- function(object, saveName, saveLocation) {
 
   savePath <- fs::path(saveLocation, saveName, ext = "csv")
   readr::write_csv(object, file = savePath)
 
-  cli::cat_bullet("Saved file ", crayon::green(basename(savePath)), " to:", bullet = "info", bullet_col = "blue")
-  cli::cat_bullet(crayon::cyan(saveLocation), bullet = "pointer", bullet_col = "yellow")
+  cli::cat_bullet("Saved file ", crayon::green(basename(savePath)), " to:", crayon::cyan(saveLocation), bullet = "pointer", bullet_col = "yellow")
   cli::cat_line()
 
   invisible(savePath)
 }
 
 
+## Function to save R objects as rds files
+verboseSaveRds <- function(object, saveName, saveLocation) {
+
+  savePath <- fs::path(saveLocation, saveName, ext = "rds")
+  readr::write_rds(object, file = savePath)
+
+  cli::cat_bullet("Saved file ", crayon::green(basename(savePath)), " to:", crayon::cyan(saveLocation), bullet = "pointer", bullet_col = "yellow")
+  cli::cat_line()
+
+  invisible(savePath)
+}
+
+
+# Zip study's results i.e. all files and folders under the `results` folder
 zipResults <- function(database) {
 
   resultsPath <- here::here("results", database)
 
-  # Zip "report" folder (Excluding treatment history folder)
+  # Zip "report" folder (Excluding treatment history folder i.e. patient level data)
   files2zip <- dir(resultsPath, full.names = TRUE)
   files2zip <- files2zip[!grepl("treatmentHistory", files2zip)]
 
   zipName <- paste0('reportFiles_', database)
   utils::zip(zipfile = zipName, files = files2zip)
 
-  # Job log
   cli::cat_bullet("Study results have been zipped and saved to:", crayon::cyan(here::here(paste0(zipName, ".zip"))),
                   bullet = "info", bullet_col = "blue")
 
@@ -160,6 +176,7 @@ createGrid2 <- function(cohortKey, covariateKey, timeA, timeB) {
 }
 
 
+# Bind csv files together and export in specific location
 bindFiles <- function(inputPath,
                       outputPath,
                       filename,

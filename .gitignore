@@ -4,6 +4,8 @@ scratchDiagnostics/
 errorReportSql.txt
 results/
 results
+config.yml
+misc
 
 
 # Mac files
