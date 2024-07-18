@@ -1,6 +1,6 @@
 # A. File Info -----------------------
 
-# Task: Treatment History
+# Task: Time To Event
 
 
 # B. Functions ------------------------
@@ -113,14 +113,12 @@ collectCohorts2 <- function(con,
 # Note that the duration for non-censored has already been calculated in the SQL code
 prepTte <- function(df) {
 
-
     ## Determine censored and non-censored patients, and duration of right-censored patients
     tte <- df %>%
       dplyr::mutate(diff = dplyr::if_else(is.na(event_start_date),
                                           as.double(difftime(target_end_date, target_start_date, units = "days")), diff, diff),
                     status = dplyr::if_else(is.na(event_start_date), 0, 1, 0)) %>%
       dplyr::select(-c(rank, subject_id))
-
 
     ## Fit patient data frame
     survFit2 <- ggsurvfit::survfit2(
@@ -336,15 +334,38 @@ executeTimeToEventSurvival <- function(con,
     # Abbreviate event names for KM plots
     current_cohorts<- abbreviateEventNames(df = current_cohorts)
 
-    # Get time to event data
+    # Get time to event data (list)
     tteSurvFit <- prepTte(df = current_cohorts)
 
-    # Export object
-    verboseSaveRds(object = tteSurvFit,
+    # Add database and cohort to list to be exported
+    tteList <- list(survFit = tteSurvFit, database = databaseId, cohortId = targetId, cohortName = targetCohorts$name[i])
+
+    # Export object (list for KM plots)
+    verboseSaveRds(object = tteList,
                    saveName = paste0("tteSurvFit_", targetId),
                    saveLocation = outputFolder)
 
+
+    # Get time to event data (data frame)
+    tteSurvDat <- ggsurvfit::tidy_survfit(tteSurvFit) %>%
+      dplyr::select(time, n.risk, n.event, estimate, std.error, strata, conf.high, conf.low) %>%
+      dplyr::mutate(database = databaseId,
+                    targetCohort = targetId)
+
+    # Export object (data frame for survival probabilities)
+    verboseSave(object = tteSurvDat,
+                saveName = paste0("tteTables_", targetId),
+                saveLocation = outputFolder)
+
   }
+
+  # Bind and save csv files
+  bindFiles(
+    inputPath = outputFolder,
+    outputPath = outputFolder,
+    filename = "tteSurvTables",
+    pattern = "tteTables"
+  )
 
   # Job log
   tok <- Sys.time()
