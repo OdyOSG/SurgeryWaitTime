@@ -9,6 +9,7 @@
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
+library(ggsurvfit)
 source("analysis/private/_tte.R")
 source("analysis/private/_utilities.R")
 
@@ -50,13 +51,14 @@ executionSettings <- config::get(config = configBlock) %>%
 analysisSettings <- readSettingsFile(here::here("analysis/settings/tte.yml"))
 analysisSettings2 <- readSettingsFile(here::here("analysis/settings/tte2.yml"))
 
+
 # E. Script --------------------
 
-## Time To Event (Whole Cohort)
-# debug(executeTimeToEventSurvival)
-# executeTimeToEventSurvival(con = con,
-#                            executionSettings = executionSettings,
-#                            analysisSettings = analysisSettings)
+# Time To Event (Whole Cohort)
+
+executeTimeToEventSurvival(con = con,
+                           executionSettings = executionSettings,
+                           analysisSettings = analysisSettings)
 
 
 ## Time To Event (Only surgery patients)

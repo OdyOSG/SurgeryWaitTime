@@ -7,6 +7,8 @@
 
 ## Strata functions -----------------------
 
+
+# Age strata function
 ageStrata <- function(con,
                       cohortDatabaseSchema,
                       cohortTable,
@@ -88,6 +90,7 @@ ageStrata <- function(con,
 }
 
 
+# Gender strata function
 genderStrata <- function(con,
                          cohortDatabaseSchema,
                          cohortTable,
@@ -205,7 +208,7 @@ genderStrata <- function(con,
 }
 
 
-
+# Date strata function
 dateStrata <- function(con,
                        cohortDatabaseSchema,
                        cdmDatabaseSchema,
@@ -272,6 +275,7 @@ dateStrata <- function(con,
 }
 
 
+# Race strata function
 raceStrata <- function(con,
                        cohortDatabaseSchema,
                        cohortTable,
@@ -339,6 +343,7 @@ raceStrata <- function(con,
 }
 
 
+# Measurement strata function (concept + value)
 measurementStrata <- function(con,
                              cohortDatabaseSchema,
                              cohortTable,
@@ -409,6 +414,7 @@ measurementStrata <- function(con,
 }
 
 
+# Ethnicity strata function
 ethnicityStrata <- function(con,
                        cohortDatabaseSchema,
                        cohortTable,
