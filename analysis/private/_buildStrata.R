@@ -353,7 +353,7 @@ measurementStrata <- function(con,
                              conceptId,
                              value) {
 
-  cli::cat_bullet(crayon::green("Building Measurement strata: ", as.character(conceptId)))
+  cli::cat_bullet(crayon::green("Building Measurement strata:", as.character(conceptId), " (value =", as.character(value), ")"))
 
   sql <- "
               SELECT
@@ -551,28 +551,28 @@ buildStrata <- function(con,
                gender = c("female"))
 
 
-  ## Date ---------------
-  cli::cat_rule("Building Date Strata")
-
-  ## Date strata: Before March 2020 (Format for Snowflake: MM-DD-YYYY)
-  dateStrata(con,
-             cohortDatabaseSchema = workDatabaseSchema,
-             cdmDatabaseSchema = cdmDatabaseSchema,
-             cohortTable = cohortTable,
-             targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[5],
-             dateMin = "01-01-1989",
-             dateMax = "03-01-2020")
-
-  ## Date strata: After March 2020 (Format for Snowflake: MM-DD-YYYY)
-  dateStrata(con,
-             cohortDatabaseSchema = workDatabaseSchema,
-             cdmDatabaseSchema = cdmDatabaseSchema,
-             cohortTable = cohortTable,
-             targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[6],
-             dateMin = "03-02-2020",
-             dateMax = "01-01-2024")
+  # ## Date ---------------
+  # cli::cat_rule("Building Date Strata")
+  #
+  # ## Date strata: Before March 2020 (Format for Snowflake: MM-DD-YYYY)
+  # dateStrata(con,
+  #            cohortDatabaseSchema = workDatabaseSchema,
+  #            cdmDatabaseSchema = cdmDatabaseSchema,
+  #            cohortTable = cohortTable,
+  #            targetId = targetCohorts$id,
+  #            strataId = demoStratas$strataId[5],
+  #            dateMin = "01-01-1989",
+  #            dateMax = "03-01-2020")
+  #
+  # ## Date strata: After March 2020 (Format for Snowflake: MM-DD-YYYY)
+  # dateStrata(con,
+  #            cohortDatabaseSchema = workDatabaseSchema,
+  #            cdmDatabaseSchema = cdmDatabaseSchema,
+  #            cohortTable = cohortTable,
+  #            targetId = targetCohorts$id,
+  #            strataId = demoStratas$strataId[6],
+  #            dateMin = "03-02-2020",
+  #            dateMax = "01-01-2024")
 
   ## Race ---------------
   cli::cat_rule("Building Race Strata")
@@ -583,7 +583,7 @@ buildStrata <- function(con,
              cohortTable = cohortTable,
              cdmDatabaseSchema = cdmDatabaseSchema,
              targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[7],
+             strataId = demoStratas$strataId[5],
              conceptId = 8516)
 
   ## Race strata: White
@@ -592,7 +592,7 @@ buildStrata <- function(con,
              cohortTable = cohortTable,
              cdmDatabaseSchema = cdmDatabaseSchema,
              targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[8],
+             strataId = demoStratas$strataId[6],
              conceptId = 8527)
 
   ## Race strata: Asian
@@ -601,7 +601,7 @@ buildStrata <- function(con,
              cohortTable = cohortTable,
              cdmDatabaseSchema = cdmDatabaseSchema,
              targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[9],
+             strataId = demoStratas$strataId[7],
              conceptId = 8515)
 
   ## Race strata: Unknown
@@ -610,7 +610,7 @@ buildStrata <- function(con,
              cohortTable = cohortTable,
              cdmDatabaseSchema = cdmDatabaseSchema,
              targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[10],
+             strataId = demoStratas$strataId[8],
              conceptId = 0)
 
   ## Ethnicity ---------------
@@ -622,7 +622,7 @@ buildStrata <- function(con,
                  cohortTable = cohortTable,
                  cdmDatabaseSchema = cdmDatabaseSchema,
                  targetId = targetCohorts$id,
-                 strataId = demoStratas$strataId[11],
+                 strataId = demoStratas$strataId[9],
                  conceptId = 38003563)
 
   ## Ethnicity strata: Not Hispanic or Latino
@@ -631,7 +631,7 @@ buildStrata <- function(con,
                   cohortTable = cohortTable,
                   cdmDatabaseSchema = cdmDatabaseSchema,
                   targetId = targetCohorts$id,
-                  strataId = demoStratas$strataId[12],
+                  strataId = demoStratas$strataId[10],
                   conceptId = 38003564)
 
   ## Ethnicity strata: Unknown
@@ -640,7 +640,7 @@ buildStrata <- function(con,
                   cohortTable = cohortTable,
                   cdmDatabaseSchema = cdmDatabaseSchema,
                   targetId = targetCohorts$id,
-                  strataId = demoStratas$strataId[13],
+                  strataId = demoStratas$strataId[11],
                   conceptId = 0)
 
   ## Measurement ---------------
@@ -652,7 +652,7 @@ buildStrata <- function(con,
                     cohortTable = cohortTable,
                     cdmDatabaseSchema = cdmDatabaseSchema,
                     targetId = targetCohorts$id,
-                    strataId = demoStratas$strataId[14],
+                    strataId = demoStratas$strataId[12],
                     conceptId = 37017409,
                     value = 0)
 
@@ -661,7 +661,7 @@ buildStrata <- function(con,
                     cohortTable = cohortTable,
                     cdmDatabaseSchema = cdmDatabaseSchema,
                     targetId = targetCohorts$id,
-                    strataId = demoStratas$strataId[15],
+                    strataId = demoStratas$strataId[13],
                     conceptId = 37017409,
                     value = 1)
 
@@ -670,7 +670,7 @@ buildStrata <- function(con,
                     cohortTable = cohortTable,
                     cdmDatabaseSchema = cdmDatabaseSchema,
                     targetId = targetCohorts$id,
-                    strataId = demoStratas$strataId[16],
+                    strataId = demoStratas$strataId[14],
                     conceptId = 37017409,
                     value = c(2:6))
 
@@ -729,4 +729,51 @@ buildStrata <- function(con,
 
   invisible(dt)
 }
+
+
+
+
+# Race strata function
+genericStrata <- function(con,
+                         cohortDatabaseSchema,
+                         cohortTable,
+                         cdmDatabaseSchema,
+                         targetId,
+                         strataId) {
+
+  #cli::cat_bullet(crayon::green("Building Race strata: ", as.character(conceptId)))
+
+  sql <- "
+            select cnt
+            into #stratas
+            from (
+
+              select count(distinct plan_concept_id) as cnt
+              from @cdmDatabaseSchema.location
+
+              );
+
+            DROP TABLE #stratas;
+
+
+  "
+
+  raceStrataSql <- SqlRender::render(
+    sql,
+    cohortTable = cohortTable,
+    cdmDatabaseSchema = cdmDatabaseSchema) %>%
+    SqlRender::translate(targetDialect = con@dbms)
+
+  DatabaseConnector::executeSql(connection = con, raceStrataSql, progressBar = FALSE)
+
+  cohortStrataId <- targetId * 1000 + strataId
+  cohortSchemaTable <- paste(cohortDatabaseSchema, cohortTable, sep = ".")
+
+  cli::cat_bullet("Race strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
+                  bullet = "tick", bullet_col = "green")
+  cli::cat_line()
+
+  invisible(raceStrataSql)
+}
+
 

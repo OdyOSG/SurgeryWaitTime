@@ -17,17 +17,10 @@ source("analysis/private/_conceptPrevalence.R")
 
 ## Set connection block
 # <<<
-configBlock <- "synpuf"
+configBlock <- "[block]"
 # >>>
 
-# ## Provide connection details
-# connectionDetails <- DatabaseConnector::createConnectionDetails(
-#   dbms = config::get("dbms", config = configBlock),
-#   user = config::get("user", config = configBlock),
-#   password = config::get("password", config = configBlock),
-#   connectionString = config::get("connectionString", config = configBlock)
-# )
-
+## Provide connection details
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = config::get("dbms", config = configBlock),
   user = config::get("user", config = configBlock),

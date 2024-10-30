@@ -5,7 +5,6 @@
 
 
 # B. Dependencies ----------------------
-# Dependencies are handled by renv package.
 
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
@@ -20,17 +19,10 @@ source(here::here('analysis/private/_utilities.R'))
 
 ## Set connection Block
 # <<<
-configBlock <- "synpuf"
+configBlock <- "[block]"
 # >>>
 
-# ## Provide connection details
-# connectionDetails <- DatabaseConnector::createConnectionDetails(
-#   dbms = config::get("dbms", config = configBlock),
-#   user = config::get("user", config = configBlock),
-#   password = config::get("password", config = configBlock),
-#   connectionString = config::get("connectionString", config = configBlock)
-# )
-
+## Provide connection details
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = config::get("dbms", config = configBlock),
   user = config::get("user", config = configBlock),
@@ -48,11 +40,6 @@ con <- DatabaseConnector::connect(connectionDetails)
 ## Administrative Variables
 executionSettings <- config::get(config = configBlock) %>%
   purrr::discard_at( c("dbms", "user", "password", "connectionString"))
-
-# # Needed to execute on Postgres, will be moved in final.
-# executionSettings$projectName = tolower(executionSettings$projectName)
-# executionSettings$cohortTable = tolower(executionSettings$cohortTable)
-# executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
 
 outputFolder <- here::here("results") %>%
   fs::path(executionSettings$databaseName, "02_cohortDiagnostics") %>%

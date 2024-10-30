@@ -1,14 +1,14 @@
 strata:
   cohorts:
     targetCohorts:
-    - name: af
+    - name: breast_no_prior_treatment
       id: 1
-    - name: diabetes
+    - name: colorectal_no_prior_treatment
       id: 2
     strataCohorts:
-    - name: af
+    - name: breast_no_prior_treatment
       id: 1
-    - name: diabetes
+    - name: colorectal_no_prior_treatment
       id: 2
   demographics:
   - strataId: 1
@@ -20,27 +20,23 @@ strata:
   - strataId: 4
     strataName: female
   - strataId: 5
-    strataName: beforeMar20
-  - strataId: 6
-    strataName: afterMar20
-  - strataId: 7
     strataName: black
-  - strataId: 8
+  - strataId: 6
     strataName: white
-  - strataId: 9
+  - strataId: 7
     strataName: asian
-  - strataId: 10
+  - strataId: 8
     strataName: unknown_race
-  - strataId: 11
+  - strataId: 9
     strataName: hispanic
-  - strataId: 12
+  - strataId: 10
     strataName: notHispanic
-  - strataId: 13
+  - strataId: 11
     strataName: unknown_ethnicity
-  - strataId: 14
+  - strataId: 12
     strataName: cci_0
-  - strataId: 15
+  - strataId: 13
     strataName: cci_1
-  - strataId: 16
+  - strataId: 14
     strataName: cci_2
   outputFolder: 03_buildStrata

@@ -1,20 +1,74 @@
 tte:
   cohorts:
     targetCohorts:
+    - id: 1001.0
+      name: breast_no_prior_treatment below_65
     - id: 1002.0
-      name: af 65_and_above
+      name: breast_no_prior_treatment 65_and_above
     - id: 1003.0
-      name: af male
+      name: breast_no_prior_treatment male
+    - id: 1004.0
+      name: breast_no_prior_treatment female
+    - id: 1005.0
+      name: breast_no_prior_treatment black
+    - id: 1006.0
+      name: breast_no_prior_treatment white
+    - id: 1007.0
+      name: breast_no_prior_treatment asian
+    - id: 1008.0
+      name: breast_no_prior_treatment unknown_race
+    - id: 1009.0
+      name: breast_no_prior_treatment hispanic
+    - id: 1010.0
+      name: breast_no_prior_treatment notHispanic
+    - id: 1011.0
+      name: breast_no_prior_treatment unknown_ethnicity
+    - id: 1012.0
+      name: breast_no_prior_treatment cci_0
+    - id: 1013.0
+      name: breast_no_prior_treatment cci_1
+    - id: 1014.0
+      name: breast_no_prior_treatment cci_2
+    - id: 2001.0
+      name: colorectal_no_prior_treatment below_65
+    - id: 2002.0
+      name: colorectal_no_prior_treatment 65_and_above
+    - id: 2003.0
+      name: colorectal_no_prior_treatment male
+    - id: 2004.0
+      name: colorectal_no_prior_treatment female
+    - id: 2005.0
+      name: colorectal_no_prior_treatment black
+    - id: 2006.0
+      name: colorectal_no_prior_treatment white
+    - id: 2007.0
+      name: colorectal_no_prior_treatment asian
+    - id: 2008.0
+      name: colorectal_no_prior_treatment unknown_race
+    - id: 2009.0
+      name: colorectal_no_prior_treatment hispanic
+    - id: 2010.0
+      name: colorectal_no_prior_treatment notHispanic
+    - id: 2011.0
+      name: colorectal_no_prior_treatment unknown_ethnicity
+    - id: 2012.0
+      name: colorectal_no_prior_treatment cci_0
+    - id: 2013.0
+      name: colorectal_no_prior_treatment cci_1
+    - id: 2014.0
+      name: colorectal_no_prior_treatment cci_2
     - id: 1.0
-      name: af
+      name: breast_no_prior_treatment
+    - id: 2.0
+      name: colorectal_no_prior_treatment
     eventCohorts:
-    - name: acetaminophen
+    - name: breast_surgery
       id: 3
-    - name: hydrochlorothiazide
+    - name: colorectal_surgery
       id: 4
-    - name: proc1
+    - name: radiotherapy
       id: 5
-    - name: proc2
+    - name: systemic_treatment
       id: 6
   outputFolder:
   - 06_tte

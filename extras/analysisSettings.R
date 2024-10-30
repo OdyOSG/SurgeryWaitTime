@@ -34,13 +34,11 @@ yaml1 <- list(
       'strataCohorts' = targetCohorts
     ),
     'demographics' = tibble::tibble(
-      strataId = 1L:16L,
+      strataId = 1L:14L,
       strataName = c("below_65",
                      "65_and_above",
                      "male",
                      "female",
-                     "beforeMar20",
-                     "afterMar20",
                      "black",
                      "white",
                      "asian",
@@ -76,16 +74,16 @@ allCohorts <- expand_grid(targetCohorts, demoStrata) %>%
 ## 2. Baseline Characteristics --------------------
 
 covariateCohorts <- cohortManifest %>%
-  dplyr::filter(type == c("covariate")) %>%
+  dplyr::filter(type %in% c("outcomeSurgeries", "outcomeDrugs")) %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
+#baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml2 <- list(
   'baselineCharacteristics' = list(
     'cohorts' = list(
-      'targetCohorts' = baseCohorts,
+      'targetCohorts' = allCohorts,
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
@@ -103,16 +101,16 @@ write_yaml(yaml2, file = here::here("analysis/settings/baseline.yml"), column.ma
 ## 3. Post-Index Characteristics --------------------
 
 covariateCohorts <- cohortManifest %>%
-  dplyr::filter(type %in% c("covariate", "outcome")) %>%
+  dplyr::filter(type %in% c("outcomeSurgeries", "outcomeDrugs")) %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-postCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
+#postCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml3 <- list(
   'postIndexCharacteristics' = list(
     'cohorts' = list(
-      'targetCohorts' = postCohorts,
+      'targetCohorts' = allCohorts,
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
@@ -130,16 +128,16 @@ write_yaml(yaml3, file = here::here("analysis/settings/postIndex.yml"), column.m
 ## 4.1 Time To Event (Whole cohort) -------------------
 
 eventCohorts <- cohortManifest %>%
-  dplyr::filter(type %in% c("outcome", "covariate")) %>%
+  dplyr::filter(type %in% c("outcomeSurgeries", "outcomeDrugs")) %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
+#targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml4 <- list(
   'tte' = list(
     'cohorts' = list(
-      'targetCohorts' = targetCohorts,
+      'targetCohorts' = allCohorts,
       'eventCohorts' = eventCohorts
     ),
     'outputFolder' = list(
@@ -155,16 +153,16 @@ write_yaml(yaml4, file = here::here("analysis/settings/tte.yml"), column.major =
 ## 4.2 Time To Event (Only Surgery patients) -------------------
 
 eventCohorts <- cohortManifest %>%
-  dplyr::filter(name %in% c("proc1")) %>%
+  dplyr::filter(type %in% c("outcomeSurgeries")) %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
+#targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1002, 1003))
 
 yaml5 <- list(
   'tte' = list(
     'cohorts' = list(
-      'targetCohorts' = targetCohorts,
+      'targetCohorts' = allCohorts,
       'eventCohorts' = eventCohorts
     ),
     'outputFolder' = list(

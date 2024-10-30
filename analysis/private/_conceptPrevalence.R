@@ -555,7 +555,6 @@ getDemographicsFE <- function(con,
   )
 
   invisible(demoTbl)
-
 }
 
 
@@ -660,8 +659,29 @@ executeConceptCharacterization <- function(con,
     fs::dir_create()
 
   # Get target and covariate cohort ids
-  cohortKey <- analysisSettings[[1]]$cohorts$targetCohorts %>% dplyr::arrange(id)
+  # Covariate ids
   covariateKey <- analysisSettings[[1]]$cohorts$covariateCohorts %>% dplyr::arrange(id)
+  cohortKey <- analysisSettings[[1]]$cohorts$targetCohorts %>% dplyr::arrange(id)
+
+  # Target ids (select cohorts that have enough counts i.e. 6 or more)
+  strataCounts <- readr::read_csv(file = here::here("results", databaseId, "03_buildStrata", "strataCounts.csv"),
+                                  show_col_types = FALSE)
+  strataCounts <- strataCounts %>%
+    dplyr::mutate(type =
+                    dplyr::case_when(
+                      is.na(subjects) ~ "noCounts",
+                      subjects <= 5 ~ "lowCounts",
+                      subjects > 5 ~ "enoughCounts"
+                  )
+    )
+
+  cohortKey <- strataCounts %>%
+    dplyr::filter(type == "enoughCounts") %>%
+    dplyr::select(id, name) %>%
+    dplyr::arrange(id)
+
+  ### TO REMOVE
+  cohortKey <- cohortKey[c(1:2), ] %>% dplyr::arrange(id)
 
   # Get time windows
   timeA <- analysisSettings[[1]]$timeWindows$startDay
@@ -839,31 +859,31 @@ executeConceptCharacterization <- function(con,
 
   }
 
-  # ## procedures ------
-  # if (runProcedures == TRUE) {
-  #
-  #   # Calculate for each cohort and time window
-  #   purrr::pwalk(grid,
-  #                   ~ getProceduresFE(con = con,
-  #                                     cdmDatabaseSchema = cdmDatabaseSchema,
-  #                                     cohortTable = cohortTable,
-  #                                     cohortDatabaseSchema = workDatabaseSchema,
-  #                                     type = type,
-  #                                     cohortId = ..1,
-  #                                     timeA = ..3,
-  #                                     timeB = ..4,
-  #                                     outputFolder = outputFolder)
-  #   )
-  #
-  #   # Bind and save files
-  #   bindFiles(
-  #     inputPath = outputFolder,
-  #     outputPath = outputFolder,
-  #     filename = paste0("proc", typeAnalysis$shortName),
-  #     pattern = paste0("procedures_", typeAnalysis$type)
-  #   )
-  #
-  # }
+  ## procedures ------
+  if (runProcedures == TRUE) {
+
+    # Calculate for each cohort and time window
+    purrr::pwalk(grid,
+                    ~ getProceduresFE(con = con,
+                                      cdmDatabaseSchema = cdmDatabaseSchema,
+                                      cohortTable = cohortTable,
+                                      cohortDatabaseSchema = workDatabaseSchema,
+                                      type = type,
+                                      cohortId = ..1,
+                                      timeA = ..3,
+                                      timeB = ..4,
+                                      outputFolder = outputFolder)
+    )
+
+    # Bind and save files
+    bindFiles(
+      inputPath = outputFolder,
+      outputPath = outputFolder,
+      filename = paste0("proc", typeAnalysis$shortName),
+      pattern = paste0("procedures_", typeAnalysis$type)
+    )
+
+  }
 
   ## observations ------
   if (runObservations == TRUE) {

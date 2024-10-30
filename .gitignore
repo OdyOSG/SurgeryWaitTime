@@ -6,7 +6,7 @@ results/
 results
 config.yml
 misc
-
+cohortsToCreate_test
 
 # Mac files
 .DS_Store

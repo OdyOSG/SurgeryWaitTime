@@ -132,16 +132,23 @@ zipResults <- function(database) {
 
   resultsPath <- here::here("results", database)
 
-  # Zip "report" folder (Excluding treatment history folder i.e. patient level data)
-  files2zip <- dir(resultsPath, full.names = TRUE)
-  files2zip <- files2zip[!grepl("treatmentHistory", files2zip)]
+  # Zip "report" folder
+  files2zip <- dir(resultsPath, full.names = TRUE, recursive = TRUE)
+  files2zip <- files2zip[!grepl(".rds", files2zip)] # Exclude rds files
 
-  zipName <- paste0('reportFiles_', database)
+  if (length(database) >1) {
+
+    zipName <- 'reportFiles'
+  }
+  else {
+
+    zipName <- paste0('reportFiles_', database)
+  }
+
   utils::zip(zipfile = zipName, files = files2zip)
 
-  cli::cat_bullet("Study results have been zipped and saved to:", crayon::cyan(here::here(paste0(zipName, ".zip"))),
-                  bullet = "info", bullet_col = "blue")
-
+  cli::cat_bullet("Study results have been zipped and saved to:",
+                  crayon::cyan(here::here(paste0(zipName, ".zip"))),bullet = "info", bullet_col = "blue")
 }
 
 
@@ -204,3 +211,118 @@ bindFiles <- function(inputPath,
   file.remove(filepath)
 
 }
+
+
+# Function that creates KM plots out of survfit rds files
+createKMplots <- function(database) {
+
+  ## Set variables
+  appDataPath <- here::here("results", database)
+  resultsPath <- here::here("results")
+
+  ### Create a data frame of all permutations of paths
+  allPaths <- tidyr::expand_grid(database, "06_tte") %>%
+    dplyr::mutate(fullPath = fs::path(resultsPath, database, "06_tte"))
+
+  ## List of files in "06_tte" folder
+  listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "tteSurvFit", recursive = FALSE, full.names	= TRUE)
+
+  ## Create output folder
+  outputFolder <- here::here(appDataPath, "ttePlots")
+  outputFolder %>% fs::dir_create()
+
+  ## Create list to save cohort and database values to determine picker values
+  pickerList <- vector("list", length = length(listOftteFiles))
+
+
+  ## Loop through rds files to create png files for KM plots
+  for (i in 1:length(listOftteFiles)) {
+
+    ## Read rds file (survfit object)
+    tte <- readr::read_rds(listOftteFiles[i])
+    tteSurvFit <- tte[["survFit"]]
+
+    ## Number of colors should be equal to the number of unique strata values i.e. events (lines in KM plot)
+    colors <- colorspace::rainbow_hcl(unique(length(tteSurvFit$strata)))
+
+    ## Create KM plot
+    tteSurvFit |>
+      ggsurvfit::ggsurvfit(size = 1) +
+      ggsurvfit::scale_ggsurvfit(x_scales = list(breaks = c(183, 365, 548, 730))) + # Breaks
+      ggplot2::scale_color_manual(values = colors) +
+      ggplot2::scale_fill_manual(values = colors) +
+      ggsurvfit::add_risktable(risktable_stats = "{n.risk} ({cum.event})",
+                               risktable_height = 0.4,
+                               hjust = 0,
+                               size = 4, # Increase font size of risk table statistics
+                               theme =
+                                 # Increase font size of risk table title and y-axis label
+                                 list(
+                                   ggsurvfit::theme_risktable_default(axis.text.y.size = 11,
+                                                                      plot.title.size = 11),
+                                   theme(plot.title = element_text(face = "bold"),
+                                         plot.margin = unit(c(5.5, 50, 5.5, 5.5), "points"),
+                                         axis.text.x = element_text(hjust = -5)
+                                   )
+                                 )) +
+      labs(x = "Follow-up time, days")
+
+    ## Add cohort and database values to picker list
+    pickerList[[i]] <- data.frame(database = tte$database, cohortId = tte$cohortId, cohortName = tte$cohortName)
+
+    ## Save plot
+    ggplot2::ggsave(filename = here::here(outputFolder, paste0("tte_", tte$database, "_", tte$cohortId, ".png")),
+                    width = 18, height = 14)
+
+  }
+
+  ## Bind all list objects together
+  pickerListFinal <- do.call(rbind, pickerList)
+
+  ## Export picker list
+  readr::write_csv(pickerListFinal, file = fs::path(outputFolder, "ttePickers.csv"))
+
+  ## Job log
+  cli::cat_bullet(paste0("KM plots have been created and saved in: ", crayon::green(outputFolder)), bullet = "info", bullet_col = "blue")
+
+
+  invisible(pickerListFinal)
+}
+
+
+# Mask low counts. Columns: n and/or pct. Default count(n) is 5 (inclusive)
+maskLowCount <- function(df, countLimit = 5L, countOnly = FALSE) {
+
+  if (countOnly) {
+
+    dfLow <- df %>%
+      dplyr::mutate(
+        n = dplyr::if_else(n <= countLimit, -5, n, -5)
+      )
+
+  } else {
+
+    dfLow <- df %>%
+      dplyr::mutate(
+        pct = dplyr::if_else(n <= countLimit, -5, pct, -5),
+        n = dplyr::if_else(n <= countLimit, -5, n, -5)
+      )
+
+  }
+
+  return(dfLow)
+}
+
+
+# Mask low counts. Columns: entries and subjects. Default count is 5 (inclusive)
+maskLowCount2 <- function(df, countLimit = 5L) {
+
+  dfLow <- df %>%
+    dplyr::mutate(
+      entries = dplyr::if_else(entries <= countLimit, -5, pct, -5),
+      subjects = dplyr::if_else(subjects <= countLimit, -5, n, -5)
+    )
+
+  return(dfLow)
+}
+

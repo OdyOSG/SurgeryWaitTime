@@ -40,4 +40,7 @@ runStudyTask(file = studyTaskFiles[5], configBlock = configBlock)
 ## Task 6: Time-To-Event
 runStudyTask(file = studyTaskFiles[6], configBlock = configBlock)
 
+## Task 7: Zip Results
+runStudyTask(file = studyTaskFiles[7], configBlock = configBlock)
+
 

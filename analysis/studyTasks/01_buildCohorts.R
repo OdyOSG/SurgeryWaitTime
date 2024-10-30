@@ -1,7 +1,8 @@
-# A. File Info  -----------------------
+# A. File Info -----------------------
 
 # Study:
 # Task: Build Cohorts
+
 
 # B. Dependencies ----------------------
 
@@ -20,14 +21,7 @@ source(here::here('analysis/private/_utilities.R'))
 configBlock <- "synpuf"
 # >>>
 
-# ## Provide connection details
-# connectionDetails <- DatabaseConnector::createConnectionDetails(
-# dbms = config::get("dbms", config = configBlock),
-# user = config::get("user", config = configBlock),
-# password = config::get("password", config = configBlock),
-# connectionString = config::get("connectionString", config = configBlock),
-# )
-
+## Provide connection details
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = config::get("dbms", config = configBlock),
   user = config::get("user", config = configBlock),
@@ -53,17 +47,12 @@ outputFolder <- here::here("results") %>%
 ## Load cohorts
 cohortManifest <- getCohortManifest()
 
-# # Needed to execute on Postgres, will be moved in final.
-# executionSettings$projectName = tolower(executionSettings$projectName)
-# executionSettings$cohortTable = tolower(executionSettings$cohortTable)
-# executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
-
 
 # E. Script --------------------
 
 ## Initialize cohort tables
 
-initializeCohortTables(executionSettings = executionSettings, con = con, dropTables = FALSE)
+initializeCohortTables(executionSettings = executionSettings, con = con, dropTables = TRUE)
 
 ## Generate cohorts
 

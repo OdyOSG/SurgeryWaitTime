@@ -21,14 +21,7 @@ source("analysis/private/_utilities.R")
 configBlock <- "synpuf"
 # >>>
 
-# ## Provide connection details
-# connectionDetails <- DatabaseConnector::createConnectionDetails(
-#   dbms = config::get("dbms", config = configBlock),
-#   user = config::get("user", config = configBlock),
-#   password = config::get("password", config = configBlock),
-#   connectionString = config::get("connectionString", config = configBlock)
-# )
-
+## Provide connection details
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = config::get("dbms", config = configBlock),
   user = config::get("user", config = configBlock),
@@ -55,10 +48,15 @@ analysisSettings2 <- readSettingsFile(here::here("analysis/settings/tte2.yml"))
 # E. Script --------------------
 
 # Time To Event (Whole Cohort)
-
+debug(executeTimeToEventSurvival)
 executeTimeToEventSurvival(con = con,
                            executionSettings = executionSettings,
                            analysisSettings = analysisSettings)
+
+
+## Time To Event (Create KM plots)
+
+createKMplots(database = configBlock)
 
 
 ## Time To Event (Only surgery patients)
