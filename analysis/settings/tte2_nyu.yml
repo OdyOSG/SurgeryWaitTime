@@ -1,0 +1,467 @@
+tte:
+  cohorts:
+    targetCohorts:
+    - id: 1001.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        0_9
+    - id: 1002.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        10_19
+    - id: 1003.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        20_29
+    - id: 1004.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        30_39
+    - id: 1005.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        40_49
+    - id: 1006.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        50_59
+    - id: 1007.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        60_69
+    - id: 1008.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        70_79
+    - id: 1009.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        80_89
+    - id: 1010.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        90_99
+    - id: 1011.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        100+
+    - id: 1012.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        male
+    - id: 1013.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        female
+    - id: 1014.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        black
+    - id: 1015.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        white
+    - id: 1016.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        asian
+    - id: 1017.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        unknown_race
+    - id: 1018.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        hispanic
+    - id: 1019.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        notHispanic
+    - id: 1020.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        unknown_ethnicity
+    - id: 1021.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        cci_0
+    - id: 1022.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        cci_1
+    - id: 1023.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+        cci_2
+    - id: 2001.0
+      name: SWT breast cancer with no prior cancer treatment 0_9
+    - id: 2002.0
+      name: SWT breast cancer with no prior cancer treatment 10_19
+    - id: 2003.0
+      name: SWT breast cancer with no prior cancer treatment 20_29
+    - id: 2004.0
+      name: SWT breast cancer with no prior cancer treatment 30_39
+    - id: 2005.0
+      name: SWT breast cancer with no prior cancer treatment 40_49
+    - id: 2006.0
+      name: SWT breast cancer with no prior cancer treatment 50_59
+    - id: 2007.0
+      name: SWT breast cancer with no prior cancer treatment 60_69
+    - id: 2008.0
+      name: SWT breast cancer with no prior cancer treatment 70_79
+    - id: 2009.0
+      name: SWT breast cancer with no prior cancer treatment 80_89
+    - id: 2010.0
+      name: SWT breast cancer with no prior cancer treatment 90_99
+    - id: 2011.0
+      name: SWT breast cancer with no prior cancer treatment 100+
+    - id: 2012.0
+      name: SWT breast cancer with no prior cancer treatment male
+    - id: 2013.0
+      name: SWT breast cancer with no prior cancer treatment female
+    - id: 2014.0
+      name: SWT breast cancer with no prior cancer treatment black
+    - id: 2015.0
+      name: SWT breast cancer with no prior cancer treatment white
+    - id: 2016.0
+      name: SWT breast cancer with no prior cancer treatment asian
+    - id: 2017.0
+      name: SWT breast cancer with no prior cancer treatment unknown_race
+    - id: 2018.0
+      name: SWT breast cancer with no prior cancer treatment hispanic
+    - id: 2019.0
+      name: SWT breast cancer with no prior cancer treatment notHispanic
+    - id: 2020.0
+      name: SWT breast cancer with no prior cancer treatment unknown_ethnicity
+    - id: 2021.0
+      name: SWT breast cancer with no prior cancer treatment cci_0
+    - id: 2022.0
+      name: SWT breast cancer with no prior cancer treatment cci_1
+    - id: 2023.0
+      name: SWT breast cancer with no prior cancer treatment cci_2
+    - id: 3001.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        0_9
+    - id: 3002.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        10_19
+    - id: 3003.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        20_29
+    - id: 3004.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        30_39
+    - id: 3005.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        40_49
+    - id: 3006.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        50_59
+    - id: 3007.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        60_69
+    - id: 3008.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        70_79
+    - id: 3009.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        80_89
+    - id: 3010.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        90_99
+    - id: 3011.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        100+
+    - id: 3012.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        male
+    - id: 3013.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        female
+    - id: 3014.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        black
+    - id: 3015.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        white
+    - id: 3016.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        asian
+    - id: 3017.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        unknown_race
+    - id: 3018.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        hispanic
+    - id: 3019.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        notHispanic
+    - id: 3020.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        unknown_ethnicity
+    - id: 3021.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        cci_0
+    - id: 3022.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        cci_1
+    - id: 3023.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+        cci_2
+    - id: 4001.0
+      name: SWT colorectal cancer with no prior cancer treatment 0_9
+    - id: 4002.0
+      name: SWT colorectal cancer with no prior cancer treatment 10_19
+    - id: 4003.0
+      name: SWT colorectal cancer with no prior cancer treatment 20_29
+    - id: 4004.0
+      name: SWT colorectal cancer with no prior cancer treatment 30_39
+    - id: 4005.0
+      name: SWT colorectal cancer with no prior cancer treatment 40_49
+    - id: 4006.0
+      name: SWT colorectal cancer with no prior cancer treatment 50_59
+    - id: 4007.0
+      name: SWT colorectal cancer with no prior cancer treatment 60_69
+    - id: 4008.0
+      name: SWT colorectal cancer with no prior cancer treatment 70_79
+    - id: 4009.0
+      name: SWT colorectal cancer with no prior cancer treatment 80_89
+    - id: 4010.0
+      name: SWT colorectal cancer with no prior cancer treatment 90_99
+    - id: 4011.0
+      name: SWT colorectal cancer with no prior cancer treatment 100+
+    - id: 4012.0
+      name: SWT colorectal cancer with no prior cancer treatment male
+    - id: 4013.0
+      name: SWT colorectal cancer with no prior cancer treatment female
+    - id: 4014.0
+      name: SWT colorectal cancer with no prior cancer treatment black
+    - id: 4015.0
+      name: SWT colorectal cancer with no prior cancer treatment white
+    - id: 4016.0
+      name: SWT colorectal cancer with no prior cancer treatment asian
+    - id: 4017.0
+      name: SWT colorectal cancer with no prior cancer treatment unknown_race
+    - id: 4018.0
+      name: SWT colorectal cancer with no prior cancer treatment hispanic
+    - id: 4019.0
+      name: SWT colorectal cancer with no prior cancer treatment notHispanic
+    - id: 4020.0
+      name: SWT colorectal cancer with no prior cancer treatment unknown_ethnicity
+    - id: 4021.0
+      name: SWT colorectal cancer with no prior cancer treatment cci_0
+    - id: 4022.0
+      name: SWT colorectal cancer with no prior cancer treatment cci_1
+    - id: 4023.0
+      name: SWT colorectal cancer with no prior cancer treatment cci_2
+    - id: 5001.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        0_9
+    - id: 5002.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        10_19
+    - id: 5003.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        20_29
+    - id: 5004.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        30_39
+    - id: 5005.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        40_49
+    - id: 5006.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        50_59
+    - id: 5007.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        60_69
+    - id: 5008.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        70_79
+    - id: 5009.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        80_89
+    - id: 5010.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        90_99
+    - id: 5011.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        100+
+    - id: 5012.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        male
+    - id: 5013.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        female
+    - id: 5014.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        black
+    - id: 5015.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        white
+    - id: 5016.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        asian
+    - id: 5017.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        unknown_race
+    - id: 5018.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        hispanic
+    - id: 5019.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        notHispanic
+    - id: 5020.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        unknown_ethnicity
+    - id: 5021.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        cci_0
+    - id: 5022.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        cci_1
+    - id: 5023.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+        cci_2
+    - id: 6001.0
+      name: SWT esophagus cancer with no prior cancer treatment 0_9
+    - id: 6002.0
+      name: SWT esophagus cancer with no prior cancer treatment 10_19
+    - id: 6003.0
+      name: SWT esophagus cancer with no prior cancer treatment 20_29
+    - id: 6004.0
+      name: SWT esophagus cancer with no prior cancer treatment 30_39
+    - id: 6005.0
+      name: SWT esophagus cancer with no prior cancer treatment 40_49
+    - id: 6006.0
+      name: SWT esophagus cancer with no prior cancer treatment 50_59
+    - id: 6007.0
+      name: SWT esophagus cancer with no prior cancer treatment 60_69
+    - id: 6008.0
+      name: SWT esophagus cancer with no prior cancer treatment 70_79
+    - id: 6009.0
+      name: SWT esophagus cancer with no prior cancer treatment 80_89
+    - id: 6010.0
+      name: SWT esophagus cancer with no prior cancer treatment 90_99
+    - id: 6011.0
+      name: SWT esophagus cancer with no prior cancer treatment 100+
+    - id: 6012.0
+      name: SWT esophagus cancer with no prior cancer treatment male
+    - id: 6013.0
+      name: SWT esophagus cancer with no prior cancer treatment female
+    - id: 6014.0
+      name: SWT esophagus cancer with no prior cancer treatment black
+    - id: 6015.0
+      name: SWT esophagus cancer with no prior cancer treatment white
+    - id: 6016.0
+      name: SWT esophagus cancer with no prior cancer treatment asian
+    - id: 6017.0
+      name: SWT esophagus cancer with no prior cancer treatment unknown_race
+    - id: 6018.0
+      name: SWT esophagus cancer with no prior cancer treatment hispanic
+    - id: 6019.0
+      name: SWT esophagus cancer with no prior cancer treatment notHispanic
+    - id: 6020.0
+      name: SWT esophagus cancer with no prior cancer treatment unknown_ethnicity
+    - id: 6021.0
+      name: SWT esophagus cancer with no prior cancer treatment cci_0
+    - id: 6022.0
+      name: SWT esophagus cancer with no prior cancer treatment cci_1
+    - id: 6023.0
+      name: SWT esophagus cancer with no prior cancer treatment cci_2
+    - id: 7001.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 0_9
+    - id: 7002.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 10_19
+    - id: 7003.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 20_29
+    - id: 7004.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 30_39
+    - id: 7005.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 40_49
+    - id: 7006.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 50_59
+    - id: 7007.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 60_69
+    - id: 7008.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 70_79
+    - id: 7009.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 80_89
+    - id: 7010.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 90_99
+    - id: 7011.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis 100+
+    - id: 7012.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis male
+    - id: 7013.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis female
+    - id: 7014.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis black
+    - id: 7015.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis white
+    - id: 7016.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis asian
+    - id: 7017.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis unknown_race
+    - id: 7018.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis hispanic
+    - id: 7019.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis notHispanic
+    - id: 7020.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis unknown_ethnicity
+    - id: 7021.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis cci_0
+    - id: 7022.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis cci_1
+    - id: 7023.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis cci_2
+    - id: 8001.0
+      name: SWT lung cancer with no prior cancer treatment 0_9
+    - id: 8002.0
+      name: SWT lung cancer with no prior cancer treatment 10_19
+    - id: 8003.0
+      name: SWT lung cancer with no prior cancer treatment 20_29
+    - id: 8004.0
+      name: SWT lung cancer with no prior cancer treatment 30_39
+    - id: 8005.0
+      name: SWT lung cancer with no prior cancer treatment 40_49
+    - id: 8006.0
+      name: SWT lung cancer with no prior cancer treatment 50_59
+    - id: 8007.0
+      name: SWT lung cancer with no prior cancer treatment 60_69
+    - id: 8008.0
+      name: SWT lung cancer with no prior cancer treatment 70_79
+    - id: 8009.0
+      name: SWT lung cancer with no prior cancer treatment 80_89
+    - id: 8010.0
+      name: SWT lung cancer with no prior cancer treatment 90_99
+    - id: 8011.0
+      name: SWT lung cancer with no prior cancer treatment 100+
+    - id: 8012.0
+      name: SWT lung cancer with no prior cancer treatment male
+    - id: 8013.0
+      name: SWT lung cancer with no prior cancer treatment female
+    - id: 8014.0
+      name: SWT lung cancer with no prior cancer treatment black
+    - id: 8015.0
+      name: SWT lung cancer with no prior cancer treatment white
+    - id: 8016.0
+      name: SWT lung cancer with no prior cancer treatment asian
+    - id: 8017.0
+      name: SWT lung cancer with no prior cancer treatment unknown_race
+    - id: 8018.0
+      name: SWT lung cancer with no prior cancer treatment hispanic
+    - id: 8019.0
+      name: SWT lung cancer with no prior cancer treatment notHispanic
+    - id: 8020.0
+      name: SWT lung cancer with no prior cancer treatment unknown_ethnicity
+    - id: 8021.0
+      name: SWT lung cancer with no prior cancer treatment cci_0
+    - id: 8022.0
+      name: SWT lung cancer with no prior cancer treatment cci_1
+    - id: 8023.0
+      name: SWT lung cancer with no prior cancer treatment cci_2
+    - id: 1.0
+      name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+    - id: 2.0
+      name: SWT breast cancer with no prior cancer treatment
+    - id: 3.0
+      name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+    - id: 4.0
+      name: SWT colorectal cancer with no prior cancer treatment
+    - id: 5.0
+      name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+    - id: 6.0
+      name: SWT esophagus cancer with no prior cancer treatment
+    - id: 7.0
+      name: SWT lung cancer with cancer surgery within 30 days before diagnosis
+    - id: 8.0
+      name: SWT lung cancer with no prior cancer treatment
+    eventCohorts:
+    - name: SWT breast surgery outcome
+      id: 9
+    - name: SWT colorectal surgery outcome
+      id: 10
+    - name: SWT esophagus surgery outcome
+      id: 11
+    - name: SWT lung surgery outcome
+      id: 12
+  outputFolder:
+  - 06_tte2

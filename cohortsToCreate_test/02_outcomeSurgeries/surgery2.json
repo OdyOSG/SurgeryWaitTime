@@ -2,21 +2,21 @@
   "ConceptSets": [
     {
       "id": 0,
-      "name": "proc",
+      "name": "surgery2",
       "expression": {
         "items": [
           {
             "concept": {
-              "CONCEPT_CLASS_ID": "CPT4",
-              "CONCEPT_CODE": "99213",
-              "CONCEPT_ID": 2414397,
-              "CONCEPT_NAME": "Office or other outpatient visit for the evaluation and management of an established patient, which requires at least 2 of these 3 key components: An expanded problem focused history; An expanded problem focused examination; Medical decision making of low",
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "266713003",
+              "CONCEPT_ID": 4141759,
+              "CONCEPT_NAME": "Long-term drug therapy",
               "DOMAIN_ID": "Procedure",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "CPT4"
+              "VOCABULARY_ID": "SNOMED"
             },
             "includeDescendants": true
           }
@@ -47,12 +47,6 @@
     "Type": "First"
   },
   "InclusionRules": [],
-  "EndStrategy": {
-    "DateOffset": {
-      "DateField": "StartDate",
-      "Offset": 1
-    }
-  },
   "CensoringCriteria": [],
   "CollapseSettings": {
     "CollapseType": "ERA",

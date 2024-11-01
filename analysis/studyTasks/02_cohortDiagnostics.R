@@ -46,8 +46,7 @@ outputFolder <- here::here("results") %>%
   fs::dir_create()
 
 ## Add study variables or load from settings
-diagCohorts <- getCohortManifest() %>%
-  dplyr::filter(type == "target")
+diagCohorts <- getCohortManifest() %>% dplyr::filter(type == "target")
 
 
 # E. Script --------------------

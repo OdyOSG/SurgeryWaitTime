@@ -1,42 +1,60 @@
 strata:
   cohorts:
     targetCohorts:
-    - name: breast_no_prior_treatment
+    - name: af
       id: 1
-    - name: colorectal_no_prior_treatment
+    - name: diabetes
       id: 2
     strataCohorts:
-    - name: breast_no_prior_treatment
+    - name: af
       id: 1
-    - name: colorectal_no_prior_treatment
+    - name: diabetes
       id: 2
   demographics:
   - strataId: 1
-    strataName: below_65
+    strataName: 0_9
   - strataId: 2
-    strataName: 65_and_above
+    strataName: 10_19
   - strataId: 3
-    strataName: male
+    strataName: 20_29
   - strataId: 4
-    strataName: female
+    strataName: 30_39
   - strataId: 5
-    strataName: black
+    strataName: 40_49
   - strataId: 6
-    strataName: white
+    strataName: 50_59
   - strataId: 7
-    strataName: asian
+    strataName: 60_69
   - strataId: 8
-    strataName: unknown_race
+    strataName: 70_79
   - strataId: 9
-    strataName: hispanic
+    strataName: 80_89
   - strataId: 10
-    strataName: notHispanic
+    strataName: 90_99
   - strataId: 11
-    strataName: unknown_ethnicity
+    strataName: 100+
   - strataId: 12
-    strataName: cci_0
+    strataName: male
   - strataId: 13
-    strataName: cci_1
+    strataName: female
   - strataId: 14
+    strataName: black
+  - strataId: 15
+    strataName: white
+  - strataId: 16
+    strataName: asian
+  - strataId: 17
+    strataName: unknown_race
+  - strataId: 18
+    strataName: hispanic
+  - strataId: 19
+    strataName: notHispanic
+  - strataId: 20
+    strataName: unknown_ethnicity
+  - strataId: 21
+    strataName: cci_0
+  - strataId: 22
+    strataName: cci_1
+  - strataId: 23
     strataName: cci_2
   outputFolder: 03_buildStrata

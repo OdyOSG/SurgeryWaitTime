@@ -2,7 +2,7 @@
   "ConceptSets": [
     {
       "id": 0,
-      "name": "proc2",
+      "name": "surgery1",
       "expression": {
         "items": [
           {
@@ -47,12 +47,6 @@
     "Type": "First"
   },
   "InclusionRules": [],
-  "EndStrategy": {
-    "DateOffset": {
-      "DateField": "StartDate",
-      "Offset": 1
-    }
-  },
   "CensoringCriteria": [],
   "CollapseSettings": {
     "CollapseType": "ERA",

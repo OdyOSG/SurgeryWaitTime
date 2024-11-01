@@ -10,15 +10,15 @@
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 library(ggsurvfit)
-source("analysis/private/_tte.R")
-source("analysis/private/_utilities.R")
+source(here::here("analysis/private/_tte.R"))
+source(here::here("analysis/private/_utilities.R"))
 
 
 # C. Connection ----------------------
 
 ## Set connection block
 # <<<
-configBlock <- "synpuf"
+configBlock <- "[block]"
 # >>>
 
 ## Provide connection details
@@ -48,7 +48,7 @@ analysisSettings2 <- readSettingsFile(here::here("analysis/settings/tte2.yml"))
 # E. Script --------------------
 
 # Time To Event (Whole Cohort)
-debug(executeTimeToEventSurvival)
+
 executeTimeToEventSurvival(con = con,
                            executionSettings = executionSettings,
                            analysisSettings = analysisSettings)

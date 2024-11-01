@@ -661,12 +661,13 @@ executeConceptCharacterization <- function(con,
   # Get target and covariate cohort ids
   # Covariate ids
   covariateKey <- analysisSettings[[1]]$cohorts$covariateCohorts %>% dplyr::arrange(id)
-  cohortKey <- analysisSettings[[1]]$cohorts$targetCohorts %>% dplyr::arrange(id)
+  cohortKey1 <- analysisSettings[[1]]$cohorts$targetCohorts %>% dplyr::arrange(id)
 
   # Target ids (select cohorts that have enough counts i.e. 6 or more)
   strataCounts <- readr::read_csv(file = here::here("results", databaseId, "03_buildStrata", "strataCounts.csv"),
                                   show_col_types = FALSE)
-  strataCounts <- strataCounts %>%
+
+  strataCounts2 <- strataCounts %>%
     dplyr::mutate(type =
                     dplyr::case_when(
                       is.na(subjects) ~ "noCounts",
@@ -675,13 +676,11 @@ executeConceptCharacterization <- function(con,
                   )
     )
 
-  cohortKey <- strataCounts %>%
+  cohortKey <- strataCounts2 %>%
     dplyr::filter(type == "enoughCounts") %>%
+    dplyr::inner_join(cohortKey1, by = c("id", "name")) %>%
     dplyr::select(id, name) %>%
     dplyr::arrange(id)
-
-  ### TO REMOVE
-  cohortKey <- cohortKey[c(1:2), ] %>% dplyr::arrange(id)
 
   # Get time windows
   timeA <- analysisSettings[[1]]$timeWindows$startDay

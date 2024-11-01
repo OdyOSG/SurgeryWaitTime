@@ -508,7 +508,7 @@ buildStrata <- function(con,
   ## Age ---------------
   cli::cat_rule("Building Age Strata")
 
-  ## Age strata: Below 65
+  ## Age strata: 0-9
   ageStrata(con,
             cohortDatabaseSchema = workDatabaseSchema,
             cohortTable = cohortTable,
@@ -516,17 +516,107 @@ buildStrata <- function(con,
             targetId = targetCohorts$id,
             strataId = demoStratas$strataId[1],
             ageMin = 0,
-            ageMax = 64)
+            ageMax = 9)
 
-  ## Age strata: 65 and above
+  ## Age strata: 10-19
   ageStrata(con,
             cohortDatabaseSchema = workDatabaseSchema,
             cohortTable = cohortTable,
             cdmDatabaseSchema = cdmDatabaseSchema,
             targetId = targetCohorts$id,
             strataId = demoStratas$strataId[2],
-            ageMin = 65,
-            ageMax = 150)
+            ageMin = 10,
+            ageMax = 19)
+
+  ## Age strata: 20-29
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[3],
+            ageMin = 20,
+            ageMax = 29)
+
+  ## Age strata: 30-39
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[4],
+            ageMin = 30,
+            ageMax = 39)
+
+  ## Age strata: 40-49
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[5],
+            ageMin = 40,
+            ageMax = 49)
+
+  ## Age strata: 50-59
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[6],
+            ageMin = 50,
+            ageMax = 59)
+
+  ## Age strata: 60-69
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[7],
+            ageMin = 60,
+            ageMax = 69)
+
+  ## Age strata: 70-79
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[8],
+            ageMin = 70,
+            ageMax = 79)
+
+  ## Age strata: 80-89
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[9],
+            ageMin = 80,
+            ageMax = 89)
+
+  ## Age strata: 90-99
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[10],
+            ageMin = 90,
+            ageMax = 99)
+
+  ## Age strata: 100+
+  ageStrata(con,
+            cohortDatabaseSchema = workDatabaseSchema,
+            cohortTable = cohortTable,
+            cdmDatabaseSchema = cdmDatabaseSchema,
+            targetId = targetCohorts$id,
+            strataId = demoStratas$strataId[11],
+            ageMin = 100,
+            ageMax = 199)
 
 
   ## Gender ---------------
@@ -538,7 +628,7 @@ buildStrata <- function(con,
                cohortTable = cohortTable,
                cdmDatabaseSchema = cdmDatabaseSchema,
                targetId = targetCohorts$id,
-               strataId = demoStratas$strataId[3],
+               strataId = demoStratas$strataId[12],
                gender = c("male"))
 
   ## Gender strata: Female
@@ -547,7 +637,7 @@ buildStrata <- function(con,
                cohortTable = cohortTable,
                cdmDatabaseSchema = cdmDatabaseSchema,
                targetId = targetCohorts$id,
-               strataId = demoStratas$strataId[4],
+               strataId = demoStratas$strataId[13],
                gender = c("female"))
 
 
@@ -583,7 +673,7 @@ buildStrata <- function(con,
              cohortTable = cohortTable,
              cdmDatabaseSchema = cdmDatabaseSchema,
              targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[5],
+             strataId = demoStratas$strataId[14],
              conceptId = 8516)
 
   ## Race strata: White
@@ -592,7 +682,7 @@ buildStrata <- function(con,
              cohortTable = cohortTable,
              cdmDatabaseSchema = cdmDatabaseSchema,
              targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[6],
+             strataId = demoStratas$strataId[15],
              conceptId = 8527)
 
   ## Race strata: Asian
@@ -601,7 +691,7 @@ buildStrata <- function(con,
              cohortTable = cohortTable,
              cdmDatabaseSchema = cdmDatabaseSchema,
              targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[7],
+             strataId = demoStratas$strataId[16],
              conceptId = 8515)
 
   ## Race strata: Unknown
@@ -610,7 +700,7 @@ buildStrata <- function(con,
              cohortTable = cohortTable,
              cdmDatabaseSchema = cdmDatabaseSchema,
              targetId = targetCohorts$id,
-             strataId = demoStratas$strataId[8],
+             strataId = demoStratas$strataId[17],
              conceptId = 0)
 
   ## Ethnicity ---------------
@@ -618,12 +708,12 @@ buildStrata <- function(con,
 
   ## Ethnicity strata: Hispanic or Latino
   ethnicityStrata(con,
-                 cohortDatabaseSchema = workDatabaseSchema,
-                 cohortTable = cohortTable,
-                 cdmDatabaseSchema = cdmDatabaseSchema,
-                 targetId = targetCohorts$id,
-                 strataId = demoStratas$strataId[9],
-                 conceptId = 38003563)
+                  cohortDatabaseSchema = workDatabaseSchema,
+                  cohortTable = cohortTable,
+                  cdmDatabaseSchema = cdmDatabaseSchema,
+                  targetId = targetCohorts$id,
+                  strataId = demoStratas$strataId[18],
+                  conceptId = 38003563)
 
   ## Ethnicity strata: Not Hispanic or Latino
   ethnicityStrata(con,
@@ -631,7 +721,7 @@ buildStrata <- function(con,
                   cohortTable = cohortTable,
                   cdmDatabaseSchema = cdmDatabaseSchema,
                   targetId = targetCohorts$id,
-                  strataId = demoStratas$strataId[10],
+                  strataId = demoStratas$strataId[19],
                   conceptId = 38003564)
 
   ## Ethnicity strata: Unknown
@@ -640,7 +730,7 @@ buildStrata <- function(con,
                   cohortTable = cohortTable,
                   cdmDatabaseSchema = cdmDatabaseSchema,
                   targetId = targetCohorts$id,
-                  strataId = demoStratas$strataId[11],
+                  strataId = demoStratas$strataId[20],
                   conceptId = 0)
 
   ## Measurement ---------------
@@ -652,7 +742,7 @@ buildStrata <- function(con,
                     cohortTable = cohortTable,
                     cdmDatabaseSchema = cdmDatabaseSchema,
                     targetId = targetCohorts$id,
-                    strataId = demoStratas$strataId[12],
+                    strataId = demoStratas$strataId[21],
                     conceptId = 37017409,
                     value = 0)
 
@@ -661,7 +751,7 @@ buildStrata <- function(con,
                     cohortTable = cohortTable,
                     cdmDatabaseSchema = cdmDatabaseSchema,
                     targetId = targetCohorts$id,
-                    strataId = demoStratas$strataId[13],
+                    strataId = demoStratas$strataId[22],
                     conceptId = 37017409,
                     value = 1)
 
@@ -670,7 +760,7 @@ buildStrata <- function(con,
                     cohortTable = cohortTable,
                     cdmDatabaseSchema = cdmDatabaseSchema,
                     targetId = targetCohorts$id,
-                    strataId = demoStratas$strataId[14],
+                    strataId = demoStratas$strataId[23],
                     conceptId = 37017409,
                     value = c(2:6))
 
@@ -729,51 +819,4 @@ buildStrata <- function(con,
 
   invisible(dt)
 }
-
-
-
-
-# Race strata function
-genericStrata <- function(con,
-                         cohortDatabaseSchema,
-                         cohortTable,
-                         cdmDatabaseSchema,
-                         targetId,
-                         strataId) {
-
-  #cli::cat_bullet(crayon::green("Building Race strata: ", as.character(conceptId)))
-
-  sql <- "
-            select cnt
-            into #stratas
-            from (
-
-              select count(distinct plan_concept_id) as cnt
-              from @cdmDatabaseSchema.location
-
-              );
-
-            DROP TABLE #stratas;
-
-
-  "
-
-  raceStrataSql <- SqlRender::render(
-    sql,
-    cohortTable = cohortTable,
-    cdmDatabaseSchema = cdmDatabaseSchema) %>%
-    SqlRender::translate(targetDialect = con@dbms)
-
-  DatabaseConnector::executeSql(connection = con, raceStrataSql, progressBar = FALSE)
-
-  cohortStrataId <- targetId * 1000 + strataId
-  cohortSchemaTable <- paste(cohortDatabaseSchema, cohortTable, sep = ".")
-
-  cli::cat_bullet("Race strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
-                  bullet = "tick", bullet_col = "green")
-  cli::cat_line()
-
-  invisible(raceStrataSql)
-}
-
 

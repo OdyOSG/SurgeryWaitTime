@@ -63,7 +63,7 @@ yaml1 <- list(
 )
 
 # Create yaml file
-yaml::write_yaml(yaml1, file = here::here("analysis/settings/strata.yml"), column.major = FALSE)
+yaml::write_yaml(yaml1, file = here::here("analysis/settings/strata_nyu.yml"), column.major = FALSE)
 
 
 ### All cohorts (target and its stratas) ------------------
@@ -86,24 +86,22 @@ covariateCohorts <- cohortManifest %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003)) # TO REMOVE
-
 yaml2 <- list(
   'baselineCharacteristics' = list(
     'cohorts' = list(
-      'targetCohorts' = baseCohorts,        # To replace with allCohorts
+      'targetCohorts' = allCohorts,
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
-        startDay = c(-365L),
-        endDay = c(-1L)
-      ),
+      startDay = c(-365L),
+      endDay = c(-1L)
+    ),
     'outputFolder' = fs::path("04_baselineCharacteristics")
   )
 )
 
 # Create yaml file
-yaml::write_yaml(yaml2, file = here::here("analysis/settings/baseline.yml"), column.major = FALSE)
+yaml::write_yaml(yaml2, file = here::here("analysis/settings/baseline_nyu.yml"), column.major = FALSE)
 
 
 ## 3. Post-Index Characteristics --------------------
@@ -113,24 +111,22 @@ covariateCohorts <- cohortManifest %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-postCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003))
-
 yaml3 <- list(
   'postIndexCharacteristics' = list(
     'cohorts' = list(
-      'targetCohorts' = postCohorts,          # To replace with allCohorts
+      'targetCohorts' = allCohorts,
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
       startDay = c(1, 0, 1, 0),
       endDay = c(9999, 9999, 183, 183)
-      ),
+    ),
     'outputFolder' = fs::path("05_postIndexCharacteristics")
   )
 )
 
 # Create yaml file
-write_yaml(yaml3, file = here::here("analysis/settings/postIndex.yml"), column.major = FALSE)
+write_yaml(yaml3, file = here::here("analysis/settings/postIndex_nyu.yml"), column.major = FALSE)
 
 
 ## 4.1 Time To Event (Whole cohort) -------------------
@@ -140,12 +136,10 @@ eventCohorts <- cohortManifest %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003))  # TO REMOVE
-
 yaml4 <- list(
   'tte' = list(
     'cohorts' = list(
-      'targetCohorts' = targetCohorts,    # To replace with allCohorts
+      'targetCohorts' = allCohorts,
       'eventCohorts' = eventCohorts
     ),
     'outputFolder' = list(
@@ -155,7 +149,7 @@ yaml4 <- list(
 )
 
 # Create yaml file
-yaml::write_yaml(yaml4, file = here::here("analysis/settings/tte.yml"), column.major = FALSE)
+yaml::write_yaml(yaml4, file = here::here("analysis/settings/tte_nyu.yml"), column.major = FALSE)
 
 
 ## 4.2 Time To Event (Only Surgery patients) -------------------
@@ -165,12 +159,10 @@ eventCohorts <- cohortManifest %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003)) # TO REMOVE
-
 yaml5 <- list(
   'tte' = list(
     'cohorts' = list(
-      'targetCohorts' = targetCohorts, # To replace with allCohorts
+      'targetCohorts' = allCohorts,
       'eventCohorts' = eventCohorts
     ),
     'outputFolder' = list(
@@ -180,4 +172,4 @@ yaml5 <- list(
 )
 
 # Create yaml file
-yaml::write_yaml(yaml5, file = here::here("analysis/settings/tte2.yml"), column.major = FALSE)
+yaml::write_yaml(yaml5, file = here::here("analysis/settings/tte2_nyu.yml"), column.major = FALSE)

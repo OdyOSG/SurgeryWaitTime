@@ -7,13 +7,13 @@
 # B. Dependencies -----------------------
 
 ## Load libraries and scripts
-source("analysis/private/_executeStudy.R")
+source(here::here("analysis/private/_executeStudy.R"))
 
 
 # C. Variables -----------------------
 
 ## Add database name
-configBlock <- "synpuf"
+configBlock <- "[block]"
 
 ## Path to tasks folder
 studyTaskFolder <- here::here("analysis/studyTasks")
@@ -26,7 +26,7 @@ studyTaskFiles <- fs::dir_ls(studyTaskFolder, type = "file")
 runStudyTask(file = studyTaskFiles[1], configBlock = configBlock)
 
 ## Task 2: Run Cohort Diagnostics
-#runStudyTask(file = studyTaskFiles[2], configBlock = configBlock)
+runStudyTask(file = studyTaskFiles[2], configBlock = configBlock)
 
 ## Task 3: Build Stratas
 runStudyTask(file = studyTaskFiles[3], configBlock = configBlock)

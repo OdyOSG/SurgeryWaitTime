@@ -18,7 +18,7 @@ source(here::here('analysis/private/_utilities.R'))
 
 ## Set connection block
 # <<<
-configBlock <- "synpuf"
+configBlock <- "[block]"
 # >>>
 
 ## Provide connection details

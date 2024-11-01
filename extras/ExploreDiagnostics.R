@@ -16,22 +16,21 @@ library(fs)
 # C. Script --------------------
 
 ## Insert database name
-databaseName <- ""
+databaseName <- "synpuf"
 
 ## Path to cohort diagnostics results
-dataFolder <- fs::path_abs("results") %>%
-  fs::path(databaseName, "02_cohortDiagnostics")
+dataFolder <- fs::path_abs("results") %>% fs::path(databaseName, "02_cohortDiagnostics")
 
 ## Add a scratch folder
-scratchDiagnosticsFolder <- fs::path_abs("scratchDiagnostics") %>%
-  fs::dir_create()
+scratchDiagnosticsFolder <- fs::path_abs("scratchDiagnostics") %>% fs::dir_create()
 
 ## Path to sqlite db
 sqlLiteDbPath <- fs::path(scratchDiagnosticsFolder, glue::glue("SWT_cd_{databaseName}"), ext = "sqlite")
 
 ## Create merged results file
 CohortDiagnostics::createMergedResultsFile(dataFolder = dataFolder,
-                                           sqliteDbPath = sqlLiteDbPath)
+                                           sqliteDbPath = sqlLiteDbPath,
+                                           overwrite = TRUE)
 
 
 ## Launch Cohort Diagnostics shiny app

@@ -9,8 +9,8 @@
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
-source("analysis/private/_utilities.R")
-source("analysis/private/_conceptPrevalence.R")
+source(here::here("analysis/private/_utilities.R"))
+source(here::here("analysis/private/_conceptPrevalence.R"))
 
 
 # C. Connection ----------------------

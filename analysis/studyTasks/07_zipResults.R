@@ -8,7 +8,7 @@
 
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
-source("analysis/private/_utilities.R")
+source(here::here("analysis/private/_utilities.R"))
 
 
 # C. Connection ----------------------
