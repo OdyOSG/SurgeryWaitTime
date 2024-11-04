@@ -1,19 +1,15 @@
 # A. File Info -----------------------
 
+# Study:
 # Task: Cohort Diagnostics
-# Please refer to HowToRun.md in the documentation for instructions on
-# running package
+
 
 # B. Dependencies ----------------------
-# Dependencies are handled by renv package.
 
 ## Load libraries and scripts
 library(tidyverse, quietly = TRUE)
 library(DatabaseConnector)
 library(config)
-# May only be needed once.
-
-
 source(here::here('analysis/private/_buildCohorts.R'))
 source(here::here('analysis/private/_executeStudy.R'))
 source(here::here('analysis/private/_utilities.R'))
@@ -38,24 +34,18 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 con <- DatabaseConnector::connect(connectionDetails)
 
 
-# D. Study Variables -----------------------
+# D. Variables -----------------------
 
 ## Administrative Variables
 executionSettings <- config::get(config = configBlock) %>%
   purrr::discard_at( c("dbms", "user", "password", "connectionString"))
-
-# Needed to execute on Postgres, will be moved in final.
-executionSettings$projectName = tolower(executionSettings$projectName)
-executionSettings$cohortTable = tolower(executionSettings$cohortTable)
-executionSettings$workDatabaseSchema = tolower(executionSettings$workDatabaseSchema)
 
 outputFolder <- here::here("results") %>%
   fs::path(executionSettings$databaseName, "02_cohortDiagnostics") %>%
   fs::dir_create()
 
 ## Add study variables or load from settings
-diagCohorts <- getCohortManifest() %>%
-  dplyr::filter(type == "target")
+diagCohorts <- getCohortManifest() %>% dplyr::filter(type == "target")
 
 
 # E. Script --------------------

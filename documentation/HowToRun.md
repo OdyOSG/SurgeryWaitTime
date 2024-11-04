@@ -2,15 +2,26 @@
 
 ## Setup Study
 
-### Download Zip
+### Clone repository
 
 Download and run the package by following the instructions below:
 
 1)  Go to the [Github repo webpage](https://github.com/OdyOSG/SurgeryWaitTime/tree/main)
 2)  Click on the green `Code` button revealing a dropdown menu
+3)  Copy the URL under the `HTTPS` tab on your clipboard
+4)  Go to RStudio and run command `git clone <copied_URL_from_above` in the Terminal (Note that the repo is going to be downloaded in your working directory of your RStudio session at the time)
+5) Go to the cloned folder and open file `SurgeryWaitTime.Rproj` with RStudio
+
+### Download Zip
+
+Alternatively, you can do the following:
+
+1)  Go to the [Github repo webpage](https://github.com/OdyOSG/SurgeryWaitTime/tree/main)
+2)  Click on the green `Code` button revealing a dropdown menu
 3)  Click on `Download Zip`
 4)  Unzip the file on your computer
-5)  Open the unzipped folder and open file `SurgeryWaitTime.Rproj` with RStudio
+5)  Go to the unzipped folder and open file `SurgeryWaitTime.Rproj` with RStudio
+
 
 ### Setup R Environment
 
@@ -98,8 +109,8 @@ It is recommended that you store these credentials in a text file to make it eas
 
 #### Loading Credentials
 
-1)  Open file `extras/KeyringSetup.R`
-2)  On L16:18 place a name for your config block and database. The `configBlock` variable name can be an abbreviation for the database. For example:
+1)  Open file `extras/keyringSetup.R`
+2)  On L18:20 place a name for your config block and database. The `configBlock` variable name can be an abbreviation for the database. For example:
 
 ``` r
 configBlock <- "synpuf"
@@ -133,10 +144,15 @@ Running all the analytical tasks can be done using the `executeStudy.R` file. Re
 
 ### Study Tasks
 
-The study contains two tasks:
+The study contains seven tasks:
 
 1)  **Build Cohorts** - Creates cohorts from the JSON files in the `cohortsToCreate` folder
 2)  **Cohort Diagnostics** - Generates Cohort Diagnostics data
+3)  **Build Strata** - Creates strata cohorts of the target cohorts
+4)  **Baseline Characteristics** - Generates baseline characteristics for the target cohorts
+5)  **Post-Index Characteristics** - Generates post-index characteristics for the target cohorts
+6)  **Time To Event** - Generates KM plots and survival probabilities tables
+7)  **Zip Results** - Zip all the `results` folder contents
 
 Each task will output files in a folder named `results`. Note that the first task (`buildCohorts`) is required to run any additional task.
 

@@ -1,0 +1,84 @@
+strata:
+  cohorts:
+    targetCohorts:
+    - name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+      id: 1
+    - name: SWT breast cancer with no prior cancer treatment
+      id: 2
+    - name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+      id: 3
+    - name: SWT colorectal cancer with no prior cancer treatment
+      id: 4
+    - name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+      id: 5
+    - name: SWT esophagus cancer with no prior cancer treatment
+      id: 6
+    - name: SWT lung cancer with cancer surgery within 30 days before diagnosis
+      id: 7
+    - name: SWT lung cancer with no prior cancer treatment
+      id: 8
+    strataCohorts:
+    - name: SWT breast cancer with cancer surgery within 30 days before diagnosis
+      id: 1
+    - name: SWT breast cancer with no prior cancer treatment
+      id: 2
+    - name: SWT colorectal cancer with cancer surgery within 30 days before diagnosis
+      id: 3
+    - name: SWT colorectal cancer with no prior cancer treatment
+      id: 4
+    - name: SWT esophagus cancer with cancer surgery within 30 days before diagnosis
+      id: 5
+    - name: SWT esophagus cancer with no prior cancer treatment
+      id: 6
+    - name: SWT lung cancer with cancer surgery within 30 days before diagnosis
+      id: 7
+    - name: SWT lung cancer with no prior cancer treatment
+      id: 8
+  demographics:
+  - strataId: 1
+    strataName: 0_9
+  - strataId: 2
+    strataName: 10_19
+  - strataId: 3
+    strataName: 20_29
+  - strataId: 4
+    strataName: 30_39
+  - strataId: 5
+    strataName: 40_49
+  - strataId: 6
+    strataName: 50_59
+  - strataId: 7
+    strataName: 60_69
+  - strataId: 8
+    strataName: 70_79
+  - strataId: 9
+    strataName: 80_89
+  - strataId: 10
+    strataName: 90_99
+  - strataId: 11
+    strataName: 100+
+  - strataId: 12
+    strataName: male
+  - strataId: 13
+    strataName: female
+  - strataId: 14
+    strataName: black
+  - strataId: 15
+    strataName: white
+  - strataId: 16
+    strataName: asian
+  - strataId: 17
+    strataName: unknown_race
+  - strataId: 18
+    strataName: hispanic
+  - strataId: 19
+    strataName: notHispanic
+  - strataId: 20
+    strataName: unknown_ethnicity
+  - strataId: 21
+    strataName: cci_0
+  - strataId: 22
+    strataName: cci_1
+  - strataId: 23
+    strataName: cci_2
+  outputFolder: 03_buildStrata
