@@ -296,9 +296,10 @@ createKMplots <- function(database) {
 
 
   ## Loop through rds files to create png files for KM plots
-  for (i in 1:length(listOftteFiles)) {
+  if(length(listOftteFiles) > 0) {
+    for (i in 1:length(listOftteFiles)) {
 
-    ## Read rds file (survfit object)
+      ## Read rds file (survfit object)
       tte <- readr::read_rds(listOftteFiles[i])
       tteSurvFit <- tte[["survFit"]]
 
@@ -336,19 +337,21 @@ createKMplots <- function(database) {
       }
 
 
+    }
+
+    ## Bind all list objects together
+    pickerListFinal <- do.call(rbind, pickerList)
+
+    ## Export picker list
+    readr::write_csv(pickerListFinal, file = fs::path(outputFolder, "ttePickers.csv"))
+
+    ## Job log
+    cli::cat_bullet(paste0("KM plots have been created and saved in: ", crayon::green(outputFolder)), bullet = "info", bullet_col = "blue")
+
+
+    invisible(pickerListFinal)
   }
 
-  ## Bind all list objects together
-  pickerListFinal <- do.call(rbind, pickerList)
-
-  ## Export picker list
-  readr::write_csv(pickerListFinal, file = fs::path(outputFolder, "ttePickers.csv"))
-
-  ## Job log
-  cli::cat_bullet(paste0("KM plots have been created and saved in: ", crayon::green(outputFolder)), bullet = "info", bullet_col = "blue")
-
-
-  invisible(pickerListFinal)
 }
 
 

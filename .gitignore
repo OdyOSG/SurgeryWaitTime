@@ -53,6 +53,7 @@ vignettes/*.pdf
 
 # pkgdown site
 docs/
+reportFiles_synpuf110k.zip
 
 # translation temp files
 po/*~
