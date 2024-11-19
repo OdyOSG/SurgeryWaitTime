@@ -51,7 +51,7 @@ cohortManifest <- getCohortManifest()
 
 ## Initialize cohort tables
 
-initializeCohortTables(executionSettings = executionSettings, con = con, dropTables = TRUE)
+initializeCohortTables(executionSettings = executionSettings, con = con, dropTables = FALSE)
 
 ## Generate cohorts
 
