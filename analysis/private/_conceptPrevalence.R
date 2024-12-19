@@ -56,7 +56,7 @@ getDrugsFE <- function(con,
 
   # Create Drug settings
   covSettings <- FeatureExtraction::createCovariateSettings(
-    useDrugGroupEraLongTerm = TRUE,
+    useDrugExposureLongTerm = TRUE,
     excludedCovariateConceptIds = c(21600001, 21600959, 21601237, # Remove ATC 1st class
                                     21601907, 21602359, 21602681,
                                     21602795, 21601386, 21603931,
@@ -131,7 +131,7 @@ getConditionsFE <- function(con,
 
   # Create Condition settings
   covSettings <- FeatureExtraction::createCovariateSettings(
-    useConditionGroupEraLongTerm = TRUE,
+    useConditionOccurrenceLongTerm = TRUE,
     longTermStartDays = timeA,
     endDays = timeB
   )

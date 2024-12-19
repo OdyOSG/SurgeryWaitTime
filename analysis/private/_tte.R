@@ -119,7 +119,7 @@ prepTte <- function(df) {
                                           as.double(difftime(target_end_date, target_start_date, units = "days")), diff, diff),
                     status = dplyr::if_else(is.na(event_start_date), 0, 1, 0)) %>%
       dplyr::select(-c(rank, subject_id))
-    if(nrow(tte) > 100) {
+    if(nrow(tte) > 30) {
           ## Fit patient data frame
     survFit2 <- ggsurvfit::survfit2(
       survival::Surv(time = diff, event = status, type = "right") ~ eventName,
