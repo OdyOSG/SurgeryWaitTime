@@ -469,7 +469,7 @@ postIndexCharacteristics:
   - startDay: 0.0
     endDay: 9999.0
   - startDay: 1.0
-    endDay: 183.0
+    endDay: 364.0
   - startDay: 0.0
-    endDay: 183.0
+    endDay: 364.0
   outputFolder: 05_postIndexCharacteristics
