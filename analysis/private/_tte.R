@@ -317,7 +317,7 @@ collectCohortsWithDemographics <- function(con, workDatabaseSchema, cohortTable,
       LEFT JOIN @cdm_schema.concept c1 ON c1.concept_id = p.gender_concept_id
       LEFT JOIN @cdm_schema.concept c2 ON c2.concept_id = p.race_concept_id
       LEFT JOIN @cdm_schema.concept c3 ON c3.concept_id = p.ethnicity_concept_id
-      LEFT JOIN @cdm_schema.care_site cs ON cs.care_site_id = t.care_site_id
+      LEFT JOIN @cdm_schema.care_site cs ON cs.care_site_id = p.care_site_id
       WHERE t.cohort_definition_id = @targetId
     )
     SELECT
