@@ -743,4 +743,127 @@ executeTimeToEventSurvival <- function(con,
     tteSurvFit <- prepTte(df = current_cohorts)
     if(!is.null(tteSurvFit)) {
       # Add database and cohort to list to be exported
-      tteList <- list(survFit = tteSurvFit, database = databaseId, cohortId = targetId, cohortName = targetCohorts$
+      tteList <- list(survFit = tteSurvFit, database = databaseId, cohortId = targetId, cohortName = targetCohorts$name[i])
+
+      # Export object (list for KM plots)
+      verboseSaveRds(object = tteList,
+                     saveName = paste0("tteSurvFit_", targetId),
+                     saveLocation = outputFolder)
+
+
+      # Get time to event data (data frame)
+      tteSurvDat <- ggsurvfit::tidy_survfit(tteSurvFit) %>%
+        dplyr::select(time, n.risk, n.event, estimate, std.error, strata, conf.high, conf.low) %>%
+        dplyr::mutate(database = databaseId,
+                      targetCohort = targetId)
+
+      # Export object (data frame for survival probabilities)
+      verboseSave(object = tteSurvDat,
+                  saveName = paste0("tteTables_", targetId),
+                  saveLocation = outputFolder)
+    }
+  }
+
+  # Bind and save csv files
+  bindFiles(
+    inputPath = outputFolder,
+    outputPath = outputFolder,
+    filename = "tteSurvTables",
+    pattern = "tteTables"
+  )
+
+  # Job log
+  tok <- Sys.time()
+  tdif <- tok - tik
+  tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
+  cli::cat_line()
+  cli::cat_bullet("Execution took: ", crayon::red(tok_format), bullet = "info", bullet_col = "blue")
+
+
+  invisible(current_cohorts)
+}
+
+
+executeTimeToEvent <- function(con,
+                               executionSettings,
+                               analysisSettings) {
+
+  # Get variables
+  cdmDatabaseSchema <- executionSettings$cdmDatabaseSchema
+  workDatabaseSchema <- executionSettings$workDatabaseSchema
+  cohortTable <- executionSettings$cohortTable
+  databaseId <- executionSettings$databaseName
+
+  outputFolder <- fs::path(here::here("results"), databaseId, analysisSettings$tte$outputFolder) %>%
+    fs::dir_create()
+
+  targetCohorts <- analysisSettings$tte$cohorts$targetCohorts
+  eventCohorts <- analysisSettings$tte$cohorts$eventCohorts
+
+  # Job log
+  cli::cat_boxx(crayon::magenta("Calculating Time To Event data"))
+  cli::cat_line()
+  tik <- Sys.time()
+
+  # Loop through target cohort ids
+  for (i in seq_along(targetCohorts$id)) {
+
+    # Target & event cohort ids
+    targetId <- targetCohorts$id[i]
+    eventId <- eventCohorts$id
+
+    # Job log
+    cli::cat_rule()
+    txt1 <- paste0(targetCohorts$name[i], " (id:", targetCohorts$id[i], ")")
+    cli::cat_bullet(crayon::green("Target Cohort: "), txt1, bullet = "pointer", bullet_col = "yellow")
+    txt2 <- paste0(eventCohorts$name, " (id:", eventCohorts$id, ")", collapse = ", ")
+    cli::cat_bullet(crayon::green("Event Cohorts: "), txt2, bullet = "pointer", bullet_col = "yellow")
+
+
+    # Collect patient data
+    current_cohorts <- collectCohorts2(con = con,
+                                       workDatabaseSchema = workDatabaseSchema,
+                                       cohortTable = cohortTable,
+                                       targetId = targetId,
+                                       eventId = eventId)
+
+
+    # Warning if no data are returned from function above.
+    # The data frame is empty if 1) there is no data for the target cohort or 2) there are no patients with the event cohort.
+    # If there is no data, the loop continues with the next target cohort id.
+    if (nrow(current_cohorts) == 0) {
+      cli::cat_bullet("No data returned for target cohort id: ", crayon::red(targetId), ". Function will continue with the next cohort id.",
+                      bullet = "info", bullet_col = "blue")
+      next
+    }
+
+    # Calculate summary statistics for continuous variable
+    summaryStatistics <- calculateStatisticsContinuous(df = current_cohorts,
+                                                       database = executionSettings$databaseName,
+                                                       dateScale = "all")
+
+    # Export object
+    verboseSave(object = summaryStatistics,
+                saveName = paste0("tteStatistics_", targetId),
+                saveLocation = outputFolder)
+
+   }
+
+
+  # Bind and save files
+  bindFiles(
+    inputPath = outputFolder,
+    outputPath = outputFolder,
+    filename = "tteStats",
+    pattern = "tteStatistics"
+  )
+
+  # Job log
+  tok <- Sys.time()
+  tdif <- tok - tik
+  tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
+  cli::cat_line()
+  cli::cat_bullet("Execution took: ", crayon::red(tok_format), bullet = "info", bullet_col = "blue")
+
+  invisible(summaryStatistics)
+}
