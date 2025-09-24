@@ -76,17 +76,21 @@ allCohorts <- expand_grid(targetCohorts, demoStrata) %>%
     name = paste(name, strataName)
   ) %>%
   dplyr::select(id, name) %>%
-  rbind(targetCohorts)
+  rbind(targetCohorts) |>
+  dplyr::mutate(
+    id_first = as.integer(substr(as.character(id), 1, 1))
+  )
 
 
 ## 2. Baseline Characteristics --------------------
 
 covariateCohorts <- cohortManifest %>%
-  dplyr::filter(type %in% c("outcomeSurgeries", "outcomeDrugs")) %>%
+  dplyr::filter(type %in% c("outcomeSurgeries")) %>%
+  dplyr::filter(id == 9) |>                             # TO REMOVE
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003)) # TO REMOVE
+baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(4, 4012, 4013)) # TO REMOVE
 
 yaml2 <- list(
   'baselineCharacteristics' = list(
@@ -98,7 +102,7 @@ yaml2 <- list(
         startDay = c(-365L),
         endDay = c(-1L)
       ),
-    'outputFolder' = fs::path("04_baselineCharacteristics")
+    'outputFolder' = fs::path("04_baselineCharacteristics/default")
   )
 )
 
@@ -106,19 +110,97 @@ yaml2 <- list(
 yaml::write_yaml(yaml2, file = here::here("analysis/settings/baseline.yml"), column.major = FALSE)
 
 
-## 3. Post-Index Characteristics --------------------
-
+### Custom conditions
 covariateCohorts <- cohortManifest %>%
-  dplyr::filter(type %in% c("outcomeSurgeries", "outcomeDrugs")) %>%
+  dplyr::filter(type %in% c("NA")) %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-postCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003))
+baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(4, 4012, 4013)) # TO REMOVE
+
+yaml21 <- list(
+  'baselineCharacteristics' = list(
+    'cohorts' = list(
+      'targetCohorts' = baseCohorts,       # To replace with allCohorts
+      'covariateCohorts' = covariateCohorts
+    ),
+    'timeWindows' = tibble::tibble(
+      startDay = c(-9999L),
+      endDay = c(-1L)
+    ),
+    'outputFolder' = fs::path("04_baselineCharacteristics/customConditions")
+  )
+)
+
+# Create yaml file
+yaml::write_yaml(yaml21, file = here::here("analysis/settings/baseline2.yml"), column.major = FALSE)
+
+
+### BMI
+covariateCohorts <- cohortManifest %>%
+  dplyr::filter(name %in% c("BMI_gt_40", "BMI_less_15")) %>%
+  dplyr::mutate(id = as.integer(id)) %>%
+  dplyr::select(name, id)
+
+baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(4, 4012, 4013)) # TO REMOVE
+
+yaml22 <- list(
+  'baselineCharacteristics' = list(
+    'cohorts' = list(
+      'targetCohorts' = baseCohorts,       # To replace with allCohorts
+      'covariateCohorts' = covariateCohorts
+    ),
+    'timeWindows' = tibble::tibble(
+      startDay = c(-90L),
+      endDay = c(-1L)
+    ),
+    'outputFolder' = fs::path("04_baselineCharacteristics/bmi")
+  )
+)
+
+# Create yaml file
+yaml::write_yaml(yaml22, file = here::here("analysis/settings/baseline3.yml"), column.major = FALSE)
+
+
+### Hospitalization
+covariateCohorts <- cohortManifest %>%
+  dplyr::filter(name %in% c("hosp_wo_surgery")) %>%
+  dplyr::mutate(id = as.integer(id)) %>%
+  dplyr::select(name, id)
+
+baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(4, 4012, 4013)) # TO REMOVE
+
+yaml23 <- list(
+  'baselineCharacteristics' = list(
+    'cohorts' = list(
+      'targetCohorts' = baseCohorts,          # To replace with allCohorts
+      'covariateCohorts' = covariateCohorts
+    ),
+    'timeWindows' = tibble::tibble(
+      startDay = c(-183L),
+      endDay = c(-1L)
+    ),
+    'outputFolder' = fs::path("04_baselineCharacteristics/hosp")
+  )
+)
+
+# Create yaml file
+yaml::write_yaml(yaml23, file = here::here("analysis/settings/baseline4.yml"), column.major = FALSE)
+
+
+## 3. Post-Index Characteristics --------------------
+
+covariateCohorts <- cohortManifest %>%
+  dplyr::filter(type %in% c("outcomeSurgeries")) %>%
+  dplyr::mutate(id = as.integer(id)) %>%
+  dplyr::select(name, id)
+
+baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(4, 4012, 4013)) # TO REMOVE
 
 yaml3 <- list(
   'postIndexCharacteristics' = list(
     'cohorts' = list(
-      'targetCohorts' = postCohorts,          # To replace with allCohorts
+      'targetCohorts' = baseCohorts,          # To replace with allCohorts
       'covariateCohorts' = covariateCohorts
     ),
     'timeWindows' = tibble::tibble(
@@ -130,27 +212,25 @@ yaml3 <- list(
 )
 
 # Create yaml file
-write_yaml(yaml3, file = here::here("analysis/settings/postIndex.yml"), column.major = FALSE)
+yaml::write_yaml(yaml3, file = here::here("analysis/settings/postIndex.yml"), column.major = FALSE)
 
 
 ## 4.1 Time To Event (Whole cohort) -------------------
 
 eventCohorts <- cohortManifest %>%
-  dplyr::filter(type %in% c("outcomeSurgeries", "outcomeDrugs")) %>%
+  dplyr::filter(type %in% c("outcomeSurgeries")) %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003))  # TO REMOVE
+baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(4, 4012, 4013)) # TO REMOVE
 
 yaml4 <- list(
   'tte' = list(
     'cohorts' = list(
-      'targetCohorts' = targetCohorts,    # To replace with allCohorts
+      'targetCohorts' = baseCohorts,    # To replace with allCohorts
       'eventCohorts' = eventCohorts
     ),
-    'outputFolder' = list(
-      fs::path("06_tte")
-    )
+    'outputFolder' = fs::path("06_tte")
   )
 )
 
@@ -165,17 +245,15 @@ eventCohorts <- cohortManifest %>%
   dplyr::mutate(id = as.integer(id)) %>%
   dplyr::select(name, id)
 
-targetCohorts <- allCohorts %>% dplyr::filter(id %in% c(1, 1001, 1002, 1003)) # TO REMOVE
+baseCohorts <- allCohorts %>% dplyr::filter(id %in% c(4, 4012, 4013)) # TO REMOVE
 
 yaml5 <- list(
   'tte' = list(
     'cohorts' = list(
-      'targetCohorts' = targetCohorts, # To replace with allCohorts
+      'targetCohorts' = baseCohorts,      # To replace with allCohorts
       'eventCohorts' = eventCohorts
     ),
-    'outputFolder' = list(
-      fs::path("06_tte2")
-    )
+    'outputFolder' = fs::path("06_tte2")
   )
 )
 

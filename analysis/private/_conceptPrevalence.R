@@ -184,6 +184,166 @@ getConditionsFE <- function(con,
 }
 
 
+# Function that runs function FeatureExtraction::createCovariateSettings for condition eras
+getConditionsCustomFE <- function(con,
+                                  cohortDatabaseSchema,
+                                  cohortTable,
+                                  cdmDatabaseSchema,
+                                  cohortId,
+                                  type = c("postIndex", "baseline"),
+                                  timeA,
+                                  timeB,
+                                  outputFolder) {
+
+  cli::cat_rule("Build Condition Covariates")
+
+
+  # Create Condition settings
+  covSettings <- FeatureExtraction::createCovariateSettings(
+    useConditionOccurrenceLongTerm = TRUE,
+    longTermStartDays = timeA,
+    endDays = timeB,
+    includedCovariateConceptIds = c(
+      4044240,
+      40491439,
+      4006969,
+      42873168,
+      4162282,
+      4197065,
+      37017244,
+      196724,
+      3656669,
+      37110295,
+      43531585,
+      313459,
+      4306572,
+      4247108,
+      4317284,
+      4170108,
+      4063381,
+      4154706,
+      4028286,
+      318459,
+      317009,
+      40488781,
+      4098766,
+      4323557,
+      4055224,
+      42538550,
+      4340951,
+      4341650,
+      35621839,
+      4342777,
+      4144765,
+      4296301,
+      36675115,
+      4245975,
+      3655102,
+      444421,
+      4150383,
+      4097699,
+      4058685,
+      4316352,
+      37162164,
+      4009165,
+      4282941,
+      4342883,
+      4059290,
+      4174671,
+      194990,
+      4043254,
+      42536741,
+      42537674,
+      4139925,
+      4340950,
+      4278462,
+      4245954,
+      4342778,
+      37109995,
+      4141669,
+      45771255,
+      4340391,
+      4229773,
+      4159144,
+      4048520,
+      37017093,
+      4310146,
+      4262316,
+      4132088,
+      4120949,
+      4103295,
+      4048521,
+      4121463,
+      4281749,
+      321462,
+      36713582,
+      4187067,
+      37163150,
+      3655971,
+      4180636,
+      4311280,
+      4024552,
+      4166245,
+      44784217,
+      4239975,
+      4263049,
+      4134586,
+      4164219,
+      4027255,
+      4178542,
+      4134889
+    ),
+    addDescendantsToInclude = TRUE
+  )
+
+  # Run FE
+  cov <- silentCovariates(con = con,
+                          cdmDatabaseSchema = cdmDatabaseSchema,
+                          cohortTable = cohortTable,
+                          cohortDatabaseSchema = cohortDatabaseSchema,
+                          cohortId = cohortId,
+                          covSettings = covSettings)
+
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  if (cov$covariates %>% tally() %>% pull() == 0) {
+
+    cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
+    cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
+                    crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
+    cli::cat_line()
+
+    return(NA)
+  }
+
+  # Format
+  condTbl <- cov$covariates %>%
+    dplyr::left_join(cov$covariateRef, by = c("covariateId")) %>%
+    dplyr::rename(
+      n = sumValue,
+      pct = averageValue,
+      name = covariateName
+    ) %>%
+    dplyr::select(cohortDefinitionId, analysisId, conceptId, name, n, pct) %>%
+    dplyr::collect() %>%
+    dplyr::mutate(name = gsub(".*: ", "", name),
+                  timeWindow = paste0(abs(timeA), "_", abs(timeB)),
+                  database = executionSettings$databaseName)
+
+  # Output file name
+  saveName <- paste0("conditions_custom_", type, "_", cohortId, "_", abs(timeA), "_", abs(timeB))
+
+  # Export
+  verboseSave(
+    object = condTbl,
+    saveName = saveName,
+    saveLocation = outputFolder
+  )
+
+  invisible(condTbl)
+}
+
+
 # Function that runs function FeatureExtraction::createCovariateSettings for procedure occurrences
 getProceduresFE <- function(con,
                             cohortDatabaseSchema,
@@ -493,6 +653,101 @@ getCohortFE <- function(con,
 }
 
 
+# Function that runs function FeatureExtraction::createCovariateSettings for cohorts already created while running `01_buildCohorts`
+getCohortCustomFE <- function(con,
+                              cohortDatabaseSchema,
+                              cohortTable,
+                              cdmDatabaseSchema,
+                              cohortId,
+                              analysisSettings,
+                              covId,
+                              type = c("postIndex", "baseline"),
+                              timeA,
+                              timeB,
+                              outputFolder) {
+
+  cli::cat_rule("Build Cohort Covariates")
+
+  # Create covariate tibble for FE
+  covariateCohorts <- as_tibble(analysisSettings[[1]]$cohorts$covariateCohorts)
+
+  covariateCohorts <- covariateCohorts %>%
+    dplyr::filter(id == covId) %>%
+    dplyr::rename(
+      cohortId = id,
+      cohortName = name
+    )
+
+  # Create cohort settings
+  covSettings <- FeatureExtraction::createCohortBasedCovariateSettings(
+    analysisId = 999L,
+    covariateCohortDatabaseSchema = cohortDatabaseSchema,
+    covariateCohortTable = cohortTable,
+    covariateCohorts = covariateCohorts,
+    valueType = "binary",
+    startDay = timeA,
+    endDay = timeB
+  )
+
+  # Run FE
+  cov <- silentCovariates(
+    con = con,
+    cdmDatabaseSchema = cdmDatabaseSchema,
+    cohortTable = cohortTable,
+    cohortDatabaseSchema = cohortDatabaseSchema,
+    cohortId = cohortId,
+    covSettings = covSettings
+  )
+
+  # If the cov$covariates object is empty, skip export and continue with the next cohort
+  # If TRUE, then it is most likely that the cohort has no counts (Check files strataCounts.csv and cohortManifest.csv)
+  if (cov$covariates %>% tally() %>% pull() == 0) {
+
+    cli::cat_bullet(crayon::red("No data returned."), bullet = "info", bullet_col = "blue")
+    cli::cat_bullet("Please check files strataCounts.csv and cohortManifest.csv to see if the cohort (id: ",
+                    crayon::red(as.character(cohortId)), ") has any counts.", bullet = "info", bullet_col = "blue")
+    cli::cat_line()
+
+    return(NA)
+  }
+
+  # Format
+  cohortTbl <- cov$covariates %>%
+    dplyr::left_join(cov$covariateRef, by = c("covariateId")) %>%
+    dplyr::rename(
+      n = sumValue,
+      pct = averageValue,
+      name = covariateName
+    ) %>%
+    dplyr::collect() %>%
+    dplyr::mutate(
+      name = gsub(".*: ", "", name),
+      timeWindow = paste0(abs(timeA), "_", abs(timeB)),
+      database = executionSettings$databaseName,
+      cohortDefinitionId = as.integer(cohortDefinitionId),
+      n = as.integer(n),
+      pct = as.double(pct),
+      analysisId = as.integer(analysisId),
+      conceptId = as.integer(conceptId),
+      covId = as.integer(covId)
+    ) %>%
+    dplyr::select(-covariateId)
+
+  # Output file name
+  saveName <- paste0("cohort_", type, "_", cohortId, "_", abs(timeA), "_", abs(timeB), "_", covId)
+
+  # Export
+  verboseSave(
+    object = cohortTbl,
+    saveName = saveName,
+    saveLocation = outputFolder
+  )
+
+  invisible(cohortTbl)
+}
+
+
+
 # Function that runs function FeatureExtraction::createCovariateSettings for demographics (race, gender, ethnicity, index year, age group)
 getDemographicsFE <- function(con,
                               cohortDatabaseSchema,
@@ -646,6 +901,7 @@ executeConceptCharacterization <- function(con,
                                            runProcedures = FALSE,
                                            runObservations = FALSE,
                                            runCohorts = FALSE,
+                                           runCustom = FALSE,
                                            executionSettings,
                                            analysisSettings) {
 
@@ -658,14 +914,14 @@ executeConceptCharacterization <- function(con,
   outputFolder <- fs::path(here::here("results"), databaseId, analysisSettings[[1]]$outputFolder) %>%
     fs::dir_create()
 
-  # Get target and covariate cohort ids
-  # Covariate ids
-  covariateKey <- analysisSettings[[1]]$cohorts$covariateCohorts %>% dplyr::arrange(id)
-  cohortKey1 <- analysisSettings[[1]]$cohorts$targetCohorts %>% dplyr::arrange(id)
+  # Get target cohort ids
+  cohortKeyTarget <- analysisSettings[[1]]$cohorts$targetCohorts %>% dplyr::arrange(id)
 
   # Target ids (select cohorts that have enough counts i.e. 6 or more)
-  strataCounts <- readr::read_csv(file = here::here("results", databaseId, "03_buildStrata", "strataCounts.csv"),
-                                  show_col_types = FALSE)
+  strataCounts <- readr::read_csv(
+      file = here::here("results", databaseId, "03_buildStrata", "strataCounts.csv"),
+      show_col_types = FALSE
+    )
 
   strataCounts2 <- strataCounts %>%
     dplyr::mutate(type =
@@ -678,7 +934,7 @@ executeConceptCharacterization <- function(con,
 
   cohortKey <- strataCounts2 %>%
     dplyr::filter(type == "enoughCounts") %>%
-    dplyr::inner_join(cohortKey1, by = c("id", "name")) %>%
+    dplyr::inner_join(cohortKeyTarget, by = c("id", "name")) %>%
     dplyr::select(id, name) %>%
     dplyr::arrange(id)
 
@@ -711,55 +967,55 @@ executeConceptCharacterization <- function(con,
 
   if (type == "baseline") {
 
-      ## demographics ------
-      if (runDemographics == TRUE) {
+  ## Demographics ------
+  if (runDemographics == TRUE) {
 
-        # Calculate for each cohort
-        purrr::pwalk(cohortKey,
-                        ~ getDemographicsFE(con = con,
-                                            cdmDatabaseSchema = cdmDatabaseSchema,
-                                            cohortTable = cohortTable,
-                                            cohortDatabaseSchema = workDatabaseSchema,
-                                            cohortId = ..1,
-                                            outputFolder = outputFolder)
-        )
-
-        # Bind and save files
-        bindFiles(
-          inputPath = outputFolder,
-          outputPath = outputFolder,
-          filename = "demoBase",
-          pattern = "demographics_baseline"
-        )
-
-     }
-
-    ## continuous ------
-    if (runContinuous == TRUE) {
-
-      # Calculate for each cohort
-      purrr::pwalk(cohortKey,
-                      ~ getContinuousFE(con = con,
+    # Calculate for each cohort
+    purrr::pwalk(cohortKey,
+                    ~ getDemographicsFE(con = con,
                                         cdmDatabaseSchema = cdmDatabaseSchema,
                                         cohortTable = cohortTable,
                                         cohortDatabaseSchema = workDatabaseSchema,
                                         cohortId = ..1,
                                         outputFolder = outputFolder)
-      )
+    )
 
-      # Bind and save files
-      bindFiles(
-        inputPath = outputFolder,
-        outputPath = outputFolder,
-        filename = "contBase",
-        pattern = "continuous_baseline"
-      )
+    # Bind and save files
+    bindFiles(
+      inputPath = outputFolder,
+      outputPath = outputFolder,
+      filename = "demoBase",
+      pattern = "demographics_baseline"
+    )
 
-    }
+ }
+
+  ## Continuous ------
+  if (runContinuous == TRUE) {
+
+    # Calculate for each cohort
+    purrr::pwalk(cohortKey,
+                    ~ getContinuousFE(con = con,
+                                      cdmDatabaseSchema = cdmDatabaseSchema,
+                                      cohortTable = cohortTable,
+                                      cohortDatabaseSchema = workDatabaseSchema,
+                                      cohortId = ..1,
+                                      outputFolder = outputFolder)
+    )
+
+    # Bind and save files
+    bindFiles(
+      inputPath = outputFolder,
+      outputPath = outputFolder,
+      filename = "contBase",
+      pattern = "continuous_baseline"
+    )
+
+   }
   }
 
 
-  ## drugs ------
+  ## Drugs ------
   if (runDrugs == TRUE) {
 
     # Create grid data frame for execution
@@ -792,7 +1048,7 @@ executeConceptCharacterization <- function(con,
 
   }
 
-  ## conditions ------
+  ## Conditions ------
   if (runConditions == TRUE) {
 
     # Create grid data frame for execution
@@ -825,7 +1081,7 @@ executeConceptCharacterization <- function(con,
 
   }
 
-  ## visits ------
+  ## Visits ------
   if (runVisits == TRUE) {
 
     # Create grid data frame for execution
@@ -858,7 +1114,7 @@ executeConceptCharacterization <- function(con,
 
   }
 
-  ## procedures ------
+  ## Procedures ------
   if (runProcedures == TRUE) {
 
     # Calculate for each cohort and time window
@@ -884,7 +1140,7 @@ executeConceptCharacterization <- function(con,
 
   }
 
-  ## observations ------
+  ## Observations ------
   if (runObservations == TRUE) {
 
     # Create grid data frame for execution
@@ -918,8 +1174,11 @@ executeConceptCharacterization <- function(con,
   }
 
 
-  ## cohort ------
+  ## Cohorts ------
   if (runCohorts == TRUE) {
+
+    # Get covariate cohort ids
+    covariateKey <- analysisSettings[[1]]$cohorts$covariateCohorts %>% dplyr::arrange(id)
 
     # Create grid df for execution
     cohortGrid <- createGrid2(
@@ -954,6 +1213,39 @@ executeConceptCharacterization <- function(con,
 
   }
 
+  ## Custom ------
+  if (runCustom == TRUE) {
+
+    # Create grid data frame for execution
+    grid <- createGrid(
+      cohortKey = cohortKey,
+      timeA = timeA,
+      timeB = timeB
+    )
+
+    # Calculate for each cohort and time window
+    purrr::pwalk(grid,
+                 ~ getConditionsCustomFE(con = con,
+                                         cdmDatabaseSchema = cdmDatabaseSchema,
+                                         cohortTable = cohortTable,
+                                         cohortDatabaseSchema = workDatabaseSchema,
+                                         type = type,
+                                         cohortId = ..1,
+                                         timeA = ..3,
+                                         timeB = ..4,
+                                         outputFolder = outputFolder)
+    )
+
+    # Bind and save files
+    bindFiles(
+      inputPath = outputFolder,
+      outputPath = outputFolder,
+      filename = paste0("condCustom", typeAnalysis$shortName),
+      pattern = paste0("conditions_custom_", typeAnalysis$type)
+    )
+
+  }
+
   # Job log
   tok <- Sys.time()
   cli::cat_bullet("Execution Completed at: ", crayon::red(tok), bullet = "info", bullet_col = "blue")
@@ -963,3 +1255,4 @@ executeConceptCharacterization <- function(con,
 
   invisible(tok)
 }
+

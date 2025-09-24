@@ -7,6 +7,10 @@ results
 config.yml
 misc
 extras/KeyringSetup_init.R
+cohortsToCreate_test
+extras/analysisSettings_test.R
+analysis/studyTasks_test
+
 # Mac files
 .DS_Store
 

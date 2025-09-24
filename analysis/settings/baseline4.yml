@@ -11,9 +11,9 @@ baselineCharacteristics:
       name: SWT colorectal cancer with no prior cancer treatment
       id_first: 1
     covariateCohorts:
-    - name: SWT colorectal surgery outcome
-      id: 2
+    - name: hosp_wo_surgery
+      id: 5
   timeWindows:
-  - startDay: -365
+  - startDay: -183
     endDay: -1
-  outputFolder: 04_baselineCharacteristics/default
+  outputFolder: 04_baselineCharacteristics/hosp

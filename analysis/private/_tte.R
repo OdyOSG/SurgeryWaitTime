@@ -286,6 +286,7 @@ createKMplots <- function(database) {
 
   ## List of files in "06_tte" folder
   listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "tteSurvFit", recursive = FALSE, full.names	= TRUE)
+  #listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "csv", recursive = FALSE, full.names	= TRUE)
 
   ## Create output folder
   outputFolder <- here::here(appDataPath, "06_ttePlots")
@@ -299,17 +300,21 @@ createKMplots <- function(database) {
   if(length(listOftteFiles) > 0) {
     for (i in 1:length(listOftteFiles)) {
 
-      ## Read rds file (survfit object)
+      # Read rds file (survfit object)
       tte <- readr::read_rds(listOftteFiles[i])
       tteSurvFit <- tte[["survFit"]]
 
+      # Filter out rows with "time" greater than 365
+      tteSurvFit$time <- tteSurvFit$time[tteSurvFit$time <= 365]
+
       ## Number of colors should be equal to the number of unique strata values i.e. events (lines in KM plot)
-      colors <- colorspace::rainbow_hcl(unique(length(tteSurvFit$strata)))
+      colors <- colorspace::rainbow_hcl(length(unique(tteSurvFit$strata)))
+
       if (!is.null(tteSurvFit)) {
         ## Create KM plot
         tteSurvFit %>%
           ggsurvfit::ggsurvfit(size = 1) +
-          ggsurvfit::scale_ggsurvfit(x_scales = list(breaks = c(183, 365, 548, 730))) + # Breaks
+          ggsurvfit::scale_ggsurvfit(x_scales = list(breaks = c(30, 60, 90, 180, 365))) + # Breaks
           ggplot2::scale_color_manual(values = colors) +
           ggplot2::scale_fill_manual(values = colors) +
           ggsurvfit::add_risktable(risktable_stats = "{n.risk} ({cum.event})",
@@ -370,8 +375,23 @@ executeTimeToEventSurvival <- function(con,
   outputFolder <- fs::path(here::here("results"), databaseId, analysisSettings$tte$outputFolder) %>%
     fs::dir_create()
 
-  targetCohorts <- analysisSettings$tte$cohorts$targetCohorts
-  eventCohorts <- analysisSettings$tte$cohorts$eventCohorts
+  targetCohorts <- analysisSettings$tte$cohorts$targetCohorts |> dplyr::filter(id == 4)
+
+
+  if (targetCohorts$id %in% c(3,4)) {
+
+    # Colocteral
+    eventCohorts <- analysisSettings$tte$cohorts$eventCohorts |>
+      dplyr::filter(grepl("colorectal", name, ignore.case = T))
+
+  } else {
+
+
+  }
+
+
+
+  #eventCohorts <- analysisSettings$tte$cohorts$eventCohorts
 
   # Job log
   cli::cat_boxx(crayon::magenta("Calculating Time To Event data"))
@@ -404,7 +424,7 @@ executeTimeToEventSurvival <- function(con,
     # Warning if no data are returned from function above.
     # The data frame is empty if 1) there is no data for the target cohort or 2) there are no patients with the event cohort.
     # If there is no data, the loop continues with the next target cohort id.
-    if (nrow(current_cohorts) < 1 || nrow(current_cohorts %>% dplyr::filter(!is.na(event_id))) < 100) {
+    if (nrow(current_cohorts) < 1 || nrow(current_cohorts %>% dplyr::filter(!is.na(event_id))) < 10) {
       cli::cat_bullet("No data returned for target cohort id: ", crayon::red(targetId), ". Function will continue with the next cohort id.",
                       bullet = "info", bullet_col = "blue")
       cli::cat_line()
