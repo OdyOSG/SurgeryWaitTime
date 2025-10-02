@@ -1,13 +1,13 @@
 # A. File Info -----------------------
 
-# Study:
-# Task: Build Stratas
+# Study: Surgery Wait Time
+# Task: Build Strata
 
 
 # B. Dependencies ----------------------
 
 ## Load libraries and scripts
-library(tidyverse, quietly = TRUE)
+library(tidyverse, quietly = T)
 library(DatabaseConnector)
 source(here::here("analysis/private/_utilities.R"))
 source(here::here("analysis/private/_buildStrata.R"))
@@ -44,11 +44,13 @@ analysisSettings <- readSettingsFile(here::here("analysis/settings/strata.yml"))
 
 # E. Script --------------------
 
-## Build stratas
+## Build strata
 
-buildStrata(con = con,
-            executionSettings = executionSettings,
-            analysisSettings = analysisSettings)
+buildStrata(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings
+)
 
 
 # F. Disconnect ------------------------

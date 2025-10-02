@@ -1,13 +1,13 @@
 # A. File Info -----------------------
 
-# Study:
+# Study: Surgery Wait Time
 # Task: Cohort Diagnostics
 
 
 # B. Dependencies ----------------------
 
 ## Load libraries and scripts
-library(tidyverse, quietly = TRUE)
+library(tidyverse, quietly = T)
 library(DatabaseConnector)
 library(config)
 source(here::here('analysis/private/_buildCohorts.R'))
@@ -50,11 +50,13 @@ diagCohorts <- getCohortManifest() %>% dplyr::filter(type == "target")
 
 # E. Script --------------------
 
-## Run cohort diagnostics
-runCohortDiagnostics(executionSettings = executionSettings,
-                     con = con,
-                     cohortManifest = diagCohorts,
-                     outputFolder = outputFolder)
+## Run CohortDiagnostics
+runCohortDiagnostics(
+  executionSettings = executionSettings,
+  con = con,
+  cohortManifest = diagCohorts,
+  outputFolder = outputFolder
+)
 
 
 # F. Disconnect ------------------------

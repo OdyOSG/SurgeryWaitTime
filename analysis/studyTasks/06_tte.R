@@ -1,13 +1,13 @@
 # A. File Info -----------------------
 
-# Study:
+# Study: Surgery Wait Time
 # Task: Time To Event
 
 
 # B. Dependencies ----------------------
 
 ## Load libraries and scripts
-library(tidyverse, quietly = TRUE)
+library(tidyverse, quietly = T)
 library(DatabaseConnector)
 library(ggsurvfit)
 source(here::here("analysis/private/_tte.R"))
@@ -40,29 +40,100 @@ executionSettings <- config::get(config = configBlock) %>%
   purrr::discard_at(c("dbms", "user", "password", "connectionString"))
 
 ## Analysis Settings
-analysisSettings <- readSettingsFile(here::here("analysis/settings/tte.yml"))
+# Single Curve
+analysisSettings_col_single <- readSettingsFile(here::here("analysis/settings/tte_col_single.yml"))
+analysisSettings_breast_single <- readSettingsFile(here::here("analysis/settings/tte_breast_single.yml"))
+analysisSettings_lung_single <- readSettingsFile(here::here("analysis/settings/tte_lung_single.yml"))
+analysisSettings_eso_single <- readSettingsFile(here::here("analysis/settings/tte_eso_single.yml"))
+
+# Multiple Curves
+analysisSettings_col_multiple <- readSettingsFile2(here::here("analysis/settings/tte_col_multiple.yml"))
+analysisSettings_lung_multiple <- readSettingsFile2(here::here("analysis/settings/tte_lung_multiple.yml"))
+analysisSettings_breast_multiple <- readSettingsFile2(here::here("analysis/settings/tte_breast_multiple.yml"))
+analysisSettings_eso_multiple <- readSettingsFile2(here::here("analysis/settings/tte_eso_multiple.yml"))
+
+# Time To Event
 analysisSettings2 <- readSettingsFile(here::here("analysis/settings/tte2.yml"))
 
 
 # E. Script --------------------
 
-# Time To Event (Whole Cohort)
 
-executeTimeToEventSurvival(con = con,
-                           executionSettings = executionSettings,
-                           analysisSettings = analysisSettings)
+## Time To Event - Multiple Curves --------------------
+
+## Colorectal
+executeSurvivalAnalysisMultipleCurves(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings_col_multiple
+)
+
+## Lung
+executeSurvivalAnalysisMultipleCurves(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings_lung_multiple
+)
+
+## Breast
+executeSurvivalAnalysisMultipleCurves(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings_breast_multiple
+)
+
+## Esophagus
+executeSurvivalAnalysisMultipleCurves(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings_eso_multiple
+)
+
+## Kaplan-Meier plots
+createKMplotsMultipleCurves(database = executionSettings$databaseName)
 
 
-## Time To Event (Create KM plots)
+## Time To Event - Single Curve --------------------
 
-createKMplots(database = executionSettings$databaseName)
+## Colorectal
+executeSurvivalAnalysisSingleCurve(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings_col_single
+)
+
+## Lung
+executeSurvivalAnalysisSingleCurve(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings_lung_single
+)
+
+## Esophagus
+executeSurvivalAnalysisSingleCurve(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings_eso_single
+)
+
+## Breast
+executeSurvivalAnalysisSingleCurve(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings_breast_single
+)
+
+## Kaplan-Meier plots
+createKMplotsSingleCurve(database = executionSettings$databaseName)
 
 
-## Time To Event (Only surgery patients)
+## Time To Event (Only surgery patients) --------------------
 
-executeTimeToEvent(con = con,
-                   executionSettings = executionSettings,
-                   analysisSettings = analysisSettings2)
+executeTimeToEvent(
+  con = con,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings2
+)
 
 
 # F. Disconnect ------------------------

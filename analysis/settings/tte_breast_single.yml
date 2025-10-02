@@ -1,0 +1,102 @@
+tte:
+  cohorts:
+    targetCohorts:
+    - id: 4001.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        0_9
+      id_first: 4
+    - id: 4002.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        10_19
+      id_first: 4
+    - id: 4003.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        20_29
+      id_first: 4
+    - id: 4004.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        30_39
+      id_first: 4
+    - id: 4005.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        40_49
+      id_first: 4
+    - id: 4006.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        50_59
+      id_first: 4
+    - id: 4007.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        60_69
+      id_first: 4
+    - id: 4008.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        70_79
+      id_first: 4
+    - id: 4009.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        80_89
+      id_first: 4
+    - id: 4010.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        90_99
+      id_first: 4
+    - id: 4011.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        100+
+      id_first: 4
+    - id: 4012.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        male
+      id_first: 4
+    - id: 4013.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        female
+      id_first: 4
+    - id: 4014.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        black
+      id_first: 4
+    - id: 4015.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        white
+      id_first: 4
+    - id: 4016.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        asian
+      id_first: 4
+    - id: 4017.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        unknown_race
+      id_first: 4
+    - id: 4018.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        hispanic
+      id_first: 4
+    - id: 4019.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        notHispanic
+      id_first: 4
+    - id: 4020.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        unknown_ethnicity
+      id_first: 4
+    - id: 4021.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_0
+      id_first: 4
+    - id: 4022.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_1
+      id_first: 4
+    - id: 4023.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_2
+      id_first: 4
+    - id: 4.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id_first: 4
+    eventCohorts:
+    - name: SWT breast surgery outcome
+      id: 17
+  outputFolder: 06_tte/singleCurve

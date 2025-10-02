@@ -722,10 +722,15 @@
       {
         "ConditionOccurrence": {
           "CodesetId": 19,
+          "OccurrenceStartDate": {
+            "Value": "2016-01-01",
+            "Extent": "2023-12-31",
+            "Op": "bt"
+          },
           "First": true,
           "Age": {
             "Value": 18,
-            "Op": "gt"
+            "Op": "gte"
           }
         }
       }
@@ -761,7 +766,7 @@
                 "Coeff": -1
               },
               "End": {
-                "Days": 0,
+                "Days": 1,
                 "Coeff": -1
               },
               "UseEventEnd": false
@@ -792,7 +797,7 @@
                 "Coeff": -1
               },
               "End": {
-                "Days": 0,
+                "Days": 1,
                 "Coeff": -1
               },
               "UseEventEnd": false
@@ -823,7 +828,7 @@
                 "Coeff": -1
               },
               "End": {
-                "Days": 0,
+                "Days": 1,
                 "Coeff": -1
               },
               "UseEventEnd": false
@@ -870,7 +875,23 @@
       }
     }
   ],
-  "CensoringCriteria": [],
+  "CensoringCriteria": [
+    {
+      "DrugEra": {
+        "CodesetId": 16
+      }
+    },
+    {
+      "ProcedureOccurrence": {
+        "CodesetId": 20
+      }
+    },
+    {
+      "ProcedureOccurrence": {
+        "CodesetId": 15
+      }
+    }
+  ],
   "CollapseSettings": {
     "CollapseType": "ERA",
     "EraPad": 0

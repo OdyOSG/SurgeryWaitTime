@@ -1,18 +1,485 @@
 baselineCharacteristics:
   cohorts:
     targetCohorts:
-    - id: 1012.0
-      name: SWT colorectal cancer with no prior cancer treatment male
-      id_first: 1
-    - id: 1013.0
-      name: SWT colorectal cancer with no prior cancer treatment female
-      id_first: 1
-    - id: 1.0
-      name: SWT colorectal cancer with no prior cancer treatment
-      id_first: 1
+    - name: SWT Breast Cancer with Cancer Surgery within 30 days before Diagnosis
+      id: 1.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment
+      id: 2.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery after 1 year
+      id: 3.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 4.0
+    - name: SWT Colorectal Cancer with Cancer Surgery within 30 days before Diagnosis
+      id: 5.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment
+      id: 6.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery after 1 year
+      id: 7.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year
+      id: 8.0
+    - name: SWT Esophagus Cancer with Cancer Surgery within 30 days before Diagnosis
+      id: 9.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment
+      id: 10.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery after 1 year
+      id: 11.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 12.0
+    - name: SWT Lung Cancer with Cancer Surgery within 30 days before Diagnosis
+      id: 13.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment
+      id: 14.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery after 1 year
+      id: 15.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 16.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 0_9
+      id: 2001.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 10_19
+      id: 2002.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 20_29
+      id: 2003.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 30_39
+      id: 2004.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 40_49
+      id: 2005.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 50_59
+      id: 2006.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 60_69
+      id: 2007.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 70_79
+      id: 2008.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 80_89
+      id: 2009.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 90_99
+      id: 2010.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment 100+
+      id: 2011.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment male
+      id: 2012.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment female
+      id: 2013.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment black
+      id: 2014.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment white
+      id: 2015.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment asian
+      id: 2016.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment unknown_race
+      id: 2017.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment hispanic
+      id: 2018.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment notHispanic
+      id: 2019.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment unknown_ethnicity
+      id: 2020.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment cci_0
+      id: 2021.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment cci_1
+      id: 2022.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment cci_2
+      id: 2023.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        0_9
+      id: 4001.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        10_19
+      id: 4002.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        20_29
+      id: 4003.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        30_39
+      id: 4004.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        40_49
+      id: 4005.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        50_59
+      id: 4006.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        60_69
+      id: 4007.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        70_79
+      id: 4008.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        80_89
+      id: 4009.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        90_99
+      id: 4010.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        100+
+      id: 4011.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        male
+      id: 4012.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        female
+      id: 4013.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        black
+      id: 4014.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        white
+      id: 4015.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        asian
+      id: 4016.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        unknown_race
+      id: 4017.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        hispanic
+      id: 4018.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        notHispanic
+      id: 4019.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        unknown_ethnicity
+      id: 4020.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_0
+      id: 4021.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_1
+      id: 4022.0
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_2
+      id: 4023.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 0_9
+      id: 6001.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 10_19
+      id: 6002.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 20_29
+      id: 6003.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 30_39
+      id: 6004.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 40_49
+      id: 6005.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 50_59
+      id: 6006.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 60_69
+      id: 6007.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 70_79
+      id: 6008.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 80_89
+      id: 6009.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 90_99
+      id: 6010.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment 100+
+      id: 6011.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment male
+      id: 6012.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment female
+      id: 6013.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment black
+      id: 6014.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment white
+      id: 6015.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment asian
+      id: 6016.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment unknown_race
+      id: 6017.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment hispanic
+      id: 6018.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment notHispanic
+      id: 6019.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment unknown_ethnicity
+      id: 6020.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment cci_0
+      id: 6021.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment cci_1
+      id: 6022.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment cci_2
+      id: 6023.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 0_9
+      id: 8001.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 10_19
+      id: 8002.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 20_29
+      id: 8003.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 30_39
+      id: 8004.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 40_49
+      id: 8005.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 50_59
+      id: 8006.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 60_69
+      id: 8007.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 70_79
+      id: 8008.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 80_89
+      id: 8009.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 90_99
+      id: 8010.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year 100+
+      id: 8011.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year male
+      id: 8012.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year female
+      id: 8013.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year black
+      id: 8014.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year white
+      id: 8015.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year asian
+      id: 8016.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year unknown_race
+      id: 8017.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year hispanic
+      id: 8018.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year notHispanic
+      id: 8019.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year unknown_ethnicity
+      id: 8020.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year cci_0
+      id: 8021.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year cci_1
+      id: 8022.0
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year cci_2
+      id: 8023.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 0_9
+      id: 10001.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 10_19
+      id: 10002.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 20_29
+      id: 10003.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 30_39
+      id: 10004.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 40_49
+      id: 10005.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 50_59
+      id: 10006.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 60_69
+      id: 10007.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 70_79
+      id: 10008.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 80_89
+      id: 10009.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 90_99
+      id: 10010.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment 100+
+      id: 10011.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment male
+      id: 10012.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment female
+      id: 10013.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment black
+      id: 10014.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment white
+      id: 10015.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment asian
+      id: 10016.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment unknown_race
+      id: 10017.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment hispanic
+      id: 10018.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment notHispanic
+      id: 10019.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment unknown_ethnicity
+      id: 10020.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment cci_0
+      id: 10021.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment cci_1
+      id: 10022.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment cci_2
+      id: 10023.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        0_9
+      id: 12001.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        10_19
+      id: 12002.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        20_29
+      id: 12003.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        30_39
+      id: 12004.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        40_49
+      id: 12005.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        50_59
+      id: 12006.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        60_69
+      id: 12007.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        70_79
+      id: 12008.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        80_89
+      id: 12009.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        90_99
+      id: 12010.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        100+
+      id: 12011.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        male
+      id: 12012.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        female
+      id: 12013.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        black
+      id: 12014.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        white
+      id: 12015.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        asian
+      id: 12016.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        unknown_race
+      id: 12017.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        hispanic
+      id: 12018.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        notHispanic
+      id: 12019.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        unknown_ethnicity
+      id: 12020.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_0
+      id: 12021.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_1
+      id: 12022.0
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_2
+      id: 12023.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 0_9
+      id: 14001.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 10_19
+      id: 14002.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 20_29
+      id: 14003.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 30_39
+      id: 14004.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 40_49
+      id: 14005.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 50_59
+      id: 14006.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 60_69
+      id: 14007.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 70_79
+      id: 14008.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 80_89
+      id: 14009.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 90_99
+      id: 14010.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment 100+
+      id: 14011.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment male
+      id: 14012.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment female
+      id: 14013.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment black
+      id: 14014.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment white
+      id: 14015.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment asian
+      id: 14016.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment unknown_race
+      id: 14017.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment hispanic
+      id: 14018.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment notHispanic
+      id: 14019.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment unknown_ethnicity
+      id: 14020.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment cci_0
+      id: 14021.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment cci_1
+      id: 14022.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment cci_2
+      id: 14023.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 0_9
+      id: 16001.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 10_19
+      id: 16002.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 20_29
+      id: 16003.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 30_39
+      id: 16004.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 40_49
+      id: 16005.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 50_59
+      id: 16006.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 60_69
+      id: 16007.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 70_79
+      id: 16008.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 80_89
+      id: 16009.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 90_99
+      id: 16010.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year 100+
+      id: 16011.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year male
+      id: 16012.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year female
+      id: 16013.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year black
+      id: 16014.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year white
+      id: 16015.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year asian
+      id: 16016.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year unknown_race
+      id: 16017.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year hispanic
+      id: 16018.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year notHispanic
+      id: 16019.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year unknown_ethnicity
+      id: 16020.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year cci_0
+      id: 16021.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year cci_1
+      id: 16022.0
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year cci_2
+      id: 16023.0
     covariateCohorts:
+    - name: SWT breast surgery outcome
+      id: 17
     - name: SWT colorectal surgery outcome
-      id: 2
+      id: 18
+    - name: SWT esophagus surgery outcome
+      id: 19
+    - name: SWT lung surgery outcome
+      id: 20
   timeWindows:
   - startDay: -365
     endDay: -1

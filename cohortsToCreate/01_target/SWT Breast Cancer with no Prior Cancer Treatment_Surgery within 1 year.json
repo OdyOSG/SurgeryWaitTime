@@ -1,46 +1,8 @@
 {
   "ConceptSets": [
     {
-      "id": 0,
-      "name": "Breast Concept Set (Concept Identifier Import)",
-      "expression": {
-        "items": [
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Disorder",
-              "CONCEPT_CODE": "189336000",
-              "CONCEPT_ID": 81250,
-              "CONCEPT_NAME": "Carcinoma in situ of breast",
-              "DOMAIN_ID": "Condition",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "SNOMED"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Disorder",
-              "CONCEPT_CODE": "372137005",
-              "CONCEPT_ID": 4162253,
-              "CONCEPT_NAME": "Primary malignant neoplasm of breast",
-              "DOMAIN_ID": "Condition",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "SNOMED"
-            },
-            "includeDescendants": true
-          }
-        ]
-      }
-    },
-    {
       "id": 1,
-      "name": "Breast Concept Set (JSON Import)",
+      "name": "Breast Concept Set",
       "expression": {
         "items": [
           {
@@ -93,7 +55,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -107,7 +70,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -121,7 +85,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -135,7 +100,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -149,7 +115,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -163,7 +130,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -177,7 +145,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -191,7 +160,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           },
           {
             "concept": {
@@ -205,7 +175,8 @@
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "CPT4"
-            }
+            },
+            "includeDescendants": true
           }
         ]
       }
@@ -479,6 +450,37 @@
   },
   "InclusionRules": [
     {
+      "name": "No Prior Malignancies EXCEPT for Non-Melanoma Skin Cancers",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 4
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 0,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
       "name": "No Cancer Surgery with Curative Intent Prior to Dx",
       "expression": {
         "Type": "ALL",
@@ -511,7 +513,7 @@
       }
     },
     {
-      "name": "No Radiotherapy prior to Dx",
+      "name": "No Radiotherapy Prior to Dx",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
@@ -542,7 +544,7 @@
       }
     },
     {
-      "name": "No prior systemic cancer treatment prior to dx",
+      "name": "No Prior Systemic Cancer Treatment Prior to Dx",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
@@ -573,29 +575,32 @@
       }
     },
     {
-      "name": "no prior malignancies except for non-melanoma skin cancers",
+      "name": "Curative Intent Cancer Surgery Occurring within 1 Year",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
           {
             "Criteria": {
-              "ConditionOccurrence": {
-                "CodesetId": 4
+              "ProcedureOccurrence": {
+                "CodesetId": 2
               }
             },
             "StartWindow": {
               "Start": {
-                "Coeff": -1
+                "Days": 0,
+                "Coeff": 1
               },
               "End": {
-                "Days": 1,
-                "Coeff": -1
+                "Days": 365,
+                "Coeff": 1
               },
+              "UseIndexEnd": true,
               "UseEventEnd": false
             },
             "Occurrence": {
-              "Type": 0,
-              "Count": 0
+              "Type": 2,
+              "Count": 1,
+              "CountColumn": "DOMAIN_CONCEPT"
             }
           }
         ],

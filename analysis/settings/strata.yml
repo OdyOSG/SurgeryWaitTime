@@ -1,11 +1,41 @@
 strata:
   cohorts:
     targetCohorts:
-    - name: SWT colorectal cancer with no prior cancer treatment
-      id: 1
+    - name: SWT Breast Cancer with no Prior Cancer Treatment
+      id: 2
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 4
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment
+      id: 6
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year
+      id: 8
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment
+      id: 10
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 12
+    - name: SWT Lung Cancer with no Prior Cancer Treatment
+      id: 14
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 16
     strataCohorts:
-    - name: SWT colorectal cancer with no prior cancer treatment
-      id: 1
+    - name: SWT Breast Cancer with no Prior Cancer Treatment
+      id: 2
+    - name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 4
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment
+      id: 6
+    - name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year
+      id: 8
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment
+      id: 10
+    - name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 12
+    - name: SWT Lung Cancer with no Prior Cancer Treatment
+      id: 14
+    - name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year
+      id: 16
   demographics:
   - strataId: 1
     strataName: 0_9

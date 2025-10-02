@@ -1,24 +1,24 @@
 # A. File Info -----------------------
 
-# Study:
+# Study: Surgery Wait Time
 # Task: Zip Results
 
 
 # B. Dependencies ----------------------
 
 ## Load libraries and scripts
-library(tidyverse, quietly = TRUE)
+library(tidyverse, quietly = T)
 source(here::here("analysis/private/_utilities.R"))
 
 
 # C. Connection ----------------------
 
-## Set connection block
+## Set connection Block
 # <<<
 configBlock <- "[block]"
 # >>>
 
 
-# E. Script --------------------
+# D. Script --------------------
 
-zipResults(database = executionSettings$databaseName)
+zipResults()

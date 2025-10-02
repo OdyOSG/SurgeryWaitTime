@@ -1,0 +1,96 @@
+tte_sex:
+  cohorts:
+    targetCohorts:
+    - id: 12012.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        male
+      id_first: 1
+      category: Sex
+    - id: 12013.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        female
+      id_first: 1
+      category: Sex
+    eventCohorts:
+    - name: SWT esophagus surgery outcome
+      id: 19
+  outputFolder: 06_tte/multipleCurves
+  category: Sex
+  cancerType: Esophagus
+tte_race:
+  cohorts:
+    targetCohorts:
+    - id: 12014.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        black
+      id_first: 1
+      category: Race
+    - id: 12015.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        white
+      id_first: 1
+      category: Race
+    - id: 12016.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        asian
+      id_first: 1
+      category: Race
+    - id: 12017.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        unknown_race
+      id_first: 1
+      category: Race
+    eventCohorts:
+    - name: SWT esophagus surgery outcome
+      id: 19
+  outputFolder: 06_tte/multipleCurves
+  category: Race
+  cancerType: Esophagus
+tte_ethnicity:
+  cohorts:
+    targetCohorts:
+    - id: 12018.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        hispanic
+      id_first: 1
+      category: Ethnicity
+    - id: 12019.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        notHispanic
+      id_first: 1
+      category: Ethnicity
+    - id: 12020.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        unknown_ethnicity
+      id_first: 1
+      category: Ethnicity
+    eventCohorts:
+    - name: SWT esophagus surgery outcome
+      id: 19
+  outputFolder: 06_tte/multipleCurves
+  category: Ethnicity
+  cancerType: Esophagus
+tte_cci:
+  cohorts:
+    targetCohorts:
+    - id: 12021.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_0
+      id_first: 1
+      category: CCI
+    - id: 12022.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_1
+      id_first: 1
+      category: CCI
+    - id: 12023.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+        cci_2
+      id_first: 1
+      category: CCI
+    eventCohorts:
+    - name: SWT esophagus surgery outcome
+      id: 19
+  outputFolder: 06_tte/multipleCurves
+  category: CCI
+  cancerType: Esophagus

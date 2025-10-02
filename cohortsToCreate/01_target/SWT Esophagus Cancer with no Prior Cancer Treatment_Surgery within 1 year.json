@@ -3073,6 +3073,38 @@
         "DemographicCriteriaList": [],
         "Groups": []
       }
+    },
+    {
+      "name": "Curative Intent Cancer Surgery Occurring within 1 Year",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ProcedureOccurrence": {
+                "CodesetId": 21
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Days": 365,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
     }
   ],
   "CensoringCriteria": [

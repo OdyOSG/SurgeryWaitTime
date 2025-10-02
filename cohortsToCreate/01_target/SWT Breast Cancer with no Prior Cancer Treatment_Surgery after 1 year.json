@@ -479,6 +479,37 @@
   },
   "InclusionRules": [
     {
+      "name": "no prior malignancies except for non-melanoma skin cancers",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 4
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 0,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
       "name": "No Cancer Surgery with Curative Intent Prior to Dx",
       "expression": {
         "Type": "ALL",
@@ -486,7 +517,7 @@
           {
             "Criteria": {
               "ProcedureOccurrence": {
-                "CodesetId": 2
+                "CodesetId": 1
               }
             },
             "StartWindow": {
@@ -573,29 +604,29 @@
       }
     },
     {
-      "name": "no prior malignancies except for non-melanoma skin cancers",
+      "name": "Curative Surgery after 1 year",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
           {
             "Criteria": {
-              "ConditionOccurrence": {
-                "CodesetId": 4
+              "ProcedureOccurrence": {
+                "CodesetId": 2
               }
             },
             "StartWindow": {
               "Start": {
-                "Coeff": -1
+                "Days": 366,
+                "Coeff": 1
               },
               "End": {
-                "Days": 1,
-                "Coeff": -1
+                "Coeff": 1
               },
               "UseEventEnd": false
             },
             "Occurrence": {
-              "Type": 0,
-              "Count": 0
+              "Type": 2,
+              "Count": 1
             }
           }
         ],

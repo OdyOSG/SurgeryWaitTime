@@ -17,7 +17,7 @@ collectCohorts <- function(con,
           WITH e AS (
             SELECT *
             FROM @write_schema.@cohort_table
-            WHERE cohort_definition_id in (@eventId)
+            WHERE cohort_definition_id IN (@eventId)
           )
           SELECT
             e.cohort_definition_id as event_id,
@@ -27,12 +27,64 @@ collectCohorts <- function(con,
             t.cohort_start_date as target_start_date,
             t.cohort_end_date as target_end_date,
             t.subject_id,
-            RANK() OVER(PARTITION BY t.subject_id ORDER BY e.cohort_start_date ASC) as rank,
-            DATEDIFF(day, t.cohort_start_date, e.cohort_start_date) as diff
+            RANK() OVER(PARTITION BY t.subject_id ORDER BY e.cohort_start_date ASC) AS rank,
+            DATEDIFF(day, t.cohort_start_date, e.cohort_start_date) AS diff
           FROM (
             SELECT *
             FROM @write_schema.@cohort_table
             WHERE cohort_definition_id = @targetId
+          ) t
+          LEFT JOIN e ON
+            e.subject_id = t.subject_id AND
+            e.cohort_start_date >= t.cohort_start_date AND
+            e.cohort_start_date <= t.cohort_end_date;"
+
+
+  renderedSql <- SqlRender::render(
+    sql = sql,
+    write_schema = workDatabaseSchema,
+    cohort_table = cohortTable,
+    targetId = targetId,
+    eventId = eventId
+  ) %>%
+    SqlRender::translate(targetDialect = con@dbms)
+
+  current_cohorts <- DatabaseConnector::querySql(connection = con, sql = renderedSql)
+
+  names(current_cohorts) <- tolower(names(current_cohorts))
+  current_cohorts <- data.table::as.data.table(current_cohorts)
+  current_cohorts <- current_cohorts %>% dplyr::filter(rank == 1)
+
+  return(current_cohorts)
+}
+
+
+collectCohortsMultiple <- function(con,
+                                   workDatabaseSchema,
+                                   cohortTable,
+                                   targetId,
+                                   eventId) {
+
+  sql <- "
+          WITH e AS (
+            SELECT *
+            FROM @write_schema.@cohort_table
+            WHERE cohort_definition_id IN (@eventId)
+          )
+          SELECT
+            e.cohort_definition_id as event_id,
+            t.cohort_definition_id as target_id,
+            e.cohort_start_date as event_start_date,
+            e.cohort_end_date as event_end_date,
+            t.cohort_start_date as target_start_date,
+            t.cohort_end_date as target_end_date,
+            t.subject_id,
+            RANK() OVER(PARTITION BY t.subject_id, t.cohort_definition_id ORDER BY e.cohort_start_date ASC) AS rank,
+            DATEDIFF(day, t.cohort_start_date, e.cohort_start_date) AS diff
+          FROM (
+            SELECT *
+            FROM @write_schema.@cohort_table
+            WHERE cohort_definition_id IN (@targetId)
           ) t
           LEFT JOIN e ON
             e.subject_id = t.subject_id AND
@@ -69,7 +121,7 @@ collectCohorts2 <- function(con,
           WITH e AS (
             SELECT *
             FROM @write_schema.@cohort_table
-            WHERE cohort_definition_id in (@eventId)
+            WHERE cohort_definition_id IN (@eventId)
           )
           SELECT
             e.cohort_definition_id as event_id,
@@ -79,7 +131,7 @@ collectCohorts2 <- function(con,
             t.cohort_start_date as target_start_date,
             t.cohort_end_date as target_end_date,
             t.subject_id,
-            DATEDIFF(day, t.cohort_start_date, e.cohort_start_date) as diff
+            DATEDIFF(day, t.cohort_start_date, e.cohort_start_date) AS diff
           FROM (
             SELECT *
             FROM @write_schema.@cohort_table
@@ -109,27 +161,6 @@ collectCohorts2 <- function(con,
 }
 
 
-# Function that determines 1) censored and non-censored patients, 2) duration of right-censored patients and 3) fits the patient data frame
-# Note that the duration for non-censored has already been calculated in the SQL code
-prepTte <- function(df) {
-
-    ## Determine censored and non-censored patients, and duration of right-censored patients
-    tte <- df %>%
-      dplyr::mutate(diff = dplyr::if_else(is.na(event_start_date),
-                                          as.double(difftime(target_end_date, target_start_date, units = "days")), diff, diff),
-                    status = dplyr::if_else(is.na(event_start_date), 0, 1, 0)) %>%
-      dplyr::select(-c(rank, subject_id))
-    if(nrow(tte) > 30) {
-          ## Fit patient data frame
-    survFit2 <- ggsurvfit::survfit2(
-      survival::Surv(time = diff, event = status, type = "right") ~ eventName,
-      data = tte
-    )
-  return(survFit2)
-    }
-}
-
-
 # Calculate continuous variable statistics
 # Note that this function is grouping the data frame by columns 'event_id' and 'target_id'
 # Specific to this study for now but we can generalize later
@@ -137,7 +168,7 @@ calculateStatisticsContinuous <- function(df,
                                           database,
                                           dateScale = c("default", "all")) {
 
-  ## Days only
+  # Days only
   if(dateScale == "default") {
 
   summaryStatistics <- df %>%
@@ -160,15 +191,17 @@ calculateStatisticsContinuous <- function(df,
 
   }
 
-  ## Days, weeks, months and years
+  # Days, weeks, months and years
   if(dateScale == "all") {
 
-    ## Convert days to weeks, months and years
-    df <- df %>% dplyr::mutate(diff_weeks = diff/7,
-                               diff_months = diff/30,
-                               diff_years = diff/365)
+    # Convert days to weeks, months and years
+    df <- df %>% dplyr::mutate(
+      diff_weeks = diff/7,
+      diff_months = diff/30,
+      diff_years = diff/365
+      )
 
-    ## Days
+    # Days
     summaryStatistics <- df %>%
       group_by(event_id, target_id) %>%
       dplyr::summarise(
@@ -187,7 +220,7 @@ calculateStatisticsContinuous <- function(df,
       ) %>%
       dplyr::mutate(dateScale = "days")
 
-    ## Weeks
+    # Weeks
     summaryStatistics_weeks <- df %>%
       group_by(event_id, target_id) %>%
       dplyr::summarise(
@@ -206,7 +239,7 @@ calculateStatisticsContinuous <- function(df,
       ) %>%
       dplyr::mutate(dateScale = "weeks")
 
-    ## Months
+    # Months
     summaryStatistics_months <- df %>%
       group_by(event_id, target_id) %>%
       dplyr::summarise(
@@ -225,7 +258,7 @@ calculateStatisticsContinuous <- function(df,
       ) %>%
       dplyr::mutate(dateScale = "months")
 
-    ## Years
+    # Years
     summaryStatistics_years <- df %>%
       group_by(event_id, target_id) %>%
       dplyr::summarise(
@@ -245,11 +278,11 @@ calculateStatisticsContinuous <- function(df,
       dplyr::mutate(dateScale = "years")
 
 
-    ## Bind all data frames together
+    # Bind all data frames together
     summaryStatistics <- rbind(summaryStatistics_years, summaryStatistics_months, summaryStatistics_weeks, summaryStatistics)
   }
 
-  ## Add database name
+  # Add database name
   summaryStatistics <- summaryStatistics %>% dplyr::mutate(database = database)
 
   return(summaryStatistics)
@@ -257,46 +290,69 @@ calculateStatisticsContinuous <- function(df,
 
 
 # Function to abbreviate event cohort names for tidy display in KM plots
-# Note that this function is specific to this study
-abbreviateEventNames <- function(df){
+abbreviateEventNames <- function(df, eventName){
 
   df <- df %>%
     dplyr::mutate(eventName = dplyr::case_when(
-      event_id == 9 ~ "SWT breast surgery outcome",
-      event_id == 10 ~ "SWT colorectal surgery outcome",
-      event_id == 11 ~ "SWT esophagus surgery outcome",
-      event_id == 12 ~ "SWT lung surgery outcome",
+      !is.na(event_id)  ~ eventName,
       TRUE ~ NA
-    ))
+     )
+    ) |>
+    dplyr::mutate(eventName = stringr::str_replace(eventName, "SWT ", "")) |>
+    dplyr::mutate(eventName = stringr::str_replace(eventName, " outcome", ""))
+
+  return(df)
+}
+
+# Function to abbreviate target cohort names for tidy display in KM plots
+abbreviateTargetNames <- function(df, targetCohorts){
+
+  df <- df %>%
+    dplyr::left_join(targetCohorts, by = c("target_id" = "id")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1 year", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT colorectal cancer with no prior cancer treatment", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT colorectal cancer with cancer surgery within 30 days before diagnosis", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT breast cancer with no prior cancer treatment", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT breast cancer with cancer surgery within 30 days before diagnosis", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT lung cancer with no prior cancer treatment", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT lung cancer with cancer surgery within 30 days before diagnosis", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT esophagus cancer with no prior cancer treatment", "")) |>
+    dplyr::mutate(name = stringr::str_replace(name, "SWT esophagus cancer with cancer surgery within 30 days before diagnosis", "")) |>
+    dplyr::mutate(name = dplyr::case_when(
+      grepl("unknown", name) ~ "unknown",
+      TRUE~name
+     )
+    ) |>
+    dplyr::mutate(name = stringr::str_to_title(name)) |>
+    dplyr::select(-c(id_first))
 
   return(df)
 }
 
 
-# Function that creates KM plots out of survfit rds files
-createKMplots <- function(database) {
+### Single Curve -----------------------
 
-  ## Set variables
-  appDataPath <- here::here("results", database)
-  resultsPath <- here::here("results")
+# Function that creates single curve KM plots out of survfit rds files
+createKMplotsSingleCurve <- function(database) {
 
-  ## Create a data frame of all permutations of paths
+  # Create a data frame of all permutations of paths
   allPaths <- tidyr::expand_grid(database, "06_tte") %>%
-    dplyr::mutate(fullPath = fs::path(resultsPath, database, "06_tte"))
+    dplyr::mutate(fullPath = fs::path("results", database, "06_tte/singleCurve"))
 
-  ## List of files in "06_tte" folder
+  # List of rds files in "06_tte" folder
   listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "tteSurvFit", recursive = FALSE, full.names	= TRUE)
-  #listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "csv", recursive = FALSE, full.names	= TRUE)
 
-  ## Create output folder
-  outputFolder <- here::here(appDataPath, "06_ttePlots")
-  outputFolder %>% fs::dir_create()
-
-  ## Create list to save cohort and database values to determine picker values
+  # Create list to save cohort and database values to determine picker values
   pickerList <- vector("list", length = length(listOftteFiles))
 
+  # Create output folder
+  outputFolder <- fs::path(here::here("results", database, "06_ttePlots/singleCurve")) |>
+    fs::dir_create()
 
-  ## Loop through rds files to create png files for KM plots
+  # Loop through rds files to create png files for KM plots
   if(length(listOftteFiles) > 0) {
     for (i in 1:length(listOftteFiles)) {
 
@@ -304,67 +360,230 @@ createKMplots <- function(database) {
       tte <- readr::read_rds(listOftteFiles[i])
       tteSurvFit <- tte[["survFit"]]
 
-      # Filter out rows with "time" greater than 365
-      tteSurvFit$time <- tteSurvFit$time[tteSurvFit$time <= 365]
+      # Number of colors should be equal to the number of unique strata values i.e. events (lines in KM plot)
+      colors <- colorspace::rainbow_hcl(1)
 
-      ## Number of colors should be equal to the number of unique strata values i.e. events (lines in KM plot)
-      colors <- colorspace::rainbow_hcl(length(unique(tteSurvFit$strata)))
-
+      # Create KM plot
       if (!is.null(tteSurvFit)) {
-        ## Create KM plot
+
         tteSurvFit %>%
-          ggsurvfit::ggsurvfit(size = 1) +
-          ggsurvfit::scale_ggsurvfit(x_scales = list(breaks = c(30, 60, 90, 180, 365))) + # Breaks
+          ggsurvfit::ggsurvfit() +
+          ggsurvfit::scale_ggsurvfit(x_scales = list(
+            breaks = c(0, 30, 60, 90, 180, 365),
+            limits = c(0, 365)
+          )) +
           ggplot2::scale_color_manual(values = colors) +
           ggplot2::scale_fill_manual(values = colors) +
-          ggsurvfit::add_risktable(risktable_stats = "{n.risk} ({cum.event})",
-                                   risktable_height = 0.4,
-                                   hjust = 0,
-                                   size = 4, # Increase font size of risk table statistics
-                                   theme =
-                                     # Increase font size of risk table title and y-axis label
-                                     list(
-                                       ggsurvfit::theme_risktable_default(axis.text.y.size = 11,
-                                                                          plot.title.size = 11),
-                                       theme(plot.title = element_text(face = "bold"),
-                                             plot.margin = unit(c(5.5, 50, 5.5, 5.5), "points"),
-                                             axis.text.x = element_text(hjust = -5)
-                                       )
-                                     )) +
+          ggsurvfit::add_risktable(risktable_stats = "{n.risk} ({cum.event})"  #,
+                                   # risktable_height = 0.4,
+                                   # hjust = 0,
+                                   # size = 4, # Increase font size of risk table statistics
+                                   # theme =
+                                   #   # Increase font size of risk table title and y-axis label
+                                   #   list(
+                                   #     ggsurvfit::theme_risktable_default(axis.text.y.size = 11,
+                                   #                                        plot.title.size = 11),
+                                   #     theme(plot.title = element_text(face = "bold"),
+                                   #           plot.margin = unit(c(5.5, 50, 5.5, 5.5), "points"),
+                                   #           axis.text.x = element_text(hjust = -5)
+                                   #     )
+                                   #   )
+                                   ) +
+          #ggsurvfit::add_confidence_interval() +
           labs(x = "Follow-up time, days")
 
-        ## Add cohort and database values to picker list
-        pickerList[[i]] <- data.frame(database = tte$database, cohortId = tte$cohortId, cohortName = tte$cohortName)
+        # Add cohort and database values to picker list
+        pickerList[[i]] <- data.frame(
+          database = tte$database,
+          cohortId = tte$cohortId,
+          cohortName = tte$cohortName
+        )
 
-        ## Save plot
+        # Save plot
         ggplot2::ggsave(filename = here::here(outputFolder, paste0("tte_", tte$database, "_", tte$cohortId, ".png")),
                         width = 18, height = 14)
       }
 
-
     }
 
-    ## Bind all list objects together
+
+    # Bind all list objects together
     pickerListFinal <- do.call(rbind, pickerList)
 
-    ## Export picker list
+    # Export picker list
     readr::write_csv(pickerListFinal, file = fs::path(outputFolder, "ttePickers.csv"))
 
-    ## Job log
+    # Job log
     cli::cat_bullet(paste0("KM plots have been created and saved in: ", crayon::green(outputFolder)), bullet = "info", bullet_col = "blue")
-
 
     invisible(pickerListFinal)
   }
+}
 
+
+# Function that creates single curve KM plots out of survfit rds files
+createKMplotsMultipleCurves <- function(database) {
+
+  # Create a data frame of all permutations of paths
+  allPaths <- tidyr::expand_grid(database, "06_tte") %>%
+    dplyr::mutate(fullPath = fs::path("results", database, "06_tte/multipleCurves"))
+
+  # List of rds files in "06_tte" folder
+  listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "tteSurvFit", recursive = FALSE, full.names	= TRUE)
+
+  # Create list to save cohort and database values to determine picker values
+  pickerList <- vector("list", length = length(listOftteFiles))
+
+  # Create output folder
+  outputFolder <- fs::path(here::here("results", database, "06_ttePlots/multipleCurves")) |>
+    fs::dir_create()
+
+  # Loop through rds files to create png files for KM plots
+  if(length(listOftteFiles) > 0) {
+    for (i in 1:length(listOftteFiles)) {
+
+      # Read rds file (survfit object)
+      tte <- readr::read_rds(listOftteFiles[i])
+      tteSurvFit <- tte[["survFit"]]
+
+      # Number of colors should be equal to the number of unique strata values (lines in KM plot)
+      colors <- colorspace::rainbow_hcl(length(unique(tteSurvFit$strata)))
+
+      # Create KM plot
+      if (!is.null(tteSurvFit)) {
+
+        tteSurvFit %>%
+          ggsurvfit::ggsurvfit() +
+          ggsurvfit::scale_ggsurvfit(x_scales = list(
+            breaks = c(0, 30, 60, 90, 180, 365),
+            limits = c(0, 365)
+          )) +
+          ggplot2::scale_color_manual(values = colors) +
+          ggplot2::scale_fill_manual(values = colors) +
+          ggsurvfit::add_risktable(risktable_stats = "{n.risk} ({cum.event})") +
+          #ggsurvfit::add_confidence_interval() +
+          ggsurvfit::add_pvalue("annotation", pvalue_fun = function(p) format_p(p, digits = 2)) +
+          labs(x = "Follow-up time, days") #+
+          #guides(fill = "none")
+
+        # Add cohort and database values to picker list
+        pickerList[[i]] <- data.frame(
+          database = tte$database,
+          category = tte$category,
+          cancerType = tte$cancerType
+        )
+
+        # Save plot
+        ggplot2::ggsave(filename = here::here(outputFolder, paste0("tte_", tte$database, "_", tte$category, "_", tte$cancerType, ".png")),
+                        width = 18, height = 14)
+      }
+
+    }
+
+
+    # Bind all list objects together
+    pickerListFinal <- do.call(rbind, pickerList)
+
+    # Export picker list
+    readr::write_csv(pickerListFinal, file = fs::path(outputFolder, "ttePickers.csv"))
+
+    # Job log
+    cli::cat_bullet(paste0("KM plots have been created and saved in: ", crayon::green(outputFolder)), bullet = "info", bullet_col = "blue")
+
+    invisible(pickerListFinal)
+  }
+}
+
+
+# Function that determines 1) censored and non-censored patients, 2) duration of right-censored patients and 3) fits the patient data frame
+# Note that the duration for non-censored has already been calculated in the SQL code
+prepTteSingleCurve <- function(df, days) {
+
+  # Determine censored and non-censored patients, and duration of right-censored patients
+  tte <- df %>%
+    dplyr::mutate(diff = dplyr::if_else(is.na(event_start_date),
+                                        as.double(difftime(target_end_date, target_start_date, units = "days")), diff, diff),
+                  status = dplyr::if_else(is.na(event_start_date), 0, 1, 0)) %>%
+    dplyr::filter(diff <= !!days) |>
+    dplyr::select(-c(rank, subject_id))
+
+  # Fit patient data frame
+  survFit2 <- ggsurvfit::survfit2(
+    survival::Surv(time = diff, event = status, type = "right") ~ eventName,
+    data = tte
+  )
+
+  return(survFit2)
+}
+
+
+prepTteSingleCurve2 <- function(df, days) {
+
+  # Determine censored and non-censored patients, and duration of right-censored patients
+  tte <- df %>%
+    dplyr::mutate(diff = dplyr::if_else(is.na(event_start_date),
+                                        as.double(difftime(target_end_date, target_start_date, units = "days")), diff, diff),
+                  status = dplyr::if_else(is.na(event_start_date), 0, 1, 0)) %>%
+    dplyr::filter(!is.na(event_start_date) & diff <= !!days) |>  ## Exclude persons that didn't have the event
+    dplyr::select(-c(rank, subject_id))
+
+  # Fit patient data frame
+  survFit2 <- ggsurvfit::survfit2(
+    survival::Surv(time = diff, event = status, type = "right") ~ eventName,
+    data = tte
+  )
+
+  return(survFit2)
+}
+
+
+# Function that determines 1) censored and non-censored patients, 2) duration of right-censored patients and 3) fits the patient data frame
+# Note that the duration for non-censored has already been calculated in the SQL code
+prepTteMultipleCurves <- function(df, days) {
+
+  # Determine censored and non-censored patients, and duration of right-censored patients
+  tte <- df %>%
+    dplyr::mutate(diff = dplyr::if_else(is.na(event_start_date),
+                                        as.double(difftime(target_end_date, target_start_date, units = "days")), diff, diff),
+                  status = dplyr::if_else(is.na(event_start_date), 0, 1, 0)) %>%
+    dplyr::filter(diff <= !!days) |>
+    dplyr::select(-c(rank, subject_id))
+
+  # Fit patient data frame
+  survFit2 <- ggsurvfit::survfit2(
+    survival::Surv(time = diff, event = status, type = "right") ~ name,
+    data = tte
+  )
+
+  return(survFit2)
+}
+
+
+prepTteMultipleCurves2 <- function(df, days) {
+
+  # Determine censored and non-censored patients, and duration of right-censored patients
+  tte <- df %>%
+    dplyr::mutate(diff = dplyr::if_else(is.na(event_start_date),
+                                        as.double(difftime(target_end_date, target_start_date, units = "days")), diff, diff),
+                  status = dplyr::if_else(is.na(event_start_date), 0, 1, 0)) %>%
+    dplyr::filter(!is.na(event_start_date) & diff <= !!days) |>   ## Exclude persons that didn't have the event
+    dplyr::select(-c(rank, subject_id))
+
+  # Fit patient data frame
+  survFit2 <- ggsurvfit::survfit2(
+    survival::Surv(time = diff, event = status, type = "right") ~ name,
+    data = tte
+  )
+
+  return(survFit2)
 }
 
 
 ## Main functions -----------------------
 
-executeTimeToEventSurvival <- function(con,
-                                       executionSettings,
-                                       analysisSettings) {
+executeSurvivalAnalysisSingleCurve <- function(con,
+                                               executionSettings,
+                                               analysisSettings) {
 
   # Get variables
   cdmDatabaseSchema <- executionSettings$cdmDatabaseSchema
@@ -375,23 +594,8 @@ executeTimeToEventSurvival <- function(con,
   outputFolder <- fs::path(here::here("results"), databaseId, analysisSettings$tte$outputFolder) %>%
     fs::dir_create()
 
-  targetCohorts <- analysisSettings$tte$cohorts$targetCohorts |> dplyr::filter(id == 4)
-
-
-  if (targetCohorts$id %in% c(3,4)) {
-
-    # Colocteral
-    eventCohorts <- analysisSettings$tte$cohorts$eventCohorts |>
-      dplyr::filter(grepl("colorectal", name, ignore.case = T))
-
-  } else {
-
-
-  }
-
-
-
-  #eventCohorts <- analysisSettings$tte$cohorts$eventCohorts
+  targetCohorts <- analysisSettings$tte$cohorts$targetCohorts
+  eventCohorts <- analysisSettings$tte$cohorts$eventCohorts
 
   # Job log
   cli::cat_boxx(crayon::magenta("Calculating Time To Event data"))
@@ -412,19 +616,22 @@ executeTimeToEventSurvival <- function(con,
     txt2 <- paste0(eventCohorts$name, " (id:", eventCohorts$id, ")", collapse = ", ")
     cli::cat_bullet(crayon::green("Event Cohorts: "), txt2, bullet = "pointer", bullet_col = "yellow")
 
-
     # Collect patient data
-    current_cohorts <- collectCohorts(con = con,
-                                      workDatabaseSchema = workDatabaseSchema,
-                                      cohortTable = cohortTable,
-                                      targetId = targetId,
-                                      eventId = eventId)
-
+    current_cohorts <- collectCohorts(
+      con = con,
+      workDatabaseSchema = workDatabaseSchema,
+      cohortTable = cohortTable,
+      targetId = targetId,
+      eventId = eventId
+    )
 
     # Warning if no data are returned from function above.
     # The data frame is empty if 1) there is no data for the target cohort or 2) there are no patients with the event cohort.
     # If there is no data, the loop continues with the next target cohort id.
-    if (nrow(current_cohorts) < 1 || nrow(current_cohorts %>% dplyr::filter(!is.na(event_id))) < 10) {
+    if (
+      nrow(current_cohorts) < 1 ||
+      nrow(current_cohorts %>% dplyr::filter(!is.na(event_id))) < 10) {
+
       cli::cat_bullet("No data returned for target cohort id: ", crayon::red(targetId), ". Function will continue with the next cohort id.",
                       bullet = "info", bullet_col = "blue")
       cli::cat_line()
@@ -432,32 +639,51 @@ executeTimeToEventSurvival <- function(con,
       next
     }
 
-
     # Abbreviate event names for KM plots
-    current_cohorts<- abbreviateEventNames(df = current_cohorts)
+    current_cohorts<- abbreviateEventNames(
+        df = current_cohorts,
+        eventName = eventCohorts$name
+      )
 
-    # Get time to event data (list)
-    tteSurvFit <- prepTte(df = current_cohorts)
+    # Get time to event data (list); Filter observations with diff greater than "days"
+    tteSurvFit <- prepTteSingleCurve2(
+      df = current_cohorts,
+      days = 365
+    )
+
     if(!is.null(tteSurvFit)) {
+
       # Add database and cohort to list to be exported
-      tteList <- list(survFit = tteSurvFit, database = databaseId, cohortId = targetId, cohortName = targetCohorts$name[i])
+      tteList <- list(
+        survFit = tteSurvFit,
+        database = databaseId,
+        cohortId = targetId,
+        cohortName = targetCohorts$name[i]
+      )
 
       # Export object (list for KM plots)
-      verboseSaveRds(object = tteList,
-                     saveName = paste0("tteSurvFit_", targetId),
-                     saveLocation = outputFolder)
+      verboseSaveRds(
+        object = tteList,
+        saveName = paste0("tteSurvFit_", targetId),
+        saveLocation = outputFolder
+      )
 
 
       # Get time to event data (data frame)
       tteSurvDat <- ggsurvfit::tidy_survfit(tteSurvFit) %>%
-        dplyr::select(time, n.risk, n.event, estimate, std.error, strata, conf.high, conf.low) %>%
-        dplyr::mutate(database = databaseId,
-                      targetCohort = targetId)
+        dplyr::select(time, n.risk, n.event, estimate, std.error, conf.high, conf.low) %>%
+        dplyr::mutate(
+          database = databaseId,
+          targetCohort = targetId
+        )
 
       # Export object (data frame for survival probabilities)
-      verboseSave(object = tteSurvDat,
-                  saveName = paste0("tteTables_", targetId),
-                  saveLocation = outputFolder)
+      verboseSave(
+        object = tteSurvDat,
+        saveName = paste0("tteTables_", targetId),
+        saveLocation = outputFolder
+      )
+
     }
   }
 
@@ -479,6 +705,148 @@ executeTimeToEventSurvival <- function(con,
 
   invisible(current_cohorts)
 }
+
+
+executeSurvivalAnalysisMultipleCurves <- function(con,
+                                                  executionSettings,
+                                                  analysisSettings) {
+
+  # Get variables
+  cdmDatabaseSchema <- executionSettings$cdmDatabaseSchema
+  workDatabaseSchema <- executionSettings$workDatabaseSchema
+  cohortTable <- executionSettings$cohortTable
+  databaseId <- executionSettings$databaseName
+
+  # Job log
+  cli::cat_boxx(crayon::magenta("Calculating Time To Event data"))
+  cli::cat_line()
+  tik <- Sys.time()
+
+  # Loop through target cohort ids
+  for (i in 1:length(analysisSettings)) {
+
+    # Target & event cohort names
+    targetName <- analysisSettings[[i]]$cohorts$targetCohorts$name
+    eventName <- analysisSettings[[i]]$cohorts$eventCohorts$name
+
+    # Target & event cohort ids
+    targetId <- analysisSettings[[i]]$cohorts$targetCohorts$id
+    eventId <- analysisSettings[[i]]$cohorts$eventCohorts$id
+
+    # Analysis categories
+    category <- analysisSettings[[i]]$category
+    cancerType <- analysisSettings[[i]]$cancerType
+
+    # Job log
+    cli::cat_rule()
+    txt1 <- paste0(targetName, " (id:", targetId, ")")
+    cli::cat_bullet(crayon::green("Target Cohort: "), txt1, bullet = "pointer", bullet_col = "yellow")
+    txt2 <- paste0(eventName, " (id:", eventId, ")", collapse = ", ")
+    cli::cat_bullet(crayon::green("Event Cohort: "), txt2, bullet = "pointer", bullet_col = "yellow")
+    cli::cat_bullet(crayon::green("Category: "), category, bullet = "pointer", bullet_col = "yellow")
+    cli::cat_bullet(crayon::green("Cancer Type: "), cancerType, bullet = "pointer", bullet_col = "yellow")
+
+    # Collect patient data
+    current_cohorts <- collectCohortsMultiple(
+      con = con,
+      workDatabaseSchema = workDatabaseSchema,
+      cohortTable = cohortTable,
+      targetId = targetId,
+      eventId = eventId
+    )
+
+    # Warning if no data are returned from function above.
+    # The data frame is empty if 1) there is no data for the target cohort or 2) there are no patients with the event cohort.
+    # If there is no data, the loop continues with the next target cohort id.
+    if (
+      nrow(current_cohorts) < 1 ||
+      nrow(current_cohorts %>% dplyr::filter(!is.na(event_id))) < 10) {
+
+      cli::cat_bullet("No data returned for target cohort id: ", crayon::red(targetId), ". Function will continue with the next cohort id.",
+                      bullet = "info", bullet_col = "blue")
+      cli::cat_line()
+
+      next
+    }
+
+    # Abbreviate event names for KM plots
+    current_cohorts<- abbreviateEventNames(
+      df = current_cohorts,
+      eventName = eventName
+    )
+
+    # Abbreviate target cohort names for KM plots
+    current_cohorts<- abbreviateTargetNames(
+      df = current_cohorts,
+      targetCohorts = analysisSettings[[i]]$cohorts$targetCohorts
+    )
+
+    # Get time to event data (list); Filter observations with diff greater than "days"
+    tteSurvFit <- prepTteMultipleCurves2(
+      df = current_cohorts,
+      days = 365
+    )
+
+    if(!is.null(tteSurvFit) && hasName(tteSurvFit, "strata")) {
+
+      # Add database and cohort to list to be exported
+      tteList <- list(
+        survFit = tteSurvFit,
+        database = databaseId,
+        cancerType = cancerType,
+        category = category
+      )
+
+      # Set output location
+      outputFolder <- fs::path(here::here("results", databaseId, analysisSettings[[i]]$outputFolder)) %>%
+        fs::dir_create()
+
+      # Export object (list for KM plots)
+      verboseSaveRds(
+        object = tteList,
+        saveName = paste0("tteSurvFit_", category, "_", cancerType),
+        saveLocation = outputFolder
+      )
+
+
+      # Get time to event data (data frame)
+      tteSurvDat <- ggsurvfit::tidy_survfit(tteSurvFit) %>%
+        dplyr::select(time, n.risk, n.event, estimate, std.error, strata, conf.high, conf.low) %>%
+        dplyr::mutate(
+          database = databaseId,
+          cancerType = cancerType,
+          category = category
+        )
+
+      # Export object (data frame for survival probabilities)
+      verboseSave(
+        object = tteSurvDat,
+        saveName = paste0("tteTables_", category, "_", cancerType),
+        saveLocation = outputFolder
+      )
+
+    }
+  }
+
+  # Bind and save csv files
+  bindFiles(
+    inputPath = outputFolder,
+    outputPath = outputFolder,
+    filename = "tteSurvTables",
+    pattern = "tteTables"
+  )
+
+  # Job log
+  tok <- Sys.time()
+  tdif <- tok - tik
+  tok_format <- paste(scales::label_number(0.01)(as.numeric(tdif)), attr(tdif, "units"))
+  cli::cat_line()
+  cli::cat_bullet("Execution took: ", crayon::red(tok_format), bullet = "info", bullet_col = "blue")
+
+
+  invisible(current_cohorts)
+}
+
 
 
 executeTimeToEvent <- function(con,
@@ -518,11 +886,13 @@ executeTimeToEvent <- function(con,
 
 
     # Collect patient data
-    current_cohorts <- collectCohorts2(con = con,
-                                       workDatabaseSchema = workDatabaseSchema,
-                                       cohortTable = cohortTable,
-                                       targetId = targetId,
-                                       eventId = eventId)
+    current_cohorts <- collectCohorts2(
+      con = con,
+      workDatabaseSchema = workDatabaseSchema,
+      cohortTable = cohortTable,
+      targetId = targetId,
+      eventId = eventId
+    )
 
 
     # Warning if no data are returned from function above.
@@ -535,14 +905,18 @@ executeTimeToEvent <- function(con,
     }
 
     # Calculate summary statistics for continuous variable
-    summaryStatistics <- calculateStatisticsContinuous(df = current_cohorts,
-                                                       database = executionSettings$databaseName,
-                                                       dateScale = "all")
+    summaryStatistics <- calculateStatisticsContinuous(
+      df = current_cohorts,
+      database = executionSettings$databaseName,
+      dateScale = "all"
+    )
 
     # Export object
-    verboseSave(object = summaryStatistics,
-                saveName = paste0("tteStatistics_", targetId),
-                saveLocation = outputFolder)
+    verboseSave(
+      object = summaryStatistics,
+      saveName = paste0("tteStatistics_", targetId),
+      saveLocation = outputFolder
+      )
 
    }
 

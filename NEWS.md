@@ -1,3 +1,7 @@
+# SurgeryWaitTime v1.0.0
+
+* Final version 1.0.0 of study package
+
 # SurgeryWaitTime v0.1.0
 
 * Added `NEWS.md` to track changes

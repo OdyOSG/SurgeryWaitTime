@@ -1,13 +1,13 @@
 # A. File Info -----------------------
 
-# Study:
+# Study: Surgery Wait Time
 # Task: Build Cohorts
 
 
 # B. Dependencies ----------------------
 
 ## Load libraries and scripts
-library(tidyverse, quietly = TRUE)
+library(tidyverse, quietly = T)
 library(DatabaseConnector)
 source(here::here('analysis/private/_buildCohorts.R'))
 source(here::here('analysis/private/_executeStudy.R'))
@@ -51,7 +51,11 @@ cohortManifest <- getCohortManifest()
 
 ## Initialize cohort tables
 
-initializeCohortTables(executionSettings = executionSettings, con = con, dropTables = FALSE)
+initializeCohortTables(
+  executionSettings = executionSettings,
+  con = con,
+  dropTables = F
+)
 
 ## Generate cohorts
 

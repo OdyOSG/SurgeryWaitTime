@@ -413,10 +413,15 @@
       {
         "ConditionOccurrence": {
           "CodesetId": 19,
+          "OccurrenceStartDate": {
+            "Value": "2016-01-01",
+            "Extent": "2023-12-31",
+            "Op": "bt"
+          },
           "First": true,
           "Age": {
             "Value": 18,
-            "Op": "gt"
+            "Op": "gte"
           }
         }
       }

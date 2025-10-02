@@ -724,7 +724,7 @@
           "CodesetId": 19,
           "OccurrenceStartDate": {
             "Value": "2016-01-01",
-            "Extent": "2024-12-31",
+            "Extent": "2023-12-31",
             "Op": "bt"
           },
           "First": true,
@@ -751,79 +751,29 @@
   },
   "InclusionRules": [
     {
-      "name": "Cancer surgery within 30 days before dx and no radio- or systemic treatment before surgery",
+      "name": "no cancer surgery with curative intent prior to dx",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
           {
             "Criteria": {
               "ProcedureOccurrence": {
-                "CorrelatedCriteria": {
-                  "Type": "ALL",
-                  "CriteriaList": [
-                    {
-                      "Criteria": {
-                        "DrugExposure": {
-                          "CodesetId": 16
-                        }
-                      },
-                      "StartWindow": {
-                        "Start": {
-                          "Coeff": -1
-                        },
-                        "End": {
-                          "Days": 0,
-                          "Coeff": -1
-                        },
-                        "UseEventEnd": false
-                      },
-                      "Occurrence": {
-                        "Type": 0,
-                        "Count": 0
-                      }
-                    },
-                    {
-                      "Criteria": {
-                        "ProcedureOccurrence": {
-                          "CodesetId": 15
-                        }
-                      },
-                      "StartWindow": {
-                        "Start": {
-                          "Coeff": -1
-                        },
-                        "End": {
-                          "Days": 0,
-                          "Coeff": 1
-                        },
-                        "UseEventEnd": false
-                      },
-                      "Occurrence": {
-                        "Type": 0,
-                        "Count": 0
-                      }
-                    }
-                  ],
-                  "DemographicCriteriaList": [],
-                  "Groups": []
-                },
                 "CodesetId": 20
               }
             },
             "StartWindow": {
               "Start": {
-                "Days": 30,
                 "Coeff": -1
               },
               "End": {
-                "Days": 0,
-                "Coeff": 1
+                "Days": 1,
+                "Coeff": -1
               },
               "UseEventEnd": false
             },
             "Occurrence": {
-              "Type": 2,
-              "Count": 1
+              "Type": 0,
+              "Count": 0
             }
           }
         ],
@@ -832,7 +782,69 @@
       }
     },
     {
-      "name": "no other malignancies ",
+      "name": "no radiotherapy prior to dx",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ProcedureOccurrence": {
+                "CodesetId": 15
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 0,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "no prior systemic cancer treatment prior to dx",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "DrugExposure": {
+                "CodesetId": 16
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 0,
+              "Count": 0
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "no prior malignancies except for non-melanoma skin cancers ",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
@@ -861,9 +873,57 @@
         "DemographicCriteriaList": [],
         "Groups": []
       }
+    },
+    {
+      "name": "Curative surgery within 1 year",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ProcedureOccurrence": {
+                "CodesetId": 20
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Days": 365,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
     }
   ],
-  "CensoringCriteria": [],
+  "CensoringCriteria": [
+    {
+      "DrugEra": {
+        "CodesetId": 16
+      }
+    },
+    {
+      "ProcedureOccurrence": {
+        "CodesetId": 20
+      }
+    },
+    {
+      "ProcedureOccurrence": {
+        "CodesetId": 15
+      }
+    }
+  ],
   "CollapseSettings": {
     "CollapseType": "ERA",
     "EraPad": 0

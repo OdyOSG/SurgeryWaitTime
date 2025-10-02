@@ -1,0 +1,96 @@
+tte_sex:
+  cohorts:
+    targetCohorts:
+    - id: 8012.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year male
+      id_first: 8
+      category: Sex
+    - id: 8013.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year female
+      id_first: 8
+      category: Sex
+    eventCohorts:
+    - name: SWT colorectal surgery outcome
+      id: 18
+  outputFolder: 06_tte/multipleCurves
+  category: Sex
+  cancerType: Colorectal
+tte_race:
+  cohorts:
+    targetCohorts:
+    - id: 8014.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year black
+      id_first: 8
+      category: Race
+    - id: 8015.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year white
+      id_first: 8
+      category: Race
+    - id: 8016.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year asian
+      id_first: 8
+      category: Race
+    - id: 8017.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year unknown_race
+      id_first: 8
+      category: Race
+    eventCohorts:
+    - name: SWT colorectal surgery outcome
+      id: 18
+  outputFolder: 06_tte/multipleCurves
+  category: Race
+  cancerType: Colorectal
+tte_ethnicity:
+  cohorts:
+    targetCohorts:
+    - id: 8018.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year hispanic
+      id_first: 8
+      category: Ethnicity
+    - id: 8019.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year notHispanic
+      id_first: 8
+      category: Ethnicity
+    - id: 8020.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year unknown_ethnicity
+      id_first: 8
+      category: Ethnicity
+    eventCohorts:
+    - name: SWT colorectal surgery outcome
+      id: 18
+  outputFolder: 06_tte/multipleCurves
+  category: Ethnicity
+  cancerType: Colorectal
+tte_cci:
+  cohorts:
+    targetCohorts:
+    - id: 8021.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year cci_0
+      id_first: 8
+      category: CCI
+    - id: 8022.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year cci_1
+      id_first: 8
+      category: CCI
+    - id: 8023.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
+        year cci_2
+      id_first: 8
+      category: CCI
+    eventCohorts:
+    - name: SWT colorectal surgery outcome
+      id: 18
+  outputFolder: 06_tte/multipleCurves
+  category: CCI
+  cancerType: Colorectal

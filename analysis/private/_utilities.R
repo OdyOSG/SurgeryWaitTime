@@ -72,19 +72,41 @@ readSettingsFile <- function(settingsFile) {
   tt <- yaml::read_yaml(file = settingsFile)
 
   # Convert cohorts into data frames
-  for (i in seq_along(tt[[1]][[1]])) {
-    tt[[1]][[1]][[i]] <- listToTibble(tt[[1]][[1]][[i]])
-  }
+    for (i in seq_along(tt[[1]][[1]])) {
+
+      tt[[1]][[1]][[i]] <- listToTibble(tt[[1]][[1]][[i]])
+
+    }
 
   # Convert unnamed lists into data frames
   ss <- seq_along(tt[[1]])
 
   for (j in ss[-1]) {
+
     check <- is.list(tt[[1]][[j]]) && is.null(names(tt[[1]][[j]]))
+
     if (check) {
+
       tt[[1]][[j]] <- listToTibble(tt[[1]][[j]])
+
     } else {
       next
+    }
+  }
+
+  return(tt)
+}
+
+
+readSettingsFile2 <- function(settingsFile) {
+
+  tt <- yaml::read_yaml(file = settingsFile)
+
+  for (y in 1:length(tt)) {
+    for (i in 1:length(tt[[y]][[1]])) {
+
+      tt[[y]][[1]][[i]] <- do.call(rbind.data.frame, tt[[y]][[1]][[i]])
+
     }
   }
 
@@ -128,19 +150,15 @@ verboseSaveRds <- function(object, saveName, saveLocation) {
 
 
 # Zip study's results i.e. all files and folders under the `results` folder
-zipResults <- function(database) {
+zipResults <- function() {
 
-  resultsPath <- here::here("results", database)
+  resultsPath <- here::here("results")
 
   # Zip "report" folder
   files2zip <- dir(resultsPath, full.names = TRUE, recursive = TRUE)
-  files2zip <- files2zip[!grepl(".rds", files2zip)] # Exclude rds files
+  #files2zip <- files2zip[!grepl(".rds", files2zip)] # Exclude rds files
 
-  if (length(database) > 1) {
-    zipName <- 'reportFiles'
-  } else {
-    zipName <- paste0('reportFiles_', database)
-  }
+  zipName <- 'reportFiles'
 
   utils::zip(zipfile = zipName, files = files2zip)
 
@@ -201,7 +219,7 @@ bindFiles <- function(inputPath,
   readr::write_csv(
     x = binded_df,
     file = file.path(here::here(outputPath, paste0(filename, ".csv"))),
-    append = FALSE
+    append = F
   )
 
   # Delete individual files

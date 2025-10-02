@@ -1,0 +1,84 @@
+tte_sex:
+  cohorts:
+    targetCohorts:
+    - id: 16012.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year male
+      id_first: 1
+      category: Sex
+    - id: 16013.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year female
+      id_first: 1
+      category: Sex
+    eventCohorts:
+    - name: SWT lung surgery outcome
+      id: 20
+  outputFolder: 06_tte/multipleCurves
+  category: Sex
+  cancerType: Lung
+tte_race:
+  cohorts:
+    targetCohorts:
+    - id: 16014.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year black
+      id_first: 1
+      category: Race
+    - id: 16015.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year white
+      id_first: 1
+      category: Race
+    - id: 16016.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year asian
+      id_first: 1
+      category: Race
+    - id: 16017.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year unknown_race
+      id_first: 1
+      category: Race
+    eventCohorts:
+    - name: SWT lung surgery outcome
+      id: 20
+  outputFolder: 06_tte/multipleCurves
+  category: Race
+  cancerType: Lung
+tte_ethnicity:
+  cohorts:
+    targetCohorts:
+    - id: 16018.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year hispanic
+      id_first: 1
+      category: Ethnicity
+    - id: 16019.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year notHispanic
+      id_first: 1
+      category: Ethnicity
+    - id: 16020.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year unknown_ethnicity
+      id_first: 1
+      category: Ethnicity
+    eventCohorts:
+    - name: SWT lung surgery outcome
+      id: 20
+  outputFolder: 06_tte/multipleCurves
+  category: Ethnicity
+  cancerType: Lung
+tte_cci:
+  cohorts:
+    targetCohorts:
+    - id: 16021.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year cci_0
+      id_first: 1
+      category: CCI
+    - id: 16022.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year cci_1
+      id_first: 1
+      category: CCI
+    - id: 16023.0
+      name: SWT Lung Cancer with no Prior Cancer Treatment_Surgery within 1 year cci_2
+      id_first: 1
+      category: CCI
+    eventCohorts:
+    - name: SWT lung surgery outcome
+      id: 20
+  outputFolder: 06_tte/multipleCurves
+  category: CCI
+  cancerType: Lung

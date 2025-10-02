@@ -3073,6 +3073,37 @@
         "DemographicCriteriaList": [],
         "Groups": []
       }
+    },
+    {
+      "name": "Curative Surgery after 1 year",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ProcedureOccurrence": {
+                "CodesetId": 21
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 366,
+                "Coeff": 1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
     }
   ],
   "CensoringCriteria": [

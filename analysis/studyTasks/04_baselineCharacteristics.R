@@ -1,13 +1,13 @@
 # A. File Info -----------------------
 
-# Study:
+# Study: Surgery Wait Time
 # Task: Baseline Characteristics
 
 
 # B. Dependencies ----------------------
 
 ## Load libraries and scripts
-library(tidyverse, quietly = TRUE)
+library(tidyverse, quietly = T)
 library(DatabaseConnector)
 source(here::here("analysis/private/_utilities.R"))
 source(here::here("analysis/private/_conceptPrevalence.R"))
@@ -47,17 +47,17 @@ analysisSettings4 <- readSettingsFile(here::here("analysis/settings/baseline4.ym
 
 # E. Script --------------------
 
-## Run concept characterization
+## Run concept and cohort characterization
 
 ### Default
 executeConceptCharacterization(
   con = con,
   type = "baseline",
-  runDrugs = TRUE,
-  runDemographics = TRUE,
-  runContinuous = TRUE,
-  runConditions = TRUE,
-  runCohorts = TRUE,
+  runDrugs = T,
+  runDemographics = T,
+  runContinuous = T,
+  runConditions = T,
+  runCohorts = T,
   executionSettings = executionSettings,
   analysisSettings = analysisSettings1
 )
@@ -66,7 +66,7 @@ executeConceptCharacterization(
 executeConceptCharacterization(
   con = con,
   type = "baseline",
-  runCustom = TRUE,
+  runCustom = T,
   executionSettings = executionSettings,
   analysisSettings = analysisSettings2
 )
@@ -75,7 +75,7 @@ executeConceptCharacterization(
 executeConceptCharacterization(
   con = con,
   type = "baseline",
-  runCohorts = TRUE,
+  runCohorts = T,
   executionSettings = executionSettings,
   analysisSettings = analysisSettings3
 )
@@ -84,7 +84,7 @@ executeConceptCharacterization(
 executeConceptCharacterization(
   con = con,
   type = "baseline",
-  runCohorts = TRUE,
+  runCohorts = T,
   executionSettings = executionSettings,
   analysisSettings = analysisSettings4
 )

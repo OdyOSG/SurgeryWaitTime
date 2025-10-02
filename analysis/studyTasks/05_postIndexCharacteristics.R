@@ -1,13 +1,13 @@
 # A. File Info -----------------------
 
-# Study:
+# Study: Surgery Wait Time
 # Task: Post-Index Utilization
 
 
 # B. Dependencies ----------------------
 
 ## Load libraries and scripts
-library(tidyverse, quietly = TRUE)
+library(tidyverse, quietly = T)
 library(DatabaseConnector)
 source(here::here("analysis/private/_utilities.R"))
 source(here::here("analysis/private/_conceptPrevalence.R"))
@@ -44,14 +44,16 @@ analysisSettings <- readSettingsFile(here::here("analysis/settings/postIndex.yml
 
 # E. Script --------------------
 
-## Get Post-Index Covariates
+## Run Post-Index characterization
 
-executeConceptCharacterization(con = con,
-                               type = "postIndex",
-                               runDrugs = TRUE,
-                               runCohorts = TRUE,
-                               executionSettings = executionSettings,
-                               analysisSettings = analysisSettings)
+executeConceptCharacterization(
+  con = con,
+  type = "postIndex",
+  runDrugs = T,
+  runCohorts = T,
+  executionSettings = executionSettings,
+  analysisSettings = analysisSettings
+)
 
 
 # F. Disconnect ------------------------

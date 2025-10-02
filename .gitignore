@@ -8,7 +8,7 @@ config.yml
 misc
 extras/KeyringSetup_init.R
 cohortsToCreate_test
-extras/analysisSettings_test.R
+extras/analysisSettings_old.R
 analysis/studyTasks_test
 
 # Mac files
