@@ -1,3 +1,9 @@
+# SurgeryWaitTime v1.0.1
+
+* Minor edit in functions creating survival analysis results (`executeSurvivalAnalysiSingleCurve` and `executeSurvivalAnalysiMultipleCurves`)
+* Exclude `rds` files in `zipResults` function
+* Tidied up R scripts
+
 # SurgeryWaitTime v1.0.0
 
 * Final version 1.0.0 of study package

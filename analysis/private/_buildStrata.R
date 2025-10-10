@@ -74,16 +74,20 @@ ageStrata <- function(con,
     targetId = targetId,
     strataId = strataId,
     ageMin = ageMin,
-    ageMax = ageMax) %>%
+    ageMax = ageMax
+  ) %>%
     SqlRender::translate(targetDialect = con@dbms)
 
-  DatabaseConnector::executeSql(connection = con, ageStrataSql, progressBar = FALSE)
+  DatabaseConnector::executeSql(connection = con, ageStrataSql, progressBar = F)
 
   cohortStrataId <- targetId * 1000 + strataId
   cohortSchemaTable <- paste(cohortDatabaseSchema, cohortTable, sep = ".")
 
-  cli::cat_bullet("Age strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
-                  bullet = "tick", bullet_col = "green")
+  cli::cat_bullet(
+    "Age strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
+     bullet = "tick",
+     bullet_col = "green"
+  )
   cli::cat_line()
 
   invisible(ageStrataSql)
@@ -192,16 +196,20 @@ genderStrata <- function(con,
     cohortTable = cohortTable,
     cdmDatabaseSchema = cdmDatabaseSchema,
     targetId = targetId,
-    strataId = strataId) %>%
+    strataId = strataId
+  ) %>%
     SqlRender::translate(targetDialect = con@dbms)
 
-  DatabaseConnector::executeSql(connection = con, genderStrataSql, progressBar = FALSE)
+  DatabaseConnector::executeSql(connection = con, genderStrataSql, progressBar = F)
 
   cohortStrataId <- targetId * 1000 + strataId
   cohortSchemaTable <- paste(cohortDatabaseSchema, cohortTable, sep = ".")
 
-  cli::cat_bullet(paste0(tools::toTitleCase(gender), " strata written to "), cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
-                  bullet = "tick", bullet_col = "green")
+  cli::cat_bullet(
+    paste0(tools::toTitleCase(gender), " strata written to "), cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
+    bullet = "tick",
+    bullet_col = "green"
+  )
   cli::cat_line()
 
   invisible(genderStrataSql)
@@ -262,13 +270,16 @@ dateStrata <- function(con,
     dateMax = dateMax) %>%
     SqlRender::translate(targetDialect = con@dbms)
 
-  DatabaseConnector::executeSql(connection = con, dateStrataSql, progressBar = FALSE)
+  DatabaseConnector::executeSql(connection = con, dateStrataSql, progressBar = F)
 
   cohortStrataId <- targetId * 1000 + strataId
   cohortSchemaTable <- paste(cohortDatabaseSchema, cohortTable, sep = ".")
 
-  cli::cat_bullet("Date strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
-                  bullet = "tick", bullet_col = "green")
+  cli::cat_bullet(
+    "Date strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
+     bullet = "tick",
+     bullet_col = "green"
+  )
   cli::cat_line()
 
   invisible(dateStrataSql)
@@ -327,16 +338,20 @@ raceStrata <- function(con,
     cdmDatabaseSchema = cdmDatabaseSchema,
     raceConceptId = conceptId,
     targetId = targetId,
-    strataId = strataId) %>%
+    strataId = strataId
+  ) %>%
     SqlRender::translate(targetDialect = con@dbms)
 
-  DatabaseConnector::executeSql(connection = con, raceStrataSql, progressBar = FALSE)
+  DatabaseConnector::executeSql(connection = con, raceStrataSql, progressBar = F)
 
   cohortStrataId <- targetId * 1000 + strataId
   cohortSchemaTable <- paste(cohortDatabaseSchema, cohortTable, sep = ".")
 
-  cli::cat_bullet("Race strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
-                  bullet = "tick", bullet_col = "green")
+  cli::cat_bullet(
+    "Race strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
+     bullet = "tick",
+     bullet_col = "green"
+  )
   cli::cat_line()
 
   invisible(raceStrataSql)
@@ -398,16 +413,20 @@ measurementStrata <- function(con,
     measurementConceptId = conceptId,
     value = value,
     targetId = targetId,
-    strataId = strataId) %>%
+    strataId = strataId
+  ) %>%
     SqlRender::translate(targetDialect = con@dbms)
 
-  DatabaseConnector::executeSql(connection = con, measurementStrataSql, progressBar = FALSE)
+  DatabaseConnector::executeSql(connection = con, measurementStrataSql, progressBar = F)
 
   cohortStrataId <- targetId * 1000 + strataId
   cohortSchemaTable <- paste(cohortDatabaseSchema, cohortTable, sep = ".")
 
-  cli::cat_bullet("Measurement strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
-                  bullet = "tick", bullet_col = "green")
+  cli::cat_bullet(
+    "Measurement strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
+     bullet = "tick",
+     bullet_col = "green"
+  )
   cli::cat_line()
 
   invisible(measurementStrataSql)
@@ -466,16 +485,20 @@ ethnicityStrata <- function(con,
     cdmDatabaseSchema = cdmDatabaseSchema,
     ethnicityConceptId = conceptId,
     targetId = targetId,
-    strataId = strataId) %>%
+    strataId = strataId
+  ) %>%
     SqlRender::translate(targetDialect = con@dbms)
 
-  DatabaseConnector::executeSql(connection = con, ethnicityStrataSql, progressBar = FALSE)
+  DatabaseConnector::executeSql(connection = con, ethnicityStrataSql, progressBar = F)
 
   cohortStrataId <- targetId * 1000 + strataId
   cohortSchemaTable <- paste(cohortDatabaseSchema, cohortTable, sep = ".")
 
-  cli::cat_bullet("Ethnicity strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
-                  bullet = "tick", bullet_col = "green")
+  cli::cat_bullet(
+    "Ethnicity strata written to ", cohortSchemaTable, " using ids: ", crayon::red(paste(cohortStrataId, collapse = ", ")),
+     bullet = "tick",
+     bullet_col = "green"
+  )
   cli::cat_line()
 
   invisible(ethnicityStrataSql)
@@ -796,10 +819,11 @@ buildStrata <- function(con,
     sql,
     cohortDatabaseSchema = workDatabaseSchema,
     cohortTable = cohortTable,
-    cohortIds = cohortNamesIds$cohortId) %>%
+    cohortIds = cohortNamesIds$cohortId
+  ) %>%
     SqlRender::translate(targetDialect = con@dbms)
 
-  cohortCounts <- DatabaseConnector::querySql(connection = con, sql = renderedSql, snakeCaseToCamelCase = TRUE)
+  cohortCounts <- DatabaseConnector::querySql(connection = con, sql = renderedSql, snakeCaseToCamelCase = T)
 
   # Format (Join counts and names/ids)
   dt <- cohortNamesIds %>%

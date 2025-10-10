@@ -295,7 +295,7 @@ abbreviateEventNames <- function(df, eventName){
   df <- df %>%
     dplyr::mutate(eventName = dplyr::case_when(
       !is.na(event_id)  ~ eventName,
-      TRUE ~ NA
+      T ~ NA
      )
     ) |>
     dplyr::mutate(eventName = stringr::str_replace(eventName, "SWT ", "")) |>
@@ -323,7 +323,7 @@ abbreviateTargetNames <- function(df, targetCohorts){
     dplyr::mutate(name = stringr::str_replace(name, "SWT esophagus cancer with cancer surgery within 30 days before diagnosis", "")) |>
     dplyr::mutate(name = dplyr::case_when(
       grepl("unknown", name) ~ "unknown",
-      TRUE~name
+      T ~ name
      )
     ) |>
     dplyr::mutate(name = stringr::str_to_title(name)) |>
@@ -343,7 +343,7 @@ createKMplotsSingleCurve <- function(database) {
     dplyr::mutate(fullPath = fs::path("results", database, "06_tte/singleCurve"))
 
   # List of rds files in "06_tte" folder
-  listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "tteSurvFit", recursive = FALSE, full.names	= TRUE)
+  listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "tteSurvFit", recursive = F, full.names	= T)
 
   # Create list to save cohort and database values to determine picker values
   pickerList <- vector("list", length = length(listOftteFiles))
@@ -400,12 +400,14 @@ createKMplotsSingleCurve <- function(database) {
         )
 
         # Save plot
-        ggplot2::ggsave(filename = here::here(outputFolder, paste0("tte_", tte$database, "_", tte$cohortId, ".png")),
-                        width = 18, height = 14)
+        ggplot2::ggsave(
+          filename = here::here(outputFolder, paste0("tte_", tte$database, "_", tte$cohortId, ".png")),
+          width = 18,
+          height = 14
+        )
+
       }
-
     }
-
 
     # Bind all list objects together
     pickerListFinal <- do.call(rbind, pickerList)
@@ -429,7 +431,7 @@ createKMplotsMultipleCurves <- function(database) {
     dplyr::mutate(fullPath = fs::path("results", database, "06_tte/multipleCurves"))
 
   # List of rds files in "06_tte" folder
-  listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "tteSurvFit", recursive = FALSE, full.names	= TRUE)
+  listOftteFiles <- list.files(allPaths$fullPath[1], pattern = "tteSurvFit", recursive = F, full.names	= T)
 
   # Create list to save cohort and database values to determine picker values
   pickerList <- vector("list", length = length(listOftteFiles))
@@ -474,12 +476,14 @@ createKMplotsMultipleCurves <- function(database) {
         )
 
         # Save plot
-        ggplot2::ggsave(filename = here::here(outputFolder, paste0("tte_", tte$database, "_", tte$category, "_", tte$cancerType, ".png")),
-                        width = 18, height = 14)
+        ggplot2::ggsave(
+          filename = here::here(outputFolder, paste0("tte_", tte$database, "_", tte$category, "_", tte$cancerType, ".png")),
+          width = 18,
+          height = 14
+        )
+
       }
-
     }
-
 
     # Bind all list objects together
     pickerListFinal <- do.call(rbind, pickerList)
@@ -687,13 +691,13 @@ executeSurvivalAnalysisSingleCurve <- function(con,
     }
   }
 
-  # Bind and save csv files
-  bindFiles(
-    inputPath = outputFolder,
-    outputPath = outputFolder,
-    filename = "tteSurvTables",
-    pattern = "tteTables"
-  )
+  # # Bind and save csv files
+  # bindFiles(
+  #   inputPath = outputFolder,
+  #   outputPath = outputFolder,
+  #   filename = "tteSurvTables",
+  #   pattern = "tteTables"
+  # )
 
   # Job log
   tok <- Sys.time()
@@ -736,6 +740,10 @@ executeSurvivalAnalysisMultipleCurves <- function(con,
     # Analysis categories
     category <- analysisSettings[[i]]$category
     cancerType <- analysisSettings[[i]]$cancerType
+
+    # Set output location
+    outputFolder <- fs::path(here::here("results", databaseId, analysisSettings[[i]]$outputFolder)) %>%
+      fs::dir_create()
 
     # Job log
     cli::cat_rule()
@@ -797,10 +805,6 @@ executeSurvivalAnalysisMultipleCurves <- function(con,
         category = category
       )
 
-      # Set output location
-      outputFolder <- fs::path(here::here("results", databaseId, analysisSettings[[i]]$outputFolder)) %>%
-        fs::dir_create()
-
       # Export object (list for KM plots)
       verboseSaveRds(
         object = tteList,
@@ -828,13 +832,13 @@ executeSurvivalAnalysisMultipleCurves <- function(con,
     }
   }
 
-  # Bind and save csv files
-  bindFiles(
-    inputPath = outputFolder,
-    outputPath = outputFolder,
-    filename = "tteSurvTables",
-    pattern = "tteTables"
-  )
+  # # Bind and save csv files
+  # bindFiles(
+  #   inputPath = outputFolder,
+  #   outputPath = outputFolder,
+  #   filename = "tteSurvTables",
+  #   pattern = "tteTables"
+  # )
 
   # Job log
   tok <- Sys.time()
@@ -919,7 +923,6 @@ executeTimeToEvent <- function(con,
       )
 
    }
-
 
   # Bind and save files
   bindFiles(

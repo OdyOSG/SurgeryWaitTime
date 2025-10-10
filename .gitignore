@@ -3,7 +3,7 @@
 scratchDiagnostics/
 errorReportSql.txt
 results/
-results
+results*
 config.yml
 misc
 extras/KeyringSetup_init.R

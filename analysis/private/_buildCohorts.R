@@ -11,18 +11,18 @@
 # Function to create tables in SQL to store cohort data
 initializeCohortTables <- function(executionSettings,
                                    con,
-                                   dropTables = FALSE) {
+                                   dropTables = F) {
 
   # Create cohort tables names' to create or drop
   name <- executionSettings$cohortTable
   cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = executionSettings$cohortTable)
 
   # Drop cohort tables
-  if (dropTables == TRUE) {
+  if (dropTables == T) {
 
     # Delete csv files from 'results/01_buildCohorts' folder
     manifestPath <- here::here("results", executionSettings$databaseName, "01_buildCohorts")
-    pathFiles <- list.files(manifestPath,  full.names = TRUE)
+    pathFiles <- list.files(manifestPath,  full.names = T)
     sapply(pathFiles, unlink)
 
     cli::cat_line("Dropping cohort tables")
@@ -38,19 +38,20 @@ initializeCohortTables <- function(executionSettings,
       ) %>%
         SqlRender::translate(targetDialect = executionSettings$dbms)
 
-      DatabaseConnector::executeSql(connection = con, dropSql, progressBar = FALSE)
+      DatabaseConnector::executeSql(connection = con, dropSql, progressBar = F)
 
       cli::cat_bullet(paste0("Dropped table ", crayon::cyan(cohortTableNames[i])), bullet = "en_dash")
 
     }
-
   }
 
   # Create cohort tables
-  CohortGenerator::createCohortTables(connection = con,
-                                      cohortDatabaseSchema = executionSettings$workDatabaseSchema,
-                                      cohortTableNames = cohortTableNames,
-                                      incremental = TRUE)
+  CohortGenerator::createCohortTables(
+    connection = con,
+    cohortDatabaseSchema = executionSettings$workDatabaseSchema,
+    cohortTableNames = cohortTableNames,
+    incremental = T
+  )
 
   invisible(cohortTableNames)
 }
@@ -61,24 +62,24 @@ getDatabaseInfo <- function(executionSettings,
                             con,
                             outputFolder) {
 
-      cli::cat_line("Getting database info")
+  cli::cat_line("Getting database info")
 
-      sql <- "select * from @cdmDatabaseSchema.CDM_SOURCE;"
+  sql <- "select * from @cdmDatabaseSchema.CDM_SOURCE;"
 
-      getDbInfoSql <- SqlRender::render(
-        sql,
-        cdmDatabaseSchema = executionSettings$cdmDatabaseSchema
-      ) %>%
-        SqlRender::translate(targetDialect = executionSettings$dbms)
+  getDbInfoSql <- SqlRender::render(
+    sql,
+    cdmDatabaseSchema = executionSettings$cdmDatabaseSchema
+  ) %>%
+    SqlRender::translate(targetDialect = executionSettings$dbms)
 
-      dbInfo <- DatabaseConnector::querySql(connection = con, getDbInfoSql)
+  dbInfo <- DatabaseConnector::querySql(connection = con, getDbInfoSql)
 
-      # Export database info
-      savePath <- fs::path(outputFolder, "dbInfo.csv")
-      readr::write_csv(x = dbInfo, file = savePath)
+  # Export database info
+  savePath <- fs::path(outputFolder, "dbInfo.csv")
+  readr::write_csv(x = dbInfo, file = savePath)
 
-      # Job log
-      cli::cat_bullet("Database info saved to: ", crayon::cyan(savePath), bullet = "tick", bullet_col = "green")
+  # Job log
+  cli::cat_bullet("Database info saved to: ", crayon::cyan(savePath), bullet = "tick", bullet_col = "green")
 
   return(dbInfo)
 }
@@ -99,7 +100,7 @@ prepManifestForCohortGenerator <- function(cohortManifest) {
   cohortsToCreate$sql <- purrr::map_chr(
     cohortsToCreate$json,
     ~CirceR::buildCohortQuery(CirceR::cohortExpressionFromJson(.x),
-                              CirceR::createGenerateOptions(generateStats = TRUE)))
+                              CirceR::createGenerateOptions(generateStats = T)))
 
   return(cohortsToCreate)
 }
@@ -134,7 +135,7 @@ generateCohorts <- function(executionSettings,
                     cohortDatabaseSchema = executionSettings$workDatabaseSchema,
                     cohortTableNames = cohortTableNames,
                     cohortDefinitionSet = cohortsToCreate,
-                    incremental = TRUE,
+                    incremental = T,
                     incrementalFolder = incrementalFolder
                   )
 
@@ -172,9 +173,11 @@ generateCohorts <- function(executionSettings,
 
 
   # Get database info
-  databaseInfo <- getDatabaseInfo(executionSettings = executionSettings,
-                                  con = con,
-                                  outputFolder = outputFolder)
+  databaseInfo <- getDatabaseInfo(
+    executionSettings = executionSettings,
+    con = con,
+    outputFolder = outputFolder
+  )
 
 
   # Format
@@ -186,10 +189,12 @@ generateCohorts <- function(executionSettings,
       database = databaseId
       ) %>%
     dplyr::select(id, name, type, entries, subjects, file, database) %>%
-    dplyr::mutate(sourceReleaseDate = databaseInfo$SOURCE_RELEASE_DATE,
-                  cdmReleaseDate = databaseInfo$CDM_RELEASE_DATE,
-                  cdmVersion = databaseInfo$CDM_VERSION,
-                  vocabularyVersion = databaseInfo$VOCABULARY_VERSION)
+    dplyr::mutate(
+      sourceReleaseDate = databaseInfo$SOURCE_RELEASE_DATE,
+      cdmReleaseDate = databaseInfo$CDM_RELEASE_DATE,
+      cdmVersion = databaseInfo$CDM_VERSION,
+      vocabularyVersion = databaseInfo$VOCABULARY_VERSION
+    )
 
   # Export: cohort counts
   savePath <- fs::path(outputFolder, "cohortManifest.csv")
@@ -215,13 +220,14 @@ runCohortDiagnostics <- function(con,
   # Create cohort tables names'
   name <- executionSettings$cohortTable
 
-  cohortTableNames <- list(cohortTable = paste0(name),
-                           cohortInclusionTable = paste0(name, "_inclusion"),
-                           cohortInclusionResultTable = paste0(name, "_inclusion_result"),
-                           cohortInclusionStatsTable = paste0(name, "_inclusion_stats"),
-                           cohortSummaryStatsTable = paste0(name, "_summary_stats"),
-                           cohortCensorStatsTable = paste0(name, "_censor_stats"))
-
+  cohortTableNames <- list(
+    cohortTable = paste0(name),
+    cohortInclusionTable = paste0(name, "_inclusion"),
+    cohortInclusionResultTable = paste0(name, "_inclusion_result"),
+    cohortInclusionStatsTable = paste0(name, "_inclusion_stats"),
+    cohortSummaryStatsTable = paste0(name, "_summary_stats"),
+    cohortCensorStatsTable = paste0(name, "_censor_stats")
+  )
 
   # Run cohort diagnostics
   CohortDiagnostics::executeDiagnostics(
@@ -233,7 +239,7 @@ runCohortDiagnostics <- function(con,
     vocabularyDatabaseSchema = executionSettings$vocabDatabaseSchema,
     databaseId = executionSettings$databaseName,
     connection = con,
-    incremental = TRUE,
+    incremental = T,
     minCellCount = 5
   )
 

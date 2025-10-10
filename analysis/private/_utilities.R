@@ -9,7 +9,7 @@
 getCohortManifest <- function(inputPath = here::here("cohortsToCreate")) {
 
   # Get cohort JSON file paths
-  cohortFiles <- fs::dir_ls(inputPath, recurse = TRUE, type = "file", glob = "*.json")
+  cohortFiles <- fs::dir_ls(inputPath, recurse = T, type = "file", glob = "*.json")
 
   # Get cohort names out of JSON file name
   cohortNames <- fs::path_file(cohortFiles) %>%
@@ -154,9 +154,9 @@ zipResults <- function() {
 
   resultsPath <- here::here("results")
 
-  # Zip "report" folder
-  files2zip <- dir(resultsPath, full.names = TRUE, recursive = TRUE)
-  #files2zip <- files2zip[!grepl(".rds", files2zip)] # Exclude rds files
+  # Zip "results" folder
+  files2zip <- dir(resultsPath, full.names = T, recursive = T)
+  files2zip <- files2zip[!grepl(".rds", files2zip)] # Exclude rds files
 
   zipName <- 'reportFiles'
 
@@ -207,10 +207,10 @@ bindFiles <- function(inputPath,
 
 
   # List all csv files in folder
-  filepath <- list.files(inputPath, full.names = TRUE, pattern = pattern, recursive = TRUE)
+  filepath <- list.files(inputPath, full.names = T, pattern = pattern, recursive = T)
 
   # Read all csv files and save in list
-  listed_files <- lapply(filepath, readr::read_csv, show_col_types = FALSE)
+  listed_files <- lapply(filepath, readr::read_csv, show_col_types = F)
 
   # Bind all data frames of list
   binded_df <- dplyr::bind_rows(listed_files)
@@ -229,7 +229,7 @@ bindFiles <- function(inputPath,
 
 
 # Mask low counts. Columns: n and/or pct. Default count(n) is 5 (inclusive)
-maskLowCount <- function(df, countLimit = 5L, countOnly = FALSE) {
+maskLowCount <- function(df, countLimit = 5L, countOnly = F) {
 
   if (countOnly) {
 
