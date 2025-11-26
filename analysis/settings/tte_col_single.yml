@@ -1,102 +1,78 @@
 tte:
   cohorts:
     targetCohorts:
-    - id: 8001.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 0_9
-      id_first: 8
-    - id: 8002.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 10_19
-      id_first: 8
-    - id: 8003.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 20_29
-      id_first: 8
-    - id: 8004.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 30_39
-      id_first: 8
-    - id: 8005.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 40_49
-      id_first: 8
-    - id: 8006.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 50_59
-      id_first: 8
-    - id: 8007.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 60_69
-      id_first: 8
-    - id: 8008.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 70_79
-      id_first: 8
-    - id: 8009.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 80_89
-      id_first: 8
-    - id: 8010.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 90_99
-      id_first: 8
-    - id: 8011.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year 100+
-      id_first: 8
-    - id: 8012.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year male
-      id_first: 8
-    - id: 8013.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year female
-      id_first: 8
-    - id: 8014.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year black
-      id_first: 8
-    - id: 8015.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year white
-      id_first: 8
-    - id: 8016.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year asian
-      id_first: 8
-    - id: 8017.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year unknown_race
-      id_first: 8
-    - id: 8018.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year hispanic
-      id_first: 8
-    - id: 8019.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year notHispanic
-      id_first: 8
-    - id: 8020.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year unknown_ethnicity
-      id_first: 8
-    - id: 8021.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year cci_0
-      id_first: 8
-    - id: 8022.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year cci_1
-      id_first: 8
-    - id: 8023.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year cci_2
-      id_first: 8
-    - id: 8.0
-      name: SWT Colorectal Cancer with no Prior Cancer Treatment_Surgery within 1
-        year
-      id_first: 8
+    - id: 6001.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 0_9
+      id_first: 6
+    - id: 6002.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 10_19
+      id_first: 6
+    - id: 6003.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 20_29
+      id_first: 6
+    - id: 6004.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 30_39
+      id_first: 6
+    - id: 6005.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 40_49
+      id_first: 6
+    - id: 6006.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 50_59
+      id_first: 6
+    - id: 6007.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 60_69
+      id_first: 6
+    - id: 6008.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 70_79
+      id_first: 6
+    - id: 6009.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 80_89
+      id_first: 6
+    - id: 6010.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 90_99
+      id_first: 6
+    - id: 6011.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment 100+
+      id_first: 6
+    - id: 6012.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment male
+      id_first: 6
+    - id: 6013.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment female
+      id_first: 6
+    - id: 6014.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment black
+      id_first: 6
+    - id: 6015.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment white
+      id_first: 6
+    - id: 6016.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment asian
+      id_first: 6
+    - id: 6017.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment unknown_race
+      id_first: 6
+    - id: 6018.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment hispanic
+      id_first: 6
+    - id: 6019.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment notHispanic
+      id_first: 6
+    - id: 6020.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment unknown_ethnicity
+      id_first: 6
+    - id: 6021.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment cci_0
+      id_first: 6
+    - id: 6022.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment cci_1
+      id_first: 6
+    - id: 6023.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment cci_2
+      id_first: 6
+    - id: 6.0
+      name: SWT Colorectal Cancer with no Prior Cancer Treatment
+      id_first: 6
     eventCohorts:
     - name: SWT colorectal surgery outcome
       id: 18

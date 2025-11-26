@@ -1,100 +1,77 @@
 tte:
   cohorts:
     targetCohorts:
-    - id: 12001.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        0_9
+    - id: 10001.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 0_9
       id_first: 1
-    - id: 12002.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        10_19
+    - id: 10002.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 10_19
       id_first: 1
-    - id: 12003.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        20_29
+    - id: 10003.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 20_29
       id_first: 1
-    - id: 12004.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        30_39
+    - id: 10004.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 30_39
       id_first: 1
-    - id: 12005.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        40_49
+    - id: 10005.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 40_49
       id_first: 1
-    - id: 12006.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        50_59
+    - id: 10006.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 50_59
       id_first: 1
-    - id: 12007.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        60_69
+    - id: 10007.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 60_69
       id_first: 1
-    - id: 12008.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        70_79
+    - id: 10008.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 70_79
       id_first: 1
-    - id: 12009.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        80_89
+    - id: 10009.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 80_89
       id_first: 1
-    - id: 12010.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        90_99
+    - id: 10010.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 90_99
       id_first: 1
-    - id: 12011.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        100+
+    - id: 10011.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment 100+
       id_first: 1
-    - id: 12012.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        male
+    - id: 10012.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment male
       id_first: 1
-    - id: 12013.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        female
+    - id: 10013.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment female
       id_first: 1
-    - id: 12014.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        black
+    - id: 10014.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment black
       id_first: 1
-    - id: 12015.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        white
+    - id: 10015.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment white
       id_first: 1
-    - id: 12016.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        asian
+    - id: 10016.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment asian
       id_first: 1
-    - id: 12017.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        unknown_race
+    - id: 10017.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment unknown_race
       id_first: 1
-    - id: 12018.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        hispanic
+    - id: 10018.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment hispanic
       id_first: 1
-    - id: 12019.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        notHispanic
+    - id: 10019.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment notHispanic
       id_first: 1
-    - id: 12020.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        unknown_ethnicity
+    - id: 10020.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment unknown_ethnicity
       id_first: 1
-    - id: 12021.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        cci_0
+    - id: 10021.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment cci_0
       id_first: 1
-    - id: 12022.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        cci_1
+    - id: 10022.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment cci_1
       id_first: 1
-    - id: 12023.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        cci_2
+    - id: 10023.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment cci_2
       id_first: 1
-    - id: 12.0
-      name: SWT Esophagus Cancer with no Prior Cancer Treatment_Surgery within 1 year
+    - id: 10.0
+      name: SWT Esophagus Cancer with no Prior Cancer Treatment
       id_first: 1
     eventCohorts:
     - name: SWT esophagus surgery outcome

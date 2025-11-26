@@ -1,3 +1,7 @@
+# SurgeryWaitTime v1.0.2
+
+* Edited analysis settings by adding the appropriate cohorts for TTE analysis 
+
 # SurgeryWaitTime v1.0.1
 
 * Minor edit in functions creating survival analysis results (`executeSurvivalAnalysiSingleCurve` and `executeSurvivalAnalysiMultipleCurves`)

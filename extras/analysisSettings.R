@@ -218,7 +218,7 @@ yaml::write_yaml(yaml3, file = here::here("analysis/settings/postIndex.yml"), co
 ### Colorectal ---------------
 
 targetCohorts <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Colorectal") & stringr::str_detect(name,"within"))
+  dplyr::filter(stringr::str_detect(name, "Colorectal") & !stringr::str_detect(name,"within"))
 
 eventCohorts <- cohortManifest %>%
   dplyr::filter(type %in% c("outcomeSurgeries")) %>%
@@ -243,7 +243,7 @@ yaml::write_yaml(yaml411, file = here::here("analysis/settings/tte_col_single.ym
 ### Esophagus ---------------
 
 targetCohorts <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Esophagus") & stringr::str_detect(name,"within"))
+  dplyr::filter(stringr::str_detect(name, "Esophagus") & !stringr::str_detect(name,"within"))
 
 eventCohorts <- cohortManifest %>%
   dplyr::filter(type %in% c("outcomeSurgeries")) %>%
@@ -268,7 +268,7 @@ yaml::write_yaml(yaml412, file = here::here("analysis/settings/tte_eso_single.ym
 ### Lung ---------------
 
 targetCohorts <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Lung") & stringr::str_detect(name,"within"))
+  dplyr::filter(stringr::str_detect(name, "Lung") & !stringr::str_detect(name,"within"))
 
 eventCohorts <- cohortManifest %>%
   dplyr::filter(type %in% c("outcomeSurgeries")) %>%
@@ -293,7 +293,7 @@ yaml::write_yaml(yaml413, file = here::here("analysis/settings/tte_lung_single.y
 ### Breast ---------------
 
 targetCohorts <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Breast") & stringr::str_detect(name,"within"))
+  dplyr::filter(stringr::str_detect(name, "Breast") & !stringr::str_detect(name,"within"))
 
 eventCohorts <- cohortManifest %>%
   dplyr::filter(type %in% c("outcomeSurgeries")) %>%
@@ -320,25 +320,25 @@ yaml::write_yaml(yaml414, file = here::here("analysis/settings/tte_breast_single
 ### Colorectal ----------
 
 targetCohorts_sex <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Colorectal") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Colorectal") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(12, 13)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Sex")
 
 targetCohorts_race <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Colorectal") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Colorectal") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(14, 15, 16, 17)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Race")
 
 targetCohorts_ethnicity <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Colorectal") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Colorectal") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(18, 19, 20)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Ethnicity")
 
 targetCohorts_cci <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Colorectal") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Colorectal") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(21, 22, 23)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "CCI")
@@ -395,25 +395,25 @@ yaml::write_yaml(yaml421, file = here::here("analysis/settings/tte_col_multiple.
 ### Lung ----------
 
 targetCohorts_sex <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Lung") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Lung") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(12, 13)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Sex")
 
 targetCohorts_race <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Lung") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Lung") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(14, 15, 16, 17)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Race")
 
 targetCohorts_ethnicity <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Lung") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Lung") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(18, 19, 20)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Ethnicity")
 
 targetCohorts_cci <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Lung") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Lung") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(21, 22, 23)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "CCI")
@@ -470,26 +470,25 @@ yaml::write_yaml(yaml422, file = here::here("analysis/settings/tte_lung_multiple
 ### Breast ----------
 
 targetCohorts_sex <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Breast") & stringr::str_detect(name,"within")) |>
-  #dplyr::filter(stringr::str_detect(as.character(id), "12|13")) |>
+  dplyr::filter(stringr::str_detect(name, "Breast") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(12, 13)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Sex")
 
 targetCohorts_race <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Breast") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Breast") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(14, 15, 16, 17)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Race")
 
 targetCohorts_ethnicity <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Breast") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Breast") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(18, 19, 20)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Ethnicity")
 
 targetCohorts_cci <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Breast") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Breast") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(21, 22, 23)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "CCI")
@@ -546,25 +545,25 @@ yaml::write_yaml(yaml423, file = here::here("analysis/settings/tte_breast_multip
 ### Esophagus ----------
 
 targetCohorts_sex <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Esophagus") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Esophagus") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(12, 13)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Sex")
 
 targetCohorts_race <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Esophagus") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Esophagus") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(14, 15, 16, 17)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Race")
 
 targetCohorts_ethnicity <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Esophagus") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Esophagus") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(18, 19, 20)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "Ethnicity")
 
 targetCohorts_cci <- allCohorts |>
-  dplyr::filter(stringr::str_detect(name, "Esophagus") & stringr::str_detect(name,"within")) |>
+  dplyr::filter(stringr::str_detect(name, "Esophagus") & !stringr::str_detect(name,"within")) |>
   dplyr::filter(id %% 100 %in% c(21, 22, 23)) |>
   dplyr::filter(!id %in% c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)) |>
   dplyr::mutate(category = "CCI")

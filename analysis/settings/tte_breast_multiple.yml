@@ -1,15 +1,13 @@
 tte_sex:
   cohorts:
     targetCohorts:
-    - id: 4012.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        male
-      id_first: 4
+    - id: 2012.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment male
+      id_first: 2
       category: Sex
-    - id: 4013.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        female
-      id_first: 4
+    - id: 2013.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment female
+      id_first: 2
       category: Sex
     eventCohorts:
     - name: SWT breast surgery outcome
@@ -20,25 +18,21 @@ tte_sex:
 tte_race:
   cohorts:
     targetCohorts:
-    - id: 4014.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        black
-      id_first: 4
+    - id: 2014.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment black
+      id_first: 2
       category: Race
-    - id: 4015.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        white
-      id_first: 4
+    - id: 2015.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment white
+      id_first: 2
       category: Race
-    - id: 4016.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        asian
-      id_first: 4
+    - id: 2016.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment asian
+      id_first: 2
       category: Race
-    - id: 4017.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        unknown_race
-      id_first: 4
+    - id: 2017.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment unknown_race
+      id_first: 2
       category: Race
     eventCohorts:
     - name: SWT breast surgery outcome
@@ -49,20 +43,17 @@ tte_race:
 tte_ethnicity:
   cohorts:
     targetCohorts:
-    - id: 4018.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        hispanic
-      id_first: 4
+    - id: 2018.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment hispanic
+      id_first: 2
       category: Ethnicity
-    - id: 4019.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        notHispanic
-      id_first: 4
+    - id: 2019.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment notHispanic
+      id_first: 2
       category: Ethnicity
-    - id: 4020.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        unknown_ethnicity
-      id_first: 4
+    - id: 2020.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment unknown_ethnicity
+      id_first: 2
       category: Ethnicity
     eventCohorts:
     - name: SWT breast surgery outcome
@@ -73,20 +64,17 @@ tte_ethnicity:
 tte_cci:
   cohorts:
     targetCohorts:
-    - id: 4021.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        cci_0
-      id_first: 4
+    - id: 2021.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment cci_0
+      id_first: 2
       category: CCI
-    - id: 4022.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        cci_1
-      id_first: 4
+    - id: 2022.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment cci_1
+      id_first: 2
       category: CCI
-    - id: 4023.0
-      name: SWT Breast Cancer with no Prior Cancer Treatment_Surgery within 1 year
-        cci_2
-      id_first: 4
+    - id: 2023.0
+      name: SWT Breast Cancer with no Prior Cancer Treatment cci_2
+      id_first: 2
       category: CCI
     eventCohorts:
     - name: SWT breast surgery outcome
